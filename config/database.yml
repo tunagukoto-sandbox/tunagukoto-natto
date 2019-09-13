@@ -50,7 +50,7 @@ test:
 production:
   <<: *default
     pool: 5
-  # database: tunagu_natto_production
+    database: tunagu_natto_production
   # username: tunagu_natto
   # password: <%= ENV['TUNAGU_NATTO_DATABASE_PASSWORD'] %>
     # database: <%= ENV['DB_DATABASE'] %>
