@@ -1,14 +1,26 @@
-<div class="container">
-<%= form_for @school do |f| %>
+<% if admin_signed_in? %>
 	<div class="container">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
-	<div><%= f.label :school_name %></div>
-	<%= f.text_field :school_name, placeholder: "", :size => "80%" %>
+			<p style="text-align: center; font-size: 1.2em;">以下、データベースに存在する学校名です</p>
+			<br>
+		<% @schools.each do |s| %>
+			<div class="btn btn-outline-primary"> <%= s.school_name %></div>
+		<% end %>
+		<hr>
+	<%= form_for @school do |f| %>
+		<div class="container">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<p>まず、上記の学校をよく確認してください</p>
+				<div><%= f.label :学校名 %></div>
+				<%= f.text_field :school_name, placeholder: "", :size => "80%" %>
 
-	<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+				<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+				</div>
+			</div>
+		</div>
+		<%end%>
 	</div>
-	</div>
-	</div>
-	<%end%>
-</div>
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

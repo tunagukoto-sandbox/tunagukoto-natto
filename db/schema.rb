@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_070752) do
 
   create_table "sub_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "sub_tag_name"
+    t.string "sub_tag_detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

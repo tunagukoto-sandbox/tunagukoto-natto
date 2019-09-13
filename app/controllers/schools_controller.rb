@@ -1,5 +1,6 @@
 class SchoolsController < ApplicationController
   def new
+    @schools = School.all
   	@school = School.new
   end
 
@@ -15,7 +16,7 @@ class SchoolsController < ApplicationController
   def index
   end
 
-  def delete
+  def destroy
   	@school = School.find(params[:id])
   	@school.destroy
   	redirect_to home_admin_top_path

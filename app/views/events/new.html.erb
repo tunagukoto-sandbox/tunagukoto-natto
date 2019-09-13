@@ -1,3 +1,4 @@
+<% if admin_signed_in?  %>
 <%= form_for @event do |f| %>
 	<div class="container">
 	<div class="col-md-2"></div>
@@ -54,12 +55,10 @@
 
 	<div><%=  f.label :応募人数 %></div>
 	<%= f.number_field :event_population ,min: 0 ,max:1000, step:5 %> <br>
-
 	<hr>
 
 	<div><%= f.label :応募URL %></div>
 	<%= f.text_field :google_form, placeholder: "", :size => "40%" %>
-
 	<hr>
 
 	<div><%= f.label :イベントのトップの写真 %></div>
@@ -87,3 +86,8 @@
 	</div>
 	<%end%>
 </div>
+
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

@@ -1,6 +1,12 @@
 <div class="container fluid">
 	<hr>
 	<%= link_to "←戻る", root_path %>
+
+	<% if admin_signed_in? %>
+		<%= link_to "編集", edit_quest_path(params[:id]), class: "btn btn-success btn-lg",  method: :get %>
+		<%= link_to "削除", quest_path(params[:id]), class: "btn btn-danger btn-lg", method: :delete %>
+	<% end %>
+
 	<div class="row quest_show_parent quest_show_padding">
 		<div class="quest_show_title"></div>
 		<div class="col-sm-12 col-md-12" style="text-align: center;font-weight: bold; font-size: 1.3em;">

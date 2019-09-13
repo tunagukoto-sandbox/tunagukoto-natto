@@ -23,6 +23,8 @@ class QuestsController < ApplicationController
 
   def destroy
     @quest = Quest.find(params[:id])
+    @quest.delete
+    redirect_to root_path
   end
 
   def edit
@@ -31,6 +33,12 @@ class QuestsController < ApplicationController
 
   def update
     @quest = Quest.find(params[:id])
+    @quest.update(quest_params)
+    if @quest.save 
+      redirect_to home_admin_top_path
+    else
+      redirect_to edit_quest(params[:id])
+    end
   end
 
   private 
