@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: tunagu_natto_production
-  username: tunagu_natto
-  password: <%= ENV['TUNAGU_NATTO_DATABASE_PASSWORD'] %>
+  # database: tunagu_natto_production
+  # username: tunagu_natto
+  # password: <%= ENV['TUNAGU_NATTO_DATABASE_PASSWORD'] %>
+    database: <%= ENV['DB_DATABASE'] %>
+    username: <%= ENV['DB_NAME'] %>
+    password: <%= ENV['DB_PASSWORD'] %>
