@@ -69,8 +69,9 @@
 	<hr>
 	<div>
 		<h2>タグ</h2>
-	    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name, include_hidden: false) do |b| %>
-	      <%= b.label { b.check_box + b.text } %>
+	    <%#= f.collection_radio_buttons(:tag_id, Tag.all, :id, :tag_name, include_hidden: false) do |b| %>
+	   	<%= f.collection_radio_buttons(:tag, Tag.all, :id, :tag_name, include_hidden: false) do |b| %>
+	      <%= b.label { b.radio_button + b.text } %>
 	    <% end %>
 	</div>
 	<hr>

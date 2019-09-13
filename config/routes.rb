@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   	root 'home#top'
 
+  	get 'home/policy'
+
  	get 'home/admin_top'
 
 	devise_for :students, :controllers => {
@@ -42,7 +44,6 @@ Rails.application.routes.draw do
 
 	resources :schools
 
-	# resources :business_contests
 	resources :quests
 
 	# 以下質問箱

@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_070752) do
     t.string "event_president_birth_day"
     t.string "event_motto"
     t.string "google_form"
+    t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

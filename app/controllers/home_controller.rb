@@ -11,4 +11,7 @@ class HomeController < ApplicationController
   	# @busi_cons = BusinessContest.all
   	@schools = School.all
   end
+
+  def policy
+  end
 end

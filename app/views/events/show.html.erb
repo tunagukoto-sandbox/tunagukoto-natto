@@ -83,29 +83,27 @@
 		<div class="row">
 		<div class="col-sm-2 col-md-2"></div>
 			<div class="col-sm-8 col-md-8">
-				<% @tags.each do |t| %>
-				<% if t.tag_name == "シャショク" %>
+				<% if @tag.tag_name == "シャショク" %>
 					<div class="tag_desc">【シャショクとは】</div>
-						<p id="tag_info"><%= t.tag_info %></p>
-						<p id="tag_body"><%= t.tag_body %></p>
+						<p id="tag_info"><%= @tag.tag_info %></p>
+						<p id="tag_body"><%= @tag.tag_body %></p>
 					</div>
-				<% elsif t.tag_name == "ガクショク" %>
+				<% elsif @tag.tag_name == "ガクショク" %>
 					<div class="tag_desc">【ガクショクとは】</div>
-						<p id="tag_info"><%= t.tag_info %></p>
-						<p id="tag_body"><%= t.tag_body %></p>
+						<p id="tag_info"><%= @tag.tag_info %></p>
+						<p id="tag_body"><%= @tag.tag_body %></p>
 					</div>
-				<% elsif t.tag_name == "キャリアコネクション" %>
+				<% elsif @tag.tag_name == "キャリアコネクション" %>
 					<div class="tag_desc">【キャリアコネクションとは】</div>
-						<p id="tag_info"><%= t.tag_info %></p>
-						<p id="tag_body"><%= t.tag_body %></p>
+						<p id="tag_info"><%= @tag.tag_info %></p>
+						<p id="tag_body"><%= @tag.tag_body %></p>
 					</div>
-				<% elsif t.tag_name == "スタートアップ" %>
+				<% elsif @tag.tag_name == "スタートアップ" %>
 					<div class="tag_desc">【スタートアップとは】</div>
-						<p id="tag_info"><%= t.tag_info %></p>
-						<p id="tag_body"><%= t.tag_body %></p>
+						<p id="tag_info"><%= @tag.tag_info %></p>
+						<p id="tag_body"><%= @tag.tag_body %></p>
 					</div>
-				<% else %>
-				<% end %>
+				<% elsif @tag == nil %>
 				<% end %>
 			</div>
 		<div class="col-sm-2 col-md-2"></div>

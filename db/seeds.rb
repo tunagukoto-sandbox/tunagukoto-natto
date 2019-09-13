@@ -72,6 +72,7 @@ SubTag.create(sub_tag_name: "技術職")
         event_motto: "左ほほを蓋れたら右ほほも差し出しなさい",
         event_population: 20,
      	google_form: "",
+        tag_id: 1
     )
 end
 10.times do |i|
@@ -85,9 +86,6 @@ end
         email: "#{i}foobar@baz.com",
         password: "password#{1}",
     )
-end
-Event.all.each do |e|
-    EventTag.create(tag_id: 1, event_id: e.id)
 end
 
 SubTag.all.each do |st|
