@@ -1,5 +1,6 @@
 # README
 # tunagukoto-natto
+https://tunagu-natto.herokuapp.com
 
 ## Rails 5.2.3
 ## ruby 2.5.3
