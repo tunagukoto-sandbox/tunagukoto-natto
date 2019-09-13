@@ -1,14 +1,16 @@
 # README
-
-git clone 
-* ...
 # tunagukoto-natto
 
-## View部分ではdivの閉じタグはどのclassのdivの物なのかコメントアウトで記述してください
-例)
-<div class="sample">
-	.....
-	.....
-</div> <!-- sample -->
+## Rails 5.2.3
+## ruby 2.5.3
+## Bootstrap @4
+## ユーザー認証: devise 
 
-## CSSで新しくクラスを作るときは細かくファイル、フォルダ分け管理をお願いします。
+
+git clone git@github.com:tunagukoto/tunagukoto-natto.git
+でクローンしてから作業を初めてください。
+
+* View/controller名/...に合わせて、使うCSSのclassも新規のフォルダを作成・作成したフォルダの下に新しくファイルを作り、その中にクラスを書いてください。
+
+* HTMLの記述に関する注意
+divやpなどの閉じタグは、どのクラスを持つdivの閉じタグかわかるように横にコメントアウトでクラス名を記述してください。
