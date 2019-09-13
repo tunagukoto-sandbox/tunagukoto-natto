@@ -1,0 +1,28 @@
+.tag_fomat{
+	padding-top: 3px;
+	padding-left: ;
+	padding-bottom: 3px;
+	padding-right: ;
+}
+
+.home_top_sha{
+	background-color:#E68A00;
+	color: white;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+.home_top_ga{
+	background-color: #FF3333;
+	color: white;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+.home_top_cari{
+	background-color: #339933;
+	color: white;
+	text-align: center;
+	font-size: 1.0em;
+	font-weight: 500;	
+}

@@ -17,25 +17,40 @@
         <div class="event_box "></div>
         <% @events.each do |e| %>
 
-        <%= link_to event_path(e.id) do %>
-        <div class="col-sm-6 col-md-4">
-            <div class="event_content_box">       
-                <div class="card "> 
-                  <% if e.event_top_image.attached? %>
-                  <%= image_tag e.event_top_image.variant(resize:'300x500').processed ,class: "card-img-top"%>
-                  <% end %>
-                  <div class="card-body">
-                    <h5 class="card-title"><%= e.event_time.month %> 月 <%#= e.tags.first.tag_name %></h5>
-                    <h6 class="card-subtitle text-muted" style="text-align: center;"><%= e.event_time.strftime("%Y年%m月%d日") %>開催</h6>
-                    <%#= product.published_on.strftime("%Y年%m月%d日 %H時%M分") %>
-                    <p class="card-text"><!-- A card is a flexible and extensible content container. It includes ... --></p>
-                    <a href="#" class="card-link"><!-- Card link --></a>
-                  </div>
+            <%= link_to event_path(e.id) do %>
+            <div class="col-sm-6 col-md-4">
+                <div class="event_content_box">       
+                    <div class="card "> 
+                        <% if e.event_top_image.attached? %>
+                        <%= image_tag e.event_top_image.variant(resize:'300x500').processed ,class: "card-img-top"%>
+                        <% end %>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <% if e.tag.uuid == 1 %>
+                                    <div class="home_top_sha tag_padding">
+                                        <%= e.event_time.month %> 月 シャショク
+                                    </div>
+                                <% elsif e.tag.uuid == 2 %>
+                                    <div class="home_top_ga tag_padding">
+                                        <%= e.event_time.month %> 月　ガクショク
+                                    </div>
+                                <% elsif e.tag.uuid == 3 %>
+                                    <div class="home_top_cari tag_padding">
+                                        <%= e.event_time.month %> 月 キャリアコネクション
+                                    </div>
+                                <% else%>
+                                    <%= e.event_time.month %> 月 
+                                <% end %>
+                            </h5>
+                            <h6 class="card-subtitle text-muted" style="text-align: center;"><%= e.event_time.strftime("%Y年%m月%d日") %>開催</h6>
+                            <p class="card-text"><!-- A card is a flexible and extensible content container. It includes ... --></p>
+                            <a href="#" class="card-link"><!-- Card link --></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <% end %>
 
-        <% end %>
         <% end %>
     </div><!-- /.row event_parent-->
     <div class="paddind-buttom"></div>
