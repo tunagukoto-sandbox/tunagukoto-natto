@@ -1,0 +1,14 @@
+<div class="container">
+<%= form_for @school do |f| %>
+	<div class="container">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+	<div><%= f.label :school_name %></div>
+	<%= f.text_field :school_name, placeholder: "", :size => "80%" %>
+
+	<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+	</div>
+	</div>
+	</div>
+	<%end%>
+</div>

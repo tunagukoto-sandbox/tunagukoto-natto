@@ -1,0 +1,44 @@
+.company_top {
+    font-size: 1.5em;
+    font-weight: 10;
+    text-align: left;
+    color: blue;
+    text-shadow: 2px 2px 1px #999999;
+    padding-top: 20px;
+    padding: 0.5em;
+    display: inline;
+}
+
+.company_all_back {
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.company_details_box {
+    box-shadow: 0px 0px 2px 1px #AAAAAA;
+    border-radius: 3px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 10px auto;
+}
+
+.company_detail_fonts {
+    font-weight: 150;
+    font-size: 1.1em;
+}
+
+.company_detail_padding {
+    padding-left: 50px;
+    padding-top: 0px;
+    padding-bottom: 100px;
+    padding-right: 30px;
+    margin-top: 50px;
+    color: dimgray;
+}
+
+.company_labels_title {
+    font-size: 1.15em;
+    font-weight: 900;
+    margin-bottom: 0;
+}

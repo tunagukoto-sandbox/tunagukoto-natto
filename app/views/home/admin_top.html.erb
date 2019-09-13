@@ -1,0 +1,75 @@
+<div class="container">
+<% if admin_signed_in? %>
+
+	<div><%= link_to "イベント発行", new_event_path %></div>
+	<div><%= link_to "クエスト発行", new_quest_path %></div>
+	<div><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></div>
+	<div><%= link_to "サブタグ発行", new_sub_tag_path %></div>
+	<div><%= link_to "学校発行", new_school_path %></div>
+	<div><%= link_to "クエスト一覧", quests_path %></div>
+	<div><%= link_to "イベント一覧", events_path %></div>
+	<h1 style="text-align: center; font-weight: 800;">イベント一覧</h1>
+	<div class="row">
+		<%  @events.each do |e|%>
+		<div class="col-sm-2 col-md-2"></div>
+			<div class="col-sm-8 col-md-8">
+				<table class="table">
+				    <tbody>
+				        <tr>
+				        	<td><%= e.google_form %></td>
+				            <th><%= e.event_cost %></th>
+				            <td><%= e.event_time %></td>
+				            <td><%= e.event_time_detail %></td>
+				            <td><%= e.event_company_name %></td>
+				            <td><%= e.event_population %></td>
+				        </tr>
+				    </tbody>
+				</table>
+			</div>
+		<div class="col-sm-2 col-md-2"></div>
+		<% end %>
+	</div>
+	<h1 style="text-align: center; font-weight: 800;">クエスト一覧</h1>
+	<div class="row">
+		<%  @quests.each do |q|%>
+		<div class="col-sm-2 col-md-2"></div>
+			<div class="col-sm-8 col-md-8">
+				<table class="table">
+				    <tbody>
+				        <tr>
+				        	<td><%= q.company_name %></td>
+				        	<td><%= q.title %></td>
+ 							<td><%= q.uuid %></td>
+ 							<td><%= q.gift %></td>
+ 							<td><%= q.dead_line %></td>
+				        </tr>
+				    </tbody>
+				</table>
+			</div>
+		<div class="col-sm-2 col-md-2"></div>
+		<% end %>
+	</div>
+	<h1 style="text-align: center; font-weight: 800;">学校一覧</h1>
+	<div class="row">
+		<%  @schools.each do |s|%>
+		<div class="col-sm-2 col-md-2"></div>
+			<div class="col-sm-8 col-md-8">
+				<table class="table">
+				    <tbody>
+				        <tr>
+				        	<td><%= s.school_name %></td>
+				        </tr>
+				    </tbody>
+				</table>
+			</div>
+		<div class="col-sm-2 col-md-2"></div>
+		<% end %>
+	</div>
+
+<% else %>
+
+<h1 style="text-align: center; font-weight: 900;">404 Page Not Found</h1>
+<div class="padding_full"></div>
+
+<% end %>
+</div>

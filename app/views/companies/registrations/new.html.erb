@@ -1,0 +1,53 @@
+<% if admin_signed_in?  %>
+  <div class="container">
+    <h2>新規登録</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+     <%= render "devise/shared/error_messages", resource: resource %>
+     <div class="field">
+       <%= f.label :email,"メールアドレス" %><br />
+       <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+     </div>
+     <div class="field">
+       <%= f.label :password,"パスワード" %>
+       <% if @minimum_password_length %>
+       <em>(<%= @minimum_password_length %> characters minimum)</em>
+       <% end %><br />
+       <%= f.password_field :password, autocomplete: "パスワード" %>
+     </div>
+     <div class="field">
+       <%= f.label :password_confirmation,"パスワード確認"  %><br />
+       <%= f.password_field :password_confirmation, autocomplete: "パスワード確認" %>
+     </div>
+     <div class="field">
+       <%= f.label :company_name ,"企業名"%><br />
+       <%= f.text_field :company_name, autofocus: true, autocomplete: "企業名" %>
+     </div>
+     <div class="field">
+       <%= f.label :company_locate,"本社所在地" %><br />
+       <%= f.text_field :company_locate, autofocus: true, autocomplete: "本社所在地" %>
+     </div>
+     <div class="field">
+       <%= f.label :company_start_year ,"設立年度（西暦）" %><br />
+       <%= f.number_field :company_start_year, autofocus: true, autocomplete: "設立年度（西暦）" %>
+     </div>
+     <div class="field">
+       <%= f.label :number_of_employee,"従業員数" %><br />
+       <%= f.number_field :number_of_employee, autofocus: true, autocomplete: "従業員数" %>
+     </div>
+     <div class="field">
+       <%= f.label :what_company_do,"事業内容" %><br />
+       <%= f.text_area :what_company_do, autofocus: true, autocomplete: "事業内容" %>
+     </div>
+     <div class="field">
+       <%= f.label :attractive_point ,"当社の魅力" %><br />
+       <%= f.text_area :attractive_point, autofocus: true, autocomplete: "当社の魅力" %>
+     </div>
+     <div class="actions">
+       <%= f.submit "新規登録" %>
+     </div>
+    <% end %>
+    <%= render "companies/shared/links" %>
+  </div>
+<% else %>
+  <p>404 page not found</p>
+<% end %>

@@ -1,0 +1,16 @@
+<% @events.each do |e| %>
+<div>
+	<div><%= e.event_name %></div>
+	<div><%= e.event_description %></div>
+	<div><%= e.event_location %></div>
+	<div><%= e.event_cost %></div>
+	<div><%= e.event_time %></div>
+	<% e.tags.each do |tag| %>
+		<%= tag.tag_name %>
+	<% end %>
+	<% e.sub_tags.each do |sub_tag| %>
+		<%= sub_tag.sub_tag_name %>
+	<% end %>
+	<div><%= link_to '削除', event_path(id: e.id), method: :delete %></div>
+</div>
+<% end %>

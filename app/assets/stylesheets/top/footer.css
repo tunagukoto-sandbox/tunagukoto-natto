@@ -1,0 +1,39 @@
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 15px;
+  border-top: 1px solid #eaeaea;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+/*  color: #777;*/
+  background-color: #483D8B;
+}
+
+footer a {
+  color: #EAD9FF;
+  font-size: 1.2em;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+.tunagukoto{
+  color: #EAD9FF;
+  font-size: 1.5em;
+  font-weight: 800;
+  margin-left: 30px;
+}

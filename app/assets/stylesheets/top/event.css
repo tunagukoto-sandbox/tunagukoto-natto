@@ -1,0 +1,36 @@
+.event{
+	color: #FF8C00;
+	text-shadow: 1px 1px 1px #999999;
+	text-align: center;
+	font-weight: 500;
+	font-size: 2em;
+}
+
+.event_parent {
+  position: relative;
+}
+.event_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #FFE4C4;
+}
+
+.event_content_box{
+	box-shadow: 0px 0px 2px 1px #AAAAAA;
+	border-radius: 3px;
+	margin-top: 15px; 
+	margin-bottom: 15px;	
+}
+
+.img-full-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.paddind-buttom{
+	padding: 40px;
+}

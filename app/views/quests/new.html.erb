@@ -1,0 +1,33 @@
+<div class="container">
+<%= form_for @quest do |f| %>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div><%= f.label :company_name %></div>
+			<%= f.text_field :company_name, placeholder: "", :size => "80%" %>
+			<div><%= f.label :title %></div>
+			<%= f.text_field :title, placeholder: "", :size => "80%" %>
+			<div><%= f.label :description %> </div>
+			<%= f.text_area :description, placeholder: "", :size => "80%"  %>
+
+			<div><%= f.label :gift %></div>
+			<%= f.text_field :gift, placeholder: "" %>
+
+			<div><%= f.label :クエストの詳細 %></div>
+			<%= f.file_field :quest_image, accept: "image/png, image/jpeg, image/gif" %>
+
+			<div><%= f.label :会社のロゴ %></div>
+			<%= f.file_field :company_logo, accept: "image/png, image/jpeg, image/gif" %>
+			<div><%= f.label :gift_details %></div>
+			<%= f.text_field :gift_detail, placeholder: "" %>
+
+			<div><%=  f.label :dead_line %></div>
+			<%= f.text_field :dead_line, placeholder: "", :size => "30*60" %>
+
+			<div><%=  f.label :dead_line_detail %></div>
+			<%= f.text_field :dead_line_detail , placeholder: "", :size => "30*60" %>
+
+			<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+			</div>
+		</div>
+	<%end%>
+</div>

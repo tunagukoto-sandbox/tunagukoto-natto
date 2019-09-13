@@ -1,0 +1,29 @@
+.business_contest{
+	color: #32CD32;
+	text-shadow: 1px 1px 1px #999999;
+	text-align: center;
+	font-weight: 500;
+	font-size: 2em;
+}
+
+.quest_parent {
+  position: relative;
+}
+.quest_box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #DDE8DE;
+}
+
+.content_box{
+	box-shadow: 0px 0px 2px 1px #AAAAAA;
+	border-radius: 3px;
+	background-color: white;
+	width: 70%;
+	height: 130px;
+	padding: 10px 30px;
+	margin: 10px auto;
+}

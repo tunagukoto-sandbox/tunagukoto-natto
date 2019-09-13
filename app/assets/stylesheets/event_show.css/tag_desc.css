@@ -1,0 +1,19 @@
+.tag_desc{
+	font-size: 1.5em;
+	font-weight: 700;
+	color: #444444	;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+p#tag_info{
+	font-size: 1.3em;
+	font-weight: 700;
+	color: black;
+}
+
+p#tag_body{
+	font-size: 1.2em;
+	font-weight: 400;
+	color: black;
+}

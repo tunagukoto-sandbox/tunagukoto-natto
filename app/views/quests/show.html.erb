@@ -1,0 +1,49 @@
+<div class="container fluid">
+	<hr>
+	<%= link_to "←戻る", root_path %>
+	<div class="row quest_show_parent quest_show_padding">
+		<div class="quest_show_title"></div>
+		<div class="col-sm-12 col-md-12" style="text-align: center;font-weight: bold; font-size: 1.3em;">
+	<div class="quest_company_name"><%= @quest.company_name %></div>
+	<div class="quest_company_name"><%= @quest.title %>(<h style="font-size: 1.1em; color: #3366FF;text-decoration: underline;"><%= @quest.uuid %></h>)</div>
+		</div><!-- ./col-sm-12 col-md-12 -->
+	</div><!-- ./event_show_title -->
+
+	<div class="row quest_show_parent event_show_padding">
+		<div class="quest_show_company_detail"></div>
+		<div class="col-sm-3 col-md-3"><div class="quest_company_name">【詳細】</div></div>
+		<div class="col-sm-7 col-md-7">
+			<p style="font-size: 1.3em;">
+				<%= @quest.description %>
+			</p>
+			<hr>
+			<p>お申し込みは下記のメールアドレスにて<br>
+				名前・ビジコンID(<h style="color: #3366FF;text-decoration: underline;"><%= @quest.uuid %></h>)・提出資料(ある場合)を記入の上、送信ください。
+		</div><!-- ./col-sm-8 col-md-8 -->
+		<div class="col-sm-2 col-md-2"></div>
+	</div><!-- ./row event_show_parent event_show_padding -->
+
+	<div class="quest_details_box">
+		<div class="row quest_detail_padding">
+			<div class="col-sm-6 col-md-6 quest_detail_fonts">
+				<h>【報酬】</h>
+				<br>
+				<h style="font-size: 15px;"><%= @quest.gift %></h>
+				<br>
+				<h style="font-size: 15px;"><%= @quest.gift_detail %></h>
+			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
+			<div class="col-sm-6 col-md-6 quest_detail_fonts">
+				<h>【期間】</h>
+				<br>
+				<h style="font-size: 15px;"><%= @quest.dead_line %></h>
+				<br>
+				<h style="font-size: 15px;"><%= @quest.dead_line_detail %></h>
+			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
+		</div><!-- ./row event_detail_padding -->
+	</div><!-- ./event_details_box -->
+</div><!-- ./container fluid -->
+
+
+
+
+

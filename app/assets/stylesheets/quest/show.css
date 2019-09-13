@@ -1,0 +1,63 @@
+.quest_show_parent {
+  position: relative;
+}
+.quest_show_title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #FFE4C4;
+}
+
+.quest_show_company_detail{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #CBFFD3;
+}
+.quest_show_tag_desc{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #FFD5EC;
+}
+.quest_company_name{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.quest_show_padding{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+ 
+
+.quest_details_box{
+ 	box-shadow: 0px 0px 2px 1px #AAAAAA;
+	border-radius: 3px;
+	width: 70%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin: 10px auto;
+ }
+
+.quest_detail_fonts{
+ 	font-weight: 800;
+ 	font-size: 1.3em;
+}
+.quest_detail_padding{
+ 	padding-left: 30px;
+ 	padding-top: 20px; 
+ 	padding-bottom: 0px;
+ 	padding-right: 30px;
+ }

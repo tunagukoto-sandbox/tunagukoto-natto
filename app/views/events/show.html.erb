@@ -1,0 +1,119 @@
+<div class="container fluid">
+	<div class="row event_show_parent event_show_padding">
+		<div class="event_show_title"></div>
+		<% @sub_tags.each do |st| %>
+		<span class="sub_tag"><%= st.sub_tag_name %></span>
+		<%end%>
+		<div class="col-sm-12 col-md-12" style="text-align: center;font-weight: bold; font-size: 1.3em;">
+			<p><%= @event.event_name %></p>
+			<p><%= @event.event_title %></p>
+		</div><!-- ./col-sm-12 col-md-12 -->
+	</div><!-- ./event_show_title -->
+	<div>
+	    <% if @event.event_top_image.attached? %>
+	        <%= image_tag @event.event_show_image.variant(resize:'600x700').processed ,class: "card-img-top"%>
+	    <% end %>
+	</div>
+	<div class="row event_show_parent event_show_padding">
+		<div class="event_show_company_detail"></div>
+		<div class="col-sm-2 col-md-2"></div>
+		<div class="col-sm-8 col-md-8" style="text-align: center;">
+			<p style="font-weight: bold; font-size: 1.4em;">【<%= @event.event_question %>】</p>
+			<p style="font-size: 1.3em;">
+				<%= @event.event_description %>
+			</p>
+		</div><!-- ./col-sm-8 col-md-8 -->
+		<div class="col-sm-2 col-md-2"></div>
+	</div><!-- ./row event_show_parent event_show_padding -->
+
+	<div class="row">
+		<div class="col-sm-2 col-md-2"></div>
+		<div class="col-sm-8 col-md-8">
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+			    <% if @event.president_image.attached? %>
+			        <%= image_tag @event.president_image.variant(resize:'200x200').processed%>
+			    <% end %>
+			</div>
+		    <div class="col-sm-8 col-md-8">
+			    <div style="padding-top: 10px;"><%= @event.event_company_name %></div>
+			    <p style="font-weight: 800; font-size: 1.2em;">代表取締役</p>
+			    <div><%= @event.event_president %></div>
+			    <div><%= @event.event_president_birth_day %></div>
+			    <div><%= @event.event_motto %></div>
+			</div>
+		</div>
+		</div><!-- ./col-sm-8 col-md-8 -->
+		<div class="col-sm-2 col-md-2"></div>
+	</div><!-- ./row -->
+
+	<div class="event_details_box">
+		<div class="row event_detail_padding">
+			<div class="col-sm-6 col-md-6 event_detail_fonts">
+				<p>【開催日】</p>
+				<p>&ensp;&ensp;<%= @event.event_time %></p>
+				<p>&ensp;&ensp;<%= @event.event_time_detail %></p>
+				<h style="font-size: 7px;">※当日の進行により多少前後する場合がございます</h>
+			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
+			<div class="col-sm-6 col-md-6 event_detail_fonts">
+				<div>
+				<h>【参加費】</h>
+				<% if @event.event_cost == 0 || @event.event_cost == "無料" %>
+					<p style="color: red;">&ensp;&ensp;<%= @event.event_cost %></p>
+				<% else %>
+					<p>&ensp;&ensp;￥：<%= @event.event_cost %></p>
+				<% end %>
+				<p>&ensp;&ensp;食事付き</p>
+				</div>
+				<div>
+				<h>【募集人数】</h>
+					<% if @event.event_population == nil %>
+						<p>&ensp;&ensp;未定</p>
+					<% else %>
+						<p>&ensp;&ensp;約<%= @event.event_population %>名</p>
+					<% end %>
+				</div>
+			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
+				<%= link_to "申し込む", "#{@event.google_form}" ,class: "btn btn-primary btn-lg btn-block"  %>
+		</div><!-- ./row event_detail_padding -->
+	</div><!-- ./event_details_box -->
+
+	<div class="row event_show_parent event_show_padding">
+		<div class="event_show_tag_desc"></div>
+		<div class="row">
+		<div class="col-sm-2 col-md-2"></div>
+			<div class="col-sm-8 col-md-8">
+				<% @tags.each do |t| %>
+				<% if t.tag_name == "シャショク" %>
+					<div class="tag_desc">【シャショクとは】</div>
+						<p id="tag_info"><%= t.tag_info %></p>
+						<p id="tag_body"><%= t.tag_body %></p>
+					</div>
+				<% elsif t.tag_name == "ガクショク" %>
+					<div class="tag_desc">【ガクショクとは】</div>
+						<p id="tag_info"><%= t.tag_info %></p>
+						<p id="tag_body"><%= t.tag_body %></p>
+					</div>
+				<% elsif t.tag_name == "キャリアコネクション" %>
+					<div class="tag_desc">【キャリアコネクションとは】</div>
+						<p id="tag_info"><%= t.tag_info %></p>
+						<p id="tag_body"><%= t.tag_body %></p>
+					</div>
+				<% elsif t.tag_name == "スタートアップ" %>
+					<div class="tag_desc">【スタートアップとは】</div>
+						<p id="tag_info"><%= t.tag_info %></p>
+						<p id="tag_body"><%= t.tag_body %></p>
+					</div>
+				<% else %>
+				<% end %>
+				<% end %>
+			</div>
+		<div class="col-sm-2 col-md-2"></div>
+	</div>
+
+</div><!-- ./container fluid -->
+
+
+
+
+

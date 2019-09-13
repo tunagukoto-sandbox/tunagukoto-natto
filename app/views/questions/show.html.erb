@@ -1,0 +1,10 @@
+<%= @question.title  %>
+
+<%= @question.q_body  %>
+
+
+<% if student_signed_in? || admin_signed_in?  %>
+	<%= link_to "この質問に答える", new_question_comment_path(@question.id) %>
+<% else %>
+	<%= link_to "ログインして答える", new_student_session_path  %>
+<% end %>
