@@ -22,3 +22,42 @@
 	padding-top: 20px ;
 	padding-bottom: 20px ;
 }
+
+.question_box{
+	border: solid 2px grey;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+	margin-top: 10px;
+	margin-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.align_center{
+	text-align: center;
+	font-weight: 500;
+	word-wrap: break-word;
+}
+.answer_button{
+	color: red;
+/*	border: solid 2px grey;
+	margin-top: 10px;
+	padding: 10px;*/
+	vertical-align: middle;
+}
+.answer{
+	width: auto;
+	text-align: center;
+	border: solid 2px grey;
+	margin-top: 10px;
+	padding: 6px;
+}
+
+
+
+
+
+

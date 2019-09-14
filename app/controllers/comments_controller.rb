@@ -5,6 +5,23 @@ class CommentsController < ApplicationController
   end
 
   def create
+      @comment = Comment.new(comment_params)
+
+      @comment.question_id = params[:question_id]
+
+      if params[:type] == "student"
+        @comment.student_id = params[:his_id].to_i
+      elsif params[:type] == "corporation"
+        @comment.corporation_id = params[:his_id].to_i
+      end
+
+      if @comment.save
+
+        redirect_to root_path
+      else
+        redirect_to  new_question_comment_path(question_id: params[:question_id])
+      end
+
   end
 
   def index

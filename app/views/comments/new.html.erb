@@ -1,19 +1,40 @@
-<%= @question.title  %>
+<div class="container">
+	<div class="question_box">
+	<div style="font-weight: 700; font-size: 1.4em; padding-bottom: 10px;"><%= @question.title  %></div>
+	<% if @question.student  != nil %>
+		<p>投稿者：<%= @question.student.name %>さん</p>
+	<% end %>
+	<% if @question.corporation  != nil %>
+		<p>投稿者：<%= @question.corporation.name %>さん</p>
+	<% end %>
+	<hr>
+	<div><%= @question.q_body %></div>
 
-<%= @question.q_body  %>
+	</div>
 
-<%= form_for @comment, url: question_comments_path, method: :post do |f| %>
-	<div class="container">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
-	<div><%= f.label :回答 %></div>
-	<%= f.text_field :c_body, placeholder: "", :size => "80%" %>
-	<% f.number_field :question_id, value: params[:question_id] %>
-	<% if student_signed_in?  %>
-		<% f.number_field :question_id, value: current_student.id %>
-	<% elsif company_signed_in? %>
-		<% f.number_field :question_id, value: current_company.id %>
+	<% if student_signed_in? %>
+		<% type = "student" %>
+		<% his_id = current_student.id %>
+	<% elsif corporation_signed_in? %>
+		<% type = "corporation" %>
+		<% his_id = current_corporation.id %>
 	<% end %>
 
+	<%= form_for @comment, url: question_comments_path(question_id: @question.id, type: type, his_id: his_id), method: :post do |f| %>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div><%= f.label :回答 %></div>
+			<%= f.text_area :c_body, placeholder: "",rows: "8",  cols:"70"%>
+			<% f.number_field :question_id, value: params[:question_id] %>
+			<% if student_signed_in?  %>
+				<% f.number_field :student_id, value: current_student.id %>
+			<% elsif corporation_signed_in? %>
+				<% f.number_field :corporation_id, value: current_corporation.id %>
+			<% end %>
+			<%=f.submit '回答を送信する', class: 'btn btn-primary btn-lg btn-block' %>
+		</div>
 	<%end%>
 </div>
+
+
+

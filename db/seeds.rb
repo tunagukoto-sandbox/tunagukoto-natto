@@ -96,9 +96,9 @@ end
 end
 
 10.times do |i|
-    Question.create(title: "あああああssあああああssあああああssあああああssあああああssあああ
+    Question.create(q_body: "あああああssあああああssあああああssあああああssあああああssあああ
     ああssあああああssあああああssあああああssあああああssあああああssあああああssあああ
-    ああssあああああssあああああssあああああssああああ#{i}", q_body: "aaaaaaaaaaaaaaa", student_id: 1)
+    ああssあああああssあああああssあああああssああああ#{i}", title: "aaaaaaaaaaaaaaa", student_id: 1)
 end
 
 Admin.create(email: "tunagukoto@gmail.com", password: "tunagu2019")

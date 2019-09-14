@@ -1,2 +1,33 @@
-<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
+<% if student_signed_in? %>
+	<%= current_student.name %>さん
+<% end %>
+<% if corporation_signed_in? %>
+	<%= current_corporation.name %>さん
+<% end %>
+<% if admin_signed_in? %>
+	<p>管理者ログイン中</p>
+<% end %>
+
+<div class="container">
+	<% if student_signed_in? %>
+		<% type = "student" %>
+		<% his_id = current_student.id %>
+	<% elsif corporation_signed_in? %>
+		<% type = "corporation" %>
+		<% his_id = current_corporation.id %>
+	<% end %>
+	<%= form_for @question , url: questions_path(type: type, his_id: his_id) do |f| %>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+
+			<div>質問タイトル</div>
+			<%= f.text_field :title, placeholder: "", :size => "30*60" %>
+
+			<div>質問内容</div>
+			<%= f.text_area :q_body , placeholder: "", :size => "200*300" %>
+
+			<%=f.submit '質問を投稿する', class: 'btn btn-primary btn-lg btn-block' %>
+			</div>
+		</div>
+	<%end%>
+</div>

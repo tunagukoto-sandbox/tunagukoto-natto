@@ -5,6 +5,13 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+
+    if params[:type] == "student"
+        @question.student_id = params[:his_id].to_i
+    elsif params[:type] == "corporation"
+        @question.corporation_id = params[:his_id].to_i
+    end
+
     if @question.save
       redirect_to root_path
     else
@@ -34,7 +41,9 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(
         :title,
-        :q_body
+        :q_body,
+        :student_id,
+        :corporation_id
         )
     end
 end
