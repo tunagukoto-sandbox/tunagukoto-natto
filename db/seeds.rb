@@ -11,7 +11,7 @@ School.create(school_name: "名城大学")
 School.create(school_name: "立命館大学")
 School.create(school_name: "武蔵野美術大学")
 
-Student.create(name: "gonza",email: "6@gmail.com", password: "666666", school_id: 1)
+# Student.create(name: "gonza",email: "6@gmail.com", password: "666666", school_id: 1)
 
 # 主タグ生成
 Tag.create(
@@ -98,7 +98,7 @@ end
 10.times do |i|
     Question.create(q_body: "あああああssあああああssあああああssあああああssあああああssあああ
     ああssあああああssあああああssあああああssあああああssあああああssあああああssあああ
-    ああssあああああssあああああssあああああssああああ#{i}", title: "aaaaaaaaaaaaaaa", student_id: 1)
+    ああssあああああssあああああssあああああssああああ#{i}", title: "aaaaaaaaaaaaaaa")
 end
 
 Admin.create(email: "tunagukoto@gmail.com", password: "tunagu2019")
