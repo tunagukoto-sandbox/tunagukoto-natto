@@ -1,10 +1,43 @@
-<%= @question.title  %>
-
-<%= @question.q_body  %>
-
-
-<% if student_signed_in? || admin_signed_in?  %>
-	<%= link_to "この質問に答える", new_question_comment_path(@question.id) %>
-<% else %>
-	<%= link_to "ログインして答える", new_student_session_path  %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-2 col-md-2">
+			<% if @ok %>
+				<% if @img.attached? %>
+					<%= image_tag  @img.variant(resize:'300x300').processed, class: "my_image-round"%>
+				<% end %>	
+			<% end %>	
+		</div>
+		<div class="col-sm-10 col-md-10">
+			<div class="row">
+				<div class="col-sm-12 col-md-12">
+					<div class="question_bar">質問</div>
+				</div>
+				<div class="col-sm-10 col-md-10">
+					<div class="q_title"><%= @question.title %></div>
+					<h5> <%= @question.created_at.strftime("%Y年%-m月%-d日") %></h5>
+					<div class="q_body"><%= @question.q_body %></div>
+				</div>
+				<div class="col-sm-2 col-md-2"></div>
+			</div>
+		</div>
+	</div>
+	<div class="comment_bar">回答</div>
+	<div class="row">
+	
+			<% @comments.each do |c| %>
+			<div class="col-sm-10 col-md-10">
+				<p style="text-align: right;"><%= c.created_at.strftime("%Y年%-m月%-d日") %></p>
+				<div class="c_body"><%= c.c_body %></div>
+			</div>
+				<div class="col-sm-2 col-md-2">
+					<% if c.student_id != nil %>
+					<% student = Student.find(c.student_id) %>
+						<% if student.my_image.attached? %>
+							<%= image_tag  student.my_image.variant(resize:'300x300').processed, class: "my_image-round"%>
+						<% end %>
+						<%= student.name %>
+					<% end %>
+				</div>
+			<% end %>
+	</div>
+</div>

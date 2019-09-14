@@ -6,7 +6,8 @@
 
 <div class="student_details_box">
 		<div class="row student_detail_padding">
-			<div class="col-sm-12 col-md-12 student_detail_fonts">
+			<div class="col-sm-8 col-md-8 student_detail_fonts">
+
 				<p class="student_labels_title">名前</p>
 				<p class="student_detail_fonts"><%= @student.name %></p>
                 <p class="student_labels_title">大学名</p>
@@ -24,10 +25,15 @@
                 <p class="student_labels_title">趣味・特技</p>
 				<p class="student_detail_fonts"><%= @student.hobbies %></p>
                 <p class="student_labels_title">自己紹介メッセージ</p>
-				<p class="student_detail_fonts"><%= @student.Introduction %></p>
+				<p class="student_detail_fonts"><%= @student.introduction %></p>
                 <p class="student_labels_title">自由記入欄</p>
 				<p class="student_detail_fonts"><%= @student.free_space %></p>
-			</div><!-- ./col-sm-12 col-md-12 event_detail_fonts -->
+			</div><!-- ./col-sm-9 col-md-9 event_detail_fonts -->
+			<div class="col-sm-3 col-md-3 student_detail_fonts">
+				<% if @student.my_image.attached? %>
+					<%= image_tag  @student.my_image.variant(resize:'300x300').processed, class: "my_image-round"%>
+				<% end %>	
+			</div>			
 		</div><!-- ./row event_detail_padding -->
 	</div><!-- ./event_details_box -->
 </div><!-- ./container fluid -->

@@ -34,6 +34,14 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @ok = false
+    if @question.student_id != nil
+      @img = Student.find(@question.student_id).my_image
+      @ok = true
+    else @question.corporation_id != nil
+      @ok = false
+    end
+    @comments = @question.comments
   end
 
   private

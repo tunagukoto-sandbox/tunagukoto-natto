@@ -16,7 +16,8 @@ class Student::ParameterSanitizer < Devise::ParameterSanitizer
 			:introduction,
 			:free_space,
 			:sns_url,
-			:school_id
+			:school_id,
+			:my_image
 		])   
 
         # ユーザー情報アップデート時のパラメーター
@@ -34,7 +35,8 @@ class Student::ParameterSanitizer < Devise::ParameterSanitizer
 			:introduction,
 			:free_space,
 			:sns_url,
-			:school_id
+			:school_id,
+			:my_image
 		]) 
 	end
 end

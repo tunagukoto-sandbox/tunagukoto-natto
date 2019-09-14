@@ -1,0 +1,40 @@
+.question_bar{
+	color: white;
+	text-align: left;
+	background-color: #AAAAAA;
+	padding: 20px 0 20px 30px;
+	margin: 20px 0px 10px  0 ;
+	font-size: 2.2em;
+	font-weight: 700;
+}
+
+.comment_bar{
+	color: #FFFFDD;
+	text-align: right;
+	background-color: grey;
+	padding: 20px 60px 20px 30px;
+	margin: 20px 0px 10px 80px ;
+	font-size: 2.2em;
+	font-weight: 700;
+}
+
+.q_title{
+	padding-top: 15px;
+	padding-bottom: 7px;
+	font-size: 1.8em;
+	font-weight: 600;
+	text-shadow:2px 2px 3px silver;
+}
+.q_body{
+	width: 60%;
+	padding-top: 20px;
+	padding-left: 40px;
+	padding-bottom: 40px;s
+}
+
+.c_body{
+	width: 90%;
+	padding-top: 20px;
+	padding-left: 30%;
+	padding-bottom: 40px;
+}

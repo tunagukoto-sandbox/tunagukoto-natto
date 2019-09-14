@@ -6,4 +6,5 @@ class Student < ApplicationRecord
 	belongs_to :school
 	has_many :comments
 	has_many :questions
+	has_one_attached :my_image
 end
