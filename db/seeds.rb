@@ -75,18 +75,6 @@ SubTag.create(sub_tag_name: "技術職")
         tag_id: 1
     )
 end
-10.times do |i|
-    Company.create(company_name: "#{i}ツナグ",
-        company_url: "https://ibuki-study.net",
-        company_locate: "愛知県",
-        company_start_year: 2,
-        number_of_employee: 10000,
-        what_company_do: "インターネットで世界を楽しくデータで感を数値化技術は盗むのではなく継承されるものに。データ・ドリブンの世界へようこそ",
-        attractive_point: "最先端の研究をビジネスの現場にいかす。あなたのオリジナリティーが活かせる職場です。",
-        email: "#{i}foobar@baz.com",
-        password: "password#{1}",
-    )
-end
 
 SubTag.all.each do |st|
     EventSubTag.create(sub_tag_id: st.id, event_id: 1)

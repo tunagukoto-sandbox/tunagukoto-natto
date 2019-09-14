@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
-class DeviseCreateCompanies < ActiveRecord::Migration[5.2]
+class DeviseCreateCorporations < ActiveRecord::Migration[5.2]
   def change
-    create_table :companies do |t|
+    create_table :corporations do |t|
       ## Database authenticatable
-      t.string :company_name
-      t.text :company_url
-      t.string :company_locate
-      t.integer :company_start_year
-      t.integer :number_of_employee
-      t.text :what_company_do
-      t.text :attractive_point
+      t.string :name
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-
+      t.string :locate
+      t.integer :start_year
+      t.integer :number_of_employee
+      t.text :what_we_do
+      t.text :attractive_point
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
@@ -43,9 +41,9 @@ class DeviseCreateCompanies < ActiveRecord::Migration[5.2]
       t.timestamps null: false
     end
 
-    add_index :companies, :email,                unique: true
-    add_index :companies, :reset_password_token, unique: true
-    # add_index :companies, :confirmation_token,   unique: true
-    # add_index :companies, :unlock_token,         unique: true
+    add_index :corporations, :email,                unique: true
+    add_index :corporations, :reset_password_token, unique: true
+    # add_index :corporations, :confirmation_token,   unique: true
+    # add_index :corporations, :unlock_token,         unique: true
   end
 end

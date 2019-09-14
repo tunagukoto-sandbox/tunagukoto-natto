@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_070752) do
+ActiveRecord::Schema.define(version: 2019_09_14_021931) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,32 +48,31 @@ ActiveRecord::Schema.define(version: 2019_09_13_070752) do
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "c_body"
     t.bigint "question_id"
-    t.bigint "company_id"
+    t.bigint "corporation_id"
     t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_comments_on_company_id"
+    t.index ["corporation_id"], name: "index_comments_on_corporation_id"
     t.index ["question_id"], name: "index_comments_on_question_id"
     t.index ["student_id"], name: "index_comments_on_student_id"
   end
 
-  create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "company_name"
-    t.text "company_url"
-    t.string "company_locate"
-    t.integer "company_start_year"
-    t.integer "number_of_employee"
-    t.text "what_company_do"
-    t.text "attractive_point"
+  create_table "corporations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "locate"
+    t.integer "start_year"
+    t.integer "number_of_employee"
+    t.text "what_we_do"
+    t.text "attractive_point"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_companies_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_corporations_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_corporations_on_reset_password_token", unique: true
   end
 
   create_table "event_sub_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -117,11 +116,11 @@ ActiveRecord::Schema.define(version: 2019_09_13_070752) do
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title"
     t.text "q_body"
-    t.bigint "company_id"
+    t.bigint "corporation_id"
     t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_questions_on_company_id"
+    t.index ["corporation_id"], name: "index_questions_on_corporation_id"
     t.index ["student_id"], name: "index_questions_on_student_id"
   end
 
@@ -154,7 +153,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_070752) do
     t.string "club"
     t.text "experienced_jobs"
     t.text "hobbies"
-    t.text "Introduction"
+    t.text "introduction"
     t.text "free_space"
     t.string "sns_url"
     t.integer "school_id"

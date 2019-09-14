@@ -13,7 +13,7 @@ class DeviseCreateStudents < ActiveRecord::Migration[5.2]
       t.string :club
       t.text   :experienced_jobs
       t.text   :hobbies
-      t.text   :Introduction
+      t.text   :introduction
       t.text   :free_space
       t.string :sns_url
       t.integer :school_id

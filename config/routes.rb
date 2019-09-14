@@ -23,10 +23,15 @@ Rails.application.routes.draw do
 	  :sessions => 'admins/sessions'   
 	} 
 
-	devise_for :companies, :controllers => {
-	  :registrations => 'companies/registrations',
-	  :sessions => 'companies/sessions'   
+  	devise_for :corporations, :controllers => {
+	  :registrations => 'corporations/registrations',
+	  :sessions => 'corporations/sessions'   
 	} 
+
+	# devise_for :companies, :controllers => {
+	#   :registrations => 'companies/registrations',
+	#   :sessions => 'companies/sessions'   
+	# } 
 
 	# devise_scope :admin do
 	#   get "admin/:id", :to => "admins/registrations#detail"

@@ -8,7 +8,7 @@
 		<div class="row company_detail_padding">
         <% @companies.each do |c| %>
 			<div class="col-sm-3 col-md-3 company_detail_fonts">
-			<p class="company_detail_fonts"> <%= link_to "#{c.company_name}", company_page_path(c.id) %> </p>
+			<p class="company_detail_fonts"> <%= link_to "#{c.name}", company_page_path(c.id) %> </p>
 			</div><!-- ./col-sm-12 col-md-12 event_detail_fonts -->
         <% end %>
 		</div><!-- ./row event_detail_padding -->

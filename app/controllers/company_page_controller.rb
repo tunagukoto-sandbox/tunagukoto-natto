@@ -1,9 +1,9 @@
 class CompanyPageController < ApplicationController
   def show
-    @company = Company.find(params[:id])
+    @company = Corporation.find(params[:id])
   end
   
   def index
-    @companies = Company.all
+    @companies = Corporation.all
   end
 end
