@@ -60,15 +60,24 @@
         <div class="quest_box"></div>
         <% @quests.each do |q| %>
             <div class="col-sm-6 col-md-6" style="text-align: center; margin-top: 15px; margin-bottom: 15px;">
-                <div class="content_box">
-                    <%= link_to quest_path(q.id) do %>
-                        <% if q.quest_image.attached? %>
-                            <%= image_tag q.quest_image.variant(resize:'200x200').processed %>
-                        <% end %>
-                        <p><%= q.company_name %></p>
-                        <p><%= q.title %></p>
-                    <% end %>
-                </div><!-- ./content_box -->
+                <%= link_to quest_path(q.id) do %>
+                <div style="margin: 10px 30px;">
+                    <div class="row content_box">
+                        <div class="quest_top_right_left">
+                            <p><%= q.company_name %></p>
+                            <p>【依頼】</p>
+                            <p><%= q.title %></p>
+                        </div>
+                        <div class="quest_top_right_left">
+                            <% if q.quest_image.attached? %>
+                                <%= image_tag q.quest_image.variant(resize:'200x200').processed %>
+                            <% else %>
+                            <p style="margin: 50px; color: ;">画像がありません</p>
+                            <% end %>
+                        </div>
+                    </div><!-- ./content_box -->
+                </div>
+                <% end %>
             </div><!-- ./col-sm-6 col-md-6 -->
         <% end %>
     </div><!-- ./row quest_parent -->
