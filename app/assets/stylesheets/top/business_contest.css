@@ -32,4 +32,10 @@
 	display: inline-block;
 	color: grey;
 	font-weight: 600;
+	text-align: left;
+}
+
+.quest_top_img{
+	width: 50%;
+	height: auto;
 }
