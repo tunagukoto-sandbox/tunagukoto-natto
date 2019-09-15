@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Students::RegistrationsController < Devise::RegistrationsController
+  # prepend_before_action :require_no_authentication, only: [:cancel]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -38,7 +39,18 @@ class Students::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  #  protected
+
+  # def current_corporation_is_admin?
+  #   student_signed_in? && current_student.has_attribute?(:admin)
+  # end
+
+  # def sign_up(resource_name, resource)
+  #  sign_in(resource_name, resource)
+  #   if !current_student_is_admin?
+  #     sign_in(resource_name, resource)
+  #   end
+  #  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
