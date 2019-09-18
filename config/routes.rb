@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
  	get 'home/admin_top'
 
+ 	get 'home/admin_event'
+
 	devise_for :students, :controllers => {
 	  :registrations => 'students/registrations',
 	  :sessions => 'students/sessions'   

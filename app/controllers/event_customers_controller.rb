@@ -8,7 +8,7 @@ class EventCustomersController < ApplicationController
   	if @event_customer.save
   		redirect_to root_path
   	else
-  		redirect_to root_path
+  		redirect_to new_event_customer_path
   	end
   end
 

@@ -1,0 +1,11 @@
+<% @hash.each do |event_name, event_customer| %>
+	<h1 style="text-align: center;"><%= event_name %></h1>
+	<div ><% event_customer.each do |customer| %>
+		<%= customer.email %>
+		<%= customer.name %>
+		<%= School.find(customer.school_id).school_name %>
+		<%= customer.tel %>
+	<% end %>
+	</div>
+<% end %>
+

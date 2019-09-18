@@ -12,6 +12,13 @@ class HomeController < ApplicationController
   	@schools = School.all
   end
 
+  def admin_event
+    @hash = {}
+    Event.all.each do |e|
+      @hash.merge!(e.event_name => EventCustomer.where(event_id: e.id))
+    end
+  end
+
   def policy
   end
 end
