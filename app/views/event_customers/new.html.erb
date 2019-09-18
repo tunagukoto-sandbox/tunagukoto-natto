@@ -17,11 +17,8 @@
 		<p>名前</p>
 		<%= f.text_field :name, placeholder: "ツナグ　太郎"  %>
 
-		<p>電話番号</p>
+		<p>メールアドレス</p>
 		<%= f.text_field :email, placeholder: ""  %>
-
-		<p><%= f.label :所属を選択してください %></p>
-		<%= f.text_field :event_location, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
 
 		<p><%=  f.label :電話番号 %></p>
 		<%= f.text_field :tel, placeholder: "08020733859", :size => "30*60" %>
