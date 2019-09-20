@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def top
   	@events = Event.all
-  	@quests = Quest.all
+    @quests = Quest.all
+    @s_count = Student.count
   	# @busi_cons = BusinessContest.all
   end
 

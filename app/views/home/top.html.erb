@@ -1,15 +1,12 @@
 
+<% if student_signed_in? || admin_signed_in? || corporation_signed_in? %>
+    <h1 style="text-align: center;"> 現在登録者　<%= @s_count %> </h1>
+<% end %>
+
 <div class="paddind-buttom"></div>
 <%= image_tag'natto_header.png', class: "img-full-responsive" %>
 <div class="container fluid">
 
-<!-- <% if student_signed_in? %>
-        <%= link_to 'イベント', new_event_path %>
-        <%= link_to 'イベント一覧', events_path %>
-        <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
-    <% else %>
-        <%= link_to '新規登録', new_student_registration_path %>
-    <% end %> -->
     <div class="paddind-buttom"></div>
     <div class="event">Event</div>
     <hr>
