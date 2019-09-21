@@ -1,19 +1,40 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-School.create(school_name: "名古屋大学")
-School.create(school_name: "名古屋市立大学")
-School.create(school_name: "名城大学")
-School.create(school_name: "立命館大学")
-School.create(school_name: "武蔵野美術大学")
+# 管理者
+Admin.create(email: "tunagukoto@gmail.com", password: "tunagu2019")
+Admin.create(email: "natto-test@gmail.com", password: "password")
 
-# Student.create(name: "gonza",email: "6@gmail.com", password: "666666", school_id: 1)
+# 会社テスト
+Corporation.create(
+     name: "一般社団法人ツナグコト", email: "tunagukoto@gmail.com", password: "tunagu2019",
+     locate: "名古屋市東区葵3丁目15-31　千種第2ビル4F",start_year: 2019, number_of_employee: 10,
+     what_we_do: "学生にビジネスに必要な「学び方」
+    「考え方」「稼ぎ方」を身につけてもらいたい。
+    ツナグコトは、学生が社会へ出てから活動するための心構えと知識を身につける環境を用意しています。",
+     attractive_point: "大学や就職活動の場で聞く企業説明会がつまらない…　
+    働くことについてのイメージがわかない…
+    経営者から会社や業界について教えて欲しい
+    企業のホンネが聞きたい!!
+    そんな学生の声から生まれたのが「シャショク」です。
+    「シャショク」は、愛知県にある優良企業の経営者をたちに各業界の仕組みをインタビュー形式で語ってもらうイベントです。
+    社長自身の経験から商流・物流を通して社会について学び、リアルなキャリア研究を行うことができます"
+)
 
-# 主タグ生成
+# 大学
+[
+    "社会人", "名城大学", "武蔵野美術大学", "愛知大学", "愛知学院大学",  
+    "愛知淑徳大学", "愛知県立大学","愛知教育大学", "愛知県立芸術大学", "愛知工業大学", 
+    "愛知産業大学", "愛知医科大学","桜花学園大学", "関西大学", "関西学院大学", "金城学院大学", 
+    "椙山女学園大学","星城大学", "中京大学", "中部大学", "東海学園大学","同志社大学","豊橋技術科学大学", 
+    "名古屋産業大学", "名古屋大学", "名古屋市立大学", "名古屋工業大学","名古屋外国語大学","名古屋学院大学","名古屋学芸大学", "南山大学",           
+    "日本福祉大学",    
+    "立命館大学"
+].each do |uni| School.create!(school_name: uni) end
+
+#サブタグ
+
+[
+    "工場見学","プログラミング","キャリアアップ","営業","技術職","マーケティング","いろんな経験を詰める"
+].each do |sub_tag| SubTag.create!(sub_tag_name: sub_tag) end
+# メインタグ
 Tag.create(
             uuid: 1,
             tag_name: "シャショク", 
@@ -36,6 +57,7 @@ Tag.create(
 プレゼンターは自分の「アイディア」や「思い」を具体的に形にして、
 ビジネスでも通用するプレゼン技術を養いながら自身の可能性を追求することで
 自分の現在地を知り今後どのように夢の実現に向けて活動していくのかを考えるイベントになっています。")
+
 Tag.create(
             uuid: 3,
             tag_name: "キャリアコネクション",
@@ -44,64 +66,8 @@ Tag.create(
 学生、社会人、経営者の異なる視点で考えや価値観をぶつけ合いビジネスで通用するスキルを磨きます
 またイベント後のカジュアルな懇親会ではビジネスパートナーとして長く付き合える繋がりを構築します。")
 
-# サブタグ生成-今後も増えていく予定
-SubTag.create(sub_tag_name: "工場見学")
-SubTag.create(sub_tag_name: "マーケティング")
-SubTag.create(sub_tag_name: "営業")
-SubTag.create(sub_tag_name: "技術職")
 
 
-10.times do |i|
-    Event.create(
-        event_name: "ツナグコトの歴史#{i}",
-        event_title: "橋の安全を影から支える、橋の排水装置・検査路を作る橋梁付属品のスペシャリスト",
-        event_question: "橋梁技建ってどんな会社？",
-        event_description: "外灯がなく（少なく）暗いこと
-    	広く開けていること・広い駐車場があること
-    	夜間使用可能なトイレがあること
-    	周辺に民家がないこと
-    	街に近過ぎずたりたまり場になっていないこと
-    	天体観測愛好家や無線愛好家などがいるところ",
-        event_location: "山形市内の気温が22度だったとして、蔵王の山の上では気温が13度と大変涼しい",
-        event_cost: "無料",
-        event_time: Date.today,
-        event_time_detail: "17:45~20:45",
-        event_company_name: "一般社団法人ツナグコト",
-        event_president: "ジーザス　クライス",
-        event_president_birth_day: "000年 12月 25日",
-        event_motto: "左ほほを蓋れたら右ほほも差し出しなさい",
-        event_population: 20,
-     	google_form: "",
-        tag_id: 1
-    )
-end
-
-SubTag.all.each do |st|
-    EventSubTag.create(sub_tag_id: st.id, event_id: 1)
-end
-
-5.times do |i|
-    Quest.create(
-        company_name: "一般社団法人ツナグコト",
-        title: "ツナグコトの歴史",
-        uuid: "Sjj34444",
-        description: "あああああssあああああssあああああssあああああssあああああssあああ
-        ああssあああああssあああああssあああああssあああああssあああああssあああああssあああ
-        ああssあああああssあああああssあああああssあ",
-        gift: "実労働時間✖️1000",
-        gift_detail: "交通費あり",
-        dead_line: "2019年7月12日 ~  2019年7月18日",
-        dead_line_detail: "上記の日程の中で最低5日"
-    )
-end
-
-10.times do |i|
-    Question.create(q_body: "あああああssあああああssあああああssあああああssあああああssあああ
-    ああssあああああssあああああssあああああssあああああssあああああssあああああssあああ
-    ああssあああああssあああああssあああああssああああ#{i}", title: "aaaaaaaaaaaaaaa")
-end
-
-Admin.create(email: "tunagukoto@gmail.com", password: "tunagu2019")
 
 
 

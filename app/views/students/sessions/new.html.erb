@@ -1,34 +1,35 @@
-<h2>Log in</h2>
-<% if admin_signed_in? %>
 <div class="container">
+<% if admin_signed_in? %>
   <p>あなたは今、管理者としてログインしています<br>
     一度ログアウトした後にログインのページに戻ってください
   </p>
   <%= link_to "サインアウトする", destroy_admin_session_path, method: :delete %>
-</div>
 <% else %>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
+  <div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-8" style="padding-bottom: 250px;">
+      <h2>ログイン</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="field">
+        <%= f.label :パスワード %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :パスワードを記憶する %>
+        </div>
+      <% end %>
+      <div class="actions">
+        <%= f.submit "ログイン" %>
       </div>
     <% end %>
-
-    <div class="actions">
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
-
   <%= render "students/shared/links" %>
+  </div>
+</div>
 <% end %>
+</div>

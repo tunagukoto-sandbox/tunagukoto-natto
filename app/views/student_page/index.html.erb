@@ -1,16 +1,20 @@
-<div class="container fluid">
-    <p class="student_top" >登録学生</p>
-    <p class="student_top" style="display: inline;">一覧</p> 
+<% if admin_signed_in? || corporation_signed_in?  %> <!-- サービスリリース時に解禁 -->
+	<div class="container fluid">
+	    <p class="student_top" >登録学生</p>
+	    <p class="student_top" style="display: inline;">一覧</p> 
 
-<p><%= link_to "←トップに戻る", root_path, class: "student_all_back" %></p>
+	<p><%= link_to "←トップに戻る", root_path, class: "student_all_back" %></p>
 
-<div class="student_details_box">
-		<div class="row student_detail_padding">
-        <% @students.each do |s| %>
-			<div class="col-sm-2 col-md-2 student_detail_fonts">
-			<p class="student_detail_fonts"><%= link_to "#{s.name}", student_page_path(s) %></p>
-			</div><!-- ./col-sm-12 col-md-12 event_detail_fonts -->
-        <% end %>
-		</div><!-- ./row event_detail_padding -->
-	</div><!-- ./event_details_box -->
-</div><!-- ./container fluid -->
+	<div class="student_details_box">
+			<div class="row student_detail_padding">
+	        <% @students.each do |s| %>
+				<div class="col-sm-2 col-md-2 student_detail_fonts">
+				<p class="student_detail_fonts"><%= link_to "#{s.name}", student_page_path(s) %></p>
+				</div><!-- ./col-sm-12 col-md-12 event_detail_fonts -->
+	        <% end %>
+			</div><!-- ./row event_detail_padding -->
+		</div><!-- ./event_details_box -->
+	</div><!-- ./container fluid -->
+<% else %> <!-- サービスリリース時に解禁 -->
+	<h1>まだこのページはお使いにはなれません</h1><!-- サービスリリース時に解禁 -->
+<% end %>
