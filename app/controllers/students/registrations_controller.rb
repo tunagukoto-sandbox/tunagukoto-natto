@@ -39,8 +39,11 @@ class Students::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  #  protected
+  protected
 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
   # def current_corporation_is_admin?
   #   student_signed_in? && current_student.has_attribute?(:admin)
   # end
