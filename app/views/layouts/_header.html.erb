@@ -24,6 +24,21 @@
                 <li class="nav-item">
                     <a class="nav-link" style="font-weight: 900; font-size: 1.2em;" href="#">ホーム</a>
                 </li>
+                <% if student_signed_in? %>
+                    <li class="nav-item">
+                        <%= link_to "ログアウト", destroy_student_session_path, class: "nav-link", style:"font-weight: 900; font-size: 1.2em;" %>
+                    </li>
+                <% end %>
+                <% if corporation_signed_in? %>
+                    <li class="nav-item">
+                        <%= link_to "ログアウト", destroy_corporation_session_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+                    </li>
+                <% end %>
+                <% if admin_signed_in? %>
+                    <li class="nav-item">
+                        <%= link_to "ログアウト", destroy_admin_session_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+                    </li>
+                <% end %>
             </ul>
         </div><!-- ./collapse navbar-collapse -->
     </div><!-- ./container -->

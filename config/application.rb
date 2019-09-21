@@ -11,6 +11,7 @@ module TunaguNatto
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.autoload_paths += Dir[Rails.root.join('app', 'parameters', '**', '*')]
+    config.i18n.default_locale = :ja
   	#config.time_zone = 'Tokyo'
   	config.active_record.time_zone_aware_types = [:datetime, :time]
   	config.active_record.default_timezone = :utc
@@ -20,3 +21,5 @@ module TunaguNatto
     # the framework and any gems in your application.
   end
 end
+
+
