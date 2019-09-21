@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.event_time = event_time
-    # tag_ids, tag_ok = tag_params
+
     sub_tag_ids, sub_tag_ok = sub_tag_params
     @event.tag_id = params[:event]["tag"].to_i
     if @event.save
@@ -55,11 +55,6 @@ class EventsController < ApplicationController
   end
 
   def make_relation(event_id, sub_tag_ids, sub_tag_ok)
-    # if tag_ok
-    #   tag_ids.each do |tag_id|
-    #     EventTag.create(event_id: event_id, tag_id: tag_id)
-    #   end
-    # end
     if sub_tag_ok
       sub_tag_ids.each do |sub_tag_id|
         EventSubTag.create(event_id: event_id, sub_tag_id: sub_tag_id)
