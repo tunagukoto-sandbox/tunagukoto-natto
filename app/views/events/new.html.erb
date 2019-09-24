@@ -3,16 +3,17 @@
 	<div class="container">
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
-	<div><%= f.label :イベント名 %></div>
+	<div><%= f.label :タイトル %></div>
 	<%= f.text_field :event_name, placeholder: "", :size => "80%" %>
 
-	<div><%= f.label :イベントタイトル %></div>
+	<div><%= f.label :サブタイトル %></div>
 	<%= f.text_field :event_title, placeholder: "", :size => "80%" %>
 	<hr>
 
-	<p>〇〇って何してる会社？</p>
-	<%= f.text_area :event_question, placeholder: "", :size => "80%" %>
-	<p>アンサー</p>
+	<!-- <p>〇〇って何してる会社？</p> -->
+	<%#= f.text_area :event_question, value: "", :size => "80%" %>
+
+	<p>会社説明</p>
 	<%= f.text_area :event_description, placeholder: "", :size => "80%"  %>
 	<hr>
 

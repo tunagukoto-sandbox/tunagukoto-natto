@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     create_table :events do |t|
     	t.string	:event_name #イベント名
       t.text    :event_title
-      t.text    :event_question 
+      # t.text    :event_question 
     	t.text		:event_description # イベント説明
     	t.string	:event_location #イベント場所
     	t.string	:event_cost # 参加費
