@@ -14,7 +14,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string  :event_president # 社長名
       t.string  :event_president_birth_day #誕生日
       t.string  :event_motto #座右の銘
-    	t.string	:google_form # 参加フォーム
+    	#t.string	:google_form # 参加フォーム
       t.integer :tag_id
 
       t.timestamps

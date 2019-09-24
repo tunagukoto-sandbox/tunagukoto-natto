@@ -55,14 +55,14 @@
 	<%= f.number_field :event_population ,min: 0 ,max:1000, step:5 %> <br>
 	<hr>
 
-	<div><%= f.label :応募URL %></div>
-	<%= f.text_field :google_form, placeholder: "", :size => "40%" %>
-	<hr>
+<!-- 	<div><%#= f.label :応募URL %></div>
+	<%#= f.text_field :google_form, placeholder: "", :size => "40%" %>
+	<hr> -->
 
-	<div><%= f.label :イベントのトップの写真 %></div>
+	<div><%= f.label :トップ画面のイベントの写真 %></div>
 	<%= f.file_field :event_top_image, accept: "image/png, image/jpeg, image/gif" %>
 
-	<div><%= f.label :イベント詳細の写真 %></div>
+	<div><%= f.label :イベント詳細画面イベントの写真 %></div>
 	<%= f.file_field :event_show_image, accept: "image/png, image/jpeg, image/gif" %>
 	<hr>
 	<div>
