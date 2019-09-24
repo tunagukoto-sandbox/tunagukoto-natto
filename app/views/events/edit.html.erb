@@ -1,2 +1,91 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<% if admin_signed_in?  %>
+<%= form_for @event do |f| %>
+	<div class="container">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+	<div><%= f.label :タイトル %></div>
+	<%= f.text_field :event_name, placeholder: "", :size => "80%" %>
+
+	<div><%= f.label :サブタイトル %></div>
+	<%= f.text_field :event_title, placeholder: "", :size => "80%" %>
+	<hr>
+
+	<!-- <p>〇〇って何してる会社？</p> -->
+	<%#= f.text_area :event_question, value: "", :size => "80%" %>
+
+	<p>会社説明</p>
+	<%= f.text_area :event_description, placeholder: "", :size => "80%"  %>
+	<hr>
+
+	<div><%= f.label :社長の顔 %></div>
+	<%= f.file_field :president_image, accept: "image/png, image/jpeg, image/gif" %>
+
+	<p>会社名</p>
+	<%= f.text_field :event_company_name, placeholder: ""  %>
+
+	<p>社長名</p>
+	<%= f.text_field :event_president, placeholder: ""  %>
+
+	<p>座右の銘</p>
+	<%= f.text_field :event_motto, placeholder: ""  %>
+	<hr>
+
+	<div><%=  f.label :社長の誕生日 %></div>
+	<%= f.text_field :event_president_birth_day ,placeholder: "1997年10月26日" %>
+
+	<div><%= f.label :イベント開催地 %></div>
+	<%= f.text_field :event_location, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
+
+	<div><%=  f.label :参加費 %></div>
+	<%= f.text_field :event_cost, value: "無料", :size => "30*60" %>
+
+	<div><%= f.label :開催時間 %></div>
+  	<%= f.date_select(
+        :event_time, 
+        use_month_numbers: true,
+        start_year: Time.now.year,
+        end_year: (Time.now.year + 2),
+        default: Time.now,
+        date_separator: '/') %>
+
+	<div><%=  f.label :開催時間詳細 %></div>
+	<%= f.text_field :event_time_detail, placeholder: "17:30 ~ 20:30" , :size => "30*60" %>
+
+	<div><%=  f.label :応募人数 %></div>
+	<%= f.number_field :event_population ,min: 0 ,max:1000, step:5 %> <br>
+	<hr>
+
+	<div><%= f.label :応募URL %></div>
+	<%= f.text_field :google_form, placeholder: "", :size => "40%" %>
+	<hr>
+
+	<div><%= f.label :イベントのトップの写真 %></div>
+	<%= f.file_field :event_top_image, accept: "image/png, image/jpeg, image/gif" %>
+
+	<div><%= f.label :イベント詳細の写真 %></div>
+	<%= f.file_field :event_show_image, accept: "image/png, image/jpeg, image/gif" %>
+	<hr>
+	<div>
+		<h2>タグ</h2>
+	   	<%= f.collection_radio_buttons(:tag, Tag.all, :id, :tag_name, include_hidden: false) do |b| %>
+	      <%= b.label { b.radio_button + b.text } %>
+	    <% end %>
+	</div>
+	<hr>
+	<div>
+		<h2>サブタグ(複数選択可)</h2>
+	    <%= f.collection_check_boxes(:sub_tag_ids, SubTag.all, :id, :sub_tag_name, include_hidden: false) do |b| %>
+	      <%= b.label { b.check_box + b.text } %>
+	    <% end %>
+	</div>
+	<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+	</div>
+	</div>
+	</div>
+	<%end%>
+</div>
+
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

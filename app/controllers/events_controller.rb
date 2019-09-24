@@ -41,7 +41,20 @@ class EventsController < ApplicationController
   end
 
   def update
-     @event = Event.find(params[:id])
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    @event.event_time = event_time
+
+    sub_tag_ids, sub_tag_ok = sub_tag_params
+    @event.tag_id = params[:event]["tag"].to_i
+
+    if @event.save
+      make_relation(@event.id, sub_tag_ids, sub_tag_ok)
+      redirect_to root_path
+    else
+      redirect_to edit_event_path(@event.id)
+    end
+
   end
 
   def auto_delete_event
