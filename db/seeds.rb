@@ -2,6 +2,14 @@
 Admin.create(email: "tunagukoto@gmail.com", password: "tunagu2019")
 Admin.create(email: "natto-test@gmail.com", password: "password")
 
+# Student.create!(name: "gonza", email: "ka.baseball1997@gmail.com", password: "gonza1026")
+
+5.times{ 
+Question.create(
+    title: "クエスチョン",
+    q_body: "あああああああああああああああああああああああああああああああああああ",
+    student_id: 1
+)}
 # 会社テスト
 Corporation.create(
      name: "一般社団法人ツナグコト", email: "tunagukoto@gmail.com", password: "tunagu2019",

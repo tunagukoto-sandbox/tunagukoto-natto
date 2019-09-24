@@ -3,6 +3,11 @@ class HomeController < ApplicationController
   	@events = Event.all
     @quests = Quest.all
     @s_count = Student.count
+    if Question.count < 4
+      @questions = Question.all
+    else 
+      @questions = Question.last(3)
+    end
   	# @busi_cons = BusinessContest.all
   end
 

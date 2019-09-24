@@ -6,6 +6,12 @@
 	font-size: 2em;
 }
 
+.event_explanation{
+	color:#cc7000 ;
+	text-align: center;
+	font-size: 1.2em;
+}
+
 .event_parent {
   position: relative;
 }
