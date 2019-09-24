@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 	#   delete "logout", :to => "students/sessions#destroy"
 	# end
 
-	devise_for :admins, :controllers => {
+	devise_for :admins, :controllers => {      
 	  :sessions => 'admins/sessions'   
 	} 
 
