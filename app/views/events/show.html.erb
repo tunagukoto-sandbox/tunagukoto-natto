@@ -36,12 +36,12 @@
 		<div class="col-sm-2 col-md-2"></div>
 		<div class="col-sm-8 col-md-8">
 		<div class="row">
-			<div class="col-sm-4 col-md-4">
+			<div class="col-xs-4 col-lg-4">
 			    <% if @event.president_image.attached? %>
 			        <%= image_tag @event.president_image.variant(resize:'200x200').processed%>
 			    <% end %>
 			</div>
-		    <div class="col-sm-8 col-md-8">
+		    <div class="col-xs-8 col-lg-8">
 			    <div style="padding-top: 10px;"><%= @event.event_company_name %></div>
 			    <% if @event.tag.uuid == 1 %>
 			    <p style="font-weight: 800; font-size: 1.2em;">代表取締役</p>
