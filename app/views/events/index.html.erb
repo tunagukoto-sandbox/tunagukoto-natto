@@ -5,9 +5,6 @@
 	<div><%= e.event_location %></div>
 	<div><%= e.event_cost %></div>
 	<div><%= e.event_time %></div>
-	<% e.tags.each do |tag| %>
-		<%= tag.tag_name %>
-	<% end %>
 	<% e.sub_tags.each do |sub_tag| %>
 		<%= sub_tag.sub_tag_name %>
 	<% end %>
