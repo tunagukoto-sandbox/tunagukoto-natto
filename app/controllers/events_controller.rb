@@ -49,6 +49,7 @@ class EventsController < ApplicationController
     @event.tag_id = params[:event]["tag"].to_i
 
     if @event.save
+      event_sub_tag_delete_all(@event.id)
       make_relation(@event.id, sub_tag_ids, sub_tag_ok)
       redirect_to root_path
     else
@@ -91,6 +92,13 @@ end
       # costの中身をint型に変換
       # google_form のフォーマットは正しいか？
     end
+
+
+    def event_sub_tag_delete_all(event_id)
+      @event_sub_tags = EventSubTag.where(event_id: event_id)
+      @event_sub_tags.delete_all
+    end
+
 
     def event_params
       params.require(:event)
