@@ -8,8 +8,6 @@ class Event < ApplicationRecord
 	has_one_attached :president_image
 
 	def self.delete_event(event)
-		event_tag = EventTag.where(event_id: event.id)
-		event_tag.delete_all if event_tag != nil 
 		event_sub_tag = EventSubTag.where(event_id: event.id)
 		event_sub_tag.delete_all if event_sub_tag != nil
 	end
