@@ -17,20 +17,20 @@
 	<%= f.text_area :event_description, placeholder: "", :size => "80%"  %>
 	<hr>
 
-	<div><%= f.label :社長の顔 %></div>
+	<div><%= f.label :登壇者の顔写真 %></div>
 	<%= f.file_field :president_image, accept: "image/png, image/jpeg, image/gif" %>
 
-	<p>会社名</p>
+	<p>会社名または登壇者名</p>
 	<%= f.text_field :event_company_name, placeholder: ""  %>
 
-	<p>社長名</p>
+	<p>社長名または登壇者名</p>
 	<%= f.text_field :event_president, placeholder: ""  %>
 
 	<p>座右の銘</p>
 	<%= f.text_field :event_motto, placeholder: ""  %>
 	<hr>
 
-	<div><%=  f.label :社長の誕生日 %></div>
+	<div><%=  f.label :登壇者の誕生日 %></div>
 	<%= f.text_field :event_president_birth_day ,placeholder: "1997年10月26日" %>
 
 	<div><%= f.label :イベント開催地 %></div>
