@@ -10,14 +10,13 @@
 	<%= f.text_field :event_title, placeholder: "", :size => "80%" %>
 	<hr>
 
-	<!-- <p>〇〇って何してる会社？</p> -->
-	<%#= f.text_area :event_question, value: "", :size => "80%" %>
-
-	<p>会社説明</p>
+	<p>会社説明またはイベント詳細</p>
+	<p>キャリアコネクション、ガクショク等はそのイベントのコンテンツを入力してください。</p>
+	<hr>
 	<%= f.text_area :event_description, placeholder: "", :size => "80%"  %>
 	<hr>
 
-	<div><%= f.label :登壇者の顔写真 %></div>
+	<p>登壇者の顔写真</p>
 	<%= f.file_field :president_image, accept: "image/png, image/jpeg, image/gif" %>
 
 	<p>会社名または登壇者名</p>
@@ -55,9 +54,6 @@
 	<%= f.number_field :event_population ,min: 0 ,max:1000, step:5 %> <br>
 	<hr>
 
-<!-- 	<div><%#= f.label :応募URL %></div>
-	<%#= f.text_field :google_form, placeholder: "", :size => "40%" %>
-	<hr> -->
 
 	<div><%= f.label :トップ画面のイベントの写真 %></div>
 	<%= f.file_field :event_top_image, accept: "image/png, image/jpeg, image/gif" %>
