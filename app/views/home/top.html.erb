@@ -82,7 +82,8 @@
     <div class="paddind-buttom"></div>
     <div class="question">Question</div>
     <div class="question_explanation">新着の質問はこちら</div>
-    <hr>    <div class="row">
+    <hr>    
+    <div class="row">
     <% @questions.each do |q| %>
         <div class="col-sx-12 col-lg-4 center">
             <div class="card" >
@@ -100,7 +101,7 @@
                 <p class="card-text">
                     <%= q.q_body %>
                 </p>
-                <a href="#" class="card-link">Card link</a>
+                <%= link_to "答える", new_question_comment_path(question_id: q.id), class: "card-link" %>
               </div>
             </div>
         </div>
