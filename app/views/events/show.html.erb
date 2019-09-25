@@ -5,7 +5,7 @@
 	<% end %>
 	<div class="row">
 	<% @sub_tags.each do |st| %>
-		<div class="col-lg-2 col-xs-4 sub_tag"><%= st.sub_tag_name %></div>
+		<div class="col-xs-3 col-lg-2 sub_tag"><%= st.sub_tag_name %></div>
 		<%end%>
 	</div>
 	<div class="row event_show_parent event_show_padding">
@@ -24,7 +24,12 @@
 		<div class="event_show_company_detail"></div>
 		<div class="col-sm-2 col-md-2"></div>
 		<div class="col-sm-8 col-md-8" style="text-align: center;">
-			<p style="font-weight: bold; font-size: 1.4em;">【<%= @event.event_company_name %>って何してる会社？】</p>
+			<p style="font-weight: bold; font-size: 1.4em;">
+			<% if @event.tag.uuid == 1 %>
+				【<%= @event.event_company_name %>って何してる会社？】
+			<% else %>
+				【<%= @event.event_company_name %>って何してるヒト？】
+			</p>
 			<p style="font-size: 1.3em;">
 				<%= @event.event_description %>
 			</p>
