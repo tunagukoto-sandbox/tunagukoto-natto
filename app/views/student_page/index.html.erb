@@ -9,7 +9,9 @@
 			<div class="row student_detail_padding">
 	        <% @students.each do |s| %>
 				<div class="col-sm-2 col-md-2 student_detail_fonts">
-				<p class="student_detail_fonts"><%= link_to "#{s.first_name} #{s.last_name}", student_page_path(s) %></p>
+				<p class="student_detail_fonts">
+					<%= link_to "#{s.first_name} #{s.last_name}あああ", student_page_path(s) %>
+				</p>
 				</div><!-- ./col-sm-12 col-md-12 event_detail_fonts -->
 	        <% end %>
 			</div><!-- ./row event_detail_padding -->
