@@ -35,7 +35,7 @@
 						<% if student.my_image.attached? %>
 							<%= image_tag  student.my_image.variant(resize:'300x300').processed, class: "my_image-round"%>
 						<% end %>
-						<%= student.name %>
+						<%= student.first_name %>
 					<% end %>
 				</div>
 			<% end %>

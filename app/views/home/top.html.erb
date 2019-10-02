@@ -90,7 +90,7 @@
               <div class="card-body">
                 <h5 class="card-title">
                     <% if q.student_id != nil %>
-                        <%= q.student.name %>さんの質問です
+                        <%= q.student.first_name %>さんの質問です
                     <% elsif q.corporation_id != nil %>  
                         <%= q.corporation.name %>さんの質問です
                     <% end %> 

@@ -2,7 +2,7 @@
 	<div class="question_box">
 	<div style="font-weight: 700; font-size: 1.4em; padding-bottom: 10px;"><%= @question.title  %></div>
 	<% if @question.student  != nil %>
-		<p>投稿者：<%= @question.student.name %>さん</p>
+		<p>投稿者：<%= @question.student.first_name %>さん</p>
 	<% end %>
 	<% if @question.corporation  != nil %>
 		<p>投稿者：<%= @question.corporation.name %>さん</p>
