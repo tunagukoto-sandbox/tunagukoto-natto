@@ -7,12 +7,28 @@
 			<div class="question_box">
 				<div class="row">
 					<div class="col-sm-2 col-md-2">
+						<% if student_signed_in? && q.student != nil && q.student_id == current_student.id %>
+							<%= link_to "削除",question_path(q.id), method: :delete  %>
+							<%= link_to "編集",edit_question_path(q.id), method: :get  %>
+						<% end %>
+
+						<% if corporation_signed_in? && q.corporation != nil && q.corporation_id == current_corporation.id %>
+							<%= link_to "削除",question_path(q.id), method: :delete  %>
+							<%= link_to "編集",edit_question_path(q.id), method: :get  %>
+						<% end %>
+
+						<% if admin_signed_in? %>
+							<%= link_to "削除",question_path(q.id), method: :delete  %>
+						<% end %>	
+
 						<% if q.student  != nil %>
 							<div class="align_center"><%= q.student.first_name %></div>
 						<% end %>
+
 						<% if q.corporation  != nil %>
 							<div class="align_center"><%= q.corporation.name %></div>
 						<% end %>
+
 					</div>
 					<div class="col-sm-8 col-md-8">
 						<%= link_to question_path(q.id) do %>

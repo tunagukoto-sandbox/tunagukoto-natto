@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(version: 2019_09_18_051714) do
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "event_name"
     t.text "event_title"
-    t.text "event_question"
     t.text "event_description"
     t.string "event_location"
     t.string "event_cost"
@@ -117,7 +116,6 @@ ActiveRecord::Schema.define(version: 2019_09_18_051714) do
     t.string "event_president"
     t.string "event_president_birth_day"
     t.string "event_motto"
-    t.string "google_form"
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -154,7 +152,8 @@ ActiveRecord::Schema.define(version: 2019_09_18_051714) do
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "major_subject"

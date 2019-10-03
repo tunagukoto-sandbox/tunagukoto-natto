@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to root_path
     else
-      # もう一回newのパスに
+      redirect_to new_question_path
     end
   end
 
@@ -24,12 +24,25 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @question = Question.find(params[:id])
+    @comments = Comment.where(question_id: @question.id)
+    @comments.destroy_all
+    @question.delete
+    redirect_to root_path
   end
 
   def update
+    @question = Question.find(params[:id])
+    @question.update(question_params)
+    if @question.save?
+      redirect_to  edit_question_path(@question.id)
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
+    @question = Question.find(params[:id])
   end
 
   def show
