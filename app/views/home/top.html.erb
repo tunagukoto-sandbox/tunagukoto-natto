@@ -67,8 +67,8 @@
                                 <p><%= q.title %></p>
                                 </div>
                             </div>
-                            <% if q.quest_image.attached? %>
-                                <%= image_tag q.quest_image, class: "quest_top_img" %>
+                            <% if q.company_logo.attached? %>
+                                <%= image_tag q.company_logo, class: "quest_top_img" %>
                             <% else %>
                                 <div class="quest_top_right_left">画像がありません</div>
                             <% end %>

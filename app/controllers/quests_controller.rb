@@ -7,6 +7,7 @@ class QuestsController < ApplicationController
     @quest = Quest.new(quest_params)
     if @quest.save
       @quest.uuid = create_uuid(@quest)
+      @quest.save
       redirect_to home_admin_top_path
     else
       redirect_to new_business_contest

@@ -15,6 +15,12 @@
 		</div><!-- ./col-sm-12 col-md-12 -->
 	</div><!-- ./event_show_title -->
 
+	<% if @quest.quest_image.attached? %>
+	<div class="center">
+		<%= image_tag @quest.quest_image, class: "quest_top_img" %>
+	</div>
+	<% end %>
+
 	<div class="row quest_show_parent event_show_padding">
 		<div class="quest_show_company_detail"></div>
 		<div class="col-sm-3 col-md-3"><div class="quest_company_name">【詳細】</div></div>
