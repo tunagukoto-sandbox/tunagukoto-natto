@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   	get 'home/policy'
 
+  	get 'home/privacy'
+
  	get 'home/admin_top'
 
  	get 'home/admin_event'
