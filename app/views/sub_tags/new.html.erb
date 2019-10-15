@@ -1,11 +1,15 @@
 <% if admin_signed_in? %>
 	<div class="container">
+		<div class="row">
 		<% @sub_tags.each do |st| %>
+			<div class="col-lg-4 col-md-6">
 				<%= st.sub_tag_name %>
 				<%= st.sub_tag_detail %>
 				<%= link_to "編集",  edit_sub_tag_path(st.id), class: "btn btn-success btn-lg",  method: :get %>
 				<%= link_to "削除", sub_tag_path(st.id), class: "btn btn-danger btn-lg", method: :delete %>
+			</div>
 		<% end %>
+		</div>
 	</div>
 	<hr>
 	<div class="container">
