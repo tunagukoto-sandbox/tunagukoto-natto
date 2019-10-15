@@ -1,48 +1,44 @@
-<%# if admin_signed_in? || corporation_signed_in?  %> <!-- サービスリリース時に解禁 -->
-	<div class="container fluid">
-	    <p class="student_top" >登録学生</p>
-	    <p class="student_top" style="display: inline;">プロフィール</p> 
+<div class="container fluid">
+	<p class="student_top" >登録学生</p>
+	<p class="student_top" style="display: inline;">プロフィール</p> 
 
 	<p><%= link_to "←学生一覧", student_page_index_path, class: "student_all_back" %></p>
 	<% if student_signed_in? && current_student == @student %>
 		<%= link_to "プロフィールを編集する",edit_student_registration_path(params[:id]) %>
 	<% end %>
 	<div class="student_details_box">
-			<div class="row student_detail_padding">
-				<div class="col-sm-8 col-md-8 student_detail_fonts">
+		<div class="row student_detail_padding">
+			<div class="col-sm-8 col-md-8 student_detail_fonts">
 
-					<p class="student_labels_title">名前</p>
-					<p class="student_detail_fonts">
-						<%= @student.first_name %>
-						<%= @student.last_name %>
-					</p>
-	                <p class="student_labels_title">大学名</p>
-					<p class="student_detail_fonts"><%= @student.school.school_name %></p>       
-	                <p class="student_labels_title" >学部名（研究科名）</p>
-	                <p class="student_detail_fonts"><%= @student.major_subject %></p>
-	                <p class="student_labels_title">学年</p>
-					<p class="student_detail_fonts"><%= @student.entrance_year %></p>
-	                <p class="student_labels_title">出身地</p>
-					<p class="student_detail_fonts"><%= @student.home_town %></p>
-	                <p class="student_labels_title">部活・サークル</p>
-					<p class="student_detail_fonts"><%= @student.club %></p>                
-	                <p class="student_labels_title">アルバイト経験</p>
-					<p class="student_detail_fonts"><%= @student.experienced_jobs %></p>
-	                <p class="student_labels_title">趣味・特技</p>
-					<p class="student_detail_fonts"><%= @student.hobbies %></p>
-	                <p class="student_labels_title">自己紹介メッセージ</p>
-					<p class="student_detail_fonts"><%= @student.introduction %></p>
-	                <p class="student_labels_title">自由記入欄</p>
-					<p class="student_detail_fonts"><%= @student.free_space %></p>
-				</div><!-- ./col-sm-9 col-md-9 event_detail_fonts -->
-				<div class="col-sm-3 col-md-3 student_detail_fonts">
-					<% if @student.my_image.attached? %>
-						<%= image_tag  @student.my_image.variant(resize:'300x300').processed, class: "my_image-round"%>
-					<% end %>	
-				</div>			
-			</div><!-- ./row event_detail_padding -->
-		</div><!-- ./event_details_box -->
-	</div><!-- ./container fluid -->
-<%# else %>
-	<h1>まだこのページはお使いにはなれません</h1><!-- サービスリリース時に解禁 -->
-<%# end %>
+				<p class="student_labels_title">名前</p>
+				<p class="student_detail_fonts">
+					<%= @student.first_name %>
+					<%= @student.last_name %>
+				</p>
+				<p class="student_labels_title">大学名</p>
+				<p class="student_detail_fonts"><%= @student.school.school_name %></p>       
+	            <p class="student_labels_title" >学部名（研究科名）</p>
+	            <p class="student_detail_fonts"><%= @student.major_subject %></p>
+	            <p class="student_labels_title">学年</p>
+				<p class="student_detail_fonts"><%= @student.entrance_year %></p>
+	            <p class="student_labels_title">出身地</p>
+				<p class="student_detail_fonts"><%= @student.home_town %></p>
+	            <p class="student_labels_title">部活・サークル</p>
+				<p class="student_detail_fonts"><%= @student.club %></p>                
+	            <p class="student_labels_title">アルバイト経験</p>
+				<p class="student_detail_fonts"><%= @student.experienced_jobs %></p>
+	            <p class="student_labels_title">趣味・特技</p>
+				<p class="student_detail_fonts"><%= @student.hobbies %></p>
+	            <p class="student_labels_title">自己紹介メッセージ</p>
+				<p class="student_detail_fonts"><%= @student.introduction %></p>
+	            <p class="student_labels_title">自由記入欄</p>
+				<p class="student_detail_fonts"><%= @student.free_space %></p>
+			</div><!-- ./col-sm-9 col-md-9 event_detail_fonts -->
+			<div class="col-sm-3 col-md-3 student_detail_fonts">
+				<% if @student.my_image.attached? %>
+					<%= image_tag  @student.my_image.variant(resize:'300x300').processed, class: "my_image-round"%>
+				<% end %>	
+			</div>			
+		</div><!-- ./row event_detail_padding -->
+	</div><!-- ./event_details_box -->
+</div><!-- ./container fluid -->
