@@ -6,9 +6,11 @@
 
 	<div class="row">
 		<% @sub_tags.each do |st| %>
-			<div class="col-md-4 col-lg-2 sub_tag">
+		<div class="sub_tag">
+			<div class="col-md-4 col-lg-2">
 				<%= st.sub_tag_name %>
 			</div>
+		</div>
 		<%end%>
 	</div>
 
