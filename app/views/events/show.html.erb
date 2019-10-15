@@ -84,27 +84,27 @@
 	<div class="event_details_box">
 		<div class="row event_detail_padding">
 			<div class="col-sm-6 col-md-6 event_detail_fonts">
-				<p>【開催日】</p>
-				<p>&ensp;&ensp;<%= @event.event_time %></p>
-				<p>&ensp;&ensp;<%= @event.event_time_detail %></p>
-				<h style="font-size: 7px;">※当日の進行により多少前後する場合がございます</h>
+				<p style="font-size: 2.3em;">【開催日】</p>
+				<p style="font-size: 2.0em;">&ensp;&ensp;<%= @event.event_time %></p>
+				<p style="font-size: 2.0em;">&ensp;&ensp;<%= @event.event_time_detail %></p>
+				<h style="font-size: 1.5em;">※当日の進行により多少前後する場合がございます</h>
 			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
 			<div class="col-sm-6 col-md-6 event_detail_fonts">
 				<div>
-				<h>【参加費】</h>
-				<% if @event.event_cost == 0 || @event.event_cost == "無料" %>
-					<p style="color: red;">&ensp;&ensp;<%= @event.event_cost %></p>
-				<% else %>
-					<p>&ensp;&ensp;￥：<%= @event.event_cost %></p>
-				<% end %>
-				<p>&ensp;&ensp;食事付き</p>
+					<h style="font-size: 2.3em;">【参加費】</h>
+					<% if @event.event_cost == 0 || @event.event_cost == "無料" %>
+						<p style="color: red; font-size: 2.3em;">&ensp;&ensp;<%= @event.event_cost %></p>
+					<% else %>
+						<p style="font-size: 2.0em;">&ensp;&ensp;￥：<%= @event.event_cost %></p>
+					<% end %>
+					<p>&ensp;&ensp;食事付き</p>
 				</div>
 				<div>
-				<h>【募集人数】</h>
+					<h style="font-size: 2.3em;">【募集人数】</h>
 					<% if @event.event_population == nil %>
-						<p>&ensp;&ensp;未定</p>
+						<p style="font-size: 2.0em;">&ensp;&ensp;未定</p>
 					<% else %>
-						<p>&ensp;&ensp;約<%= @event.event_population %>名</p>
+						<p style="font-size: 2.0em;">&ensp;&ensp;約<%= @event.event_population %>名</p>
 					<% end %>
 				</div>
 			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
