@@ -50,23 +50,6 @@
 		<div class="col-sm-2 col-md-2"></div>
 		<% end %>
 	</div>
-	<h1 style="text-align: center; font-weight: 800;">学校一覧</h1>
-	<div class="row">
-		<%  @schools.each do |s|%>
-		<div class="col-sm-2 col-md-2"></div>
-			<div class="col-sm-8 col-md-8">
-				<table class="table">
-				    <tbody>
-				        <tr>
-				        	<td><%= s.school_name %></td>
-				        </tr>
-				    </tbody>
-				</table>
-			</div>
-		<div class="col-sm-2 col-md-2"></div>
-		<% end %>
-	</div>
-
 <% else %>
 
 <h1 style="text-align: center; font-weight: 900;">404 Page Not Found</h1>
