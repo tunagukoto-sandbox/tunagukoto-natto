@@ -19,18 +19,18 @@ class Corporations::SessionsController < Devise::SessionsController
   #   super
   # end
 
-    protected
+  protected
 
-  def current_corporation_is_admin?
-    corporation_signed_in? && current_corporation.has_attribute?(:admin)
-  end
-
-  def sign_in(resource_name, resource)
-    sign_in(resource_name, resource)
-    if !current_corporation_is_admin?
-      sign_in(resource_name, resource)
+    def current_corporation_is_admin?
+      corporation_signed_in? && current_corporation.has_attribute?(:admin)
     end
-  end
+
+    def sign_up(resource_name, resource)
+      # sign_in(resource_name, resource)
+      if !current_corporation_is_admin?
+        sign_in(resource_name, resource)
+      end
+    end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
