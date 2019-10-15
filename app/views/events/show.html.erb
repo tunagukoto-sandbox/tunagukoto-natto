@@ -6,11 +6,11 @@
 
 	<div class="row">
 		<% @sub_tags.each do |st| %>
-		<div style="margin-right: 10px; margin-left: 10px;">
 			<div class="col-md-4 col-lg-2 sub_tag">
-				<%= st.sub_tag_name %>
+				<div style="margin-right: 10px; margin-left: 10px;">
+					<%= st.sub_tag_name %>
+				</div>
 			</div>
-		</div>
 		<%end%>
 	</div>
 
@@ -67,9 +67,9 @@
 			    <div style="font-size: 2.5em;">
 			    	<%= @event.event_president %>
 			    </div>
-			    <p style="font-size: 2.8em;">誕生日</p>
+				<!-- <p style="font-size: 2.8em;">誕生日</p> -->
 			    <div style="font-size: 2.5em;">
-			    	<%= @event.event_president_birth_day %>
+			    	誕生日&ensp; <%= @event.event_president_birth_day %>
 			    </div>
 			    <p style="font-size: 2.8em;">座右の銘</p>
 			    <div style="font-size: 2.5em;">
