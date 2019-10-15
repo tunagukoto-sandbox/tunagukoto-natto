@@ -1,5 +1,5 @@
 .tag_desc{
-	font-size: 1.5em;
+	font-size: 2.5em;
 	font-weight: 700;
 	color: #444444	;
 	text-align: center;
@@ -7,13 +7,13 @@
 }
 
 p#tag_info{
-	font-size: 1.3em;
+	font-size: 2.0em;
 	font-weight: 700;
 	color: black;
 }
 
 p#tag_body{
-	font-size: 1.2em;
+	font-size: 2.0em;
 	font-weight: 400;
 	color: black;
 }
