@@ -3,10 +3,17 @@
 		<% @hash.each do |event_name, event_customer| %>
 			<h1 style="text-align: center;"><%= event_name %></h1>
 			<div ><% event_customer.each do |customer| %>
-				<%= customer.email %>
-				<%= customer.name %>
-				<%= School.find(customer.school_id).school_name %>
-				<%= customer.tel %>
+				<table class="table">
+				    <tbody>
+				        <tr>
+				            <th>2</th>
+				            <td><%= customer.email %></td>
+				            <td><%= customer.name %></td>
+				            <td><%= School.find(customer.school_id).school_name %></td>
+				            <td><%= customer.tel %></td>
+				        </tr>
+				    </tbody>
+				</table>
 			<% end %>
 			</div>
 		<% end %>
@@ -15,3 +22,5 @@
 		<div class="padding_full"></div>
 	<% end %>
 </div>
+
+
