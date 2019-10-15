@@ -19,6 +19,7 @@ class HomeController < ApplicationController
   end
 
   def admin_event
+    @events = Event.all
     @hash = {}
     Event.all.each do |e|
       @hash.merge!(e.event_name => EventCustomer.where(event_id: e.id))

@@ -13,6 +13,8 @@ class EventCustomersController < ApplicationController
   end
 
   def destroy
+    @event_customer = EventCustomer.find(params[:id])
+    @event_customer.delete
   end
 
   private 

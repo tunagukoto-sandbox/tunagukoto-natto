@@ -1,24 +1,36 @@
 <div class="container">
 	<% if admin_signed_in? %>
-		<% @hash.each do |event_name, event_customer| %>
-			<h3 style="text-align: center;"><%= event_name %></h3>
-			<div ><% event_customer.each do |customer| %>
-				<table class="table">
-				    <tbody>
-				        <tr>
-				            <td><%= customer.email %></td>
-				            <td><%= customer.name %></td>
-				            <td><%= School.find(customer.school_id).school_name %></td>
-				            <td><%= customer.tel %></td>
-				        </tr>
-				    </tbody>
-				</table>
-			<% end %>
-			</div>
-			<p>参加者メールアドレス一覧</p>
-			<% event_customer.each do |ec| %>
-				<%= ec.email %>,
-			<% end %>
+		<% @events.each do |e| %>
+			<h1><%= e.event_name %></h1>
+			<% @events_customers = EventCustomer.where(event_id: e.id)%>
+			<div class="col-12 ">
+			    <table class="table">
+			        <thead>
+			            <tr>
+			                <th>氏名</th>
+			                <th>メールアドレス</th>
+			                <th>所属</th>
+			                <th>電話番号</th>
+			            </tr>
+			        </thead>
+			        <% @events_customers.each do |ec| %>
+				        <tbody>
+				            <tr>
+				                <td><%= ec.name %></td>
+				                <td><%= ec.email %></td>
+				                <td><%= ec.school.school_name %></td>
+				                <td><%= ec.tel %></td>
+				            </tr>
+				        </tbody>
+			        <% end %>
+			    </table>
+			    <div>
+			    	参加者メールアドレス一覧<br>
+			    	<% @events_customers.each do |ec| %>
+			    	<%= ec.email %>,
+			    	<% end %>
+			    </div>
+		    </div>
 		<% end %>
 	<% else %>
 		<h1 style="text-align: center; font-weight: 900;">404 Page Not Found</h1>
@@ -26,4 +38,9 @@
 	<% end %>
 </div>
 
-
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
