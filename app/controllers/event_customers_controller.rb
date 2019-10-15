@@ -15,6 +15,7 @@ class EventCustomersController < ApplicationController
   def destroy
     @event_customer = EventCustomer.find(params[:id])
     @event_customer.delete
+    redirect_to home_admin_event_path
   end
 
   private 
