@@ -3,11 +3,15 @@
 	<%= link_to "編集する", edit_event_path(@event.id), class: "btn btn-success btn-lg btn-block" %>
 	<%= link_to "削除する", event_path(@event.id), method: :delete, class: "btn btn-danger btn-lg btn-block" %>
 	<% end %>
+
 	<div class="row">
-	<% @sub_tags.each do |st| %>
-		<div class="col-xs-3 col-lg-2 sub_tag"><%= st.sub_tag_name %></div>
+		<% @sub_tags.each do |st| %>
+			<div class="col-md-3 col-lg-2 sub_tag">
+				<%= st.sub_tag_name %>
+			</div>
 		<%end%>
 	</div>
+
 	<div class="row event_show_parent event_show_padding">
 		<div class="event_show_title"></div>
 		<div class="col-sm-12 col-md-12" style="font-weight: bold;">
