@@ -1,5 +1,9 @@
-<% if admin_signed_in? || corporation_signed_in?  %> <!-- サービスリリース時に解禁 -->
+<% if admin_signed_in? || corporation_signed_in?  %> 
+<!-- サービスリリース時に解禁 -->
 	<div class="container fluid">
+		<% if corporation_signed_in? && current_corporation.id == @company.id %>
+			<%= link_to "プロフィールを編集する", edit_corporation_registration_path, class: "btn btn-success btn-lg btn-block"  %>
+		<% end %>
 	    <p class="company_top" >登録企業</p>
 	    <p class="company_top" style="display: inline;">詳細</p> 
 
