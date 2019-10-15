@@ -4,21 +4,23 @@
 
 <div class="paddind-buttom"></div>
 <%= image_tag'natto_header.png', class: "img-full-responsive" %>
-<div class="container fluid">
+<div class="container-fluid">
 
     <div class="paddind-buttom"></div>
     <div class="event">Event</div>
     <div class="event_explanation">開催予定のイベントはこちら</div>
     <hr>
-    <div class="row event_parent " style="margin-left: 50px; margin-right: 50px;">
-        <div class="event_box "></div>
+
+    <div class="event_parent" style="margin-left: 50px; margin-right: 50px;">
+        <div class="event_box"></div>
+        <div class="row">
         <% @events.each do |e| %>
             <%= link_to event_path(e.id) do %>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sx-12 col-md-12">
                 <div class="event_content_box">       
-                    <div class="card "> 
+                    <div class="card"> 
                         <% if e.event_top_image.attached? %>
-                        <%= image_tag e.event_top_image.variant(resize:'300x500').processed ,class: "card-img-top"%>
+                            <%= image_tag e.event_top_image.variant(resize:'300x500').processed ,class: "card-img-top"%>
                         <% end %>
                         <div class="card-body">
                             <h5 class="card-title">
@@ -38,17 +40,21 @@
                                     <%= e.event_time.month %> 月 
                                 <% end %>
                             </h5>
-                            <h6 class="card-subtitle text-muted" style="text-align: center;"><%= e.event_time.strftime("%Y年%m月%d日") %>開催</h6>
-                            <p class="card-text"><!-- A card is a flexible and extensible content container. It includes ... --></p>
+                            <h6 class="card-subtitle text-muted" style="text-align: center; font-size: 2.0em;"><%= e.event_time.strftime("%Y年%m月%d日") %>開催
+                            </h6>
+                            <p class="card-text">
+                            </p>
                             <a href="#" class="card-link"><!-- Card link --></a>
                         </div>
                     </div>
                 </div>
             </div>
             <% end %>
-
         <% end %>
+        </div>
     </div><!-- /.row event_parent-->
+
+
     <div class="paddind-buttom"></div>
     <div class="quest">Quest</div>
     <div class="quest_explanation">企業からの依頼にチャレンジしよう</div>
@@ -78,6 +84,7 @@
             </div><!-- ./col-sm-6 col-md-6 -->
         <% end %>
     </div><!-- ./row quest_parent -->
+
 
     <div class="paddind-buttom"></div>
     <div class="question">Question</div>

@@ -1,51 +1,51 @@
 <% if admin_signed_in? %>
-
   <p>あなたは今、管理者としてログインしています<br>
     一度ログアウトした後に新規登録のページに戻ってください
   </p>
   <%= link_to "サインアウトする", destroy_admin_session_path, method: :delete %>
 <% else %>
-<div class="container">
-  <h2>新規登録</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :お名前 %><br />
-      <%= f.text_field :first_name, autofocus: true, placeholder:  "ツナグ" %>
-      <%= f.text_field :last_name, autofocus: true, placeholder:  "太郎" %>
-    </div>
+  <div class="container">
+    <h2 style="text-align: center; font-weight: 600; font-size: 3.0em; padding-top: 20px;">新規登録</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :メールアドレス %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+      <div class="field">
+        <p style="font-size: 1.5em;">お名前</p>
+        <%= f.text_field :first_name, autofocus: true, placeholder:  "ツナグ" %>
+        <%= f.text_field :last_name, autofocus: true, placeholder:  "太郎" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :パスワード %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
+      <div class="field">
+        <p style="font-size: 1.5em;">メールアドレス</p>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :確認用パスワード %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-    <div><%= f.label :トプ画像 %></div>
-      <%= f.file_field :my_image, accept: "image/png, image/jpeg, image/gif" %>
+      <div class="field">
+        <p style="font-size: 1.5em;">パスワード</p>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-    <div>
-      <div><%= f.label :所属を選択してください %></div>
-        <%= f.collection_radio_buttons(:school_id, School.all, :id, :school_name, include_hidden: false) do |b| %>
-          <%= b.label { b.radio_button + b.text } %>
-        <% end %>
-    </div>
-    <div class="actions">
-      <%= f.submit "登録する",class:'btn btn-primary btn-lg' %>
-    </div>
-  <%= render "students/shared/links" %>
-</div>
-  <% end %>
+      <div class="field">
+        <p style="font-size: 1.5em;">パスワード(上記と同じパスワード)</p>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+      <p style="font-size: 1.5em;">トップ画像</p>
+        <%= f.file_field :my_image, accept: "image/png, image/jpeg, image/gif" %>
+
+      <div>
+        <p style="font-size: 1.5em;">所属を選択してください</p>
+          <%= f.collection_radio_buttons(:school_id, School.all, :id, :school_name, include_hidden: false) do |b| %>
+            <%= b.label { b.radio_button + b.text } %>
+          <% end %>
+      </div>
+      <div class="actions">
+        <%= f.submit "新規登録する",class:'btn btn-primary btn-lg' %>
+      </div>
+    <%= render "students/shared/links" %>
+    <% end %>
+  </div>
 <% end %>
