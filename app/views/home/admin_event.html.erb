@@ -1,12 +1,11 @@
 <div class="container">
 	<% if admin_signed_in? %>
 		<% @hash.each do |event_name, event_customer| %>
-			<h1 style="text-align: center;"><%= event_name %></h1>
+			<h3 style="text-align: center;"><%= event_name %></h3>
 			<div ><% event_customer.each do |customer| %>
 				<table class="table">
 				    <tbody>
 				        <tr>
-				            <th>2</th>
 				            <td><%= customer.email %></td>
 				            <td><%= customer.name %></td>
 				            <td><%= School.find(customer.school_id).school_name %></td>
