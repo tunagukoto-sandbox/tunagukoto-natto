@@ -2,9 +2,9 @@
 <% if admin_signed_in? %>
 
 	<div style="font-size: 1.5em;"><%= link_to "イベント発行", new_event_path %></div>
-	<div style="font-size: 1.5em;"><%= link_to "クエスト発行", new_quest_path %></div>
 	<div style="font-size: 1.5em;"><%= link_to "現在のイベント", home_admin_event_path %></div>
-	<div style="font-size: 1.5em;"><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></div>
+	<div style="font-size: 1.5em;"><%= link_to "クエスト発行", new_quest_path %></div>
+	<!-- <div style="font-size: 1.5em;"><%#= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></div> -->
 	<div style="font-size: 1.5em;"><%= link_to "会社登録", new_corporation_registration_path %></div>
 	<div style="font-size: 1.5em;"><%= link_to "サブタグ発行", new_sub_tag_path %></div>
 	<div style="font-size: 1.5em;"><%= link_to "学校発行", new_school_path %></div>
