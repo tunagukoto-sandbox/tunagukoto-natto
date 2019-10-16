@@ -26,12 +26,12 @@
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", value: "password" %>
       </div>
 
       <div class="field">
         <p style="font-size: 1.5em;">パスワード(上記と同じパスワード)</p>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", value: "password" %>
       </div>
       <p style="font-size: 1.5em;">トップ画像</p>
         <%= f.file_field :my_image, accept: "image/png, image/jpeg, image/gif" %>
