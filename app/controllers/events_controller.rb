@@ -136,7 +136,7 @@ end
     end
 
     def event_select(event)
-      event_select = "#{event.event_time.month}"+"月"+"#{event.tag.tag_name}"+"#{event.event_company_name}"
+      event_select = "#{event.event_time.month}"+"月"+"#{event.tag.tag_name}"+"【#{event.event_company_name}】"
       return event_select
     end
 
