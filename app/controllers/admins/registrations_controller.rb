@@ -28,6 +28,12 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # def destroy
   #   super
   # end
+  # def destroy
+  #   #super
+  #   Student.find(params[:id]).destroy
+  #   flash[:success] = "学生登録者を削除しました。"
+  #   redirect_to root_path
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

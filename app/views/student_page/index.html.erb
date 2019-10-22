@@ -10,9 +10,6 @@
 					<p class="student_detail_fonts">
 						<%= link_to "#{s.first_name} #{s.last_name}", student_page_path(s) %>
 					</p>
-					<% if admin_signed_in? %>
-						<%= link_to "アカウントを削除する", student_registration_path, method: :delete %>
-					<% end %>
 				</div><!-- ./col-sm-12 col-md-12 event_detail_fonts -->
 		   	<% end %>
 		</div><!-- ./row event_detail_padding -->

@@ -26,9 +26,18 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    #super
+    # Student.find(params[:id]).destroy
+    # flash[:success] = "学生登録者を削除しました。"
+    # redirect_to root_path
+
+    if current_user == resource && current_user.admin?
+      #flash[:error] == "You can't delete yourself"
+      redirect_to user_path(resource)
+    else
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
