@@ -28,23 +28,16 @@
                             <%= link_to "ログアウト", destroy_student_session_path, method: :delete, class: "nav-link", style:"font-weight: 900; font-size: 1.2em;" %>
                         </li>
                     <% else %>
-                        <% if !admin_signed_in? %>
-                            <li class="nav-item">
-                                <%= link_to "新規登録", new_student_registration_path, class: "nav-link", style:"font-weight: 900; font-size: 1.2em;" %>
-                            </li>
-                        <% end %>               
+                        <li class="nav-item">
+                            <%= link_to "新規登録", new_student_registration_path, class: "nav-link", style:"font-weight: 900; font-size: 1.2em;" %>
+                        </li>  
+                        <li class="nav-item">
+                            <%= link_to "ログイン", new_student_session_path, class: "nav-link", style:"font-weight: 900; font-size: 1.2em;" %>
+                        </li>            
                     <% end %>
                     <% if corporation_signed_in? %>
                         <li class="nav-item">
                             <%= link_to "ログアウト", destroy_corporation_session_path, method: :delete,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
-                        </li>
-                    <% end %>
-                    <% if admin_signed_in? %>
-                        <li class="nav-item">
-                            <%= link_to "管理者トップ", home_admin_top_path,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
-                        </li>
-                        <li class="nav-item">
-                            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
                         </li>
                     <% end %>
                 </ul>
