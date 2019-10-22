@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 	
 	resources :events
 
-	resources :event_customers, only: [:new, :create, :destroy]
+	resources :event_customers, only: [:new, :create, :destroy, :edit, :update]
 
 	resources :sub_tags
 

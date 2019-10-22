@@ -1,0 +1,35 @@
+<!-- navbar-light bg-lightで色を指定 -->
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+    <a class="navbar-brand" href="#">Natto</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav w-100 nav-justified">
+            <li class="nav-item">
+                <%= link_to "管理者トップ", home_admin_top_path,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to '学生一覧', student_page_index_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to '企業一覧', company_page_index_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'クエスト発行', new_quest_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'イベント発行', new_event_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'イベント参加者一覧', home_admin_event_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="font-weight: 900; font-size: 1.2em;" href="http://tunagu.or.jp/">ホームページ</a>
+            </li>
+        </ul>
+    </div><!-- ./collapse navbar-collapse -->
+</div><!-- ./container -->

@@ -9,22 +9,26 @@
     <h2 style="text-align: center; font-weight: 600; font-size: 3.0em; padding-top: 20px;">新規登録</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-
+      <p style="text-align: center; font-weight: 700; color: grey; font-size: 2.0em;">
+        登録がすでにお済みの方は
+        <%= link_to "こちらへ",new_student_session_path %>
+      </p>
+      <hr>
       <div class="field">
         <p style="font-size: 1.5em;">お名前</p>
-        <%= f.text_field :first_name, autofocus: true, placeholder:  "ツナグ" %>
-        <%= f.text_field :last_name, autofocus: true, placeholder:  "太郎" %>
+        <%= f.text_field :first_name, autofocus: true, placeholder:  "ツナグ" ,size: "40%"%>
+        <%= f.text_field :last_name, autofocus: true, placeholder:  "太郎", size: "40%" %>
       </div>
 
       <div class="field">
         <p style="font-size: 1.5em;">メールアドレス</p>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:  "tunagukoto@gmail.com", size: "60%" %>
       </div>
 
       <div class="field">
         <p style="font-size: 1.5em;">パスワード</p>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>最低6文字</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
@@ -33,17 +37,18 @@
         <p style="font-size: 1.5em;">パスワード(上記と同じパスワード)</p>
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
-      <p style="font-size: 1.5em;">トップ画像</p>
+      <p style="font-size: 1.5em;">トプ画像</p>
         <%= f.file_field :my_image, accept: "image/png, image/jpeg, image/gif" %>
 
       <div>
         <p style="font-size: 1.5em;">所属を選択してください</p>
-          <%= f.collection_radio_buttons(:school_id, School.all, :id, :school_name, include_hidden: false) do |b| %>
-            <%= b.label { b.radio_button + b.text } %>
-          <% end %>
+          <%#= f.collection_radio_buttons(:school_id, School.all, :id, :school_name, include_hidden: false) do |b| %>
+            <%#= b.label { b.radio_button + b.text } %>
+          <%# end %>
+          <%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
       </div>
       <div class="actions">
-        <%= f.submit "新規登録する",class:'btn btn-primary btn-lg' %>
+        <%= f.submit "新規登録",class:'btn btn-primary btn-lg', style: "margin: 5px;" %>
       </div>
     <%= render "students/shared/links" %>
     <% end %>

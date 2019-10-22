@@ -18,6 +18,20 @@ class EventCustomersController < ApplicationController
     redirect_to home_admin_event_path
   end
 
+  def edit
+    @event_customer = EventCustomer.find(params[:id])
+  end
+
+  def update
+    @event_customer = EventCustomer.find(params[:id])
+    @event_customer.update(event_customer_params)
+    if @event_customer.save
+      redirect_to home_admin_top_path
+    else
+      redirect_to edit_event_customer_path(@event_customer.id)
+    end
+  end
+  
   private 
 	def event_customer_params
 	  	params.require(:event_customer)

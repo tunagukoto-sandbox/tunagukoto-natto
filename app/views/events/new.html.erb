@@ -1,86 +1,96 @@
 <% if admin_signed_in?  %>
+<%#= image_tag'event_sample.png', class: "img-full-responsive" %>
 <%= form_for @event do |f| %>
 	<div class="container">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
-	<div><%= f.label :タイトル %></div>
-	<%= f.text_field :event_name, placeholder: "", :size => "80%" %>
+	<div class="col-md-3"></div>
+		<div class="col-md-8">
+			<h3 style="text-align: center;"> イベント発行</h3>
+			<h4 style="color: red; font-weight: 700;">
+				シャショク10月登壇企業、浜西電気様を参考に入力フォームを埋めてください
+			</h4>
+			<%= link_to "浜西電気様サンプルはこちらへ", "https://tunagukoto2019.slack.com/archives/CMCC91G66/p1567592288000100" %>
+			<div>
+			<hr>
+				<h4>●イベントの種類を選んでください</h4>
+				<h style="color: red;">ここをチェックしないとイベントを新しく発行できません</h>
+				<br>
+			   	<%= f.collection_radio_buttons(:tag, Tag.all, :id, :tag_name, include_hidden: false) do |b| %>
+			      <b><%= b.label { b.radio_button + b.text } %></b>
+			    <% end %>
+			</div>
+			<div>●タイトル</div>
+			<%= f.text_field :event_name, placeholder: "一流企業との取引+制御盤のスペシャリスト", :size => "80%" %>
 
-	<div><%= f.label :サブタイトル %></div>
-	<%= f.text_field :event_title, placeholder: "", :size => "80%" %>
-	<hr>
+			<div>●サブタイトル</div>
+			<%= f.text_field :event_title, placeholder: "顧客にも働く人にも選ばれ続ける会社となる", :size => "80%" %>
 
-	<p>会社説明またはイベント詳細</p>
-	<p>キャリアコネクション、ガクショク等はそのイベントのコンテンツを入力してください。</p>
-	<hr>
-	<%= f.text_area :event_description, placeholder: "", :size => "80%"  %>
-	<hr>
+			<p>●会社説明またはイベント詳細</br>
+			キャリアコネクション、ガクショク等はそのイベントのコンテンツを入力してください。</p>
+			(チラシ右下部をここに書く)
+			<%= f.text_area :event_description,
+			 placeholder: "浜西電気は制御盤の設計、製作から配線工事、調節まで一貫して作業を行なっています。女性のしなやかさと繊細な作業により品質、生産スピードの安定を確立。リピート品の製造と受注生産の二本柱で着実に業績を伸ばし、様々な業界の一流企業との直接取引を実現しています
+			 " , :size => "100%"  %>
 
-	<p>登壇者の顔写真</p>
-	<%= f.file_field :president_image, accept: "image/png, image/jpeg, image/gif" %>
+			●登壇者の顔写真
+			<%= f.file_field :president_image, accept: "image/png, image/jpeg, image/gif" %>
+			<br>
+			●会社名または登壇者名
+			<%= f.text_field :event_company_name, placeholder: "株式会社浜西電気"  %>
+			<br>
+			●社長名または登壇者名
+			<%= f.text_field :event_president, placeholder: "匹田　治樹様"  %>
+			<br>
+			●座右の銘
+			<%= f.text_field :event_motto, placeholder: "石橋を叩いて渡る"  %>
+			<br>
+			●登壇者の誕生日
+			<%= f.text_field :event_president_birth_day ,placeholder: "1997年10月26日" %>
+			<br>
+			●イベント開催地
+			<%= f.text_field :event_location, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
+			<br>
+			●参加費
+			<%= f.text_field :event_cost, value: "無料", :size => "30*60" %>
+			<br>
+			●開催時間
+		  	<%= f.date_select(
+		        :event_time, 
+		        use_month_numbers: true,
+		        start_year: Time.now.year,
+		        end_year: (Time.now.year + 2),
+		        default: Time.now,
+		        date_separator: '/') %>
+			<br>
+			●開催時間詳細
+			<%= f.text_field :event_time_detail, placeholder: "17:30 ~ 20:30" , :size => "30*60" %>
+			<br>
+			●応募人数
+			<%= f.number_field :event_population ,min: 0 ,max:1000, step:5 ,value: 20 %>
+			<hr>
 
-	<p>会社名または登壇者名</p>
-	<%= f.text_field :event_company_name, placeholder: ""  %>
 
-	<p>社長名または登壇者名</p>
-	<%= f.text_field :event_president, placeholder: ""  %>
+			<div>●トップ画面のイベントの写真</div>
+			<%= f.file_field :event_top_image, accept: "image/png, image/jpeg, image/gif" %>
 
-	<p>座右の銘</p>
-	<%= f.text_field :event_motto, placeholder: ""  %>
-	<hr>
-
-	<div><%=  f.label :登壇者の誕生日 %></div>
-	<%= f.text_field :event_president_birth_day ,placeholder: "1997年10月26日" %>
-
-	<div><%= f.label :イベント開催地 %></div>
-	<%= f.text_field :event_location, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
-
-	<div><%=  f.label :参加費 %></div>
-	<%= f.text_field :event_cost, value: "無料", :size => "30*60" %>
-
-	<div><%= f.label :開催時間 %></div>
-  	<%= f.date_select(
-        :event_time, 
-        use_month_numbers: true,
-        start_year: Time.now.year,
-        end_year: (Time.now.year + 2),
-        default: Time.now,
-        date_separator: '/') %>
-
-	<div><%=  f.label :開催時間詳細 %></div>
-	<%= f.text_field :event_time_detail, placeholder: "17:30 ~ 20:30" , :size => "30*60" %>
-
-	<div><%=  f.label :応募人数 %></div>
-	<%= f.number_field :event_population ,min: 0 ,max:1000, step:5 %> <br>
-	<hr>
-
-
-	<div><%= f.label :トップ画面のイベントの写真 %></div>
-	<%= f.file_field :event_top_image, accept: "image/png, image/jpeg, image/gif" %>
-
-	<div><%= f.label :イベント詳細画面イベントの写真 %></div>
-	<%= f.file_field :event_show_image, accept: "image/png, image/jpeg, image/gif" %>
-	<hr>
-	<div>
-		<h2>タグ</h2>
-	   	<%= f.collection_radio_buttons(:tag, Tag.all, :id, :tag_name, include_hidden: false) do |b| %>
-	      <%= b.label { b.radio_button + b.text } %>
-	    <% end %>
-	</div>
-	<hr>
-	<div>
-		<h2>サブタグ(複数選択可)</h2>
-	    <%= f.collection_check_boxes(:sub_tag_ids, SubTag.all, :id, :sub_tag_name, include_hidden: false) do |b| %>
-	      <%= b.label { b.check_box + b.text } %>
-	    <% end %>
-	</div>
-	<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
-	</div>
+			<div>●イベント詳細画面イベントの写真</div>
+			<%= f.file_field :event_show_image, accept: "image/png, image/jpeg, image/gif" %>
+			<hr>
+			<hr>
+			<div>
+				<h4>●サブタグ(複数選択可)</h4>
+			    <%= f.collection_check_boxes(:sub_tag_ids, SubTag.all, :id, :sub_tag_name, include_hidden: false) do |b| %>
+			      <%= b.label { b.check_box + b.text } %>
+			    <% end %>
+			</div>
+		<%=f.submit '発行する', class: 'btn btn-primary btn-lg btn-block', data: { confirm: '
+			新しくイベントを発行します。
+			新しく発行したイベントはtopページから見ることができます。
+			また管理者はイベントを詳細ページから編集、削除することができます。' } %>
+		</div>
 	</div>
 	</div>
 	<%end%>
 </div>
-
 <% else %>
 	<%= link_to "ホームに戻る", root_path %>
 	<div class="page_not_found"> 404 page not found</div>
