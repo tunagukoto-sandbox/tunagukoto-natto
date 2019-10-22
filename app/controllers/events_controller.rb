@@ -13,6 +13,7 @@ class EventsController < ApplicationController
       make_relation(@event.id, sub_tag_ids, sub_tag_ok)
       @event.event_select = event_select(@event)
       @event.save
+      flash[:success] = 'イベントを新しく作成しました'
       redirect_to root_path
     else
       redirect_to new_event_path
