@@ -5,7 +5,8 @@
 
 		<p>イベントを選択してください</p>
 		<div class="cp_ipselect cp_sl01">
-			<%= f.collection_select :event_id, Event.all, :id, :event_name, class: 'form-control'  %>
+			<%#= f.collection_select :event_id, Event.all, :id, :event_name, class: 'form-control'  %>
+			<%= f.collection_select :event_id, Event.all, :id, :event_select, class: 'form-control'  %>
 		</div>
 
 
