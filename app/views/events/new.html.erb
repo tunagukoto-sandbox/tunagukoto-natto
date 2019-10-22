@@ -34,6 +34,9 @@
 			●登壇者の顔写真
 			<%= f.file_field :president_image, accept: "image/png, image/jpeg, image/gif" %>
 			<br>
+			●登壇者の役職
+			<%= f.text_field :position, placeholder: "代表取締役" %>
+			<br>
 			●会社名または登壇者名
 			<%= f.text_field :event_company_name, placeholder: "株式会社浜西電気"  %>
 			<br>
@@ -82,7 +85,7 @@
 			      <%= b.label { b.check_box + b.text } %>
 			    <% end %>
 			</div>
-		<%=f.submit '発行する', class: 'btn btn-primary btn-lg btn-block', data: { confirm: '
+		<%=f.submit 'イベントを新規発行する', class: 'btn btn-primary btn-lg btn-block', data: { confirm: '
 			新しくイベントを発行します。
 			新しく発行したイベントはtopページから見ることができます。
 			また管理者はイベントを詳細ページから編集、削除することができます。' } %>

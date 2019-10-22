@@ -59,11 +59,14 @@
 			    <div style="padding-top: 10px; font-size: 2.7em;">
 			    	<%= @event.event_company_name %>
 			    </div>
-			    <% if @event.tag.uuid == 1 %>
+			<!--     <%# if @event.tag.uuid == 1 %>
 			    	<p style="font-size: 2.8em;">代表取締役</p>
-			    <% else %>
+			    <%# else %>
 			    	<p style="font-size: 2.0em;">登壇者</p>
-			    <% end %>
+			    <%# end %> -->
+
+			    <div style="font-size: 2.8em;"><%= @event.position %></div>
+
 			    <div style="font-size: 2.5em;">
 			    	<%= @event.event_president %>
 			    </div>

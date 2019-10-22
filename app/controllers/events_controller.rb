@@ -126,7 +126,8 @@ end
         # 詳細外部
         :event_top_image,
         :event_show_image,
-        :tag_id
+        :tag_id,
+        :position
 
         )
     end
