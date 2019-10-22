@@ -11,6 +11,8 @@ class EventsController < ApplicationController
     @event.tag_id = params[:event]["tag"].to_i
     if @event.save
       make_relation(@event.id, sub_tag_ids, sub_tag_ok)
+      @event.event_select = event_select(@event)
+      @event.save
       redirect_to root_path
     else
       redirect_to new_event_path
@@ -44,7 +46,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.update(event_params)
     @event.event_time = event_time
-
+    @event.event_select = event_select(@event)
+    @event.save
     sub_tag_ids, sub_tag_ok = sub_tag_params
     @event.tag_id = params[:event]["tag"].to_i
 
@@ -127,9 +130,14 @@ end
         :event_top_image,
         :event_show_image,
         :tag_id,
-        :position
-
+        :position,
+        :event_select
         )
+    end
+
+    def event_select(event)
+      event_select = "#{event.event_time.month}"+"月"+"#{event.tag.tag_name}"
+      return event_select
     end
 
     def event_top_resize
