@@ -72,7 +72,11 @@
 			    </div>
 				<!-- <p style="font-size: 2.8em;">誕生日</p> -->
 			    <div style="font-size: 2.5em;">
-			    	誕生日&ensp; <%= @event.event_president_birth_day %>
+				    <% if @event.tag.uuid == 1 %>
+				    	会社設立年度&ensp; <%= @event.event_president_birth_day %>
+				    <% elsif @event.tag.uuid == 2 %>
+				    	誕生日&ensp; <%= @event.event_president_birth_day %>
+				    <% end %>
 			    </div>
 			    <p style="font-size: 2.8em;">座右の銘</p>
 			    <div style="font-size: 2.5em;">
