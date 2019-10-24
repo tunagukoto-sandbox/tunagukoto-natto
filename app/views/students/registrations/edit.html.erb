@@ -22,7 +22,14 @@
     <%= f.label :入学年度 %><br />
     <%= f.number_field :entrance_year ,min: 2010 ,max: 2021, step:1 %>年
   </div>
+  <p style="font-size: 1.5em;">トプ画像</p>
+    <%= f.file_field :my_image, accept: "image/png, image/jpeg, image/gif" %>
 
+  <div>
+    <p style="font-size: 1.5em;">所属を選択してください</p>
+      <%= f.collection_select :school_id, School.where.not(school_name: "社会人"), :id, :school_name , class: 'form-control' %>
+  </div>
+  
   <div class="field">
     <%= f.label :出身県 %><br />
     <%= f.text_field :home_town, autofocus: true %>

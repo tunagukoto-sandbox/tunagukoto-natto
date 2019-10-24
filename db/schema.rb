@@ -120,7 +120,6 @@ ActiveRecord::Schema.define(version: 2019_10_22_050125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "position"
-    t.string "event_select_title"
     t.string "event_select"
   end
 
