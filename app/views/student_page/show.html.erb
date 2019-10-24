@@ -3,13 +3,12 @@
 	<p class="student_top" style="display: inline;">プロフィール</p> 
 
 	<p><%= link_to "←学生一覧", student_page_index_path, class: "student_all_back" %></p>
-	<% if student_signed_in? && current_student == @student %>
-		<%= link_to "プロフィールを編集する",edit_student_registration_path(params[:id]) %>
-	<% end %>
 	<div class="student_details_box">
 		<div class="row student_detail_padding">
 			<div class="col-sm-8 col-md-8 student_detail_fonts">
-
+			<% if student_signed_in? && current_student == @student %>
+				<%= link_to "プロフィールを編集する",edit_student_registration_path(params[:id]), class: "btn btn-success btn-lg" %>
+			<% end %>
 				<p class="student_labels_title">名前</p>
 				<p class="student_detail_fonts">
 					<%= @student.first_name %>
