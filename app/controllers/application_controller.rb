@@ -22,4 +22,18 @@ class ApplicationController < ActionController::Base
 	    end
 	  end
 
+
+	  #application_controller.rb
+		def authenticate_any!
+		    if admin_signed_in?
+		        true
+		    elsif student_signed_in?
+		    	true
+		    elsif corporation_signed_in?
+		    	true
+		    else
+		        authenticate_student! || authenticate_corporation!
+		    end
+		end
+
 end
