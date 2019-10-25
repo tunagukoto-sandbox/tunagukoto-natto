@@ -32,11 +32,11 @@ class Students::RegistrationsController < Devise::RegistrationsController
     # flash[:success] = "学生登録者を削除しました。"
     # redirect_to root_path
 
-    if current_user == resource && current_user.admin?
-      #flash[:error] == "You can't delete yourself"
-      redirect_to user_path(resource)
-    else
-    end
+    # if current_user == resource && current_user.admin?
+    #   #flash[:error] == "You can't delete yourself"
+    #   redirect_to user_path(resource)
+    # else
+    # end
   end
 
   # GET /resource/cancel
