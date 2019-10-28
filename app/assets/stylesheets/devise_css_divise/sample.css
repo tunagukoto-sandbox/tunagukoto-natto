@@ -1,36 +1,25 @@
-/*===============================================
-画面の横幅が769px以上（パソコン用）
-===============================================*/
-@media screen and (min-width: 769px){
+/*@media screen and (min-width: 769px){
 	.sample{
 		color:red;
 	}
 }
 
-/*===============================================
-画面の横幅が768pxまで（タブレット用）
-===============================================*/
 @media screen and (max-width: 768px){
 	.sample{
 		color:green;
 	}
 }
 
-/*===============================================
-画面の横幅が640pxまで（スマホ用）
-===============================================*/
-@media screen and (max-width:640px){
+@media screen and (max-width:480px){
 	.sample{
 		color:blue;
 	}
-}
+}*/
 
-/*@media only screen and (max-width: 979px) {
-     
+/*@media only screen and (max-width: 979px) {  
     header{
         Width:100%;
     }
- 
 } 
  
 @media only screen and (min-width: 321px) and (max-width: 768px) {
@@ -49,6 +38,3 @@
  
 }
 
-@import url(style.css) screen and (min-width: 769px); 
-@import url(smartphone.css) screen and (max-width: 768px);
-@import url(smart.css) screen and (max-width: 320px); */
