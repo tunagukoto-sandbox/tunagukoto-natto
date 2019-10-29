@@ -1,6 +1,16 @@
 class HomeController < ApplicationController
   def top
-  	@events = Event.all
+    @events = Event.all
+
+    # @first_event = Event.first
+    # e_count = Event.count
+
+    # if e_count >= 2
+    #   @event_left = Event.last(e_count-1)
+    # else 
+    #   @event_left = nil
+    # end
+    
     @quests = Quest.all
     @s_count = Student.count
     if Question.count < 4

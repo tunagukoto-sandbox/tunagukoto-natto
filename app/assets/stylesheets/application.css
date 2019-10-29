@@ -19,3 +19,7 @@
  .padding_full{
  	padding-bottom: 500px;
  }
+
+
+.single { max-width: 600px; margin: 0 auto 50px;}
+.single img{ width: 100%;}
