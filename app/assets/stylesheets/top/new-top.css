@@ -1,0 +1,18 @@
+.news{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #555555;
+    font-weight: 700;
+    font-size: 1.3em;
+    border: double 5px #4ec4d3;
+}
+.news p {
+    margin: 0; 
+    padding: 0;
+    text-align: center;
+}
+
+.divided_border{
+	border-top: inset 3px black;
+	/*border-bottom: inset 3px black;	*/
+}
