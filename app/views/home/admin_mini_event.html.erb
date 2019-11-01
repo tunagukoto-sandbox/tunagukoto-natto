@@ -1,0 +1,56 @@
+<div class="container">
+	<% if admin_signed_in? %>
+		<% @mini_events.each do |me| %>
+			<h1><%= me.title %></h1>
+			<p>参加報酬ポイント: <%= me.get_point %></p>
+			<p>参加消費ポイント: <%= me.pay_point %></p>			
+			<% @mini_events_customers = MiniEventCustomer.where(mini_event_id: me.id)%>
+			<div class="col-12 ">
+			    <table class="table">
+			        <thead>
+			            <tr>
+			                <th>氏名</th>
+			                <th>メールアドレス</th>
+			                <th>所属</th>
+			                <th>電話番号</th>
+			                <th></th>
+			            </tr>
+			        </thead>
+			        <% @mini_events_customers.each do |mec| %>
+				        <tbody>
+				            <tr>
+				                <td><%= mec.name %></td>
+				                <td><%= mec.email %></td>
+				                <td><%= mec.school.school_name %></td>
+				                <td><%= mec.phone_num %></td>
+				                <% if !mec.check %>
+					                <td><%= link_to "参加を確認しました", update_point_path(mec.id), method: :patch, class: "btn btn-danger"%>
+					                </td>
+				                <% else %>
+					                <td><%= link_to "参加を確認を取り消す", rollback_point_path(mec.id), method: :patch, class: "btn btn-danger"%>
+					                </td>
+				                <% end %>
+				            </tr>
+				        </tbody>
+			        <% end %>
+			    </table>
+			    <div>
+			    	参加者メールアドレス一覧<br>
+			    	<%# @events_customers.each do |ec| %>
+			    	<%#= ec.email %>
+			    	<%# end %>
+			    </div>
+		    </div>
+		<% end %>
+	<% else %>
+		<h1 style="text-align: center; font-weight: 900;">404 Page Not Found</h1>
+		<div class="padding_full"></div>
+	<% end %>
+</div>
+
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

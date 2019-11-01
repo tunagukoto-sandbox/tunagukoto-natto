@@ -4,15 +4,52 @@
     color: #555555;
     font-weight: 700;
     font-size: 1.3em;
-    border: double 5px #4ec4d3;
+    border: double 5px #696969;
 }
+
 .news p {
     margin: 0; 
     padding: 0;
     text-align: center;
 }
 
+
 .divided_border{
 	border-top: inset 3px black;
 	/*border-bottom: inset 3px black;	*/
+}
+
+h4#slide_title{
+/*    color: #F3FFD8;
+    font-weight: 700;*/
+    color: #F3FFD8;
+    font-size: 1.7em;
+    font-weight: 700;
+    text-shadow: 2px 2px 1px #696969,
+    -2px 2px 1px #696969,
+    2px -2px 1px #696969,
+    -2px -2px 1px #696969;
+}
+
+p#slide_comment{
+    color:  white;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-shadow: 2px 2px 1px black,
+    -2px 2px 1px black,
+    2px -2px 1px black,
+    -2px -2px 1px black;
+}
+
+.top_titles{
+    padding-top: 20px;
+    font-weight: 800;
+    color: #666666;
+    font-size: 1.8em;
+}
+
+.nav_obj{
+    font-weight: 500;
+    font-size: 1.5em; 
+    color: #555555;
 }

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  gold: false
+  silver: false
+  normal: false
+  ambassador: false
+  start_up: false
+
+two:
+  student_id: 1
+  gold: false
+  silver: false
+  normal: false
+  ambassador: false
+  start_up: false

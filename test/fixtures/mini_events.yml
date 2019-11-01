@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  student_id: 1
+  corporation_id: 1
+  detail: MyText
+  time: 2019-10-29
+  time_detail: MyString
+  cost: 1
+  requirement: MyText
+  get_point: 1
+  pay_point: 1
+  locate: MyString
+  invite_num: 1
+  mini_event_name: MyText
+  free_box: MyText
+
+two:
+  title: MyString
+  student_id: 1
+  corporation_id: 1
+  detail: MyText
+  time: 2019-10-29
+  time_detail: MyString
+  cost: 1
+  requirement: MyText
+  get_point: 1
+  pay_point: 1
+  locate: MyString
+  invite_num: 1
+  mini_event_name: MyText
+  free_box: MyText

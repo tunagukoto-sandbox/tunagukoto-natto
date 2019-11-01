@@ -1,26 +1,25 @@
 Rails.application.routes.draw do
-
   	root 'home#top'
 
   	get 'home/policy'
 
   	get 'home/privacy'
 
+  	get 'home/admin_mini_event'
+
  	get 'home/admin_top'
 
  	get 'home/admin_event'
+
+ 	patch 'mini_event_customer/update/:id', to: 'points#update_point', as: 'update_point'
+ 	patch 'mini_event_customer/rollback/:id', to: 'points#rollback_point', as: 'rollback_point'
+	post 'mini_events_customer', to: 'points#init', as: 'create_point'
 
 	devise_for :students, :controllers => {
 	  :registrations => 'students/registrations',
 	  :sessions => 'students/sessions'   
 	} 
 
-	# devise_scope :student do
-	#   get "student/:id", :to => "students/registrations#detail"
-	#   get "signup", :to => "students/registrations#new"
-	#   get "login", :to => "students/sessions#new"
-	#   delete "logout", :to => "students/sessions#destroy"
-	# end
 
 	devise_for :admins, :controllers => {      
 	  :sessions => 'admins/sessions'   
@@ -31,22 +30,12 @@ Rails.application.routes.draw do
 	  :sessions => 'corporations/sessions'   
 	} 
 
-	# devise_for :companies, :controllers => {
-	#   :registrations => 'companies/registrations',
-	#   :sessions => 'companies/sessions'   
-	# } 
-
-	# devise_scope :admin do
-	#   get "admin/:id", :to => "admins/registrations#detail"
-	#   get "signup", :to => "admins/registrations#new"
-	#   get "login", :to => "admins/sessions#new"
-	#   delete "logout", :to => "admins/sessions#destroy"
-	# end
 
 	resources :student_page, only: [:show, :index]
 	resources :company_page, only: [:show, :index]
 	
 	resources :events
+	resources :mini_events
 
 	resources :event_customers, only: [:new, :create, :destroy, :edit, :update]
 
@@ -55,6 +44,8 @@ Rails.application.routes.draw do
 	resources :schools
 
 	resources :quests
+
+	resources :mini_event_customers, only: [:new, :create, :destroy, :edit, :update]
 
 	# 以下質問箱
 	resources :questions do

@@ -6,5 +6,8 @@ class Student < ApplicationRecord
 	belongs_to :school
 	has_many :comments
 	has_many :questions
+	has_many :mini_events
+	# has_many :mini_event_customers
+	has_one :point
 	has_one_attached :my_image
 end

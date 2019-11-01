@@ -1,0 +1,2 @@
+module MiniEventsHelper
+end

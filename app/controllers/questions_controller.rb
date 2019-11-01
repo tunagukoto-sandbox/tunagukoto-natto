@@ -8,6 +8,9 @@ class QuestionsController < ApplicationController
 
     if params[:type] == "student"
         @question.student_id = params[:his_id].to_i
+        # student = current_student
+        # student.set_name("ごんざ")
+        # binding.pry
     elsif params[:type] == "corporation"
         @question.corporation_id = params[:his_id].to_i
     end

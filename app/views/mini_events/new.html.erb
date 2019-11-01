@@ -1,0 +1,73 @@
+<% if admin_signed_in?  %>
+<%= form_for @mini_event do |f| %>
+	<div class="container">
+	<div class="col-md-3"></div>
+		<div class="col-md-8">
+			<h3 style="text-align: center;"> イベント発行</h3>
+
+			<div>●タイトル</div>
+			<%= f.text_field :title, placeholder: "せかいしけいえい", :size => "80%" %>
+
+			<div>●画像</div>
+			<%= f.file_field :mini_event_img %><br>
+
+			<p>●イベント詳細。</p>
+			<%= f.text_area :detail,
+			 placeholder: "浜西電気は制御盤の設計、製作から配線工事、調節まで一貫して作業を行なっています。女性のしなやかさと繊細な作業により品質、生産スピードの安定を確立。リピート品の製造と受注生産の二本柱で着実に業績を伸ばし、様々な業界の一流企業との直接取引を実現しています
+			 " , :size => "100%"  %>
+
+			<br>
+			●イベント開催地
+			<%= f.text_field :locate, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
+			<br>
+			●参加費
+			<%= f.number_field :cost, :size => "30*60" %>
+						<br>
+			●イベント参加条件
+			<%= f.text_field :requirement,  :size => "80%" %>
+
+
+			<br>
+			●開催時間
+		  	<%= f.date_select(
+		        :time, 
+		        use_month_numbers: true,
+		        start_year: Time.now.year,
+		        end_year: (Time.now.year + 2),
+		        default: Time.now,
+		        date_separator: '/') %>
+			<br>
+			●開催時間詳細
+			<%= f.text_field :time_detail, placeholder: "17:30 ~ 20:30" , :size => "30*60" %>
+			<br>
+			●応募人数
+			<%= f.number_field :invite_num ,min: 0 ,max:1000, step:5 ,value: 20 %>
+			<br>
+			●参加報酬ポイント
+			<%= f.number_field :get_point, min: 0 ,max:1000 %>
+			<br>
+
+			●参加消費ポイント
+			<%= f.number_field :pay_point, min: 0 ,max:1000 %>
+
+			<hr>
+			●自由記入欄
+			<%= f.text_area :free_box, placeholder: "自由記入欄" , :size => "30*60" %>
+			<hr>
+			●トップに表示しますか？<br>
+			<label>
+			<%= f.radio_button :open, false %> 表示しない </label>
+			<label><%= f.radio_button :open, true %> 表示する</label>
+		<%=f.submit 'イベントを新規発行する', class: 'btn btn-primary btn-lg btn-block', data: { confirm: '
+			新しくイベントを発行します。
+			新しく発行したイベントはtopページから見ることができます。
+			また管理者はイベントを詳細ページから編集、削除することができます。' } %>
+		</div>
+	</div>
+	</div>
+	<%end%>
+</div>
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

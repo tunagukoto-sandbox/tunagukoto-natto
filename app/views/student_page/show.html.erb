@@ -14,6 +14,18 @@
 					<%= @student.first_name %>
 					<%= @student.last_name %>
 				</p>
+				現在のポイント
+				<% if @student.point == nil %>
+					<h>０</h>
+				<% else %>
+					<%= @student.point.having_point %>
+				<% end %>
+				過去最高ポイント
+				<% if @student.point == nil %>
+					<h>０</h>
+				<% else %>
+					<%= @student.point.max_point %>
+				<% end %>
 				<p class="student_labels_title">大学名</p>
 				<p class="student_detail_fonts"><%= @student.school.school_name %></p>       
 	            <p class="student_labels_title" >学部名（研究科名）</p>

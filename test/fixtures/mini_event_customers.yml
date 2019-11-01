@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mini_event_id: 1
+  student_id: 1
+  school_id: 1
+  name: MyString
+  email: MyString
+  phone_num: MyString
+
+two:
+  mini_event_id: 1
+  student_id: 1
+  school_id: 1
+  name: MyString
+  email: MyString
+  phone_num: MyString

@@ -25,6 +25,12 @@
                 <%= link_to 'イベント参加者一覧', home_admin_event_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
             </li>
             <li class="nav-item">
+                <%= link_to "イベント発行2", new_mini_event_path ,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'イベント2参加者一覧', home_admin_mini_event_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+            </li>
+            <li class="nav-item">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
             </li>
             <li class="nav-item">

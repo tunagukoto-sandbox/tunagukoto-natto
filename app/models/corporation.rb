@@ -4,5 +4,6 @@ class Corporation < ApplicationRecord
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   	has_many :comments
+  	has_many :mini_events
 	has_many :questions
 end

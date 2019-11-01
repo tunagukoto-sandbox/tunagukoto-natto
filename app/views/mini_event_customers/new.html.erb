@@ -1,0 +1,33 @@
+<%= form_for @mini_event_customer do |f| %>
+	<div class="container">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+
+		<p>ミニイベントを選択してください</p>
+		<div class="cp_ipselect cp_sl01">
+			<%#= f.collection_select :event_id, Event.all, :id, :event_name, class: 'form-control'  %>
+			<%= f.collection_select :mini_event_id, MiniEvent.all, :id, :title, class: 'form-control'  %>
+		</div>
+
+
+		<p>所属を選択してください</p>
+		<div class="cp_ipselect cp_sl01">
+			<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
+		</div>
+
+		<p>名前</p>
+		<%= f.text_field :name  %>
+
+		<p>メールアドレス</p>
+		<%= f.text_field :email %>
+
+		<p><%=  f.label :電話番号 %></p>
+		<%= f.text_field :phone_num, placeholder: "例) 080123456789", :size => "30*60" %>
+
+
+		<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+		</div>
+
+	</div>
+	</div>
+<% end %>

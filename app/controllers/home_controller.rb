@@ -1,15 +1,9 @@
 class HomeController < ApplicationController
   def top
     @events = Event.all
+    @e_count = Event.count - 1
 
-    # @first_event = Event.first
-    # e_count = Event.count
-
-    # if e_count >= 2
-    #   @event_left = Event.last(e_count-1)
-    # else 
-    #   @event_left = nil
-    # end
+    @show_mini_events = MiniEvent.where(open: true)
     
     @quests = Quest.all
     @s_count = Student.count
@@ -34,6 +28,14 @@ class HomeController < ApplicationController
     Event.all.each do |e|
       @hash.merge!(e.event_name => EventCustomer.where(event_id: e.id))
     end
+  end
+
+  def admin_mini_event
+    @mini_events = MiniEvent.all
+    @hash = {}
+    MiniEvent.all.each do |me|
+      @hash.merge!(me.title => MiniEventCustomer.where(mini_event_id: me.id))
+    end 
   end
 
   def policy

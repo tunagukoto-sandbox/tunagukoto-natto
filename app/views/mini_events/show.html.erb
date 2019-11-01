@@ -1,0 +1,67 @@
+<div class="container-fluid">
+	<% if admin_signed_in? %>
+	<%= link_to "編集する", edit_mini_event_path(@mini_event.id), class: "btn btn-success btn-lg btn-block" %>
+	<%= link_to "削除する", edit_mini_event_path(@mini_event.id), method: :delete, class: "btn btn-danger btn-lg btn-block", data: { confirm: '削除しますか？' } %>
+	<% end %>
+
+	<div class="row event_show_parent event_show_padding">
+		<div class="event_show_title"></div>
+		<div class="col-sm-12 col-md-12" style="font-weight: bold;">
+			<p style="text-align: center; font-size: 3.0em;"><%= @mini_event.title %></p>
+		</div><!-- ./col-sm-12 col-md-12 -->
+	</div><!-- ./event_show_title -->
+	<div>
+	    <% if @mini_event.mini_event_img.attached? %>
+	        <%#= image_tag @mini_event.mini_event_img.variant(resize:'400x600').processed ,class: "card-img-top" ,class: "card-img-top"%>
+	    <% end %>
+	</div>
+	<div class="row event_show_parent event_show_padding">
+		<div class="event_show_company_detail"></div>
+		<div class="col-sm-12 col-md-12" style="text-align: center;">
+
+			<p style="font-size: 2.2em;">
+				<%= @mini_event.detail %>
+			</p>
+		</div><!-- ./col-sm-8 col-md-8 -->
+	</div><!-- ./row event_show_parent event_show_padding -->
+
+
+	<div class="event_details_box">
+		<div class="row event_detail_padding">
+			<div class="col-sm-6 col-md-6 event_detail_fonts">
+				<p style="font-size: 2.3em;">【開催日】</p>
+				<p style="font-size: 2.0em;">&ensp;&ensp;<%= @mini_event.time %></p>
+				<p style="font-size: 2.0em;">&ensp;&ensp;<%= @mini_event.time_detail %></p>
+				<h style="font-size: 1.5em;">※当日の進行により多少前後する場合がございます</h>
+			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
+			<div class="col-sm-6 col-md-6 event_detail_fonts">
+				<div>
+					<h style="font-size: 2.3em;">【参加費】</h>
+					<% if @mini_event.cost == 0 %>
+						<p style="color: red; font-size: 2.3em;">&ensp;&ensp;無料></p>
+					<% else %>
+						<p style="font-size: 2.0em;">&ensp;&ensp;￥：<%= @mini_event.cost %></p>
+					<% end %>
+					<p style="font-size: 2.0em;">&ensp;&ensp;食事付き</p>
+				</div>
+				<div>
+					<h style="font-size: 2.3em;">【募集人数】</h>
+					<% if @mini_event.invite_num == nil %>
+						<p style="font-size: 2.0em;">&ensp;&ensp;未定</p>
+					<% else %>
+						<p style="font-size: 2.0em;">&ensp;&ensp;約<%= @mini_event.invite_num %>名</p>
+					<% end %>
+				</div>
+			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
+
+			<%= link_to "申し込む", new_mini_event_customer_path ,class: "btn btn-primary btn-lg btn-block"  %>
+
+		</div><!-- ./row event_detail_padding -->
+	</div><!-- ./event_details_box -->
+
+</div><!-- ./container fluid -->
+
+
+
+
+

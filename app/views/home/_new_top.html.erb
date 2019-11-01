@@ -1,31 +1,138 @@
-<div class="container">
+<h1 style="text-align: center; font-weight: 700;"> 
+    現在登録者 <%= @s_count %> 
+</h1>
+
+<div class="container-fluid">
+	<div style="margin-left:30px; margin-right:50px;">
 	<div class="row">
 		<div class="col-lg-8">
-			<p>ツナグコト認定優良企業</p>
-			<h1>comming Soon</h1>
-			<div>Nattoおすすめイベント</div>
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:800px">
+			  <!-- インジケータの設定 -->
+
+			    <ol class="carousel-indicators">
+			        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			        <% for num in 1..@e_count do %>
+			            <li data-target="#carouselExampleIndicators" data-slide-to="#{num}"></li>
+			        <% end %>
+			    </ol>
+
+			    <!-- スライドさせる画像の設定 -->
+			    <div class="carousel-inner">
+			        <% count = 1 %>
+			        <% @events.each do |e| %>
+			        <%= link_to event_path(e.id) do %>
+			            <% if count == 1 %>
+			                <div class="carousel-item active">
+			                    <% if e.event_top_image.attached? %>
+			                        <%= image_tag e.event_top_image ,class: "card-img-top"%>
+			                    <% end %>
+			                    <div class="carousel-caption d-none d-md-block">
+			                        <h4 id="slide_title">
+			                            <% if e.tag.uuid == 1 %>
+                                        	<%= e.event_time.month %> 月 シャショク
+                                		<% elsif e.tag.uuid == 2 %>
+                                        	<%= e.event_time.month %> 月　ガクショク
+                                		<% elsif e.tag.uuid == 3 %>
+                                        	<%= e.event_time.month %> 月 キャリアコネクション
+                                		<% else%>
+                                    		<%= e.event_time.month %> 月 
+                                		<% end %>
+                                	</h4>
+			                      <p id="slide_comment">
+			                      	<%= e.event_company_name %>
+			                      </p>
+			                    </div><!-- /.carousel-caption -->
+			                </div><!-- /.carousel-item -->
+			            <% else %>
+			                <div class="carousel-item">
+			                    <% if e.event_top_image.attached? %>
+			                        <%= image_tag e.event_top_image ,class: "card-img-top"%>
+			                    <% end %>
+			                    <div class="carousel-caption d-none d-md-block">
+			                        <h4 id="slide_title">
+			                            <% if e.tag.uuid == 1 %>
+                                        	<%= e.event_time.month %> 月 シャショク
+                                		<% elsif e.tag.uuid == 2 %>
+                                        	<%= e.event_time.month %> 月　ガクショク
+                                		<% elsif e.tag.uuid == 3 %>
+                                        	<%= e.event_time.month %> 月 キャリアコネクション
+                                		<% else%>
+                                    		<%= e.event_time.month %> 月 
+                                		<% end %>
+                                	</h4>
+			                      <p id="slide_comment">
+			                      	<%= e.event_company_name %>
+			                      </p>
+			                    </div><!-- /.carousel-caption -->
+			                </div><!-- /.carousel-item -->
+			            <% end %>
+			        <% count = count + 1 %>
+			        <% end %>
+			        <% end %>
+			    </div><!-- /.carousel-inner -->
+			    <!-- スライドコントロールの設定 -->
+
+			    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			    </a>
+			    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			    </a>
+			</div><!-- /.carousel -->
+			
+			<div class="top_titles">ツナグコト認定優良企業</div>
+			<div class="row" style="padding: 20px;">
+				<h1>comming Soon</h1>
+			</div>
+			<div class="top_titles">Nattoおすすめイベント</div>
+			<div class="row" style="padding: 20px;">
+				<% @show_mini_events.each do |me| %>
+				 <%= link_to mini_event_path(me.id) do %>
+				<div class="col-lg-4">
+					<div class="card" style="height: 450px;">
+				        <% if me.mini_event_img.attached? %>
+				            <%= image_tag me.mini_event_img ,class: "card-img-top" ,style: "max-height: 200px;" %>
+				        <% end %>
+					  	<div class="card-body">
+					  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
+						    <h4 class="card-title"><%= me.title %></h4>
+						    <p class="card-text" style= "height: 120px;">
+						    	<%= me.detail.truncate(50) %>
+						    </p>
+						    <a href="#" class="btn btn-outline-secondary">このイベントに参加する</a>
+					  	</div>
+					</div>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+			<div>イベント一覧を見る</div>
 			<h1>comming Soon</h1>
 		</div>
 		<div class="col-lg-4">
 			<div class="news">
 				<p>News</p><hr>
 			</div>
-			<div class="row divided_border">
-				<div class="col-lg-3"></div>
-				<div class="col-lg-7">
-					<h style="font-weight: 500; font-size: 1.5em; color: #555555;">Nattoで学ぶ</h><br>
-					<h>シャショク・ガクショク</h>
+			<%= link_to events_path do %>
+				<div class="row divided_border">
+					<div class="col-lg-3"></div>
+					<div class="col-lg-7">
+						<h style="font-weight: 500; font-size: 1.5em; color: #555555;">Nattoで学ぶ</h><br>
+						<h>シャショク・ガクショク</h>
+					</div>
+					<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
 				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
-			<div class="row divided_border">
-				<div class="col-lg-3"></div>
-				<div class="col-lg-7">
-					<h style="font-weight: 500; font-size: 1.5em; color: #555555;">Nattoで交流する</h><br>
-					<h>学生イベント</h>
+			<% end %>
+
+			<%= link_to mini_events_path do %>
+				<div class="row divided_border">
+					<div class="col-lg-3"></div>
+					<div class="col-lg-7">
+						<h style="font-weight: 500; font-size: 1.5em; color: #555555;">Nattoで交流する</h><br>
+						<h>学生イベント</h>
+					</div>
+					<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
 				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
+			<% end %>
+
 			<div class="row divided_border">
 				<div class="col-lg-3"></div>
 				<div class="col-lg-7">
@@ -34,13 +141,17 @@
 				</div>
 				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
 			</div>
-			<div class="row divided_border">
-				<div class="col-lg-3"></div>
-				<div class="col-lg-7">
-					<h style="font-weight: 500; font-size: 1.5em; color: #555555;">登録学生</h><br>
+
+			<%= link_to student_page_index_path do %>
+				<div class="row divided_border">
+					<div class="col-lg-3"></div>
+					<div class="col-lg-7">
+						<h style="font-weight: 500; font-size: 1.5em; color: #555555;">登録学生</h><br>
+					</div>
+					<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
 				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
+			<% end %>
+
 			<div class="row divided_border">
 				<div class="col-lg-3"></div>
 				<div class="col-lg-7">
@@ -48,6 +159,7 @@
 				</div>
 				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
 			</div>
+
 			<div class="row divided_border">
 				<div class="col-lg-3"></div>
 				<div class="col-lg-7">
@@ -75,5 +187,6 @@
 				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </div>

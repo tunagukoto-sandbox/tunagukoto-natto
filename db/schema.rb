@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_050125) do
+ActiveRecord::Schema.define(version: 2019_10_31_024552) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -123,6 +123,47 @@ ActiveRecord::Schema.define(version: 2019_10_22_050125) do
     t.string "event_select"
   end
 
+  create_table "mini_event_customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "mini_event_id"
+    t.integer "student_id"
+    t.integer "school_id"
+    t.string "name"
+    t.string "email"
+    t.string "phone_num"
+    t.boolean "check"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mini_events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.integer "student_id"
+    t.integer "corporation_id"
+    t.text "detail"
+    t.date "time"
+    t.string "time_detail"
+    t.integer "cost"
+    t.text "requirement"
+    t.integer "get_point"
+    t.integer "pay_point"
+    t.string "locate"
+    t.integer "invite_num"
+    t.text "mini_event_name"
+    t.text "free_box"
+    t.boolean "open"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "student_id"
+    t.string "student_name"
+    t.integer "max_point"
+    t.integer "having_point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title"
     t.text "q_body"
@@ -149,6 +190,17 @@ ActiveRecord::Schema.define(version: 2019_10_22_050125) do
 
   create_table "schools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "school_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "student_id"
+    t.boolean "gold"
+    t.boolean "silver"
+    t.boolean "normal"
+    t.boolean "ambassador"
+    t.boolean "start_up"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
