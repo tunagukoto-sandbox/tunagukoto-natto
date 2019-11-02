@@ -9,9 +9,9 @@
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:800px">
 			  <!-- インジケータの設定 -->
 			    <ol class="carousel-indicators">
-			        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="height: 20px;"></li>
 			        <% for num in 1..@e_count do %>
-			            <li data-target="#carouselExampleIndicators" data-slide-to="#{num}"></li>
+			            <li data-target="#carouselExampleIndicators" data-slide-to="#{num}" style="height: 20px;"></li>
 			        <% end %>
 			    </ol>
 			    <!-- スライドさせる画像の設定 -->

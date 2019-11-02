@@ -12,7 +12,7 @@ class MiniEventsController < ApplicationController
     if @mini_event.save
       redirect_to root_path
     else
-      redirect_to root_path
+      redirect_to new_mini_event_path
     end
   end
 
@@ -22,6 +22,12 @@ class MiniEventsController < ApplicationController
 
   def update
     @mini_event = MiniEvent.find(params[:id])
+    @mini_event.update(mini_event_params)
+    if @mini_event.save
+      redirect_to root_path
+    else
+      redirect_to new_mini_event_path
+    end
   end
 
   def index
@@ -34,6 +40,10 @@ class MiniEventsController < ApplicationController
 
   def destroy
     @mini_event = MiniEvent.find(params[:id])
+    @mini_event_customers = MiniEventCustomer.where(mini_event_id: @mini_event.id)
+    @mini_event_customers.delete_all
+    @mini_event.delete
+    redirect_to root_path
   end
 
   private

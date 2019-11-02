@@ -38,6 +38,12 @@ class HomeController < ApplicationController
     end 
   end
 
+  def natto
+  end
+
+  def others
+  end
+  
   def policy
   end
 

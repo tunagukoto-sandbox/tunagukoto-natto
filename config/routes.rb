@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
  	get 'home/admin_event'
 
+ 	get 'home/natto'
+
+ 	get 'home/others'
+
  	patch 'mini_event_customer/update/:id', to: 'points#update_point', as: 'update_point'
  	patch 'mini_event_customer/rollback/:id', to: 'points#rollback_point', as: 'rollback_point'
 	post 'mini_events_customer', to: 'points#init', as: 'create_point'
