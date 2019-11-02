@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.event_time = event_time
-
+    @event.finish = false
     sub_tag_ids, sub_tag_ok = sub_tag_params
     @event.tag_id = params[:event]["tag"].to_i
     if @event.save

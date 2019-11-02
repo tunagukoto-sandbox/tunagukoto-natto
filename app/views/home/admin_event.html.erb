@@ -1,7 +1,7 @@
 <div class="container">
 	<% if admin_signed_in? %>
 		<% @events.each do |e| %>
-			<h1><%= e.event_select %></h1>
+			<h1><%= link_to "#{e.event_select}", event_path(e.id) %></h1>
 			<p>取得ポイント：<%= e.get_point %></p>
 			<% @events_customers = EventCustomer.where(event_id: e.id)%>
 			<div class="col-12 ">
