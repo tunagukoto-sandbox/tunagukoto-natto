@@ -9,7 +9,7 @@ class EventCustomersController < ApplicationController
       @event_customer.student_id = current_student.id
       @event_customer.check = false
     end
-    binding.pry
+    #binding.pry
   	if @event_customer.save
   		redirect_to root_path
   	else
