@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_02_085238) do
+ActiveRecord::Schema.define(version: 2019_11_02_102341) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -140,6 +140,15 @@ ActiveRecord::Schema.define(version: 2019_11_02_085238) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mini_event_styles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "mini_event_id"
+    t.bigint "style_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mini_event_id"], name: "index_mini_event_styles_on_mini_event_id"
+    t.index ["style_id"], name: "index_mini_event_styles_on_style_id"
+  end
+
   create_table "mini_events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.integer "student_id"
@@ -244,6 +253,22 @@ ActiveRecord::Schema.define(version: 2019_11_02_085238) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
+  create_table "style_events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "style_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_style_events_on_event_id"
+    t.index ["style_id"], name: "index_style_events_on_style_id"
+  end
+
+  create_table "styles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "uuid"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sub_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "sub_tag_name"
     t.string "sub_tag_detail"
@@ -266,4 +291,8 @@ ActiveRecord::Schema.define(version: 2019_11_02_085238) do
   add_foreign_key "event_sub_tags", "sub_tags"
   add_foreign_key "event_tags", "events"
   add_foreign_key "event_tags", "tags"
+  add_foreign_key "mini_event_styles", "mini_events"
+  add_foreign_key "mini_event_styles", "styles"
+  add_foreign_key "style_events", "events"
+  add_foreign_key "style_events", "styles"
 end

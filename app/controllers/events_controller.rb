@@ -9,8 +9,9 @@ class EventsController < ApplicationController
     @event.finish = false
     sub_tag_ids, sub_tag_ok = sub_tag_params
     @event.tag_id = params[:event]["tag"].to_i
+    style_ids = params[:event][:style_ids]
     if @event.save
-      make_relation(@event.id, sub_tag_ids, sub_tag_ok)
+      make_relation(@event.id, sub_tag_ids, sub_tag_ok, style_ids)
       @event.event_select = event_select(@event)
       @event.save
       flash[:success] = 'イベントを新しく作成しました'
@@ -72,11 +73,14 @@ class EventsController < ApplicationController
     end
   end
 
-  def make_relation(event_id, sub_tag_ids, sub_tag_ok)
+  def make_relation(event_id, sub_tag_ids, sub_tag_ok, style_ids)
     if sub_tag_ok
       sub_tag_ids.each do |sub_tag_id|
         EventSubTag.create(event_id: event_id, sub_tag_id: sub_tag_id)
       end
+    end
+    style_ids.each do |s_id|
+      StyleEvent.create(event_id: event_id, style_id: s_id.to_i)
     end
   end
 

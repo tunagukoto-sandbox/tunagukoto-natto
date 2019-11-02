@@ -23,3 +23,19 @@
 
 .single { max-width: 600px; margin: 0 auto 50px;}
 .single img{ width: 100%;}
+
+@media screen and (min-width:480px) { 
+	.aaa{
+		color: red;
+	}
+}
+@media screen and (min-width:768px) and ( max-width:1024px) {
+	.aaa{
+		color: blue;
+	}
+}
+@media screen and (min-width:1024px) {
+	.aaa{
+		color: black;
+	}
+}

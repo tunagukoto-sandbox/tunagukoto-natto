@@ -92,6 +92,12 @@
 			      <%= b.label { b.check_box + b.text } %>
 			    <% end %>
 			</div>
+			<div>
+				<h4>●イベント検索用タグ(複数選択可)</h4>
+			    <%= f.collection_check_boxes(:style_ids, Style.all, :id, :name, include_hidden: false) do |b| %>
+			      <%= b.label { b.check_box + b.text } %>
+			    <% end %>
+			</div>
 		<%=f.submit 'イベントを新規発行する', class: 'btn btn-primary btn-lg btn-block', data: { confirm: '
 			新しくイベントを発行します。
 			新しく発行したイベントはtopページから見ることができます。
