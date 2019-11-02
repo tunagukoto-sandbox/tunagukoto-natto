@@ -2,6 +2,7 @@
 	<% if admin_signed_in? %>
 		<% @events.each do |e| %>
 			<h1><%= e.event_select %></h1>
+			<p>取得ポイント：<%= e.get_point %></p>
 			<% @events_customers = EventCustomer.where(event_id: e.id)%>
 			<div class="col-12 ">
 			    <table class="table">
@@ -23,6 +24,13 @@
 				                <td><%= ec.tel %></td>
 				                <td><%= link_to "削除", event_customer_path(ec.id), method: :delete, class: "btn btn-danger", data: { confirm: '削除しますか？' }  %>
 				                	<%= link_to "編集", edit_event_customer_path(ec.id), method: :get, class: "btn btn-success"  %>
+				                <% if !ec.check %>
+					                <td><%= link_to "参加を確認しました", update_point_event_path(ec.id), method: :patch, class: "btn btn-primary"%>
+					                </td>
+				                <% else %>
+					                <td><%= link_to "参加を確認を取り消す", rollback_point_event_path(ec.id), method: :patch, class: "btn btn-danger"%>
+					                </td>
+				                <% end %>				                	
 				                </td>			             
 				            </tr>
 				        </tbody>

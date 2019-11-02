@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   	root 'home#top'
 
   	get 'home/policy'
@@ -17,7 +18,9 @@ Rails.application.routes.draw do
 
  	patch 'mini_event_customer/update/:id', to: 'points#update_point', as: 'update_point'
  	patch 'mini_event_customer/rollback/:id', to: 'points#rollback_point', as: 'rollback_point'
-	post 'mini_events_customer', to: 'points#init', as: 'create_point'
+
+ 	patch 'event_customer/update/:id', to: 'points#update_point_event', as: 'update_point_event'
+ 	patch 'event_customer/rollback/:id', to: 'points#rollback_point_event', as: 'rollback_point_event'
 
 	devise_for :students, :controllers => {
 	  :registrations => 'students/registrations',
@@ -37,7 +40,8 @@ Rails.application.routes.draw do
 
 	resources :student_page, only: [:show, :index]
 	resources :company_page, only: [:show, :index]
-	
+
+  	resources :student_statuses, only: [:edit, :update]
 	resources :events
 	resources :mini_events
 

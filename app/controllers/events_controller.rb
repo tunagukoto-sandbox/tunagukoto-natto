@@ -132,7 +132,9 @@ end
         :event_show_image,
         :tag_id,
         :position,
-        :event_select
+        :event_select,
+        :get_point,
+        :pay_point
         )
     end
 

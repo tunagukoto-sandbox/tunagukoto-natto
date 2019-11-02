@@ -1,0 +1,46 @@
+<% if admin_signed_in?  %>
+<%= form_for(@status,url: student_status_path(id: @status.id)) do |f| %>
+	<div class="container">
+	<div class="col-md-3"></div>
+		<div class="col-md-8">
+
+			●一般会員<br>
+			<label>
+				<%= f.radio_button :normal, true %> はい </label>
+			<label>
+				<%= f.radio_button :normal, false %> いいえ
+			</label>
+			<br>
+
+
+			●イベント作成権はありますか？<br>
+			<label>
+				<%= f.radio_button :gold, true %>  はい
+			</label>
+			<label>
+				<%= f.radio_button :gold, false %> いいえ 
+			</label>
+			<br>
+
+			●アンバサダー<br>
+			<label>
+				<%= f.radio_button :ambassador, true %> はい </label>
+			<label>
+				<%= f.radio_button :ambassador, false %> いいえ</label>
+			<br>
+
+			●起業家<br>
+			<label>
+				<%= f.radio_button :start_up, true %> はい </label>
+			<label>
+					<%= f.radio_button :start_up, false %> いいえ</label>
+			<%=f.submit '編集を完了する', class: 'btn btn-primary btn-lg btn-block'%>
+		</div>
+	</div>
+	</div>
+	<%end%>
+</div>
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

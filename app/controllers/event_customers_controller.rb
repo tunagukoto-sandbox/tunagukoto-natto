@@ -5,6 +5,10 @@ class EventCustomersController < ApplicationController
 
   def create
   	@event_customer = EventCustomer.new(event_customer_params)
+    if student_signed_in?
+      @event_customer.student_id = current_student.id
+      @event_customer.check = false
+    end
   	if @event_customer.save
   		redirect_to root_path
   	else
@@ -36,6 +40,8 @@ class EventCustomersController < ApplicationController
 	def event_customer_params
 	  	params.require(:event_customer)
 	  	.permit(
+          :student_id,
+          :check,
 	        :email,
 	        :name,
 	        :school_id,

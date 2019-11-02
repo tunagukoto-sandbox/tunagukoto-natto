@@ -56,6 +56,12 @@
 			●参加費
 			<%= f.text_field :event_cost, value: "無料", :size => "30*60" %>
 			<br>
+			●取得ポイント
+			<%= f.number_field :get_point  %>
+			<br>
+			●消費ポイント
+			<%= f.number_field :pay_point, value: 0  %>
+			<br>
 			●開催時間
 		  	<%= f.date_select(
 		        :event_time, 

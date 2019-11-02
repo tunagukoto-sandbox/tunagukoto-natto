@@ -9,5 +9,6 @@ class Student < ApplicationRecord
 	has_many :mini_events
 	# has_many :mini_event_customers
 	has_one :point
+	has_one :student_status
 	has_one_attached :my_image
 end

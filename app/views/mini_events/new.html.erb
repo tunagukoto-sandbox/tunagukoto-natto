@@ -9,9 +9,7 @@
 			<%= f.text_field :title, placeholder: "せかいしけいえい", :size => "80%" %>
 
 			<div>●主催者</div>
-				<%= f.collection_radio_buttons(:student_id, Student.all, :id, :first_name) do |b| %>
-				<%#= f.collection_radio_buttons(:student_id, Student.eager_load().where(points: {max_point: 0}), :id) do |b| %>
-				<!-- Student.eager_load(:point).where(points: {max_point: 0}) -->
+				<%= f.collection_radio_buttons(:student_id, Student.includes(:student_status).where(student_statuses: {gold: true}), :id, :first_name) do |b| %>
 
 				  <%= b.label {b.radio_button + b.object.first_name + b.object.last_name} %>
 				<% end %>
@@ -33,7 +31,6 @@
 						<br>
 			●イベント参加条件
 			<%= f.text_field :requirement,  :size => "80%" %>
-
 
 			<br>
 			●開催時間

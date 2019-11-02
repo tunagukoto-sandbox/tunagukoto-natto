@@ -9,23 +9,28 @@
 			<% if student_signed_in? && current_student == @student %>
 				<%= link_to "プロフィールを編集する",edit_student_registration_path(params[:id]), class: "btn btn-success btn-lg" %>
 			<% end %>
+			<% if admin_signed_in?%>
+			<%= link_to "ステータスを変更する", edit_student_status_path(@student.id), class: "btn btn-success btn-lg" %>
+			<% end %>
 				<p class="student_labels_title">名前</p>
 				<p class="student_detail_fonts">
 					<%= @student.first_name %>
 					<%= @student.last_name %>
 				</p>
-				現在のポイント
+				現在のポイント<br>
 				<% if @student.point == nil %>
 					<h>０</h>
 				<% else %>
 					<%= @student.point.having_point %>
 				<% end %>
-				過去最高ポイント
+				<br>
+				累計最高ポイント<br>
 				<% if @student.point == nil %>
 					<h>０</h>
 				<% else %>
 					<%= @student.point.max_point %>
 				<% end %>
+				<br>
 				<p class="student_labels_title">大学名</p>
 				<p class="student_detail_fonts"><%= @student.school.school_name %></p>       
 	            <p class="student_labels_title" >学部名（研究科名）</p>
