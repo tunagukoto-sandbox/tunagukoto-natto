@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def top
     @events = Event.where(finish: false)
-    @e_count = Event.where(finish: true).count - 1
+
+    @e_count = Event.where(finish: false).count - 1
 
     @show_mini_events = MiniEvent.where(open: true)
     

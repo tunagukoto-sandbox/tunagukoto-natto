@@ -36,6 +36,14 @@
 }
 @media screen and (min-width:1024px) {
 	.aaa{
-		color: black;
+		display: none; /*見せない*/
+		visibility: hidden; /*divは存在すけど表示なし*/
 	}
+}
+
+
+/* carousel関連 */
+.carousel-slide {
+	margin: 0 auto;
+	width: 800px;
 }

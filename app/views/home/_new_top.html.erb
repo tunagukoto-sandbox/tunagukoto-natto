@@ -7,7 +7,7 @@
 	<div style="margin-left:60px; margin-right:60px;">
 	<div class="row">
 		<div class="col-lg-9">
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:800px">
+			<div id="carouselExampleIndicators" class="carousel slide carousel-slide" data-ride="carousel">
 			  <!-- インジケータの設定 -->
 			    <ol class="carousel-indicators">
 			        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="height: 20px;"></li>
@@ -19,7 +19,7 @@
 			    <div class="carousel-inner">
 			        <% count = 1 %>
 			        <% @events.each do |e| %>
-			        <%= link_to event_path(e.id) do%>
+			        <%#= link_to event_path(e.id) do%>
 			            <% if count == 1 %>
 			                <div class="carousel-item active">
 			                    <% if e.event_top_image.attached? %>
@@ -67,7 +67,7 @@
 			            <% end %>
 			        <% count = count + 1 %>
 			        <% end %>
-			        <% end %>
+			        <%# end %>
 			    </div><!-- /.carousel-inner -->
 			    <!-- スライドコントロールの設定 -->
 
