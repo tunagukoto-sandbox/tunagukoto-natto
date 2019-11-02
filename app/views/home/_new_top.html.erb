@@ -3,28 +3,26 @@
 </h1>
 
 <div class="container-fluid">
-	<div style="margin-left:30px; margin-right:50px;">
+	<div style="margin-left:60px; margin-right:60px;">
 	<div class="row">
-		<div class="col-lg-8">
+		<div class="col-lg-9">
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:800px">
 			  <!-- インジケータの設定 -->
-
 			    <ol class="carousel-indicators">
 			        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 			        <% for num in 1..@e_count do %>
 			            <li data-target="#carouselExampleIndicators" data-slide-to="#{num}"></li>
 			        <% end %>
 			    </ol>
-
 			    <!-- スライドさせる画像の設定 -->
 			    <div class="carousel-inner">
 			        <% count = 1 %>
 			        <% @events.each do |e| %>
-			        <%= link_to event_path(e.id) do %>
+			        <%#= link_to event_path(e.id) do%>
 			            <% if count == 1 %>
 			                <div class="carousel-item active">
 			                    <% if e.event_top_image.attached? %>
-			                        <%= image_tag e.event_top_image ,class: "card-img-top"%>
+			                        <%= image_tag e.event_top_image , class: "card-img-top"%>
 			                    <% end %>
 			                    <div class="carousel-caption d-none d-md-block">
 			                        <h4 id="slide_title">
@@ -68,7 +66,7 @@
 			            <% end %>
 			        <% count = count + 1 %>
 			        <% end %>
-			        <% end %>
+			        <%# end %>
 			    </div><!-- /.carousel-inner -->
 			    <!-- スライドコントロールの設定 -->
 
@@ -107,85 +105,9 @@
 			<div>イベント一覧を見る</div>
 			<h1>comming Soon</h1>
 		</div>
-		<div class="col-lg-4">
-			<div class="news">
-				<p>News</p><hr>
-			</div>
-			<%= link_to events_path do %>
-				<div class="row divided_border">
-					<div class="col-lg-3"></div>
-					<div class="col-lg-7">
-						<h style="font-weight: 500; font-size: 1.5em; color: #555555;">Nattoで学ぶ</h><br>
-						<h>シャショク・ガクショク</h>
-					</div>
-					<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-				</div>
-			<% end %>
-
-			<%= link_to mini_events_path do %>
-				<div class="row divided_border">
-					<div class="col-lg-3"></div>
-					<div class="col-lg-7">
-						<h style="font-weight: 500; font-size: 1.5em; color: #555555;">Nattoで交流する</h><br>
-						<h>学生イベント</h>
-					</div>
-					<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-				</div>
-			<% end %>
-
-			<div class="row divided_border">
-				<div class="col-lg-3"></div>
-				<div class="col-lg-7">
-					<h style="font-weight: 500; font-size: 1.4em; color: #555555;">Nattoで仕事を探す</h><br>
-					<h>クエスト</h>
-				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
-
-			<%= link_to student_page_index_path do %>
-				<div class="row divided_border">
-					<div class="col-lg-3"></div>
-					<div class="col-lg-7">
-						<h style="font-weight: 500; font-size: 1.5em; color: #555555;">登録学生</h><br>
-					</div>
-					<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-				</div>
-			<% end %>
-
-			<div class="row divided_border">
-				<div class="col-lg-3"></div>
-				<div class="col-lg-7">
-					<h style="font-weight: 500; font-size: 1.5em; color: #555555;">協賛企業</h><br>
-				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
-
-			<div class="row divided_border">
-				<div class="col-lg-3"></div>
-				<div class="col-lg-7">
-					<h style="font-weight: 500; font-size: 1.5em; color: #555555;">学生団体</h><br>
-				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
-			<div class="row divided_border">
-				<div class="col-lg-3"></div>
-				<div class="col-lg-7">
-					<h style="font-weight: 500; font-size: 1.5em; color: #555555;">公益活動団体</h><br>
-				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
-			<div class="row divided_border">
-				<div class="col-lg-10">
-					<h style="font-weight: 500; font-size: 1.5em;">Nattoとは</h><br>
-				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
-			<div class="row divided_border">
-				<div class="col-lg-10">
-					<h style="font-weight: 500; font-size: 1.5em;">その他機能</h><br>
-				</div>
-				<div class="col-lg-2" style="font-size: 1.6em;">▷</div>
-			</div>
+		<div class="col-lg-3">
+			<%= render 'home/top_menus' %>
+		</div>
 		</div>
 	</div>
 	</div>

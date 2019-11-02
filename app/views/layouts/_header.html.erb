@@ -27,17 +27,25 @@
                         <li class="nav-item">
                             <%= link_to "ログアウト", destroy_student_session_path, method: :delete, class: "nav-link", style:"font-weight: 900; font-size: 1.2em;" %>
                         </li>
+                        <li><%= link_to "#{current_student.first_name} #{current_student.last_name}さんログイン中", student_page_path(current_student.id), class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+                        </li>
                     <% else %>
                         <li class="nav-item">
                             <%= link_to "新規登録", new_student_registration_path, class: "nav-link", style:"font-weight: 900; font-size: 1.2em;" %>
                         </li>  
                         <li class="nav-item">
                             <%= link_to "ログイン", new_student_session_path, class: "nav-link", style:"font-weight: 900; font-size: 1.2em;" %>
-                        </li>            
+                        </li>   
+                        <li class="nav-item">
+                            ようこそゲストさん
+                        </li>          
                     <% end %>
                     <% if corporation_signed_in? %>
                         <li class="nav-item">
                             <%= link_to "ログアウト", destroy_corporation_session_path, method: :delete,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+                        </li>
+                        <li>
+                            <%= link_to "#{current_corporation.name}さんログイン中", company_page_path(current_corporation.id), class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
                         </li>
                     <% end %>
                 </ul>

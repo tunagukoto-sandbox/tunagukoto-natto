@@ -23,7 +23,7 @@
                 <div class="event_content_box">       
                     <div class="card"> 
                         <% if e.event_top_image.attached? %>
-                            <%#= image_tag e.event_top_image.variant(resize:'300x500').processed ,class: "card-img-top"%>
+                            <%= image_tag e.event_top_image.variant(resize:'300x500').processed ,class: "card-img-top"%>
                         <% end %>
                         <div class="card-body">
                             <h5 class="card-title">

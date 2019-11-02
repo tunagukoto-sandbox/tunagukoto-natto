@@ -1,9 +1,20 @@
+.sns{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:50px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+}
+
+.twiiter{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:60px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+}
 .news{
     padding: 0.5em 1em;
-    margin: 2em 0;
+    margin: 1em 0;
     color: #555555;
     font-weight: 700;
-    font-size: 1.3em;
+    font-size: 1.1em;
     border: double 5px #696969;
 }
 
@@ -13,10 +24,27 @@
     text-align: center;
 }
 
-
 .divided_border{
-	border-top: inset 3px black;
+	border-top: inset 1.5px black;
 	/*border-bottom: inset 3px black;	*/
+}
+
+.border_buttom{
+    border-bottom: inset 1.5px black;
+    /*border-bottom: inset 3px black;   */
+}
+.link_triangle{
+    margin: auto;
+    font-size: 1.6em;
+    color: #66CC66;
+}
+
+.margin_auto{
+    margin: auto;
+}
+h5#top_menu_title{
+    font-weight: 500;
+    font-size: 1.3em;
 }
 
 h4#slide_title{
@@ -52,4 +80,20 @@ p#slide_comment{
     font-weight: 500;
     font-size: 1.5em; 
     color: #555555;
+}
+
+
+.event_menus{
+    text-decoration: none;
+    color:#555555;
+}
+.event_menus:hover {
+    text-decoration: none;
+     color:#777777;
+}
+
+.menu_img{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:50px;                              /* 横幅のサイズを指定    */
+    height:auto;                            /* 縦幅のサイズを指定    */
 }

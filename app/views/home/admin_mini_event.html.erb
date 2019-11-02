@@ -24,7 +24,7 @@
 				                <td><%= mec.school.school_name %></td>
 				                <td><%= mec.phone_num %></td>
 				                <% if !mec.check %>
-					                <td><%= link_to "参加を確認しました", update_point_path(mec.id), method: :patch, class: "btn btn-danger"%>
+					                <td><%= link_to "参加を確認しました", update_point_path(mec.id), method: :patch, class: "btn btn-primary"%>
 					                </td>
 				                <% else %>
 					                <td><%= link_to "参加を確認を取り消す", rollback_point_path(mec.id), method: :patch, class: "btn btn-danger"%>
