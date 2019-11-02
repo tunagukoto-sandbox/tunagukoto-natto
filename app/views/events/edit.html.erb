@@ -85,6 +85,12 @@
 			      <%= b.label { b.check_box + b.text } %>
 			    <% end %>
 			</div>
+			●イベントは終わりましたか？<br>
+			<label>
+				<%= f.radio_button :finish, true %> はい </label>
+			<label>
+				<%= f.radio_button :finish, false %> いいえ</label>
+				
 		<%=f.submit '編集を完了する', class: 'btn btn-primary btn-lg btn-block', data: { confirm: '
 			イベントの編集を完了します。
 			イベントはtopページから見ることができます。

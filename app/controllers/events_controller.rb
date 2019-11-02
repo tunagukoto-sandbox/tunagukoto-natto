@@ -134,7 +134,8 @@ end
         :position,
         :event_select,
         :get_point,
-        :pay_point
+        :pay_point,
+        :finish
         )
     end
 
