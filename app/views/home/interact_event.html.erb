@@ -1,0 +1,84 @@
+<div class="container-fluid">
+
+    <div class="paddind-buttom"></div>
+    <div class="event">Nattoで学ぶ</div>
+    <div class="event_parent" style="margin-left: 50px; margin-right: 50px;">
+        <div class="event_box">
+        </div>
+        <div class="row padding-little">
+            <% @events.each do |e| %>
+                <%= link_to event_path(e.id) do %>
+                    <div class="col-md-12 col-lg-4">
+                        <div class="event_content_box">       
+                            <div class="card"> 
+                                <% if e.event_top_image.attached? %>
+                                    <%= image_tag e.event_top_image ,class: "card-img-top"%>
+                                <% end %>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <% if e.tag.uuid == 1 %>
+                                            <div class="home_top_sha tag_padding">
+                                                <%= e.event_time.month %> 月 シャショク
+                                            </div>
+                                        <% elsif e.tag.uuid == 2 %>
+                                            <div class="home_top_ga tag_padding">
+                                                <%= e.event_time.month %> 月　ガクショク
+                                            </div>
+                                        <% elsif e.tag.uuid == 3 %>
+                                            <div class="home_top_cari tag_padding">
+                                                <%= e.event_time.month %> 月 キャリアコネクション
+                                            </div>
+                                        <% else%>
+                                            <%= e.event_time.month %> 月 
+                                        <% end %>
+                                    </h5>
+                                    <h6 class="card-subtitle text-muted event_time">
+                                        <%= e.event_time.strftime("%Y年%m月%d日") %>開催
+                                    </h6>
+                                    <p class="card-text">
+                                    </p>
+                                    <a href="#" class="card-link">
+                                        <!-- Card link -->
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div><!-- /.row event_parent-->
+
+    <div class="event_parent" style="margin-left: 50px; margin-right: 50px;">
+        <div class="event_box"></div>
+        <div class="row padding-little">
+        <% @mini_events.each do |me| %>
+            <%= link_to mini_event_path(me.id) do %>
+            <div class="col-md-12 col-lg-4">
+                <div class="event_content_box">       
+                    <div class="card"> 
+                        <% if me.mini_event_img.attached? %>
+                            <%= image_tag me.mini_event_img ,class: "card-img-top"%>
+                        <% end %>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <div class="home_top_mini tag_padding">
+                                    <%= me.title %>
+                                </div>
+                            </h5>
+                            <h6 class="card-subtitle text-muted event_time">
+                                <%= me.time.strftime("%Y年%m月%d日") %>開催
+                            </h6>
+                            <p class="card-text">
+                            </p>
+                            <a href="#" class="card-link"><!-- Card link --></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        <% end %>
+        </div>
+    </div><!-- /.row event_parent-->
+
+</div>

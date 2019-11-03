@@ -3,8 +3,10 @@
 	text-shadow: 1px 1px 1px #999999;
 	text-align: center;
 	font-weight: 800;
-	font-size: 4.5em;
+	font-size: 3.5em;
+	padding-bottom: 30px;
 }
+
 
 .event_explanation{
 	color:#cc7000 ;
@@ -39,4 +41,9 @@
 
 .paddind-buttom{
 	padding: 40px;
+}
+
+.padding-little{
+	padding-right: 30px;
+	padding-left: 30px;
 }
