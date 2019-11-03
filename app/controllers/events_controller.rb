@@ -52,10 +52,12 @@ class EventsController < ApplicationController
     @event.save
     sub_tag_ids, sub_tag_ok = sub_tag_params
     @event.tag_id = params[:event]["tag"].to_i
+    style_ids = params[:event][:style_ids]
 
     if @event.save
       event_sub_tag_delete_all(@event.id)
-      make_relation(@event.id, sub_tag_ids, sub_tag_ok)
+      event_style_delete_all(@event.id)
+      make_relation(@event.id, sub_tag_ids, sub_tag_ok, style_ids)
       redirect_to root_path
     else
       redirect_to edit_event_path(@event.id)
@@ -71,6 +73,11 @@ class EventsController < ApplicationController
         Event.delete_event(e) && e.delete if e.event_time + 1.day < Date.current
       end
     end
+  end
+
+  def event_style_delete_all(event_id)
+    style_events = StyleEvent.where(event_id: event_id)
+    style_events.delete_all
   end
 
   def make_relation(event_id, sub_tag_ids, sub_tag_ok, style_ids)

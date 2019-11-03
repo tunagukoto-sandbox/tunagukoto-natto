@@ -1,3 +1,7 @@
+.top_container{
+    margin-left:60px;
+    margin-right:60px;
+}
 .sns{
     background-size:contain;                 /* 画像のサイズを指定    */
     width:50px;                              /* 横幅のサイズを指定    */

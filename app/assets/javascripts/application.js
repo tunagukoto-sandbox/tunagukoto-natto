@@ -14,9 +14,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
-
-
-  $('.single').slick({
-    autoplay: true, //自動再生
-  });
