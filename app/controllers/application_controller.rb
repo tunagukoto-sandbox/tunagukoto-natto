@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-before_action :authenticate_any!,except: :top
+before_action :authenticate_any!, except: [:natto, :top]
 
 	def after_sign_in_path_for(resource)
       	case resource

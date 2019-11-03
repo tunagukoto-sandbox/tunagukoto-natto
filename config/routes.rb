@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
  	get 'home/others'
 
+ 	get 'home/studey_event'
+
+ 	get 'home/interact_event'
+
  	patch 'mini_event_customer/update/:id', to: 'points#update_point', as: 'update_point'
  	patch 'mini_event_customer/rollback/:id', to: 'points#rollback_point', as: 'rollback_point'
 

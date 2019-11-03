@@ -13,13 +13,11 @@ class HomeController < ApplicationController
     else 
       @questions = Question.last(3)
     end
-  	# @busi_cons = BusinessContest.all
   end
 
   def admin_top
   	@events = Event.all
   	@quests = Quest.all
-  	# @busi_cons = BusinessContest.all
   	@schools = School.all
   end
 
@@ -37,6 +35,16 @@ class HomeController < ApplicationController
     MiniEvent.all.each do |me|
       @hash.merge!(me.title => MiniEventCustomer.where(mini_event_id: me.id))
     end 
+  end
+
+  def studey_event
+    @events = Event.includes(:styles).where(styles: {uuid: 1})
+    @mini_events = MiniEvent.includes(:styles).where(styles: {uuid: 1})
+  end
+
+  def interact_event
+    @events = Event.includes(:styles).where(styles: {uuid: 2})
+    @mini_event = MiniEvent.includes(:styles).where(styles: {uuid: 2})
   end
 
   def natto
