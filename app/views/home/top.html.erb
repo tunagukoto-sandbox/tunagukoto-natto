@@ -1,7 +1,3 @@
-<%#= render 'home/new_top' %>
-
-<%#= render 'home/used_top' %>
-
 <h1 id="student_count"> 
     現在登録者 <%= @s_count %> 
 </h1>
@@ -81,41 +77,44 @@
 				    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
 				    </a>
 				</div><!-- /.carousel -->
-				
-				<div class="top_titles">ツナグコト認定優良企業
-				</div>
+				<div class="container-fluid">
+					<div class="top_titles">
+						<h5 id="top_titles_font">ツナグコト認定優良企業
+						<%= image_tag'f.png',class: "twiiter" %></h5>
 
-				<div class="row" style="padding: 20px;">
-					<h1>comming Soon</h1>
-				</div>
-
-				<div class="top_titles">Nattoおすすめイベント
-				</div>
-
-				<div class="row" style="padding: 20px;">
-					<% @show_mini_events.each do |me| %>
-					 <%= link_to mini_event_path(me.id) do %>
-					<div class="col-lg-4">
-						<div class="card" style="height: 450px;">
-					        <% if me.mini_event_img.attached? %>
-					            <%= image_tag me.mini_event_img ,class: "card-img-top" ,style: "max-height: 200px;" %>
-					        <% end %>
-						  	<div class="card-body">
-						  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
-							    <h4 class="card-title"><%= me.title %></h4>
-							    <p class="card-text" style= "height: 120px;">
-							    	<%= me.detail.truncate(50) %>
-							    </p>
-							    <a href="#" class="btn btn-outline-secondary">このイベントに参加する</a>
-						  	</div>
+						<div class="row top-title-inner">
+							<h1>comming Soon</h1>
 						</div>
 					</div>
-					<% end %>
-					<% end %>
-				</div>
 
-				<div>イベント一覧を見る</div>
-				<h1>comming Soon</h1>
+					<div class="top_titles">
+						<h5 id="top_titles_font">Nattoおすすめイベント(New)</h5>
+
+						<div class="row top-title-inner">
+							<% @show_mini_events.each do |me| %>
+								<%= link_to mini_event_path(me.id) do %>
+								<div class="col-lg-4">
+									<div class="card" style="height: 450px;">
+								        <% if me.mini_event_img.attached? %>
+								            <%= image_tag me.mini_event_img ,class: "card-img-top" ,style: "max-height: 200px;" %>
+								        <% end %>
+									  	<div class="card-body">
+									  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
+										    <h4 class="card-title"><%= me.title %></h4>
+										    <p class="card-text" style= "height: 120px;">
+										    	<%= me.detail.truncate(50) %>
+										    </p>
+										    <a href="#" class="btn btn-outline-secondary">このイベントに参加する</a>
+									  	</div>
+									</div>
+								</div>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<!-- <div>イベント一覧を見る</div>
+				<h1>comming Soon</h1> -->
 
 			</div>
 			<div class="col-lg-3">

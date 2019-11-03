@@ -80,9 +80,16 @@ p#slide_comment{
 
 .top_titles{
     padding-top: 20px;
+}
+
+h5#top_titles_font{
     font-weight: 800;
     color: #666666;
     font-size: 1.8em;
+}
+.top-title-inner{
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .nav_obj{
