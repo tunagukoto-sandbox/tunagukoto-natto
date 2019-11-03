@@ -8,6 +8,11 @@
     height:auto;  
 }
 
+h1#student_count{
+    text-align: center;
+    font-weight: 700;
+}
+
 .twiiter{
     background-size:contain;                 /* 画像のサイズを指定    */
     width:60px;                              /* 横幅のサイズを指定    */
