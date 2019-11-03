@@ -62,6 +62,12 @@
 			●自由記入欄
 			<%= f.text_area :free_box, placeholder: "自由記入欄" , :size => "30*60" %>
 			<hr>
+			<div>
+				<h4>●イベント検索用タグ(複数選択可)</h4>
+			    <%= f.collection_check_boxes(:style_ids, Style.all, :id, :name, include_hidden: false) do |b| %>
+			      <%= b.label { b.check_box + b.text } %>
+			    <% end %>
+			</div>
 			●トップに表示しますか？<br>
 			<label>
 			<%= f.radio_button :open, false %> 表示しない </label>

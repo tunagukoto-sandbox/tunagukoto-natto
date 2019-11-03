@@ -36,6 +36,8 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     Event.delete_event(@event)
+    style_events = StyleEvent.where(event_id: @event.id)
+    style_events.delete_all
     @event.delete
     redirect_to root_path
   end
@@ -86,8 +88,10 @@ class EventsController < ApplicationController
         EventSubTag.create(event_id: event_id, sub_tag_id: sub_tag_id)
       end
     end
-    style_ids.each do |s_id|
-      StyleEvent.create(event_id: event_id, style_id: s_id.to_i)
+    if style_ids != nil
+      style_ids.each do |s_id|
+        StyleEvent.create(event_id: event_id, style_id: s_id.to_i)
+      end
     end
   end
 

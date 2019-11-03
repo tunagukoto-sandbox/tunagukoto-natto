@@ -6,10 +6,12 @@ class MiniEventsController < ApplicationController
   def create
     @mini_event = MiniEvent.new(mini_event_params)
     @mini_event.time = time
+    style_ids = params[:mini_event][:style_ids]
     if @mini_event.student_id != nil
       @mini_event.mini_event_name = mini_event_name(@mini_event)
     end
     if @mini_event.save
+      make_relation(@mini_event, style_ids)
       redirect_to root_path
     else
       redirect_to new_mini_event_path
@@ -23,6 +25,10 @@ class MiniEventsController < ApplicationController
   def update
     @mini_event = MiniEvent.find(params[:id])
     @mini_event.update(mini_event_params)
+    style_ids = params[:mini_event][:style_ids]
+    mini_event_style_delete_all(@mini_event.id)
+    make_relation(@mini_event, style_ids)
+
     if @mini_event.save
       redirect_to root_path
     else
@@ -42,11 +48,26 @@ class MiniEventsController < ApplicationController
     @mini_event = MiniEvent.find(params[:id])
     @mini_event_customers = MiniEventCustomer.where(mini_event_id: @mini_event.id)
     @mini_event_customers.delete_all
+    mini_event_style = MiniEventStyle.where(mini_event_id: @mini_event.id)
+    mini_event_style.delete_all
     @mini_event.delete
     redirect_to root_path
   end
 
   private
+
+  def make_relation(mini_event, style_ids)
+    if style_ids != nil
+      style_ids.each do |s_id|
+        MiniEventStyle.create(mini_event_id: mini_event.id, style_id: s_id.to_i)
+      end
+    end
+  end
+
+  def mini_event_style_delete_all(m_e_id)
+    mini_event_styles = MiniEventStyle.where(mini_event_id: m_e_id)
+    mini_event_styles.delete_all
+  end
 
   def mini_event_params
     params.require(:mini_event).permit(

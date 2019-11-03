@@ -15,11 +15,9 @@
  */
 
 
-
  .padding_full{
  	padding-bottom: 500px;
  }
-
 
 .single { max-width: 600px; margin: 0 auto 50px;}
 .single img{ width: 100%;}
@@ -40,7 +38,6 @@
 		visibility: hidden; /*divは存在すけど表示なし*/
 	}
 }
-
 
 /* carousel関連 */
 .carousel-slide {
