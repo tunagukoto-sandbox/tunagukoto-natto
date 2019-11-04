@@ -38,11 +38,10 @@
 				<div>
 					<h style="font-size: 2.3em;">【参加費】</h>
 					<% if @mini_event.cost == 0 %>
-						<p style="color: red; font-size: 2.3em;">&ensp;&ensp;無料></p>
+						<p style="color: red; font-size: 2.3em;">&ensp;&ensp;無料</p>
 					<% else %>
 						<p style="font-size: 2.0em;">&ensp;&ensp;￥：<%= @mini_event.cost %></p>
 					<% end %>
-					<p style="font-size: 2.0em;">&ensp;&ensp;食事付き</p>
 				</div>
 				<div>
 					<h style="font-size: 2.3em;">【募集人数】</h>
