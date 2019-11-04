@@ -1,70 +1,56 @@
 <% if student_signed_in? %>
 <%= form_for @event_customer do |f| %>
 	<div class="container">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 
-		<p>イベントを選択してください</p>
-		<div class="cp_ipselect cp_sl01">
-			<%#= f.collection_select :event_id, Event.all, :id, :event_name, class: 'form-control'  %>
-			<%= f.collection_select :event_id, Event.all, :id, :event_select, class: 'form-control'  %>
+			<p>イベントを選択してください</p>
+			<div class="cp_ipselect cp_sl01">
+				<%= f.collection_select :event_id, Event.all, :id, :event_select, class: 'form-control'  %>
+			</div>
+
+			<p>所属を選択してください</p>
+			<div class="cp_ipselect cp_sl01">
+				<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
+			</div>
+
+			<div class="event_customer_form">名前(フルネーム)<%= f.text_field :name,value: "#{current_student.first_name}#{current_student.last_name}"  %></div>
+
+			<div class="event_customer_form">メールアドレス:<%= f.text_field :email ,value: "#{current_student.email}"  %></div>
+
+			<div class="event_customer_form">電話番号:<%= f.text_field :tel, placeholder: "例) 080123456789", :size => "30*60" %></div>
+
+		<h>電話番号</h><%= f.text_field :tel, placeholder: "例) 080123456789", :size => "30*60" %>
+			<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+			</div>
+
 		</div>
-
-
-		<p>所属を選択してください</p>
-		<div class="cp_ipselect cp_sl01">
-			<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
-		</div>
-
-		<p>名前</p>
-		<%= f.text_field :name,value: "#{current_student.first_name}#{current_student.last_name}"  %>
-
-		<p>メールアドレス</p>
-		<%= f.text_field :email ,value: "#{current_student.email}"  %>
-
-		<p><%=  f.label :電話番号 %></p>
-		<%= f.text_field :tel, placeholder: "例) 080123456789", :size => "30*60" %>
-
-		<%#= f.number_field :student_id, value: current_student.id  %>
-
-		<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
-		</div>
-
-	</div>
 	</div>
 <% end %>
 <% else %>
 <%= form_for @event_customer do |f| %>
 	<div class="container">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 
-		<p>イベントを選択してください</p>
-		<div class="cp_ipselect cp_sl01">
-			<%#= f.collection_select :event_id, Event.all, :id, :event_name, class: 'form-control'  %>
-			<%= f.collection_select :event_id, Event.all, :id, :event_select, class: 'form-control'  %>
+			<p>イベントを選択してください</p>
+			<div class="cp_ipselect cp_sl01">
+				<%= f.collection_select :event_id, Event.all, :id, :event_select, class: 'form-control'  %>
+			</div>
+
+			<div class="cp_ipselect cp_sl01">
+				<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
+			</div>
+			<div class="event_customer_form">名前(フルネーム): <%= f.text_field :name  %></div>
+
+			<div class="event_customer_form">メールアドレス:<%= f.text_field :email %></div>
+
+			<div class="event_customer_form">電話番号: <%= f.text_field :tel, placeholder: "例) 080123456789", :size => "30*60" %></div>
+
+			<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+			</div>
+
 		</div>
-
-
-		<p>所属を選択してください</p>
-		<div class="cp_ipselect cp_sl01">
-			<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
-		</div>
-
-		<p>名前</p>
-		<%= f.text_field :name  %>
-
-		<p>メールアドレス</p>
-		<%= f.text_field :email %>
-
-		<p><%=  f.label :電話番号 %></p>
-		<%= f.text_field :tel, placeholder: "例) 080123456789", :size => "30*60" %>
-
-
-		<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
-		</div>
-
-	</div>
 	</div>
 <% end %>
 <% end %>
