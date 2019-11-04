@@ -1,4 +1,5 @@
 class QuestsController < ApplicationController
+before_action :authenticate_any!
   def new
     @quest = Quest.new
   end
