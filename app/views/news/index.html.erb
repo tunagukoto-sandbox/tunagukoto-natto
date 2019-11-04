@@ -1,0 +1,19 @@
+<div class="container">
+	<% @news.each do |n| %>
+	<div class="row">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8">
+			<% if admin_signed_in? %>
+				<%= link_to "編集する", edit_news_path(n.id), class: "btn btn-success" %>
+			<% end %>
+			<div class="news_title_all">
+				<%= n.title %>			
+			</div>
+			<p><%= n.main_body %></p>
+			<p><%= n.sub_body %></p>
+			<p><%= link_to "#{n.link_url}",n.link_url %></p>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+	<% end %>
+</div>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   	root 'home#top'
 
   	get 'home/policy'
@@ -47,6 +46,7 @@ Rails.application.routes.draw do
 
   	resources :student_statuses, only: [:edit, :update]
 	resources :events
+	resources :news
 	resources :mini_events
 
 	resources :event_customers, only: [:new, :create, :destroy, :edit, :update]

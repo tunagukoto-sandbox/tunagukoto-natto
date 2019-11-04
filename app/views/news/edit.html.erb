@@ -1,0 +1,32 @@
+<% if admin_signed_in? %>
+	<div class="container">
+	<%= form_for @news do |f| %>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			●タイトル<br>
+			<%= f.text_field :title, placeholder: "ここにタイトルを入力してください", :size => "80%" %><br>
+			●本文１<br>
+			<%= f.text_area :main_body, placeholder: "", :size => "80%" %><br>
+
+			●本文２ <br>
+			<%= f.text_area :sub_body, placeholder: "", :size => "80%"  %><br>
+
+			●URL <br>
+			<%= f.text_field :link_url, placeholder: ""  %><br>
+
+			●Topに優先的に表示する<br>
+			<label>
+				<%= f.radio_button :open, true %> はい </label>
+			<label>
+				<%= f.radio_button :open, false %> いいえ</label>
+			<br>
+
+			<%=f.submit 'ニュースを発行する', class: 'btn btn-primary btn-lg btn-block' %>
+			</div>
+			</div>
+		<%end%>
+	</div>
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

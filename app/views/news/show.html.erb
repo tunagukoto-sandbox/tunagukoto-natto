@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6">
+			<% if admin_signed_in? %>
+				<%= link_to "編集する", edit_news_path(@news.id), class: "btn btn-success" %>
+			<% end %>
+			<div class="news_title_all">
+				<%= @news.title %>			
+			</div>
+			<p><%= @news.main_body %></p>
+			<p><%= @news.sub_body %></p>
+			<p><%= link_to "#{@news.link_url}",@news.link_url %></p>
+			<p>
+				<%= link_to "記事一覧に戻る", news_index_path %>
+			</p>
+		</div>
+		<div class="col-lg-3"></div>
+	</div>
+</div>

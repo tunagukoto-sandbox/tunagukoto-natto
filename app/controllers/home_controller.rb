@@ -6,6 +6,12 @@ class HomeController < ApplicationController
 
     @show_mini_events = MiniEvent.where(open: true)
     
+    if News.count >= 5
+      @news = News.first(5)
+    else
+      @news = News.all
+    end
+    
     @quests = Quest.all
     @s_count = Student.count
     if Question.count < 4

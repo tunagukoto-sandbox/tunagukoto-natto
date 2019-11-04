@@ -1,86 +1,90 @@
+<div class="row">
+	<div class="col-lg-3 col-md-3">
+		<a href="https://www.facebook.com/tunagukoto/">
+			<%= image_tag'facebook.png',class: "sns" %>
+		</a>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<a href="https://line.me/ti/g2/QC3viCfONv8wIO64_WruzA">
+			<%= image_tag'line.png',class: "sns" %>
+		</a>
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<a href="https://twitter.com/tunagukoto_">
+			<%= image_tag'twitter.png',class: "twiiter" %>
+		</a>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<a href="https://www.instagram.com/tunagukoto">
+			<%= image_tag'instagram.png',class: "twiiter" %>
+		</a>
+	</div>					
+</div>
+<div class="news">
+	<p id="news">News</p>
+		<% @news.each do |n| %>
+			【New!!】<%= link_to "#{n.title}", news_path(n.id) %><br>
+		<% end %>
+		<div class="right"><%= link_to "News一覧へ", news_index_path, class: "news_index" %></div>
+</div>
 
-		<div class="row">
-			<div class="col-lg-3 col-md-3">
-				<a href="https://www.facebook.com/tunagukoto/">
-					<%= image_tag'facebook.png',class: "sns" %>
-				</a>
+	<%= link_to(home_interact_event_path, class: "event_menus") do %>
+		<div class="row divided_border">
+			<div class="col-lg-3 col-md-6">
+				<%= image_tag'6.png',class: "menu_img" %>
 			</div>
-			<div class="col-lg-3 col-md-3">
-				<a href="https://line.me/ti/g2/QC3viCfONv8wIO64_WruzA">
-					<%= image_tag'line.png',class: "sns" %>
-				</a>
-			</div>	
-			<div class="col-lg-3 col-md-3">
-				<a href="https://twitter.com/tunagukoto_">
-					<%= image_tag'twitter.png',class: "twiiter" %>
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-3">
-				<a href="https://www.instagram.com/tunagukoto">
-					<%= image_tag'instagram.png',class: "twiiter" %>
-				</a>
-			</div>					
-		</div>
-			<div class="news">
-				<p>News</p>
-			</div>
-
-			<%= link_to(home_interact_event_path, class: "event_menus") do %>
-			<div class="row divided_border">
-				<div class="col-lg-3 col-md-6">
-					<%= image_tag'6.png',class: "menu_img" %>
-				</div>
-				<div class="col-lg-9 col-md-6">
-					<div class="row">
-						<div class="col-lg-9 col-md-9">
-							<div class="margin_auto">
-							<h style="font-weight: 500; font-size: 1.1em;">Nattoで交流する</h><br>
+			<div class="col-lg-9 col-md-6">
+				<div class="row">
+					<div class="col-lg-9 col-md-9">
+						<div class="margin_auto">
+							<h style="font-weight: 500; font-size: 1.1em;">Nattoで交流する
+							</h><br>
 							<h style="font-size: 0.8em;">学生イベント</h>
-							</div>
 						</div>
-						<div class="col-lg-3 col-md-3 link_triangle">▷
-						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 link_triangle">▷
 					</div>
 				</div>
 			</div>
-			<% end %>
+		</div>
+	<% end %>
 
-			<%= link_to(home_studey_event_path, class: "event_menus") do %>
-			<div class="row divided_border">
-				<div class="col-lg-3">
-					<%= image_tag'5.png',class: "menu_img" %>
-				</div>
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-9">
-							<h style="font-weight: 500; font-size: 1.1em;">Nattoで学ぶ</h><br>
-							<h style="font-size: 0.8em;">シャショク・ガクショク</h>
-						</div>
-						<div class="col-lg-3 link_triangle">▷
-						</div>
+	<%= link_to(home_studey_event_path, class: "event_menus") do %>
+		<div class="row divided_border">
+			<div class="col-lg-3">
+				<%= image_tag'5.png',class: "menu_img" %>
+			</div>
+			<div class="col-lg-9">
+				<div class="row">
+					<div class="col-lg-9">
+						<h style="font-weight: 500; font-size: 1.1em;">Nattoで学ぶ</h><br>
+						<h style="font-size: 0.8em;">シャショク・ガクショク</h>
+					</div>
+					<div class="col-lg-3 link_triangle">▷
 					</div>
 				</div>
 			</div>
-			<% end %>
+		</div>
+	<% end %>
 
 
-			<%= link_to(root_path, class: "event_menus") do %>
-			<div class="row divided_border">
-				<div class="col-lg-3">
-					<%= image_tag'4.png',class: "menu_img" %>
-				</div>
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-9">
-							<h style="font-weight: 500; font-size: 1.1em;">Nattoで仕事を探す</h><br>
-							<h style="font-size: 0.8em;">クエスト</h>
-						</div>
-						<div class="col-lg-3 link_triangle">▷
-						</div>
+	<%= link_to(root_path, class: "event_menus") do %>
+		<div class="row divided_border">
+			<div class="col-lg-3">
+				<%= image_tag'4.png',class: "menu_img" %>
+			</div>
+			<div class="col-lg-9">
+				<div class="row">
+					<div class="col-lg-9">
+						<h style="font-weight: 500; font-size: 1.1em;">Nattoで仕事を探す</h><br>
+						<h style="font-size: 0.8em;">クエスト</h>
+					</div>
+					<div class="col-lg-3 link_triangle">▷
 					</div>
 				</div>
 			</div>
-			<% end %>
+		</div>
+	<% end %>
 
 
 			<%= link_to(student_page_index_path, class: "event_menus") do %>
