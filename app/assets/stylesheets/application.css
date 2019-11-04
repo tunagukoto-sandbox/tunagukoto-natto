@@ -15,67 +15,21 @@
  */
 
 
- .padding_full{
- 	padding-bottom: 500px;
- }
-
-.single { max-width: 600px; margin: 0 auto 50px;}
-.single img{ width: 100%;}
-
-/*@media screen and (max-width: 480px) {
-	.devise_for{
-		display: none;
-	}	
-}
-@media screen and (max-width:768px) { 
-	.devise_for{
-		display: none;
-	}
-}
-@media screen and (min-width:768px) and ( max-width:1024px) {
-	.devise_for{
-	}
-}
-@media screen and (min-width:1024px) {
-	.devise_for{
-		display: none; 
-		visibility: hidden;
-	}
-}*/
-
-
-@media screen and (min-width: 980px) {
-    /* 980px以上用（PC用）の記述 */
-    .devise_for{
-		/*display: none;*/ 
-		/*visibility: hidden;*/
-	}
-}
-@media screen and (min-width: 768px) and (max-width: 979px) {
-    /* 768px - 979px用（タブレット用）の記述 */
-    .devise_for{
-		display: none; 
-		/*visibility: hidden;*/
-	}
-}
-@media screen and (min-width: 480px) and (max-width: 767px)  {
-    /* 480px - 767px用（タブレット／スマートフォン用）の記述 */
-    .devise_for{
-		display: none; 
-		/*visibility: hidden;*/
-	}
-
-}
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 980px) {
     /* 479px以下用（スマートフォン用）の記述 */
-    .devise_for{
+    .devise_pc{
 		display: none; 
 		/*visibility: hidden;*/
 	}
 }
 
-/* carousel関連 */
-.carousel-slide {
-	margin: 0 auto;
-	width: 900px;
+@media screen and (min-width: 981px) {
+    /* 980px以上用（PC用）の記述 */
+    .devise_mobile{
+		display: none; 
+		/*visibility: hidden;*/
+	}
 }
+
+
+
