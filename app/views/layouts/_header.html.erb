@@ -45,7 +45,7 @@
                             <%= link_to "ログアウト", destroy_corporation_session_path, method: :delete,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
                         </li>
                         <li>
-                            <%= link_to "#{current_corporation.name}さんログイン中", company_page_path(current_corporation.id), class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
+                            <%= link_to "#{current_corporation.name}", company_page_path(current_corporation.id), class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
                         </li>
                     <% end %>
                 </ul>
