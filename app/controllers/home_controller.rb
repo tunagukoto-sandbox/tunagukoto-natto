@@ -6,8 +6,8 @@ class HomeController < ApplicationController
 
     @show_mini_events = MiniEvent.where(open: true)
     
-    if News.count >= 5
-      @news = News.first(5)
+    if News.count >= 3
+      @news = News.first(3)
     else
       @news = News.all
     end
