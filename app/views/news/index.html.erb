@@ -5,6 +5,7 @@
 		<div class="col-lg-8">
 			<% if admin_signed_in? %>
 				<%= link_to "編集する", edit_news_path(n.id), class: "btn btn-success" %>
+				<%= link_to "削除する", news_path(n.id), method: :delete,  class: "btn btn-danger" %>			
 			<% end %>
 			<div class="news_title_all">
 				<%= n.title %>			

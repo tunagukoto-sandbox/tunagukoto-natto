@@ -28,6 +28,8 @@ class NewsController < ApplicationController
 
   def destroy
     @news = News.find(params[:id])
+    @news.delete
+    redirect_to root_path
   end
 
   def index
