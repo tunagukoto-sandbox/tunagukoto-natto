@@ -15,15 +15,11 @@
 			<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
 		</div>
 
-		<p>名前</p>
-		<%= f.text_field :name  %>
+		<div class="event_customer_form">名前(フルネーム)<%= f.text_field :name,value: "#{current_student.first_name}#{current_student.last_name}"  %></div>
 
-		<p>メールアドレス</p>
-		<%= f.text_field :email %>
+		<div class="event_customer_form">メールアドレス:<%= f.text_field :email ,value: "#{current_student.email}"  %></div>
 
-		<p><%=  f.label :電話番号 %></p>
-		<%= f.text_field :phone_num, placeholder: "例) 080123456789", :size => "30*60" %>
-
+		<div class="event_customer_form">電話番号:<%= f.text_field :phone_num, placeholder: "例) 080123456789", :size => "30*60" %></div>
 
 		<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
 		</div>

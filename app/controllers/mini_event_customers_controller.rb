@@ -1,4 +1,5 @@
 class MiniEventCustomersController < ApplicationController
+  before_action :authenticate_any!, :new
   def new
     @mini_event_customer = MiniEventCustomer.new
   end
