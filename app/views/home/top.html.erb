@@ -20,7 +20,7 @@
 				    <div class="carousel-inner">
 				        <% count = 1 %>
 				        <% @events.each do |e| %>
-				        <%#= link_to event_path(e.id) do%>
+				        <%= link_to event_path(e.id) do%>
 				            <% if count == 1 %>
 				                <div class="carousel-item active">
 				                    <% if e.event_top_image.attached? %>
@@ -68,7 +68,7 @@
 				            <% end %>
 				        <% count = count + 1 %>
 				        <% end %>
-				        <%# end %>
+				        <% end %>
 				    </div><!-- /.carousel-inner -->
 				    <!-- スライドコントロールの設定 -->
 
