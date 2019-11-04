@@ -1,7 +1,7 @@
 <div class="container">
 	<% if admin_signed_in? %>
 		<% @mini_events.each do |me| %>
-			<h1><%= me.title %></h1>
+			<h1><%= link_to "#{me.title}", mini_event_path(me.id) %></h1>
 			<p>参加報酬ポイント: <%= me.get_point %></p>
 			<p>参加消費ポイント: <%= me.pay_point %></p>			
 			<% @mini_events_customers = MiniEventCustomer.where(mini_event_id: me.id)%>
