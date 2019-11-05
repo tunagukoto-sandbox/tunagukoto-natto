@@ -29,7 +29,7 @@
     <div class="devise_mobile">
          <!-- これはケータイ用 -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <%= image_tag'na.png',class: "natto-mobile" %>
           </a>
           <!-- <h2>ようこそ<%#= current_student.first_name %>さん</h2> -->
@@ -38,9 +38,6 @@
           </button>
           <div class="collapse navbar-collapse navbar-font" id="navbarText">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active margin-ten">
-                <%= link_to "ログアウト", destroy_student_session_path , method: :delete %>
-              </li>
              <li class="nav-item active margin-ten">
                 <%= link_to "Nattoで交流する", home_interact_event_path %>
               </li>
@@ -48,15 +45,18 @@
                 <%= link_to "Nattoで学ぶ", home_studey_event_path %>
               </li>
              <li class="nav-item active margin-ten">
-                <%= link_to "Nattoで仕事を探す", root_path %>
+                <%#= link_to "Nattoで仕事を探す", root_path %>
+                <a class="nav-link" href="#">Nattoで仕事を探す</a>
               </li>
               <li class="nav-item active margin-ten">
                 <%= link_to "ツナグコトHP", 'http://tunagu.or.jp/' %>
               </li>
-             <li class="nav-item active">
+             <li class="nav-item active margin-ten">
                 <a class="nav-link" href="#">その他機能</a>
               </li>
-
+              <li class="nav-item active">
+                <%= link_to "ログアウト", destroy_student_session_path , method: :delete %>
+              </li>
             </ul>
           </div>
         </nav>

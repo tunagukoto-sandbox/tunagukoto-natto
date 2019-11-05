@@ -24,7 +24,9 @@
 		<div class="event_show_title"></div>
 		<div class="col-sm-12 col-md-12" style="font-weight: bold;">
 			<p style="text-align: center; font-size: 3.0em;"><%= @event.event_name %></p>
-			<p style="font-size: 2.5em;"><%= @event.event_title %></p>
+			<p style="font-size: 2.5em; text-align: center;">
+				<%= @event.event_title %>
+			</p>
 		</div><!-- ./col-sm-12 col-md-12 -->
 	</div><!-- ./event_show_title -->
 	<div>
@@ -53,46 +55,34 @@
 	</div><!-- ./row event_show_parent event_show_padding -->
 
 	<div class="row">
-		<div class="col-sm-2 col-md-2"></div>
-		<div class="col-sm-8 col-md-8">
-		<div class="row">
-			<div class="col-xs-4 col-lg-4">
-			    <% if @event.president_image.attached? %>
-			        <%= image_tag @event.president_image.variant(resize:'200x200').processed%>
-			    <% end %>
+		<div class="col-md-4 col-lg-4">
+			<% if @event.president_image.attached? %>
+			    <%= image_tag @event.president_image.variant(resize:'400x400').processed%>
+			<% end %>
+		</div>
+		<div class="col-md-8 col-lg-8">
+			<div style="padding-top: 10px; font-size: 2.7em;">
+			   	<%= @event.event_company_name %>
 			</div>
-		    <div class="col-xs-8 col-lg-8">
-			    <div style="padding-top: 10px; font-size: 2.7em;">
-			    	<%= @event.event_company_name %>
-			    </div>
-			<!--     <%# if @event.tag.uuid == 1 %>
-			    	<p style="font-size: 2.8em;">代表取締役</p>
-			    <%# else %>
-			    	<p style="font-size: 2.0em;">登壇者</p>
-			    <%# end %> -->
+			<div style="font-size: 2.8em;"><%= @event.position %></div>
 
-			    <div style="font-size: 2.8em;"><%= @event.position %></div>
+			<div style="font-size: 2.5em;">
+		    	<%= @event.event_president %>
+			</div>
 
-			    <div style="font-size: 2.5em;">
-			    	<%= @event.event_president %>
-			    </div>
-				<!-- <p style="font-size: 2.8em;">誕生日</p> -->
-			    <div style="font-size: 2.5em;">
-				    <% if @event.tag.uuid == 1 %>
-				    	会社設立年度&ensp; <%= @event.event_president_birth_day %>
-				    <% elsif @event.tag.uuid == 2 %>
-				    	誕生日&ensp; <%= @event.event_president_birth_day %>
-				    <% end %>
-			    </div>
-			    <p style="font-size: 2.8em;">座右の銘</p>
-			    <div style="font-size: 2.5em;">
-			    	<%= @event.event_motto %>
-			    </div>
+			<div style="font-size: 2.5em;">
+				<% if @event.tag.uuid == 1 %>
+				   	会社設立年度&ensp; <%= @event.event_president_birth_day %>
+				<% elsif @event.tag.uuid == 2 %>
+				    誕生日&ensp; <%= @event.event_president_birth_day %>
+				<% end %>
+			</div>
+			<p style="font-size: 2.8em;">座右の銘</p>
+			<div style="font-size: 2.5em;">
+			   	<%= @event.event_motto %>
 			</div>
 		</div>
-		</div><!-- ./col-sm-8 col-md-8 -->
-		<div class="col-sm-2 col-md-2"></div>
-	</div><!-- ./row -->
+	</div>
 
 	<div class="event_details_box">
 		<div class="row event_detail_padding">
