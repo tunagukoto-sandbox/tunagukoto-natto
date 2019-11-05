@@ -94,9 +94,15 @@
 	<div class="event_details_box col-lg-8">
 		<div class="row event_detail_padding">
 			<div class="col-sm-6 col-md-6 event_detail_fonts">
-				<p class="font_details">【開催日】</p>
-				<p class="font_details">&ensp;&ensp;<%= @event.event_time %></p>
-				<p class="font_details">&ensp;&ensp;<%= @event.event_time_detail %></p>
+				<p class="font_details ">【開催日】</p>
+				<p class="font_details">&ensp;&ensp;
+					<%= @event.event_time.year %>年
+					<%= @event.event_time.month %>月
+					<%= @event.event_time.day %>日
+				</p>
+				<p class="font_details">
+					&ensp;&ensp;
+					<%= @event.event_time_detail %></p>
 				<h class="font_details">※当日の進行により多少前後する場合がございます</h>
 				<p><%= @event.event_location %></p>
 			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
