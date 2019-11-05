@@ -1,0 +1,118 @@
+.title_center-bold{
+	font-weight: bold;
+	text-align: center;	
+}
+
+@media screen and (max-width: 980px) {
+    /* 479px以下用（スマートフォン用）の記述 */
+	.event_show_event_name{
+		font-size: 3.0em;
+	}
+	.event_show_event_title{
+		font-size: 3.0em;
+	}
+	p#event-description{
+		font-weight: 300;
+		font-size: 2.0em;
+		text-align: left;
+	}
+	.event_company_name{
+		padding-top: 10px; 
+		font-size: 2.7em;
+	}
+	.event_position{
+		font-size: 2.8em;
+	}
+	.event_president{
+		font-size: 2.5em;
+	}
+	.birth_font{
+		font-size: 2.5em;
+	}
+	.fav_words{
+		font-size: 2.5em;
+	}
+	.font_details{
+		font-size: 2.0em;
+	}
+	.tag_desc{
+		font-size: 2.5em;
+		font-weight: 700;
+		color: #444444	;
+		text-align: center;
+		padding-bottom: 15px;
+	}
+
+	p#tag_info{
+		font-size: 2.0em;
+		font-weight: 700;
+		color: black;
+	}
+
+	p#tag_body{
+		font-size: 2.0em;
+		font-weight: 400;
+		color: black;
+	}
+
+}
+
+@media screen and (min-width: 981px) {
+    /* 980px以上用（PC用）の記述 */
+	.event_show_event_name{
+		font-size: 30px;
+	}
+	.event_show_event_title{
+		font-size: 24px;
+	}
+
+	.img-event-show{
+		width: 700px;
+		text-align: center;
+		padding-left: 70px;
+	}
+	p#event-description{
+		font-weight: 300;
+		font-size: 24px;
+		text-align: left;
+		padding-left: 70px;
+	}
+	.event_company_name{
+		padding-top: 10px; 
+		font-size: 27px;
+	}	
+	.event_position{
+		font-size: 24px;
+	}
+	.event_president{
+		font-size: 24px;
+	}
+	.birth_font{
+		font-size: 24px;
+	}
+	.fav_words{
+		font-size: 24px;
+	}
+	.font_details{
+		font-size: 22px;
+	}
+	.tag_desc{
+		font-size: 25px;
+		font-weight: 500;
+		color: #444444	;
+		text-align: center;
+		padding-bottom: 15px;
+	}
+
+	p#tag_info{
+		font-size: 20px;
+		font-weight: 500;
+		color: black;
+	}
+
+	p#tag_body{
+		font-size: 20px;
+		font-weight: 300;
+		color: black;
+	}	
+}

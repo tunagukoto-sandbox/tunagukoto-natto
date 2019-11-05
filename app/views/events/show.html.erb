@@ -22,64 +22,70 @@
 
 	<div class="row event_show_parent event_show_padding">
 		<div class="event_show_title"></div>
-		<div class="col-sm-12 col-md-12" style="font-weight: bold;">
-			<p style="text-align: center; font-size: 3.0em;"><%= @event.event_name %></p>
-			<p style="font-size: 2.5em; text-align: center;">
+		<div class="col-sm-12 col-md-12 title_center-bold">
+			<p class="event_show_event_name">
+				<%= @event.event_name %></p>
+			<p class="event_show_event_title">
 				<%= @event.event_title %>
 			</p>
 		</div><!-- ./col-sm-12 col-md-12 -->
 	</div><!-- ./event_show_title -->
 	<div>
-	    <% if @event.event_show_image.attached? %>
-	        <%= image_tag @event.event_show_image.variant(resize:'600x700').processed ,class: "card-img-top" ,class: "card-img-top"%>
-	    <% end %>
 	</div>
 	<div class="row event_show_parent event_show_padding">
-		<div class="event_show_company_detail"></div>
-		<div class="col-sm-12 col-md-12" style="text-align: center;">
-			<p style="font-weight: bold; font-size: 3.0em;">
-			<% if @event.tag.uuid == 1 %>
-				【<%= @event.event_company_name %>って何してる会社？】
-			<% elsif  @event.tag.uuid == 2 %>
-				【今回のガクショクは？】
-			<% elsif  @event.tag.uuid == 3 %>
-				【今回のキャリアコネクションは？】
-			<% else %>
-				【<%= @event.event_company_name %>って何してるの？】
-			<% end %>
-			</p>
-			<p style="font-size: 2.2em;">
-				<%= @event.event_description %>
-			</p>
-		</div><!-- ./col-sm-8 col-md-8 -->
+		<div lass="col-lg-7">
+			<% if @event.event_show_image.attached? %>
+		        <%= image_tag @event.event_show_image ,class: "card-img-top" ,class: "card-img-top img-event-show"%>
+		    <% end %>
+		</div>
+		<div class="row col-lg-5">
+			<div class="col-sm-12 col-md-12 title_center-bold">
+				<p class="event_show_event_title">
+				<% if @event.tag.uuid == 1 %>
+					【<%= @event.event_company_name %>って何してる会社？】
+				<% elsif  @event.tag.uuid == 2 %>
+					【今回のガクショクは？】
+				<% elsif  @event.tag.uuid == 3 %>
+					【今回のキャリアコネクションは？】
+				<% else %>
+					【<%= @event.event_company_name %>って何してるの？】
+				<% end %>
+				</p>
+				<p id="event-description">
+					<%= @event.event_description %>
+				</p>
+			</div><!-- ./col-sm-8 col-md-8 -->
+		</div>
+		<!-- <div class="event_show_company_detail"></div> -->		
 	</div><!-- ./row event_show_parent event_show_padding -->
-
 	<div class="row">
+		<div class="col-lg-2"></div>
 		<div class="col-md-4 col-lg-4">
 			<% if @event.president_image.attached? %>
-			    <%= image_tag @event.president_image.variant(resize:'400x400').processed%>
+			    <%= image_tag @event.president_image.variant(resize:'300x300').processed%>
 			<% end %>
 		</div>
-		<div class="col-md-8 col-lg-8">
-			<div style="padding-top: 10px; font-size: 2.7em;">
+		<div class="col-md-8 col-lg-6">
+			<div class="event_company_name">
 			   	<%= @event.event_company_name %>
 			</div>
-			<div style="font-size: 2.8em;"><%= @event.position %></div>
-
-			<div style="font-size: 2.5em;">
+			<div class="event_position">
+				<%= @event.position %>					
+			</div>
+			<div class="event_president">
 		    	<%= @event.event_president %>
 			</div>
 
-			<div style="font-size: 2.5em;">
+			<div class="birth_font">
 				<% if @event.tag.uuid == 1 %>
 				   	会社設立年度&ensp; <%= @event.event_president_birth_day %>
 				<% elsif @event.tag.uuid == 2 %>
 				    誕生日&ensp; <%= @event.event_president_birth_day %>
 				<% end %>
 			</div>
-			<p style="font-size: 2.8em;">座右の銘</p>
-			<div style="font-size: 2.5em;">
-			   	<%= @event.event_motto %>
+			<div class="fav_words">
+				座右の銘<br>
+			   	「<%= @event.event_motto %>」
 			</div>
 		</div>
 	</div>
@@ -87,28 +93,28 @@
 	<div class="event_details_box">
 		<div class="row event_detail_padding">
 			<div class="col-sm-6 col-md-6 event_detail_fonts">
-				<p style="font-size: 2.3em;">【開催日】</p>
-				<p style="font-size: 2.0em;">&ensp;&ensp;<%= @event.event_time %></p>
-				<p style="font-size: 2.0em;">&ensp;&ensp;<%= @event.event_time_detail %></p>
-				<h style="font-size: 1.5em;">※当日の進行により多少前後する場合がございます</h>
+				<p class="font_details">【開催日】</p>
+				<p class="font_details">&ensp;&ensp;<%= @event.event_time %></p>
+				<p class="font_details">&ensp;&ensp;<%= @event.event_time_detail %></p>
+				<h class="font_details">※当日の進行により多少前後する場合がございます</h>
 				<p><%= @event.event_location %></p>
 			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
 			<div class="col-sm-6 col-md-6 event_detail_fonts">
 				<div>
-					<h style="font-size: 2.3em;">【参加費】</h>
+					<h class="font_details">【参加費】</h>
 					<% if @event.event_cost == 0 || @event.event_cost == "無料" %>
-						<p style="color: red; font-size: 2.3em;">&ensp;&ensp;<%= @event.event_cost %></p>
+						<p  class="font_details" style="color: red;">&ensp;&ensp;<%= @event.event_cost %></p>
 					<% else %>
-						<p style="font-size: 2.0em;">&ensp;&ensp;￥：<%= @event.event_cost %></p>
+						<p class="font_details">&ensp;&ensp;￥：<%= @event.event_cost %></p>
 					<% end %>
-					<p style="font-size: 2.0em;">&ensp;&ensp;食事付き</p>
+					<p class="font_details">&ensp;&ensp;食事付き</p>
 				</div>
 				<div>
-					<h style="font-size: 2.3em;">【募集人数】</h>
+					<h class="font_details">【募集人数】</h>
 					<% if @event.event_population == nil %>
-						<p style="font-size: 2.0em;">&ensp;&ensp;未定</p>
+						<p class="font_details">&ensp;&ensp;未定</p>
 					<% else %>
-						<p style="font-size: 2.0em;">&ensp;&ensp;約<%= @event.event_population %>名</p>
+						<p class="font_details">&ensp;&ensp;約<%= @event.event_population %>名</p>
 					<% end %>
 				</div>
 			</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
