@@ -83,10 +83,12 @@
 				    誕生日&ensp; <%= @event.event_president_birth_day %>
 				<% end %>
 			</div>
+			<% if @event.event_motto != nil %>
 			<div class="fav_words">
 				座右の銘<br>
 			   	「<%= @event.event_motto %>」
 			</div>
+			<% end %>
 		</div>
 	</div>
 <div class="row">
