@@ -9,7 +9,11 @@
     <div class="devise_pc">
         <div class="header">
             <div class="inner-header">
-                <span class="right-padding"><%= image_tag'na.png',class: "natto" %></span>
+                <span class="right-padding">
+                    <a href="/">
+                        <%= image_tag'na.png',class: "natto" %>
+                    </a>
+                </span>
                 <span class="header-right">
                     <div class="guest">ようこそ
                         <%= current_student.first_name %>さん
@@ -65,7 +69,11 @@
     <div class="devise_pc">
         <div class="header">
             <div class="inner-header">
-                <span class="right-padding"><%= image_tag'na.png',class: "natto" %></span>
+                <span class="right-padding">
+                    <a href="/">
+                        <%= image_tag'na.png',class: "natto" %>
+                    </a>
+                </span>
                 <span class="header-right">
                     <div class="guest">ようこそゲストさん</div>
                     <div class="guest margin-right-fifty">
@@ -81,7 +89,7 @@
          <!-- これはケータイ用 -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <%= image_tag'na.png',class: "natto-mobile" %>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

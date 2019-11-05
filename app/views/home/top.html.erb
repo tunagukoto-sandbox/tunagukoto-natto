@@ -92,14 +92,14 @@
 							<% @show_mini_events.each do |me| %>
 								<%= link_to mini_event_path(me.id) do %>
 								<div class="col-lg-4">
-									<div class="card" style="height: 450px;">
+									<div class="card">
 								        <% if me.mini_event_img.attached? %>
-								            <%= image_tag me.mini_event_img ,class: "card-img-top" ,style: "max-height: 200px;" %>
+								            <%= image_tag me.mini_event_img ,class: "card-img-top" %>
 								        <% end %>
 									  	<div class="card-body">
 									  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
 										    <h4 class="card-title"><%= me.title %></h4>
-										    <p class="card-text" style= "height: 120px;">
+										    <p class="card-text">
 										    	<%= me.detail.truncate(50) %>
 										    </p>
 										    <h class="btn btn-outline-secondary">このイベントに参加する</h>
