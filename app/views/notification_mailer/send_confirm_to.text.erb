@@ -1,0 +1,18 @@
+<%= @customer.name %> 様
+
+今回は<%= @event.event_select %>にお申し込み頂き、誠にありがとうございます。
+
+以下がイベント詳細になります
+=========================================================
+<% if @event.tag.uuid == 1 %>
+会社名: <%= @event.event_company_name %>
+<% elsif @event.tag.uuid == 2 %>
+登壇者: <%= @event.event_company_name %>
+<% end %>
+参加報酬ポイント: <%= @event.get_point %>
+日時: <%= @event.event_time.month %>月<%= @event.event_time.day %>日<%= @event.event_time_detail %>
+場所: <%= @event.event_location %>
+参加費: <%= @event.event_cost %>
+=========================================================
+
+何かわからないことがありましたら、以下の電話番号、メールアドレス宛にご連絡いただきますよう、お願い致します。

@@ -11,6 +11,7 @@ class EventCustomersController < ApplicationController
       @event_customer.check = false
     end
   	if @event_customer.save
+      NotificationMailer.send_confirm_to(@event_customer).deliver
   		redirect_to root_path
   	else
   		redirect_to new_event_customer_path
