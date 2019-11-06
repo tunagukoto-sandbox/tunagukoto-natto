@@ -72,7 +72,7 @@ class PointsController < ApplicationController
     @event_customer = EventCustomer.find(params[:id])
     if @event_customer.student_id == nil
       redirect_to home_admin_event_path
-      flash[:alarm] = "イベントに問題があり、正しく確認が取れませんでした。"
+      flash[:alarm] = "登録されていない学生です。問題が発生したため、正しく確認が取れませんでした。"
     else
       @event = Event.find(@event_customer.event_id)
       @student = Student.find(@event_customer.student_id)
