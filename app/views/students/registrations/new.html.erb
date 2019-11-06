@@ -42,10 +42,6 @@
 
       <div>
         <p style="font-size: 1.5em;">所属を選択してください</p>
-          <%#= f.collection_radio_buttons(:school_id, School.all, :id, :school_name, include_hidden: false) do |b| %>
-            <%#= b.label { b.radio_button + b.text } %>
-          <%# end %>
-          <%#= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
           <%= f.collection_select :school_id, School.where.not(school_name: "社会人"), :id, :school_name , class: 'form-control' %>
       </div>
       <div class="actions">

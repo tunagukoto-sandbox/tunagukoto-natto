@@ -20,7 +20,6 @@ class Student::ParameterSanitizer < Devise::ParameterSanitizer
 			:school_id,
 			:my_image
 		])   
-
         # ユーザー情報アップデート時のパラメーター
         permit(:account_update, keys: [
         	:email,
