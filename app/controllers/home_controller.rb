@@ -22,7 +22,8 @@ class HomeController < ApplicationController
   end
 
   def admin_top
-  	@events = Event.all
+    #終了したイベントはDBにはあるが表示はしない
+  	@events = Event.where(finish: false)
   	@quests = Quest.all
   	@schools = School.all
   end
