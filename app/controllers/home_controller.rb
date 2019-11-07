@@ -43,6 +43,17 @@ class HomeController < ApplicationController
     end 
   end
 
+  def event_send_mail
+    # paramsでevent_id で取得する場合
+    @event_customers = EventCustomer.where(event_id: params[:id])
+    adresses = []
+    @event_customers.each do |ec|
+      adresses.push(ec.email)
+      @event = ec.event
+    end
+    NotificationMailer.event_send_mail_to_customers(adresses, @event).deliver
+  end
+
   def studey_event
     @events = Event.includes(:styles).where(styles: {uuid: 1})
     @mini_events = MiniEvent.includes(:styles).where(styles: {uuid: 1})

@@ -34,6 +34,24 @@ class NotificationMailer < ActionMailer::Base
     end
   end
 
+  def event_send_mail_to_customers(adresses, event)
+    @event = event
+    mail(
+      subject: "#{@event.event_select}についてのご連絡",
+      bcc: adresses
+    )
+
+    # from  送信元メールアドレス
+    # subject メールの件名
+    # to  メールの送信先アドレス
+    # 複数の宛先には”,”(カンマ)区切りまたは配列を指定
+    # cc  CC(カーボンコピー)のメールアドレス
+    # 複数の宛先には”,”(カンマ)区切りまたは配列を指定
+    # bcc BCC(ブラインドカーボンコピー)のメールアドレス
+    # 複数の宛先には”,”(カンマ)区切りまたは配列を指定
+  end
+
+
 end
 
 
