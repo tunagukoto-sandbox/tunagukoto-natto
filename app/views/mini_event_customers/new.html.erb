@@ -1,3 +1,4 @@
+<% if student_signed_in? %>
 <%= form_for @mini_event_customer do |f| %>
 	<div class="container">
 	<div class="col-md-2"></div>
@@ -5,7 +6,6 @@
 
 		<p>ミニイベントを選択してください</p>
 		<div class="cp_ipselect cp_sl01">
-			<%#= f.collection_select :event_id, Event.all, :id, :event_name, class: 'form-control'  %>
 			<%= f.collection_select :mini_event_id, MiniEvent.all, :id, :title, class: 'form-control'  %>
 		</div>
 
@@ -26,4 +26,34 @@
 
 	</div>
 	</div>
+<% end %>
+<% else %>
+<%= form_for @mini_event_customer do |f| %>
+	<div class="container">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+
+		<p>ミニイベントを選択してください</p>
+		<div class="cp_ipselect cp_sl01">
+			<%= f.collection_select :mini_event_id, MiniEvent.all, :id, :title, class: 'form-control'  %>
+		</div>
+
+
+		<p>所属を選択してください</p>
+		<div class="cp_ipselect cp_sl01">
+			<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
+		</div>
+ 
+		<div class="event_customer_form">名前(フルネーム)<%= f.text_field :name  %></div>
+
+		<div class="event_customer_form">メールアドレス:<%= f.text_field :email   %></div>
+
+		<div class="event_customer_form">電話番号:<%= f.text_field :phone_num, placeholder: "例) 080123456789", :size => "30*60" %></div>
+
+		<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+		</div>
+
+	</div>
+	</div>
+<% end %>
 <% end %>
