@@ -22,14 +22,14 @@ class HomeController < ApplicationController
   end
 
   def admin_top
-    #終了したイベントはDBにはあるが表示はしない
-  	@events = Event.where(finish: false)
+  	@events = Event.all
   	@quests = Quest.all
   	@schools = School.all
   end
 
   def admin_event
-    @events = Event.all
+    #終了したイベントはDBにはあるが表示はしない
+    @events = Event.where(finish: false)
     @hash = {}
     Event.all.each do |e|
       @hash.merge!(e.event_name => EventCustomer.where(event_id: e.id))
