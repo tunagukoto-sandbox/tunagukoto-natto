@@ -1,0 +1,24 @@
+<%= @customer.name %> 様
+
+今回は<%= @mini_event.mini_event_name %>にお申し込み頂き、誠にありがとうございます。
+
+お申し込みいただいた内容は以下の通りです。
+=========================================================
+イベント名: <%= @mini_event.title %> 
+開催者: <%= @held %>
+<% if  @mini_event.get_point == nil || @mini_event.get_point == 0%>
+<% else %>
+獲得ポイント:<%= @mini_event.get_point %>pt
+<% end %>
+<% if  @mini_event.pay_point == nil || @mini_event.pay_point == 0%>
+<% else %>
+消費ポイント:<%= @event.get_point %>pt
+<% end %>
+日時: <%= @mini_event.time.month %>月<%= @mini_event.time.day %>日<%= @mini_event.time_detail %>
+場所: <%= @mini_event.locate %>
+参加費: <%= @mini_event.cost %>円
+=========================================================
+
+質問がございましたらお気軽に下記連絡先までお問い合わせください。
+メールアドレス: tunagu-info@tunagu.or.jp
+開催日が近づきましたら改めて運営よりご連絡差し上げます。

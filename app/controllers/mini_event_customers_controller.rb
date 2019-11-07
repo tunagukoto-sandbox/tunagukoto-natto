@@ -10,6 +10,7 @@ class MiniEventCustomersController < ApplicationController
       @mini_event_customer.student_id = current_student.id
     end
     if @mini_event_customer.save
+      NotificationMailer.mini_event_send_confirm_to(@mini_event_customer).deliver
       redirect_to root_path
     else
       redirect_to root_path
