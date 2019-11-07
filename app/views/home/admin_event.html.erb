@@ -37,10 +37,10 @@
 			        <% end %>
 			    </table>
 			    <div>
-			    	<!-- 参加者メールアドレス一覧<br> -->
-			    	<%# @events_customers.each do |ec| %>
-			    	<%#= ec.email %>
-			    	<%# end %>
+			    	参加者メールアドレス一覧<br>
+			    	<% @events_customers.each do |ec| %>
+			    	<%= ec.email %>
+			    	<% end %>
 			    	<br>
 			    	<p style="color: red;">※イベント開始時刻17:45〜、開催場所ツナグオフィスであることを確認した上で一斉送信してください</p>
 			    	<%= link_to "メールを一斉送信する", home_event_send_mail_path(e.id),method: :post,  class: "btn btn-danger" %>
