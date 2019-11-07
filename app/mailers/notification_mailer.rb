@@ -34,8 +34,9 @@ class NotificationMailer < ActionMailer::Base
     end
   end
 
-  def event_send_mail_to_customers(adresses, event)
+  def event_send_mail_to_customers(adresses, event, event_customers)
     @event = event
+    @event_customers = event_customers
     mail(
       subject: "#{@event.event_select}についてのご連絡",
       bcc: adresses

@@ -52,7 +52,7 @@ class HomeController < ApplicationController
       adresses.push(ec.email)
       @event = ec.event
     end
-    NotificationMailer.event_send_mail_to_customers(adresses, @event).deliver
+    NotificationMailer.event_send_mail_to_customers(adresses, @event, @event_customers).deliver
   end
 
   def studey_event

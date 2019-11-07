@@ -6,11 +6,27 @@
 開催日程前日になりましたので改めてご連絡いたしました。
 
 イベント詳細は下記になります
+イベント名：<%= @event.event_select %>
+
+タイトル：<%=  @event.event_name %>
+		<%=  @event.event_title %>
+		
+登壇：　<%= @event.event_company_name %>/<%= @event.position %>/<%= @event.event_president %>
+
 日時：<%= @event.event_time.month %>月<%= @event.event_time.day %>日 <%= @event.event_time_detail %>
 
-場所：ツナグコトオフィス
+場所：ツナグコトオフィス(千種駅２番)
 
-住所：名古屋市東区葵3-15-31千種第２ビル4階
+住所：<%= @event.event_location %>
+
+<% if @event.get_point != nil %>
+取得ポイント<%= @event.get_point %>
+<% end %>
+
+<% if @event.pay_point != nil %>
+消費ポイント<%= @event.pay_point %>
+<% end %>
+
 
 備考：当日は17:30頃から受付を開始いたします。
 
