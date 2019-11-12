@@ -36,9 +36,11 @@
 			    </table>
 			    <div>
 			    	参加者メールアドレス一覧<br>
-			    	<%# @events_customers.each do |ec| %>
-			    	<%#= ec.email %>
-			    	<%# end %>
+			    	<% @mini_events_customers.each do |mec| %>
+			    		<%= mec.email %>
+			    	<% end %>
+			    	<br>
+			    	<%= link_to "メールを一斉送信する", home_mini_event_send_mail_path(me.id),method: :post,  class: "btn btn-danger" %>
 			    </div>
 		    </div>
 		<% end %>

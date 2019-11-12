@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
  	post 'home/event_send_mail/:id', to: 'home#event_send_mail', as: 'home_event_send_mail'
 
+ 	post 'home/mini_event_send_mail/:id', to: 'home#mini_event_send_mail', as: 'home_mini_event_send_mail'
+
  	patch 'mini_event_customer/update/:id', to: 'points#update_point', as: 'update_point'
  	patch 'mini_event_customer/rollback/:id', to: 'points#rollback_point', as: 'rollback_point'
 

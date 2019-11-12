@@ -1,0 +1,43 @@
+<%= @mini_event.mini_event_name %>に参加申し込みの皆様
+大変お世話になっております。
+一般社団法人ツナグコト運営です。
+
+この度は<%= @mini_event.mini_event_name %>に申し込みいただき誠にありがとうございます。
+開催日程前日になりましたので改めてご連絡いたしました。
+
+イベント詳細は下記になります
+================================================
+イベント名：<%= @mini_event.mini_event_name %>
+
+タイトル：<%=  @mini_event.title %>
+
+イベント詳細：<%=  @mini_event.detail %>
+		
+<% if @ok %>
+イベント開催者： <%= @name %>
+<% end %>
+日時：<%= @mini_event.time.month %>月<%= @mini_event.time.day %>日 <%= @mini_event.time_detail %>
+
+参加条件：<%= @mini_event.requirement %>
+
+場所：<%= @mini_event.locate %>
+
+参加費：<%= @mini_event.cost %>
+
+<% if @mini_event.pay_point != nil %>
+消費ポイント<%= @mini_event.pay_point %>
+<% end %>
+
+<% if @mini_event.get_point != nil %>
+取得ポイント<%= @mini_event.get_point %>
+<% end %>
+
+<% if @mini_event.pay_point != nil && @mini_event.cost != nil %>
+※当イベントはポイント消費または参加費を支払うことで参加可能です。
+参加費に関しましては、イベント開催地で直接お支払いください。
+また、社会人の参加希望者の方は、参加費を払うことで参加することができます。
+<% end %>
+
+================================================
+
+それでは皆様と当日お会いできることを楽しみにしております。

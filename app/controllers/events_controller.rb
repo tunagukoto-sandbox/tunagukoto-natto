@@ -23,7 +23,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    #auto_delete_event
     @events = Event.all
   end
 

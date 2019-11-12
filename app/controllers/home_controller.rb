@@ -45,7 +45,6 @@ class HomeController < ApplicationController
   end
 
   def event_send_mail
-    # paramsでevent_id で取得する場合
     @event_customers = EventCustomer.where(event_id: params[:id])
     adresses = []
     @event_customers.each do |ec|
@@ -53,6 +52,16 @@ class HomeController < ApplicationController
       @event = ec.event
     end
     NotificationMailer.event_send_mail_to_customers(adresses, @event, @event_customers).deliver
+  end
+
+  def mini_event_send_mail
+    @mini_event_customers = MiniEventCustomer.where(mini_event_id: params[:id])
+    adresses = []
+    @mini_event_customers.each do |mec|
+      adresses.push(mec.email)
+      @mini_event = mec.mini_event
+    end
+    NotificationMailer.mini_event_send_mail_to_customers(adresses, @mini_event, @mini_event_customers).deliver
   end
 
   def studey_event

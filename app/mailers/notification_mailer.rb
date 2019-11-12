@@ -41,49 +41,19 @@ class NotificationMailer < ActionMailer::Base
       subject: "#{@event.event_select}についてのご連絡",
       bcc: adresses
     )
-
-    # from  送信元メールアドレス
-    # subject メールの件名
-    # to  メールの送信先アドレス
-    # 複数の宛先には”,”(カンマ)区切りまたは配列を指定
-    # cc  CC(カーボンコピー)のメールアドレス
-    # 複数の宛先には”,”(カンマ)区切りまたは配列を指定
-    # bcc BCC(ブラインドカーボンコピー)のメールアドレス
-    # 複数の宛先には”,”(カンマ)区切りまたは配列を指定
   end
 
+  def mini_event_send_mail_to_customers(adresses, mini_event, mini_event_customers)
+    @mini_event = mini_event
+    @mini_event_customers = mini_event_customers
+    if @mini_event.student_id != nil
+      @name = "#{@mini_event.student.first_name}" + "#{@mini_event.student.last_name}"
+      @ok = true
+    end
+    mail(
+      subject: "#{@mini_event.mini_event_name}についてのご連絡",
+      bcc: adresses
+    )
+  end
 
 end
-
-
-  # def mini_event_customer_params
-  #     params.require(:mini_event_customer)
-  #     .permit(
-  #       :mini_event_id,
-  #       :student_id,
-  #       :school_id,
-  #       :name,
-  #       :email,
-  #       :phone_num
-  #       )
-  # end
-
-  #   belongs_to :school
-  # belongs_to :mini_event
-
-    # :title,
-    # :mini_event_img,
-    # :student_id,
-    # :corporation_id,
-    # :detail,
-    # :time,
-    # :time_detail,
-    # :cost,
-    # :requirement,
-    # :get_point,
-    # :pay_point,
-    # :locate,
-    # :invite_num,
-    # :mini_event_name,
-    # :free_box,
-    # :open
