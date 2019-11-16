@@ -4,8 +4,8 @@ class HomeController < ApplicationController
 
     @e_count = Event.where(finish: false).count - 1
 
-    @show_mini_events = MiniEvent.where(open: true)
-    
+    # @show_mini_events = MiniEvent.where(open: true)
+    @show_mini_events = MiniEvent.where(open: true).where(finish: false)
     if News.count >= 3
       @news = News.first(3)
     else

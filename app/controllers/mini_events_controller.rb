@@ -7,6 +7,7 @@ class MiniEventsController < ApplicationController
     @mini_event = MiniEvent.new(mini_event_params)
     @mini_event.time = time
     style_ids = params[:mini_event][:style_ids]
+    @mini_event[:finish] = false
     if @mini_event.student_id != nil
       @mini_event.mini_event_name = mini_event_name(@mini_event)
     end
@@ -87,7 +88,8 @@ class MiniEventsController < ApplicationController
     :invite_num,
     :mini_event_name,
     :free_box,
-    :open
+    :open,
+    :finish
     )
   end
 

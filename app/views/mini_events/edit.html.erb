@@ -70,6 +70,10 @@
 			<label>
 			<%= f.radio_button :open, false %> 表示しない </label>
 			<label><%= f.radio_button :open, true %> 表示する</label>
+			●イベントは終了しましたか？<br>
+			<label>
+			<%= f.radio_button :finish, true %> 終了した </label>
+			<label><%= f.radio_button :finish, false %> まだ終了していない </label>
 		<%=f.submit 'イベント編集を完了する', class: 'btn btn-success btn-lg btn-block' %>
 		</div>
 	</div>
