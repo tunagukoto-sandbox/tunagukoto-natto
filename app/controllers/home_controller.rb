@@ -66,12 +66,12 @@ class HomeController < ApplicationController
 
   def studey_event
     @events = Event.includes(:styles).where(styles: {uuid: 1})
-    @mini_events = MiniEvent.includes(:styles).where(styles: {uuid: 1})
+    @mini_events = MiniEvent.includes(:styles).where(styles: {uuid: 1}).where(finish: false)
   end
 
   def interact_event
     @events = Event.includes(:styles).where(styles: {uuid: 2})
-    @mini_events = MiniEvent.includes(:styles).where(styles: {uuid: 2})
+    @mini_events = MiniEvent.includes(:styles).where(styles: {uuid: 2}).where(finish: false)
   end
 
   def natto
