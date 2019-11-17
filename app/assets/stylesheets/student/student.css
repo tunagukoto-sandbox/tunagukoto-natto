@@ -45,3 +45,40 @@
   width: 150px;
   height: 150px;
 }
+
+
+.student_normal {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFFFCC;
+  background: #808080;/*色*/
+  border-radius: 4px;/*角の丸み*/
+  font-weight: bold;
+  border: solid 2px #DDDDDD;/*線色*/
+}
+
+.student_ambassador {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: black;
+  background: #FF6666;/*色*/
+  border-radius: 4px;/*角の丸み*/
+  font-weight: bold;
+  border: solid 2px #DDDDDD;/*線色*/
+}
+
+.student_start_up {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: black;
+  background: #33CC00;/*色*/
+  border-radius: 4px;/*角の丸み*/
+  font-weight: bold;
+  border: solid 2px #DDDDDD;/*線色*/
+}

@@ -65,6 +65,10 @@
           </div>
         </nav>
     </div>
+<% elsif student_group_signed_in? %>
+  <%= render 'layouts/header_student_group' %>
+<% elsif  non_profit_organization_signed_in? %>
+  <%= render 'layouts/header_non_profit_organization' %>
 <% else %>
     <div class="devise_pc">
         <div class="header">

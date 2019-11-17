@@ -1,0 +1,43 @@
+<div class="container-fluid">
+<div class="top_container">
+<div class="row">
+	<div class="col-lg-9">
+		<div class="container">
+		<div class="student_group_title_sub">登録学生団体一覧</div>
+		<div class="font_weight">
+			ツナグコトはNattoを基盤に<br>
+			愛知県の学生団体とのつながりを<br>
+			広げていきます<br>
+		</div>
+		<div class="student_group_title">登録学生団体一覧</div>
+		<% @student_groups.each do |s| %>
+		<div class="row student_group_small_box">
+			<div class="col-lg-3">
+				<% if s.top_img.attached? %>
+				<%= image_tag s.top_img ,class: "card-img-top" ,class: "card-img-top"%>
+				<% end %>
+			</div>
+			<div class="col-lg-9">
+				<div class="student_group_name"><%= s.name_ja %></div>
+				<div class="row">
+					<div class="col-lg-6">
+						<b>Web:</b>&nbsp;<%= s.home_page_url %><br>
+						<b>Email:</b>&nbsp;<%= s.email %>
+					</div>
+					<div class="col-lg-6">
+						<b>活動内容:</b>&nbsp;<%= s.activity_detail_ja %><br>
+						<b>活動実績:</b>&nbsp;<%= s.performance_ja %><br>
+						<b>会員数:</b>&nbsp;<%= s.membership %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+		</div>
+	</div>
+	<div class="col-lg-3">
+		<%= render 'home/top_menus' %>
+	</div>
+</div>
+</div>
+</div>

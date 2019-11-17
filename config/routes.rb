@@ -18,6 +18,10 @@ Rails.application.routes.draw do
  	get 'home/studey_event'
 
  	get 'home/interact_event'
+ 	
+ 	get 'organizations/student_group'
+
+  	get 'organizations/non_profit'
 
  	post 'home/event_send_mail/:id', to: 'home#event_send_mail', as: 'home_event_send_mail'
 
@@ -34,7 +38,6 @@ Rails.application.routes.draw do
 	  :sessions => 'students/sessions'   
 	} 
 
-
 	devise_for :admins, :controllers => {      
 	  :sessions => 'admins/sessions'   
 	} 
@@ -44,6 +47,15 @@ Rails.application.routes.draw do
 	  :sessions => 'corporations/sessions'   
 	} 
 
+  	devise_for :non_profit_organizations, :controllers => {
+	  :registrations => 'non_profit_organizations/registrations',
+	  :sessions => 'non_profit_organizations/sessions'   
+	}
+
+  	devise_for :student_groups, :controllers => {
+	  :registrations => 'student_groups/registrations',
+	  :sessions => 'student_groups/sessions'   
+	} 
 
 	resources :student_page, only: [:show, :index]
 	resources :company_page, only: [:show, :index]

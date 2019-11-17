@@ -1,0 +1,33 @@
+.student_group_title_sub{
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  font-size: 24px;
+  font-weight: 800;
+  background: transparent;/*背景透明に*/
+  border-left: solid 15px #4DA067;/*左線*/
+}
+
+.font_weight{
+	font-weight: 800;
+	padding-left: 40px;
+	padding-top: 20px;
+	font-size: 20px;
+	padding-bottom: 15px;
+}
+.student_group_title{
+	width: 100%;
+	background-color: #EEEEEE;
+	text-align: left;
+	padding: 10px 30px;
+	font-size: 24px;
+}
+
+.student_group_small_box{
+	margin-left: 10px;
+}
+
+.student_group_name{
+	font-size: 1.0em;
+	font-weight: 700;
+	padding-bottom: 10px;
+}

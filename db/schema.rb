@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_052718) do
+ActiveRecord::Schema.define(version: 2019_11_16_024547) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -180,6 +180,25 @@ ActiveRecord::Schema.define(version: 2019_11_03_052718) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "non_profit_organizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name_ja"
+    t.string "name_en"
+    t.text "activity_detail_ja"
+    t.text "performance_ja"
+    t.text "activity_detail_en"
+    t.text "performance_en"
+    t.string "home_page_url"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_non_profit_organizations_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_non_profit_organizations_on_reset_password_token", unique: true
+  end
+
   create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "student_id"
     t.string "student_name"
@@ -217,6 +236,26 @@ ActiveRecord::Schema.define(version: 2019_11_03_052718) do
     t.string "school_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "student_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name_ja"
+    t.string "name_en"
+    t.text "activity_detail_ja"
+    t.text "performance_ja"
+    t.text "activity_detail_en"
+    t.text "performance_en"
+    t.integer "membership"
+    t.string "home_page_url"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_student_groups_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_student_groups_on_reset_password_token", unique: true
   end
 
   create_table "student_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

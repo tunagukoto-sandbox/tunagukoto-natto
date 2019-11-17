@@ -1,0 +1,11 @@
+.npo_name{
+	font-size: 1.2em;
+	font-weight: 700;
+	padding-bottom: 10px;
+}
+
+.npo_small_box{
+	margin-left: 10px;
+	border-bottom: inset 2px black;
+	padding: 10px 0;
+}
