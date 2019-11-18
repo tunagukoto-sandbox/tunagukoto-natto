@@ -26,44 +26,44 @@
 				                    <% if e.event_top_image.attached? %>
 				                        <%= image_tag e.event_top_image , class: "card-img-top"%>
 				                    <% end %>
-				                    <div class="carousel-caption d-none d-md-block">
+				                    <!-- <div class="carousel-caption d-none d-md-block">
 				                        <h4 id="slide_title">
-				                            <% if e.tag.uuid == 1 %>
+				                            <%# if e.tag.uuid == 1 %>
 	                                        	<%= e.event_time.month %> 月 シャショク
-	                                		<% elsif e.tag.uuid == 2 %>
+	                                		<%# elsif e.tag.uuid == 2 %>
 	                                        	<%= e.event_time.month %> 月　ガクショク
-	                                		<% elsif e.tag.uuid == 3 %>
+	                                		<%# elsif e.tag.uuid == 3 %>
 	                                        	<%= e.event_time.month %> 月 キャリアコネクション
-	                                		<% else%>
+	                                		<%# else%>
 	                                    		<%= e.event_time.month %> 月 
-	                                		<% end %>
+	                                		<%# end %>
 	                                	</h4>
 				                      <p id="slide_comment">
 				                      	<%= e.event_company_name %>
 				                      </p>
-				                    </div><!-- /.carousel-caption -->
+				                    </div> --><!-- /.carousel-caption -->
 				                </div><!-- /.carousel-item -->
 				            <% else %>
 				                <div class="carousel-item">
 				                    <% if e.event_top_image.attached? %>
 				                        <%= image_tag e.event_top_image ,class: "card-img-top"%>
 				                    <% end %>
-				                    <div class="carousel-caption d-none d-md-block">
+				                    <!-- <div class="carousel-caption d-none d-md-block">
 				                        <h4 id="slide_title">
-				                            <% if e.tag.uuid == 1 %>
+				                            <%# if e.tag.uuid == 1 %>
 	                                        	<%= e.event_time.month %> 月 シャショク
-	                                		<% elsif e.tag.uuid == 2 %>
+	                                		<%# elsif e.tag.uuid == 2 %>
 	                                        	<%= e.event_time.month %> 月　ガクショク
-	                                		<% elsif e.tag.uuid == 3 %>
+	                                		<%# elsif e.tag.uuid == 3 %>
 	                                        	<%= e.event_time.month %> 月 キャリアコネクション
-	                                		<% else%>
+	                                		<%# else%>
 	                                    		<%= e.event_time.month %> 月 
-	                                		<% end %>
+	                                		<%# end %>
 	                                	</h4>
 				                      <p id="slide_comment">
 				                      	<%= e.event_company_name %>
 				                      </p>
-				                    </div><!-- /.carousel-caption -->
+				                    </div> --><!-- /.carousel-caption -->
 				                </div><!-- /.carousel-item -->
 				            <% end %>
 				        <% count = count + 1 %>
