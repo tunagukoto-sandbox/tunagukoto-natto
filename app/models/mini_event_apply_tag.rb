@@ -1,0 +1,2 @@
+class MiniEventApplyTag < ApplicationRecord
+end

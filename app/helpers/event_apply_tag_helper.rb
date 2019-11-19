@@ -1,0 +1,2 @@
+module EventApplyTagHelper
+end

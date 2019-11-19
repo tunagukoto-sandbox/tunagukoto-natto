@@ -24,13 +24,26 @@
 				                <td><%= ec.tel %></td>
 				                <td><%= link_to "削除", event_customer_path(ec.id), method: :delete, class: "btn btn-danger", data: { confirm: '削除しますか？' }  %>
 				                	<%= link_to "編集", edit_event_customer_path(ec.id), method: :get, class: "btn btn-success"  %>
-				                <% if !ec.check %>
-					                <td><%= link_to "参加を確認しました", update_point_event_path(ec.id), method: :patch, class: "btn btn-primary"%>
-					                </td>
-				                <% else %>
-					                <td><%= link_to "参加を確認を取り消す", rollback_point_event_path(ec.id), method: :patch, class: "btn btn-danger"%>
-					                </td>
-				                <% end %>				                	
+
+				                <% @event_apply_tag = EventApplyTag.where(student_id: ec.student_id).where(event_id: e.id) %>
+
+				               	<% if !@event_apply_tag.nil? %>
+				               	 <% @event_apply_tag = @event_apply_tag.first %>
+					                <% if @event_apply_tag.has_paid %>
+					                <div>参加費を受け取りました</div>
+					                <% else %>
+						                <div><%= link_to "参加費を受け取る",event_apply_tag_path(id: @event_apply_tag.id, pay_method: "cash"), method: :patch, class: "btn btn-primary", data: { confirm: '参加費を受け取りました' } %></div>
+						            	<div><%= link_to "参加費をポイント清算します",event_apply_tag_path(@event_apply_tag.id,pay_method: "point"), method: :patch, class: "btn btn-primary", data: { confirm: 'ポイントを消費します' } %></div>
+									<% end %>
+					                <% if !ec.check %>
+						                <td><%= link_to "参加を確認しました", update_point_event_path(ec.id), method: :patch, class: "btn btn-primary"%>
+						                </td>
+					                <% else %>
+						                <td><%= link_to "参加を確認を取り消す", rollback_point_event_path(ec.id), method: :patch, class: "btn btn-danger"%>
+						                </td>
+					                <% end %>
+				                <% end %>	
+
 				                </td>			             
 				            </tr>
 				        </tbody>

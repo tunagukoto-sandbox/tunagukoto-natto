@@ -60,6 +60,8 @@ Rails.application.routes.draw do
 	resources :student_page, only: [:show, :index]
 	resources :company_page, only: [:show, :index]
 
+	resources :event_apply_tag, only: [:update]
+
   	resources :student_statuses, only: [:edit, :update]
 	resources :events
 	resources :news
