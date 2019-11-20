@@ -16,6 +16,7 @@ class EventApplyTagController < ApplicationController
   		@event_apply_tag.pay_point = true
   		@event_apply_tag.save
       point = student.point
+      # ポイントがなかったら新しく作成
       if point == nil
         point = Point.new(
           student_id: student.id,
@@ -24,16 +25,19 @@ class EventApplyTagController < ApplicationController
           having_point: 0
         )
       end
+      # ポイント条件分岐
       if point.having_point >= event.pay_point
         point.having_point = point.having_point - event.pay_point
         point.save
         redirect_to home_admin_event_path
-        flash[:succece] = "ポイントで参加費を払いました"
+        # alarmからsuccessに変更
+        flash[:alarm] = "ポイントで参加費を払いました"
       else
         # 現金でのお支払い
         redirect_to home_admin_event_path
         flash[:alarm] = "ポイントが足りていません、現金でお支払いください。"
       end	
+
   	end	
   end
 
