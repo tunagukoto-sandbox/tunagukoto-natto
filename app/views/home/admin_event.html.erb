@@ -28,12 +28,13 @@
 				                <% @event_apply_tag = EventApplyTag.where(student_id: ec.student_id).where(event_id: e.id) %>
 
 				               	<% if !@event_apply_tag.nil? %>
-				               	 <% @event_apply_tag = @event_apply_tag.first %>
-					                <% if @event_apply_tag.has_paid %>
+				               	 <% tag = @event_apply_tag.first %>
+				               	 <% if !tag.nil? %>
+					                <% if tag.has_paid %>
 					                <div>参加費を受け取りました</div>
 					                <% else %>
-						                <div><%= link_to "参加費を受け取る",event_apply_tag_path(id: @event_apply_tag.id, pay_method: "cash"), method: :patch, class: "btn btn-primary", data: { confirm: '参加費を受け取りました' } %></div>
-						            	<div><%= link_to "参加費をポイント清算します",event_apply_tag_path(@event_apply_tag.id,pay_method: "point"), method: :patch, class: "btn btn-primary", data: { confirm: 'ポイントを消費します' } %></div>
+						                <div><%= link_to "参加費を受け取る",event_apply_tag_path(id: tag.id, pay_method: "cash"), method: :patch, class: "btn btn-primary", data: { confirm: '参加費を受け取りました' } %></div>
+						            	<div><%= link_to "参加費をポイント清算します",event_apply_tag_path(tag.id,pay_method: "point"), method: :patch, class: "btn btn-primary", data: { confirm: 'ポイントを消費します' } %></div>
 									<% end %>
 					                <% if !ec.check %>
 						                <td><%= link_to "参加を確認しました", update_point_event_path(ec.id), method: :patch, class: "btn btn-primary"%>
@@ -43,7 +44,7 @@
 						                </td>
 					                <% end %>
 				                <% end %>	
-
+								<% end %>
 				                </td>			             
 				            </tr>
 				        </tbody>

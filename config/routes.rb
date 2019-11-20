@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   	get 'organizations/non_profit'
 
+  	get 'student_page/student_event/:id', to: 'student_page#student_event', as: 'student_event_page'
+
  	post 'home/event_send_mail/:id', to: 'home#event_send_mail', as: 'home_event_send_mail'
 
  	post 'home/mini_event_send_mail/:id', to: 'home#mini_event_send_mail', as: 'home_mini_event_send_mail'

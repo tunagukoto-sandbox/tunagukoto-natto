@@ -1,9 +1,12 @@
-<% if admin_signed_in? %>
-	<div class="container fluid">
-		<p class="student_top" >登録学生</p>
-		<p class="student_top" style="display: inline;">プロフィール</p> 
-
-		<p><%= link_to "←学生一覧", student_page_index_path, class: "student_all_back" %></p>
+<% if student_signed_in? %>
+<% if (current_student.id == params[:id].to_i) | %>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8">
+		<div class="some_padding"></div>
+		<div class="student__my_page">マイページ</div>
+			<div class="student_show_tab_main"><%= link_to "申し込み中のイベント", student_event_page_path(@student.id), class: "student_show_tab" %></div>
+			<div class="student_show_tab_main"><%= link_to "プロフィール編集", edit_student_registration_path(params[:id]), class: "student_show_tab" %></div>
 		<div class="student_details_box">
 			<div class="row student_detail_padding">
 				<div class="col-sm-8 col-md-8 student_detail_fonts">
@@ -76,7 +79,13 @@
 				</div>			
 			</div><!-- ./row event_detail_padding -->
 		</div><!-- ./event_details_box -->
-	</div><!-- ./container fluid -->
+		</div><!-- ./col-lg-9 -->
+		<div class="col-lg-4">
+			<%= render 'home/top_menus' %>
+		</div>
+	</div><!-- ./row -->
+</div><!-- ./container fluid -->
 <% else %>
 	<h1>404 Page Not Found</h1>
+<% end %>
 <% end %>

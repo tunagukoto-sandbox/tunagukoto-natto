@@ -27,10 +27,10 @@
 }
 
 .student_detail_padding {
-    padding-left: 50px;
+    padding-left: 10px;
     padding-top: 0px;
-    padding-bottom: 100px;
-    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-right: 10px;
     margin-top: 50px;
     color: dimgray;
 }
@@ -82,3 +82,34 @@
   font-weight: bold;
   border: solid 2px #DDDDDD;/*線色*/
 }
+.some_padding{
+padding-bottom: 50px;
+}
+.student__my_page{
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  font-size: 24px;
+  font-weight: 500;
+  background: transparent;/*背景透明に*/
+  border-left: solid 8px #4DA067;/*左線*/
+  margin-top-top: 200px;
+  margin-bottom: 30px;
+}
+
+.link_triangle_mini{
+    margin: auto;
+    font-size: 1.3em;
+    color: #66CC66;
+    padding-right: 10px;
+}
+.student_show_tab_main{
+  border-left: solid 2px silver;/*左線*/
+  width: 30%;
+  text-align: center;
+  display: inline-block; 
+}
+.student_show_tab{
+  font-size: 1.3em;
+  color: grey;
+}
+

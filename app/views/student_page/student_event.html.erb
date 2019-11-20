@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8">
+		<div class="some_padding"></div>
+		<div class="student__my_page">マイページ</div>
+			<div class="student_show_tab_main"><%= link_to "申し込み中のイベント", student_event_page_path, class: "student_show_tab" %></div>
+			<div class="student_show_tab_main"><%= link_to "プロフィール編集", edit_student_registration_path(params[:id]), class: "student_show_tab" %></div>
+		<div class="some_padding"></div>
+		<div class="student_group_title">申し込み中のイベント</div>
+		<div class="some_padding"></div>
+		<% @event_array.each do |e| %>
+			<div class="row">
+				<div class="col-lg-4">
+					<%= e.event_time.year %>/<%= e.event_time.month %>/<%= e.event_time.day %>
+				</div>
+				<div class="col-lg-8">
+					<%= e.event_select %><br>
+					<%= e.event_location %>
+				</div>
+			</div>
+		<% end %>
+		</div>
+		<div class="col-lg-4">
+			<%= render 'home/top_menus' %>
+		</div>
+	</div>
+</div>
