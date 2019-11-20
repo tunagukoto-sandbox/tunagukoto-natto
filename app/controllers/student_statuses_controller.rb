@@ -11,8 +11,6 @@ class StudentStatusesController < ApplicationController
   end
 
   def edit
-
-  	#@status = StudentStatus.find(params[:id])
   	@status = StudentStatus.where(student_id: params[:id]).first
   	if @status  == nil
   		@status = StudentStatus.new(
@@ -24,19 +22,19 @@ class StudentStatusesController < ApplicationController
         start_up: false
         )
         @status.save
-	end
+	  end
   end
 
   private
 
-  def status_params
-      params.require(:student_status).permit(
-      	:student_id,
-        :gold,
- 		:silver,
-        :normal,
-        :ambassador,
-        :start_up
-        )
-  end
+    def status_params
+        params.require(:student_status).permit(
+        	:student_id,
+          :gold,
+   		:silver,
+          :normal,
+          :ambassador,
+          :start_up
+          )
+    end
 end

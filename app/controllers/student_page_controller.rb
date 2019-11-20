@@ -23,15 +23,25 @@ class StudentPageController < ApplicationController
 	    else
 	      @news = News.all
 	    end
-	    # Student.includes(:student_status).where(student_statuses: {gold: true})
+
+	    # 申し込み中のイベント
 	    event_customers = EventCustomer.where(student_id: params[:id])
 	    @event_array = []
 	    event_customers.each do |e|
-	    	@event_array << Event.find(e.event_id)
+	    	event = Event.where(id: e.event_id, finish: false)
+	    	if event.length != 0
+	    		@event_array << event.first
+	    	end
 	    end
-
-		@events = EventCustomer.includes(:event).where(events: {finish: false}).where(student_id: current_student.id)
-		@mini_events = MiniEventCustomer.where(student_id: current_student.id).where(finish: false)
+	    # 申し込み中のミニイベント
+	    mini_event_customers = MiniEventCustomer.where(student_id: params[:id])
+	    @mini_event_array = []
+	    mini_event_customers.each do |me|
+	    	mini_event = MiniEvent.where(id: me.mini_event_id, finish: false)
+	    	if mini_event.length != 0
+	    		@mini_event_array << mini_event.first
+	    	end
+	    end
 	end
 	
 end

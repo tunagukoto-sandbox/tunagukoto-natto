@@ -19,6 +19,17 @@
 				</div>
 			</div>
 		<% end %>
+		<% @mini_event_array.each do |me| %>
+			<div class="row">
+				<div class="col-lg-4">
+					<%= me.time.year %>/<%= me.time.month %>/<%= me.time.day %>
+				</div>
+				<div class="col-lg-8">
+					<%= me.mini_event_name %><br>
+					<%= me.locate%>
+				</div>
+			</div>
+		<% end %>
 		</div>
 		<div class="col-lg-4">
 			<%= render 'home/top_menus' %>
