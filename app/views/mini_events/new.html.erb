@@ -26,7 +26,8 @@
 			●イベント開催地
 			<%= f.text_field :locate, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
 			<br>
-			●参加費
+			●参加費<br>
+			※参加費がない場合は０と入力してください。
 			<%= f.number_field :cost, :size => "30*60" %>
 						<br>
 			●イベント参加条件
@@ -46,14 +47,14 @@
 			<%= f.text_field :time_detail, placeholder: "17:30 ~ 20:30" , :size => "30*60" %>
 			<br>
 			●応募人数
-			<%= f.number_field :invite_num ,min: 0 ,max:1000, step:5 ,value: 20 %>
+			<%= f.number_field :invite_num ,min: 0 ,max:1000 %>
 			<br>
 			●参加報酬ポイント
-			<%= f.number_field :get_point, min: 0 ,max:1000 %>
+			<%= f.number_field :get_point, min: 0 ,max:5000 %>
 			<br>
 
 			●参加消費ポイント
-			<%= f.number_field :pay_point, min: 0 ,max:1000 %>
+			<%= f.number_field :pay_point, min: 0 ,max:5000 %>
 
 			<hr>
 			●自由記入欄
