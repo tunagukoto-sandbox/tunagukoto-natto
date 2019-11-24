@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   	get 'home/privacy'
 
+  	get 'home/comming_soon'
+
   	get 'home/admin_mini_event'
 
  	get 'home/admin_top'

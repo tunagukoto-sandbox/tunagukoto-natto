@@ -85,4 +85,7 @@ class HomeController < ApplicationController
 
   def privacy
   end
+
+  def comming_soon
+  end
 end
