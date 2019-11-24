@@ -1,5 +1,3 @@
-<% if student_signed_in? %>
-<% if (current_student.id == params[:id].to_i) | %>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8">
@@ -10,11 +8,6 @@
 		<div class="student_details_box">
 			<div class="row student_detail_padding">
 				<div class="col-sm-8 col-md-8 student_detail_fonts">
-					
-				<!-- 編集画面へ -->
-				<% if student_signed_in? && current_student == @student %>
-					<%= link_to "プロフィールを編集する",edit_student_registration_path(params[:id]), class: "btn btn-success btn-lg" %>
-				<% end %>
 
 				<!-- 学生のステータスを変更 -->
 				<% if admin_signed_in?%>
@@ -85,9 +78,3 @@
 		</div>
 	</div><!-- ./row -->
 </div><!-- ./container fluid -->
-<% end %>
-<% elsif admin_signed_in? %>
-	<%= render 'student_page/admin_show' %>
-<% else %>
-	<h1>404 Page Not Found</h1>
-<% end %>
