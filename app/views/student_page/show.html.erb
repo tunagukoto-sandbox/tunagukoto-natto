@@ -88,6 +88,10 @@
 <% end %>
 <% elsif admin_signed_in? %>
 	<%= render 'student_page/admin_show' %>
+<% elsif corporation_signed_in? %>
+	<%= render 'student_page/admin_show' %>
+<% elsif non_profit_organization_signed_in? %>
+	<%= render 'student_page/admin_show' %>
 <% else %>
 	<h1>404 Page Not Found</h1>
 <% end %>

@@ -1,4 +1,4 @@
-<% if admin_signed_in? %>
+<% if admin_signed_in? || corporation_signed_in? || non_profit_organization_signed_in? %>
 	<div class="container-fluid">
 		<p class="student_top" >登録学生</p>
 		<p class="student_top" style="display: inline;">一覧</p> 
@@ -10,6 +10,25 @@
 					<div class="col-sm-2 col-md-2 student_detail_fonts">
 						<p class="student_detail_fonts">
 							<%= link_to "#{s.first_name} #{s.last_name}", student_page_path(s) %>
+						</p>
+					</div><!-- ./col-sm-12 col-md-12 event_detail_fonts -->
+			   	<% end %>
+			</div><!-- ./row event_detail_padding -->
+		</div><!-- ./event_details_box -->
+	</div><!-- ./container fluid -->
+<% elsif student_group_signed_in?  %>
+	<div class="container-fluid">
+		<p class="student_top" >登録学生</p>
+		<p class="student_top" style="display: inline;">一覧</p> 
+		<p><%= link_to "トップに戻る", root_path, class: "student_all_back" %></p>
+
+		<div class="student_details_box">
+			<div class="row student_detail_padding">
+			    <% @students.each do |s| %>
+					<div class="col-sm-2 col-md-2 student_detail_fonts">
+						<p class="student_detail_fonts">
+
+							<%= "#{s.first_name} #{s.last_name}" %>
 						</p>
 					</div><!-- ./col-sm-12 col-md-12 event_detail_fonts -->
 			   	<% end %>
