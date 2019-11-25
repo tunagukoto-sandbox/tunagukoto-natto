@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def admin_top
-  	@events = Event.all
+  	@events = Event.where(finish: false)
   	@quests = Quest.all
   	@schools = School.all
   end
