@@ -9,6 +9,7 @@
 			<%= f.text_field :title, placeholder: "せかいしけいえい", :size => "80%" %>
 
 			<div>●主催者</div>
+			<h style="color:red;">※学生を追加する場合は<%= link_to "学生一覧",student_page_index_path %>から追加したい学生のページに行き、ステータスを変更してください</h><br>
 				<%= f.collection_radio_buttons(:student_id, Student.includes(:student_status).where(student_statuses: {gold: true}), :id, :first_name) do |b| %>
 
 				  <%= b.label {b.radio_button + b.object.first_name + b.object.last_name} %>
