@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'admin_points/new'
-  get 'admin_points/create'
-  get 'admin_points/edit'
-  get 'admin_points/update'
   	root 'home#top'
 
   	get 'home/policy'
@@ -69,6 +65,7 @@ Rails.application.routes.draw do
 	resources :company_page, only: [:show, :index]
 
 	resources :event_apply_tag, only: [:update]
+	resources :mini_event_apply_tag, only: [:update]
 
   	resources :student_statuses, only: [:edit, :update]
 	resources :events

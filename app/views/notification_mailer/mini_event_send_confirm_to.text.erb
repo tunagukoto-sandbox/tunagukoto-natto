@@ -12,7 +12,7 @@
 <% end %>
 <% if  @mini_event.pay_point == nil || @mini_event.pay_point == 0%>
 <% else %>
-消費ポイント:<%= @event.get_point %>pt
+消費ポイント:<%= @mini_event.get_point %>pt
 <% end %>
 日時: <%= @mini_event.time.month %>月<%= @mini_event.time.day %>日<%= @mini_event.time_detail %>
 場所: <%= @mini_event.locate %>

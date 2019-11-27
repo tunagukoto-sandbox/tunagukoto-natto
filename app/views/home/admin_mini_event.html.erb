@@ -23,6 +23,17 @@
 				                <td><%= mec.email %></td>
 				                <td><%= mec.school.school_name %></td>
 				                <td><%= mec.phone_num %></td>
+				                <td>
+				                <% @mini_event_apply_tag = MiniEventApplyTag.where(student_id: mec.student_id).where(mini_event_id: me.id) %>
+				                <% @mini_event_apply_tag.length != 0 %>
+				                <% tag = @mini_event_apply_tag.first %>
+				                <% if tag.has_paid %>
+				                	<div>参加費を受け取りました</div>
+				                <% else %>
+							        <div><%= link_to "参加費を受け取る",mini_event_apply_tag_path(id: tag.id, pay_method: "cash"), method: :patch, class: "btn btn-primary", data: { confirm: '参加費を受け取りました' } %></div>
+								    <div><%= link_to "参加費をポイント清算します",mini_event_apply_tag_path(tag.id,pay_method: "point"), method: :patch, class: "btn btn-primary", data: { confirm: 'ポイントを消費します' } %></div>				        
+				                <% end %>
+				            </td>
 				                <% if !mec.check %>
 					                <td><%= link_to "参加を確認しました", update_point_path(mec.id), method: :patch, class: "btn btn-primary"%>
 					                </td>
