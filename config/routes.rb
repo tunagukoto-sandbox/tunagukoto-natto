@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'admin_points/new'
+  get 'admin_points/create'
+  get 'admin_points/edit'
+  get 'admin_points/update'
   	root 'home#top'
 
   	get 'home/policy'
@@ -79,6 +83,10 @@ Rails.application.routes.draw do
 
 	resources :quests
 
+	resources :student_page do
+		resources :admin_points, only: [:new, :create, :edit, :update]
+	end
+	
 	resources :mini_event_customers, only: [:new, :create, :destroy, :edit, :update]
 
 	# 以下質問箱

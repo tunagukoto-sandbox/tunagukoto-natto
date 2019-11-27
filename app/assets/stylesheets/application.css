@@ -35,3 +35,8 @@
 .padding-top{
 	padding-top: 20px;
 }
+
+.big_text_area{
+	width: 700px;
+	height: 300px;
+}

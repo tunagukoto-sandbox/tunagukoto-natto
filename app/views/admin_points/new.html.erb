@@ -1,0 +1,26 @@
+<% if admin_signed_in? %>
+	<div class="container">
+	<%= form_for @admin_point, url: student_page_admin_points_path(student_page_id: params[:student_page_id]) do |f| %>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			●ポイントが変動する値(絶対値)を入力してください。<br>
+			<%= f.number_field :change_value, placeholder: "", :size => "80%" %><br>
+
+			●ポイントをどうしますか？ <br>
+			  <%= f.radio_button :add_or_take, :add %>
+			  <%= f.label :add_or_take, "加算する", {value: :add, style: "display: inline-block;"} %>
+			  <%= f.radio_button :add_or_take, :take %>
+			  <%= f.label :add_or_take, "減算する", {value: :take, style: "display: inline-block;"} %>
+			  <br>
+			  ●ポイント変更理由 <br>
+			  <%= f.text_area :reason, class: "big_text_area" %>
+
+			<%=f.submit 'ポイントを変更する', class: 'btn btn-primary btn-lg btn-block' %>
+			</div>
+			</div>
+		<%end%>
+	</div>
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

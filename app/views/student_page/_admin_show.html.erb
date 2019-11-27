@@ -10,8 +10,10 @@
 
 				<!-- 学生のステータスを変更 -->
 				<!-- 管理者のみが変更可能 -->
+				<!-- 学生のステータスを変更 -->
 				<% if admin_signed_in?%>
-					<%= link_to "ステータスを変更する", edit_student_status_path(@student.id), class: "btn btn-success btn-lg" %>
+				<%= link_to "ステータスを変更する", edit_student_status_path(@student.id), class: "btn btn-success btn-lg" %>
+				<%= link_to "ポイントを編集する", new_student_page_admin_point_path(student_page_id: @student.id), class: "btn btn-success btn-lg" %>
 				<% end %>
 
 				<!-- 学生のステータスを表示 -->

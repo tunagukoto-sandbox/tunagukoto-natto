@@ -16,11 +16,6 @@
 					<%= link_to "プロフィールを編集する",edit_student_registration_path(params[:id]), class: "btn btn-success btn-lg" %>
 				<% end %>
 
-				<!-- 学生のステータスを変更 -->
-				<% if admin_signed_in?%>
-				<%= link_to "ステータスを変更する", edit_student_status_path(@student.id), class: "btn btn-success btn-lg" %>
-				<% end %>
-
 				<!-- 学生のステータスを表示 -->
 				<% if !@student.student_status.nil? %>
 					<% if @student.student_status.normal %>
