@@ -21,13 +21,13 @@ h1#student_count{
 
 .natto{
     background-size:contain;                 /* 画像のサイズを指定    */
-    width:120px;                              /* 横幅のサイズを指定    */
+    width:80px;                              /* 横幅のサイズを指定    */
     height:auto;  
 }
 
 .natto-mobile{
     background-size:contain;                 /* 画像のサイズを指定    */
-    width:250px;                              /* 横幅のサイズを指定    */
+    width:200px;                              /* 横幅のサイズを指定    */
     height:auto;  
 }
 
