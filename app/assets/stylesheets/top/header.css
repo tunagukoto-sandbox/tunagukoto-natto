@@ -48,3 +48,11 @@ padding-right: 600px;
 .margin-ten{
 	margin-bottom: 20px;
 }
+
+
+.natto{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:80px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+} 
+
