@@ -1,0 +1,25 @@
+.card-margin{
+  margin: 10px 20px;
+}
+
+.card_deal_line{
+  width: 100%;
+  background-color:#66CC66; 
+  color:white ;
+  font-weight: 700;
+  text-align: center;
+}
+
+.more_button{
+  background-color: #CCCCCC; 
+  text-align: center;
+  width: 100%;
+}
+
+.more{
+  color:black ;
+}
+
+.quest_card_img{
+  max-width: 100%;
+}

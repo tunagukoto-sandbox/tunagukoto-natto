@@ -1,0 +1,20 @@
+<div class="container-fluid">
+<div class = "row">
+  <div class="col-lg-8">
+    <div class="some_padding"></div>
+    <div class="student__my_page">Nattoで仕事を探す</div>
+    <div class="student_show_tab_main">
+      <%= link_to "募集中の依頼", quests_other_new_quest_path, class: "student_show_tab" %>   
+    </div>
+    <div class="student_show_tab_main">
+      <%= link_to "過去の依頼", quests_other_old_quest_path, class: "student_show_tab" %>    
+    </div>
+    <div class="student_show_tab_main">
+      <%= link_to "仕事を発注する際の注意", quests_other_quest_notice_path, class: "student_show_tab" %>   
+    </div>
+
+  <div class="col-lg-4">
+    <%= render 'home/top_menus' %>
+  </div>
+</div>
+</div>

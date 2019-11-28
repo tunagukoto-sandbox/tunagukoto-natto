@@ -80,6 +80,13 @@ Rails.application.routes.draw do
 
 	resources :quests
 
+
+	get '/quests_other/new_quest', to: 'quests#new_quest'
+
+	get '/quests_other/old_quest', to: 'quests#old_quest'
+
+	get '/quests_other/quest_notice', to: 'quests#quest_notice'
+  	
 	resources :student_page do
 		resources :admin_points, only: [:new, :create, :edit, :update]
 	end

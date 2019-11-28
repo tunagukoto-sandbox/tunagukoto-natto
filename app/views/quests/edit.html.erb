@@ -5,8 +5,13 @@
 			<div class="col-md-8">
 				<div><%= f.label :会社名 %></div>
 				<%= f.text_field :company_name, placeholder: "", :size => "80%" %>
+
+				<div><%= f.label :会社のロゴ画像 %></div>
+				<%= f.file_field :company_logo, accept: "image/png, image/jpeg, image/gif" %>
+
 				<div><%= f.label :クエストタイトル %></div>
 				<%= f.text_field :title, placeholder: "", :size => "80%" %>
+
 				<div><%= f.label :詳細 %> </div>
 				<%= f.text_area :description, placeholder: "", :size => "80%"  %>
 
@@ -14,7 +19,15 @@
 				<%= f.text_field :gift, placeholder: "" %>
 
 				<div><%= f.label :報酬詳細 %></div>
-				<%= f.text_field :gift_detail, placeholder: "" %>
+				<%= f.text_field :gift_detail, placeholder: "" %><br>
+				●応募開催期間
+		  		<%= f.date_select(
+		        :closing, 
+		        use_month_numbers: true,
+		        start_year: Time.now.year,
+		        end_year: (Time.now.year + 5),
+		        default: Time.now,
+		        date_separator: '/') %>まで
 
 				<div><%=  f.label :締め切り %></div>
 				<%= f.text_field :dead_line, placeholder: "", :size => "30*60" %>
@@ -23,10 +36,14 @@
 				<%= f.text_field :dead_line_detail , placeholder: "", :size => "30*60" %>
 
 				<div><%= f.label :クエストの詳細画像 %></div>
-				<%= f.file_field :quest_image, accept: "image/png, image/jpeg, image/gif" %>
+				<%= f.file_field :quest_image, accept: "image/png, image/jpeg, image/gif" %><br>
 
-				<div><%= f.label :会社のロゴ画像 %></div>
-				<%= f.file_field :company_logo, accept: "image/png, image/jpeg, image/gif" %>
+
+				●応募期間は終わりましたか？<br>
+				<label>
+					<%= f.radio_button :finish, true %> はい </label>
+				<label>
+					<%= f.radio_button :finish, false %> いいえ</label>
 
 				<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
 				</div>
