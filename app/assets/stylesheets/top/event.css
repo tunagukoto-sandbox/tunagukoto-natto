@@ -57,3 +57,19 @@ p#margin_little{
 	margin: 5;
 	padding: 0;
 }
+
+.event_card{
+margin: 10px;
+width: 100%;
+}
+
+.event_card_img{
+	width: 100%;
+	height: auto;
+}
+
+
+.mobile_alert{
+	font-size: 1.8em;
+	color: red;
+}

@@ -106,6 +106,30 @@ h5#top_titles_font{
     color: #666666;
     font-size: 1.8em;
 }
+h5#mobile_top_titles_font{
+    text-align: center;
+    font-weight: 800;
+    color: #666666;
+    font-size: 2.5em;
+    padding-bottom: 15px;
+}
+h5#mobile_moushikomi{
+ text-decoration:
+ underline; color: #66CC66; 
+ font-size: 1.5em; 
+}
+.mobile_mini_event_font{
+    font-size: 1.7em;
+    color: black;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+.mobile_now_regi_count{
+    text-align: center;
+    font-size: 3.0em;
+    font-weight: 800;
+    margin: 0 auto;
+}
 .top-title-inner{
     padding-left: 30px;
     padding-right: 30px;
@@ -146,6 +170,81 @@ h5#top_titles_font{
 .carousel-slide {
     margin: 0 auto;
     width: 900px;
+}
+
+.mobile_sns{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:90px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+}
+
+.mobile_sns_bg{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:110px;                              /* 横幅のサイズを指定    */
+    height:auto;    
+}
+
+
+.mobile_mini_event_card{
+    height: 250px;
+    border-bottom:solid 1px grey;
+    padding-top: 15px;
+}
+.mobile_apply_mini_event_btn{
+    width: 100%;
+    background-color: #888888;
+    color: white;
+    text-align: center;
+    font-size: 2.0em;
+    font-weight: 600;
+}
+.mobile-natto-desc{
+    background-color: #EEEEEE;
+    padding: 100px;
+    color: black;
+    width: 100%;
+    margin-top:20px;
+}
+.mobile_mini_event_more{
+    height:90%;
+    background-color:#EEEEEE;
+    color: #66CC66;
+    font-size: 1.5em; 
+    vertical-align: middle;
+    text-align:center;
+}
+.mobile_mini_event_more_btn{
+    text-align: center;
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.6em;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.mobile_menu_title{
+    margin-top: 20px;
+    margin-bottom:30px;
+    padding: 10px;
+    background-color: #4DA067;
+    color: white;
+    font-size: 2.0em;
+}
+
+
+.mobile_menu_img{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:150px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+}
+
+
+.mobile_menu_font{
+    font-size: 2.0em;
+}
+.mobile_menu_font_sub{
+    font-size: 1.8em;
 }
 
 
