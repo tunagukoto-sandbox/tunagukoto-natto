@@ -65,6 +65,12 @@
 						<% else %>
 							<p class="font_details">&ensp;&ensp;約<%= @mini_event.invite_num %>名</p>
 						<% end %>
+						<div class="font_details">
+							【消費ポイント】: <%= @mini_event.pay_point %>pt
+						</div>
+						<div class="font_details">
+							【ポイント】: <%= @mini_event.get_point %>pt
+						</div>
 					</div>
 				</div><!-- ./col-sm-6 col-md-6 event_detail_fonts -->
 
