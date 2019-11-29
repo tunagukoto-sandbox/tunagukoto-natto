@@ -11,9 +11,11 @@ class PointsController < ApplicationController
       end
       @point.having_point -= @mini_event.get_point
     end
-    if @mini_event.pay_point != nil
-      @point.having_point += @mini_event.pay_point
-    end
+    
+    # 消費ポイント処理は申し込み時に発火
+    # if @mini_event.pay_point != nil
+    #   @point.having_point += @mini_event.pay_point
+    # end
 
     @mini_event_customer.check = false
     @mini_event_customer.save
@@ -22,7 +24,6 @@ class PointsController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
 
   def update_point
@@ -54,9 +55,10 @@ class PointsController < ApplicationController
       @point.having_point += @mini_event.get_point
       @point = point_max_update(@point)
     end
-    if @mini_event.pay_point != nil
-      @point.having_point -= @mini_event.pay_point
-    end
+    # 消費ポイント処理は申し込み時に発火
+    # if @mini_event.pay_point != nil
+    #   @point.having_point -= @mini_event.pay_point
+    # end
 
     @mini_event_customer.check = true
     @mini_event_customer.save

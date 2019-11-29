@@ -32,15 +32,23 @@ class MiniEventCustomersController < ApplicationController
             pay_point: true,
             pay_cash: false
           )
+          if @mini_event_customer.save
+            NotificationMailer.mini_event_send_confirm_to(@mini_event_customer).deliver
+            redirect_to root_path
+          else
+            redirect_to root_path
+          end
         else
           # ポイントが達してない場合
-          MiniEventApplyTag.create(
-            mini_event_id: mini_event_id,
-            student_id: current_student.id,
-            has_paid: false,
-            pay_point: false,
-            pay_cash: false
-          )
+          redirect_to new_mini_event_customer_path
+          flash[:alarm] = "ポイントが足りません、現金でお支払いを選択してください。"
+          # MiniEventApplyTag.create(
+          #   mini_event_id: mini_event_id,
+          #   student_id: current_student.id,
+          #   has_paid: false,
+          #   pay_point: false,
+          #   pay_cash: false
+          # )
         end
       elsif params[:pay_way] == "cash" || params[:pay_way].nil?
           MiniEventApplyTag.create(
@@ -50,13 +58,13 @@ class MiniEventCustomersController < ApplicationController
             pay_point: false,
             pay_cash: false
           )
+        if @mini_event_customer.save
+          NotificationMailer.mini_event_send_confirm_to(@mini_event_customer).deliver
+          redirect_to root_path
+        else
+          redirect_to root_path
+        end
       end
-    end
-    if @mini_event_customer.save
-      NotificationMailer.mini_event_send_confirm_to(@mini_event_customer).deliver
-      redirect_to root_path
-    else
-      redirect_to root_path
     end
   end
 

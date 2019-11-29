@@ -126,24 +126,26 @@
 		</div>
 	<% end %>
 
-	<%= link_to(student_page_index_path, class: "event_menus") do %>
-		<div class="row divided_border">
-			<div class="col-lg-3">
-				<%= image_tag'd.png',class: "menu_img" %>					
-			</div>
-			<div class="col-lg-9">
-				<div class="row">
-					<div class="col-lg-9">
-						<h style="font-weight: 500; font-size: 1.1em;">登録学生</h><br>
-						<h style="font-size: 0.8em;">Student</h>
-					</div>
-					<div class="col-lg-3 link_triangle">▷
+	<% if !student_signed_in? %>
+		<%= link_to(student_page_index_path, class: "event_menus") do %>
+			<div class="row divided_border">
+				<div class="col-lg-3">
+					<%= image_tag'd.png',class: "menu_img" %>					
+				</div>
+				<div class="col-lg-9">
+					<div class="row">
+						<div class="col-lg-9">
+							<h style="font-weight: 500; font-size: 1.1em;">登録学生</h><br>
+							<h style="font-size: 0.8em;">Student</h>
+						</div>
+						<div class="col-lg-3 link_triangle">▷
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		<% end %>
 	<% end %>
-
+	
 	<%= link_to(home_comming_soon_path, class: "event_menus") do %>
 		<div class="row divided_border">
 			<div class="col-lg-3">
