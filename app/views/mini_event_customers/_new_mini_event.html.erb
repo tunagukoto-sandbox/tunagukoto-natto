@@ -1,0 +1,12 @@
+<div>
+	<%= current_student.first_name %> <%= current_student.last_name %>
+	イベント名: <%= @mini_event.title %>
+	<h3>現在のポイント: <%= current_student.point.having_point %>pt</h3>
+	<h3>付与ポイント: <%= @mini_event.get_point %></h3>
+	<h3>参加費: <%= @mini_event.pay_point %></h3>
+	<h5>参加費はポイントまたは現金でお支払いすることができ、ポイントでお支払いする場合、応募完了時に自動的にポイントが消費されます。</h5>
+</div>
+<div>
+	<input type="radio" name="pay_way" value="cash">現金
+	<input type="radio" name="pay_way" value="point">ポイント
+</div>

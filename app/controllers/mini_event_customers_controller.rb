@@ -2,9 +2,11 @@ class MiniEventCustomersController < ApplicationController
   before_action :authenticate_any!, :new
   def new
     @mini_event_customer = MiniEventCustomer.new
+    @mini_event = MiniEvent.find(params[:mini_event_id])
   end
 
   def create
+    @mini_event = MiniEvent.find(params[:mini_event_id])
     @mini_event_customer = MiniEventCustomer.new(mini_event_customer_params)
     mini_event_id = @mini_event_customer.mini_event.id
     if @mini_event_customer.mini_event.pay_point.nil?

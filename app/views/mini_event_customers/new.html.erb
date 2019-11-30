@@ -3,18 +3,18 @@
 		<div class="container">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-
 			<p>ミニイベントを選択してください</p>
 			<div class="cp_ipselect cp_sl01">
 				<%= f.collection_select :mini_event_id, MiniEvent.all, :id, :title, class: 'form-control'  %>
 			</div>
-
-
 			<p>所属を選択してください</p>
 			<div class="cp_ipselect cp_sl01">
 				<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
 			</div>
-
+			<div>
+				<h3>現在のポイント: <%= current_student.point.having_point %>pt</h3>
+				<h3>
+			</div>
 			<div>
 				<input type="radio" name="pay_way" value="cash">現金
 				<input type="radio" name="pay_way" value="point">ポイント
@@ -28,7 +28,7 @@
 
 			<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
 			</div>
-
+			<%= render "mini_event_customers/new_mini_event" %>
 		</div>
 		</div>
 	<% end %>

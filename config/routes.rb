@@ -72,6 +72,10 @@ Rails.application.routes.draw do
 	resources :news
 	resources :mini_events
 
+	resources :mini_events, only: [:show] do
+		resources :mini_event_customers, only: [:new, :create]
+	end
+	
 	resources :event_customers, only: [:new, :create, :destroy, :edit, :update]
 
 	resources :sub_tags

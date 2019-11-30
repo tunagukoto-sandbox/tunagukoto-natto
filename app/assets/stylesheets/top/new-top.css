@@ -239,6 +239,22 @@ h5#mobile_moushikomi{
     height:auto;  
 }
 
+.mobile_menu_img_mini{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:130px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+}
+
+.mobile_menu_img_little{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:120px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+}
+
+.padding_little{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
 
 .mobile_menu_font{
     font-size: 2.0em;
