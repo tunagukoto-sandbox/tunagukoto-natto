@@ -5,21 +5,39 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.event_time = event_time
-    @event.finish = false
-    sub_tag_ids, sub_tag_ok = sub_tag_params
-    @event.tag_id = params[:event]["tag"].to_i
-    style_ids = params[:event][:style_ids]
-    if @event.save
-      make_relation(@event.id, sub_tag_ids, sub_tag_ok, style_ids)
-      @event.event_select = event_select(@event)
-      @event.save
-      flash[:success] = 'イベントを新しく作成しました'
-      redirect_to root_path
+    if point_check(params[:event][:pay_point], params[:event][:get_point])
+      @event.event_time = event_time
+      @event.finish = false
+      sub_tag_ids, sub_tag_ok = sub_tag_params
+      @event.tag_id = params[:event]["tag"].to_i
+      style_ids = params[:event][:style_ids]    
+      if @event.save
+        make_relation(@event.id, sub_tag_ids, sub_tag_ok, style_ids)
+        @event.event_select = event_select(@event)
+        @event.save
+        flash[:success] = 'イベントを新しく作成しました'
+        redirect_to root_path
+      else
+        redirect_to new_event_path
+      end
     else
-      redirect_to new_event_path
+        redirect_to new_event_path
+        flash[:success] = '取得ポイントまたは消費ポイントが半角英数字で入力されていません、確認してください。'
     end
+  end
 
+
+  def point_check(get, pay)
+    get_check = false
+    pay_check = false
+    if get =~ /^[0-9A-Za-z]+$/
+      get_check = true
+    end
+    if pay =~ /^[0-9A-Za-z]+$/
+      pay_check = true
+    end
+    check = get_check && pay_check
+    return check
   end
 
   def index
