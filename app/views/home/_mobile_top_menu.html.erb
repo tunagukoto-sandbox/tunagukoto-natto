@@ -129,31 +129,33 @@
 		</div>
 	<% end %>
 
-	<%= link_to(student_page_index_path, class: "event_menus") do %>
-		<div class="row divided_border">
-			<div class="col-md-2"></div>
-			<div class="col-md-4">
-				<%= image_tag'd.png',class: "mobile_menu_img" %>
-			</div>
-			<div class="col-md-6">
-				<div class="row">
-					<div class="col-md-9">
-						<div class="margin_auto">
-							<div class="mobile_menu_font">
-								登録学生	
-							</div>
-							<div class="mobile_menu_font_sub">
-								Student
+	<% if corporation_signed_in? || student_group_signed_in? || admin_signed_in? || non_profit_organization_signed_in? %>
+		<%= link_to(student_page_index_path, class: "event_menus") do %>
+			<div class="row divided_border">
+				<div class="col-md-2"></div>
+				<div class="col-md-4">
+					<%= image_tag'd.png',class: "mobile_menu_img" %>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-9">
+							<div class="margin_auto">
+								<div class="mobile_menu_font">
+									登録学生	
+								</div>
+								<div class="mobile_menu_font_sub">
+									Student
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 link_triangle">▷
+						<div class="col-md-3 link_triangle">▷
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		<% end %>
 	<% end %>
-
+	
 	<%= link_to(home_comming_soon_path, class: "event_menus") do %>
 
 		<div class="row divided_border">
