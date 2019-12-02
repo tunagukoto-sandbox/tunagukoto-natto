@@ -95,7 +95,7 @@ Rails.application.routes.draw do
 		resources :admin_points, only: [:new, :create, :edit, :update]
 	end
 	
-	resources :mini_event_customers, only: [:new, :create, :destroy, :edit, :update]
+	resources :mini_event_customers, only: [:destroy, :edit, :update]
 
 	# 以下質問箱
 	resources :questions do

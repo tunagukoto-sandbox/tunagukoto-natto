@@ -1,5 +1,5 @@
 <% if student_signed_in? %>
-	<%= form_for @mini_event_customer do |f| %>
+	<%= form_for @mini_event_customer, url: mini_event_mini_event_customers_path(mini_event_id: params[:mini_event_id]) do |f| %>
 		<div class="container">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
@@ -28,7 +28,7 @@
 
 			<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
 			</div>
-			<%= render "mini_event_customers/new_mini_event" %>
+			<%#= render "mini_event_customers/new_mini_event" %>
 		</div>
 		</div>
 	<% end %>

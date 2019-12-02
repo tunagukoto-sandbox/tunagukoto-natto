@@ -2,7 +2,6 @@ class MiniEventCustomersController < ApplicationController
   before_action :authenticate_any!, :new
   def new
     @mini_event_customer = MiniEventCustomer.new
-    @mini_event = MiniEvent.find(params[:mini_event_id])
   end
 
   def create
@@ -42,7 +41,7 @@ class MiniEventCustomersController < ApplicationController
           end
         else
           # ポイントが達してない場合
-          redirect_to new_mini_event_customer_path
+          redirect_to new_mini_event_mini_event_customer_path(mini_event_id: params[:mini_event_id])
           flash[:alarm] = "ポイントが足りません、現金でお支払いを選択してください。"
           # MiniEventApplyTag.create(
           #   mini_event_id: mini_event_id,
