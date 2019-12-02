@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_any!
   def new
     @comment = Comment.new
     @question = Question.find(params[:question_id])
