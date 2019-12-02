@@ -235,18 +235,34 @@
 		</div>
 	<% end %>
 
-
-<!-- 	<%#= link_to(home_others_path, class: "event_menus") do %>
+	<%= link_to(questions_path, class: "event_menus") do %>
 		<div class="row">
-			<div class="col-lg-7"></div>
-			<div class="col-lg-5">
+			<div class="col-md-7"></div>
+			<div class="col-md-5">
 				<div class="row divided_border border_buttom">
-					<div class="col-lg-9 margin_auto">
-						<div class="mobile_menu_font">その他機能</div>
+					<div class="col-md-9 margin_auto">
+						<div class="mobile_menu_font">質問箱へ</div>
 					</div>
-					<div class="col-lg-3 link_triangle">▷
+					<div class="col-md-3 link_triangle ">▷
 					</div>
 				</div>
 			</div>
 		</div>
-	<%# end %> -->
+	<% end %>
+
+	<div class="padding-top">
+		<%= link_to(new_student_registration_path) do %>
+			<%= image_tag'img-tag1.png',class: "img-tags-css" %>
+		<% end %>
+	</div>
+	<div class="padding-top">
+		<%= link_to("http://tunagu.or.jp/") do %>
+			<%= image_tag'img-tag2.png',class: "img-tags-css" %>
+		<% end %>
+	</div>
+	<div class="padding-top">
+		<%= link_to("http://tunagu.or.jp/") do %>
+			<%= image_tag'img-tag3.png',class: "img-tags-css" %>
+		<% end %>
+	</div>
+
