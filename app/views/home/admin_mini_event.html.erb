@@ -27,7 +27,7 @@
 				                <% @mini_event_apply_tag = MiniEventApplyTag.where(student_id: mec.student_id).where(mini_event_id: me.id) %>
 				                <% @mini_event_apply_tag.length != 0 %>
 				                <% tag = @mini_event_apply_tag.first %>
-				                <% unless tag.has_paid.nil? %>
+				                <% unless tag.nil? %>
 				                <!-- 新規機能追加に基づき、has_paidカラムが空のものがある -->
 					                <% if tag.has_paid %>
 					                	<div>参加費を受け取りました</div>
