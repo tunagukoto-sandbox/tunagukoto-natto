@@ -65,21 +65,26 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.update(event_params)
-    @event.event_time = event_time
-    @event.event_select = event_select(@event)
-    @event.save
-    sub_tag_ids, sub_tag_ok = sub_tag_params
-    @event.tag_id = params[:event]["tag"].to_i
-    style_ids = params[:event][:style_ids]
+    if point_check(params[:event][:pay_point], params[:event][:get_point])
+      @event.update(event_params)
+      @event.event_time = event_time
+      @event.event_select = event_select(@event)
+      @event.save
+      sub_tag_ids, sub_tag_ok = sub_tag_params
+      @event.tag_id = params[:event]["tag"].to_i
+      style_ids = params[:event][:style_ids]
 
-    if @event.save
-      event_sub_tag_delete_all(@event.id)
-      event_style_delete_all(@event.id)
-      make_relation(@event.id, sub_tag_ids, sub_tag_ok, style_ids)
-      redirect_to root_path
+      if @event.save
+        event_sub_tag_delete_all(@event.id)
+        event_style_delete_all(@event.id)
+        make_relation(@event.id, sub_tag_ids, sub_tag_ok, style_ids)
+        redirect_to root_path
+      else
+        redirect_to edit_event_path(@event.id)
+      end
     else
-      redirect_to edit_event_path(@event.id)
+        redirect_to edit_event_path(@event.id)
+        flash[:success] = '取得ポイントまたは消費ポイントが半角英数字で入力されていません、確認してください。'
     end
 
   end

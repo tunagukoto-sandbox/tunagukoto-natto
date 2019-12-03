@@ -56,10 +56,12 @@
 			<%= f.text_field :event_cost, value: "無料", :size => "30*60" %>
 			<br>
 			●取得ポイント
-			<%= f.number_field :get_point, min: 0 ,max:1000  %>
+			<%#= f.number_field :get_point, value: 5000  %>
+			<%= f.text_field :get_point ,placeholder: "半角英数字でお答えください。" %>
 			<br>
 			●消費ポイント
-			<%= f.number_field :pay_point, min: 0 ,max:1000  %>
+			<%#= f.number_field :pay_point ,min: 0 ,max:1000  %>
+			<%= f.text_field :pay_point ,placeholder: "半角英数字でお答えください。" %>
 			<br>
 			●開催時間
 		  	<%= f.date_select(

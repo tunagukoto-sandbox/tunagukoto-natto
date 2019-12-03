@@ -5,18 +5,36 @@ class MiniEventsController < ApplicationController
 
   def create
     @mini_event = MiniEvent.new(mini_event_params)
-    @mini_event.time = time
-    style_ids = params[:mini_event][:style_ids]
-    @mini_event[:finish] = false
-    if @mini_event.student_id != nil
-      @mini_event.mini_event_name = mini_event_name(@mini_event)
-    end
-    if @mini_event.save
-      make_relation(@mini_event, style_ids)
-      redirect_to root_path
+    if point_check(params[:mini_event][:pay_point], params[:mini_event][:get_point])
+      @mini_event.time = time
+      style_ids = params[:mini_event][:style_ids]
+      @mini_event[:finish] = false
+      if @mini_event.student_id != nil
+        @mini_event.mini_event_name = mini_event_name(@mini_event)
+      end
+      if @mini_event.save
+        make_relation(@mini_event, style_ids)
+        redirect_to root_path
+      else
+        redirect_to new_mini_event_path
+      end
     else
-      redirect_to new_mini_event_path
+        redirect_to new_mini_event_path
+        flash[:success] = '取得ポイントまたは消費ポイントが半角英数字で入力されていません、確認してください。'
     end
+  end
+
+  def point_check(get, pay)
+    get_check = false
+    pay_check = false
+    if get =~ /^[0-9A-Za-z]+$/
+      get_check = true
+    end
+    if pay =~ /^[0-9A-Za-z]+$/
+      pay_check = true
+    end
+    check = get_check && pay_check
+    return check
   end
 
   def edit
