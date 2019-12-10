@@ -88,4 +88,7 @@ class HomeController < ApplicationController
 
   def comming_soon
   end
+
+  def registrations
+  end
 end
