@@ -4,7 +4,9 @@
 		<div class="some_padding"></div>
 		<div class="student__my_page">マイページ</div>
 			<div class="student_show_tab_main"><%= link_to "申し込み中のイベント", student_event_page_path, class: "student_show_tab" %></div>
-			<div class="student_show_tab_main"><%= link_to "プロフィール編集", edit_student_registration_path(params[:id]), class: "student_show_tab" %></div>
+			<% if student_signed_in? && current_student == @student %>
+				<div class="student_show_tab_main"><%= link_to "プロフィール編集", edit_student_registration_path(params[:id]), class: "student_show_tab" %></div>
+			<% end %>
 		<div class="some_padding"></div>
 		<div class="student_group_title">申し込み中のイベント</div>
 		<div class="some_padding"></div>
