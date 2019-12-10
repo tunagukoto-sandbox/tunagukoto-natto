@@ -51,8 +51,11 @@ padding-right: 600px;
 
 
 .natto{
-    background-size:contain;                 /* 画像のサイズを指定    */
-    width:80px;                              /* 横幅のサイズを指定    */
-    height:auto;  
+	padding-top: 10px;
+    background-size:contain;             
+/*    width:80px;                              
+    height:auto; */
+    height: 80px;
+    width: auto; 
 } 
 
