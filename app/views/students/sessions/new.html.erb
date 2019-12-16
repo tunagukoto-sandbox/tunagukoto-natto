@@ -1,35 +1,62 @@
 <div class="container">
-<% if admin_signed_in? %>
-  <p>あなたは今、管理者としてログインしています<br>
-    一度ログアウトした後にログインのページに戻ってください
-  </p>
-  <%= link_to "サインアウトする", destroy_admin_session_path, method: :delete %>
-<% else %>
+  <% if admin_signed_in? %>
+    <p>あなたは今、管理者としてログインしています<br>
+      一度ログアウトした後にログインのページに戻ってください
+    </p>
+    <%= link_to "サインアウトする", destroy_admin_session_path, method: :delete %>
+  <% else %>
   <div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-8" style="padding-bottom: 250px;">
-      <h2>ログイン</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :メールアドレス %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-      <div class="field">
-        <%= f.label :パスワード %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :パスワードを記憶する %>
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="padding-bottom: 250px;">
+    <div class="some_padding"></div>
+    <div class="student__my_page">Nattoにログイン</div>
+    <hr>
+      <div class="login_box">
+        <div class="login_box_inner">
+          <b>ご登録いただいたメールアドレスとパスワードを入力して、ログインしてください。</b>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="input_box">
+                <b>メールアドレス</b>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "input_field" %>
+                <br>
+                <b>パスワード</b>
+                <%= f.password_field :password, autocomplete: "current-password", id: "input_field" %>
+
+                <% if devise_mapping.rememberable? %>
+                  <div class="field">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :パスワードを記憶する %>
+                  </div>
+                <% end %>
+            </div><!-- input_box -->
+        </div><!-- login_box_inner -->
+
+        <div class="button_center">
+            <%= f.submit "ログイン",class:'login_button' %><br>
+            <%= link_to "パスワードを忘れた方はこちら", new_student_password_path, class: "forget_password" %>
         </div>
-      <% end %>
-      <div class="actions">
-        <%= f.submit "ログイン",class:'btn btn-primary btn-lg' %>
-      </div>
-    <% end %>
-  <%= render "students/shared/links" %>
-  </div>
-</div>
-<% end %>
-</div>
+
+        <% end %>
+        <%#= render "students/shared/links" %>
+        <div class="lead_to_regi">
+
+          <div class="regi_info">
+            学生登録がお済みでない方はこちら
+          </div>
+
+          <div class="regi_info_2">
+            学生登録をすると、Nattoの会員としてイベントへの参加だけでなくイベントの企画やインターンシップ、企業からの依頼へのエントリーなど様々な機能が使えるようになります。
+          </div>
+
+          <div class="button_center_margin">
+            <div class="regi_button">
+              <%= link_to "新規登録", new_student_registration_path,class: "regi_font" %>
+            </div>
+          </div>
+
+        </div><!-- lead_to_regi -->
+      </div><!-- login_box -->
+    </div><!-- col-md-8 -->
+  </div><!-- row -->
+  <% end %>
+</div><!-- container -->

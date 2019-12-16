@@ -1,0 +1,124 @@
+.login_box{
+	margin: 30px 30px;
+	/*padding: 10px;*/
+	border: medium solid #94d474;
+	border-radius: 25px 25px 25px 25px;
+
+}
+
+.login_box_inner{
+	padding: 15px;
+}
+
+.login_button{
+	width: 200px;
+	color: white;
+	background-color: #94d474;
+	height: 60px;
+	text-align: center;
+	padding: 10px 10px;
+	font-size: 1.4em;
+	font-weight: 700;
+	border-radius: 20px 20px 20px 20px;
+	margin-bottom: 10px;
+}
+
+.input_box{
+	padding-left:25px ;
+	padding-top: 30px;
+}
+
+.input_field{
+	width: 300px;
+	height: 300px;
+	background-color: #CCCCCC;
+
+}
+
+.button_center{
+	text-align: center;
+}
+
+.forget_password{
+	color: #94d474;
+	font-weight: 700;
+}
+
+.lead_to_regi{
+	width: 100%;
+	background-color: #94d474;
+	color: white;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+.regi_info{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 1.4em;
+	font-weight: 700;
+	text-align: center
+}
+
+.regi_info_2{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 1.2em;
+	font-weight: 500;
+	width: 80%;
+	margin: auto;
+}
+
+.button_center_margin{
+	/*text-align: center;*/
+	margin: auto;
+	padding-bottom: 50px;
+}
+.regi_button{
+	width: 400px;
+	color: #94d474;
+	background-color: white;
+	height: 80px;
+	text-align: center;
+	/*padding: 10px 10px;*/
+	padding-top: 20px;
+	font-size: 1.4em;
+	font-weight: 700;
+	border-radius: 20px 20px 20px 20px;
+	vertical-align:middle;
+	margin: 0 auto;
+
+}
+.regi_font{
+	color: #94d474;
+	font-weight: 700;
+	margin: auto;
+	vertical-align:middle;
+}
+
+
+input[type="email"] {
+	padding-left: 5px;
+    width: 250px;
+    height: 47px;
+    background-color: #DDDDDD;
+    border-radius: 10px;
+    border: 1px solid #AAAAAA;
+    margin: 3px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+input[type="password"] {
+	padding-left: 5px;
+    width: 200px;
+    height: 47px;
+    background-color: #DDDDDD;
+    border-radius: 10px;
+    border: 1px solid #AAAAAA;
+    margin: 3px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
