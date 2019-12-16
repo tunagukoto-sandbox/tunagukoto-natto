@@ -17,9 +17,11 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="input_box">
                 <b>メールアドレス</b>
+                <span class="must"> [必須] </span>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "input_field" %>
                 <br>
                 <b>パスワード</b>
+                <span class="must"> [必須] </span>
                 <%= f.password_field :password, autocomplete: "current-password", id: "input_field" %>
 
                 <% if devise_mapping.rememberable? %>
