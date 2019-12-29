@@ -27,26 +27,27 @@
 								住所: &ensp;&ensp;
 								<%= @event.event_location %>
 							</p>
+							
+							<div class="row">
+								<% @sub_tags.each do |st| %>
+									<div class="col-md-4 col-lg-3">
+										<div style="margin: 5px;">
+											<div class="sub_tag_outer">
+												<div class="sub_tag">
+													<%= st.sub_tag_name %>
+												</div>
+											</div>
+										</div>
+									</div>
+								<%end%>
+							</div>
+
 						</div><!-- col-lg-6 -->
 
 						<div class="col-lg-6">
 							<% if @event.event_top_image.attached? %>
 						        <%= image_tag @event.event_top_image ,class: "event_show_img" %>
 						    <% end %>
-						</div>
-
-						<div class="col-lg-12 row">
-							<% @sub_tags.each do |st| %>
-								<div class="col-md-4 col-lg-3">
-									<div style="margin: 5px;">
-										<div class="sub_tag_outer">
-											<div class="sub_tag">
-												<%= st.sub_tag_name %>
-											</div>
-										</div>
-									</div>
-								</div>
-							<%end%>
 						</div>
 
 					</div><!-- row -->
