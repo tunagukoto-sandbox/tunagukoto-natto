@@ -14,19 +14,29 @@
 					<div class="padding_little"></div>
 					<div class="row">
 						<div class="col-lg-6">
-							<p class="font_details">
-									開催日: 	&ensp;&ensp;
+							<div class="row font_details">
+								<div class="col-lg-3">
+									開催日&nbsp;: 
+								</div>
+								<div class="col-lg-9">
 									<%= @event.event_time.year %>年
 									<%= @event.event_time.month %>月
 									<%= @event.event_time.day %>日
-							</p>
-							<p class="font_details">
-								会場: &ensp;&ensp;ツナグコトオフィス
-							</p>
-							<p class="font_details">
-								住所: &ensp;&ensp;
-								<%= @event.event_location %>
-							</p>
+								</div>
+
+								<div class="col-lg-3">
+									会場&nbsp;:
+								</div>
+								<div class="col-lg-9">
+									ツナグコトオフィス
+								</div>		
+								<div class="col-lg-3">
+									住所&nbsp;:
+								</div>
+								<div class="col-lg-9">
+									<%= @event.event_location %>
+								</div>							
+							</div>
 
 							<div class="row">
 								<% @sub_tags.each do |st| %>
