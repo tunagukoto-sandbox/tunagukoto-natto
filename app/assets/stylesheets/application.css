@@ -45,4 +45,7 @@
 text-align: center;
 }
 
-
+.all_center {
+	vertical-align: middle;
+	margin: auto;
+}

@@ -108,3 +108,9 @@
 .event_show_img {
   width: 100%;
 }
+
+.student_other {
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px;
+}
