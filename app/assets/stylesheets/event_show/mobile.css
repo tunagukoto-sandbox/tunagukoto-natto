@@ -1,7 +1,8 @@
-.mobile_event_title_font {
+/*.mobile_event_title_font {
 	font-size: 40px;
 	text-align: center;
 }
+
 .mobile_event_title_font_sub {
 	color: #BBBBBB;
 	width: 60%;
@@ -11,6 +12,7 @@
 	margin: auto;
 	padding-bottom: 10px;
 }
+
 .mobile_event_title {
 	font-size: 30px;
 	text-align: center;
@@ -54,7 +56,7 @@
 	width: 200px;
 	color: grey;
 	text-align: center;
-	margin:auto;
+	margin: auto;
 }
 
 .circle_other {
@@ -114,4 +116,4 @@
 .president_img {
 	margin: auto;
 	width: 60%;
-}
+}*/
