@@ -1,0 +1,59 @@
+.header{
+	height: auto;
+	background-color:#D6D6D652;
+}
+
+.inner-header{
+	margin-right: 50px;
+	margin-left: 100px;
+}
+
+
+.guest{
+	display: inline;
+	margin: 0 0 0 auto;
+	padding-left: 15px;
+
+}
+
+.header-right{
+	margin: 0 0 0 auto;	
+	align-items: right;
+}
+
+.right-padding{
+	padding-right: 600px;
+}
+
+.tunagu-header{
+	padding: 10px;
+	background-color: #4DA067;
+	color: white;
+	padding-left: 5px;
+}
+
+.margin-right-fifty{
+	margin-right: 30px;
+}
+
+.navbar-toggler-icon{
+	width: 70px;
+	height: 70px;
+}
+
+.navbar-font{
+	font-size: 2.0em;
+	text-align: center;
+}
+.margin-ten{
+	margin-bottom: 20px;
+}
+
+
+.natto{
+	padding-top: 10px;
+    background-size:contain;             
+    height: 80px;
+    width: auto; 
+} 
+

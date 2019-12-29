@@ -17,7 +17,6 @@
 				    <div class="carousel-inner">
 				        <% count = 1 %>
 				        <% @events.each do |e| %>
-					        <%#= link_to event_path(e.id) do%>
 					            <% if count == 1 %>
 					                <div class="carousel-item active">
 										<%= link_to event_path(e.id) do %>
@@ -36,10 +35,8 @@
 					                </div><!-- /.carousel-item -->
 					            <% end %>
 					        <% count = count + 1 %>
-					        <%# end %>
 				        <% end %>
 				    </div><!-- /.carousel-inner -->
-				    <!-- スライドコントロールの設定 -->
 
 				    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 				    </a>
@@ -63,8 +60,7 @@
 						<h5 id="top_titles_font">Nattoおすすめイベント(New)</h5>
 						<div class="row top-title-inner">
 							<% @show_mini_events.each do |me| %>
-								<%= link_to mini_event_path(me.id) do %>
-								<!-- <div class="col-lg-4"> -->	
+								<%= link_to mini_event_path(me.id) do %>			
 								<div style="margin: 2px;">					
 								<div class="card-deck">
 									<div class="card" style="width: 18rem;">
@@ -85,14 +81,12 @@
 									</div>
 									</div>
 								</div>
-								<!-- </div> -->
 								<% end %>
 							<% end %>
 						</div>
 					</div>
 				</div>
-				<!-- <div>イベント一覧を見る</div>
-				<h1>comming Soon</h1> -->
+
 			</div>
 			<div class="col-lg-3">
 				<h1 id="student_count" style="margin-top: 50px;"> 
