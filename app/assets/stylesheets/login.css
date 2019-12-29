@@ -1,6 +1,5 @@
 .login_box{
 	margin: 30px 30px;
-	/*padding: 10px;*/
 	border: medium solid #94d474;
 	border-radius: 25px 25px 25px 25px;
 
@@ -69,7 +68,6 @@
 }
 
 .button_center_margin{
-	/*text-align: center;*/
 	margin: auto;
 	padding-bottom: 50px;
 }
@@ -79,7 +77,6 @@
 	background-color: white;
 	height: 80px;
 	text-align: center;
-	/*padding: 10px 10px;*/
 	padding-top: 20px;
 	font-size: 1.4em;
 	font-weight: 700;
