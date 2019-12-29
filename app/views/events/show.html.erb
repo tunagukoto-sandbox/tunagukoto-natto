@@ -8,13 +8,14 @@
 				<div class="col-lg-10">
 					<div class="some_padding"></div>
 		    		<div class="natto_toha">詳細</div><hr>
+					<p class="event_show_event_title">
+						<%= @event.event_title %>
+					</p><br>					
+					<p class="event_show_event_name">
+						<%= @event.event_name %>									
+					</p>		    	
 					<div class="row">
 						<div class="col-lg-6">
-							<p class="event_show_event_name">
-								<%= @event.event_name %></p>
-							<p class="event_show_event_title">
-								<%= @event.event_title %>
-							</p><br>
 							<p class="font_details">
 									開催日: 	&ensp;&ensp;
 									<%= @event.event_time.year %>年
