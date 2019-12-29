@@ -31,7 +31,6 @@
 	}
 }
 
-
 .padding-top{
 	padding-top: 20px;
 }
@@ -48,4 +47,9 @@ text-align: center;
 .all_center {
 	vertical-align: middle;
 	margin: auto;
+}
+
+.home_manue_center {
+	width: 90%;
+	margin: 0 auto;
 }
