@@ -8,6 +8,12 @@
 	padding-bottom: 10px;
 }
 
+.about_company_img {
+	border: solid 3px black;
+	width: 90%;
+	margin: auto;
+}
+
 .about_com_img {
 	border: solid 3px black;
 	width: 50%;
