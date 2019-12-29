@@ -1,12 +1,14 @@
 <div class="padding_fifty"></div>
 <div class="container">
+<div class="row">
+	<div class="col-lg-9">
 	<div class="about_comapny_titles">
 		<%= @event.event_company_name %>ってどんな会社？
 	</div><br>
 	<div class="padding_fifty"></div>
 	<div class="row">
-		<div class="col-lg-2"></div>
-		<div class="col-lg-4 about_com_details_font">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-5 about_com_details_font">
 			<%= @event.event_description %>
 		</div>
 		<div class="col-lg-6">
@@ -59,4 +61,7 @@
 			<% end %>
 		</div>
 	</div>
+	</div>
+	<div class="col-lg-3"></div>
+</div>
 </div>
