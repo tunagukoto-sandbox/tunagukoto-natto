@@ -1,101 +1,117 @@
 <div class="devise_pc">
 <div class="container-fluid">
-	<div class="some_padding"></div>
-    <div class="natto_toha">詳細</div><hr>
 	<div class="row">
-		<div class="col-lg-1"></div>
-		<div class="col-lg-10">
+
+		<div class="col-lg-9">
+			<div class="some_padding"></div>
+		    <div class="natto_toha">詳細</div><hr>
 			<div class="row">
-				<div class="col-lg-6">
-					<p class="event_show_event_name">
-						<%= @event.event_name %></p>
-					<p class="event_show_event_title">
-						<%= @event.event_title %>
-					</p><br>
-					<p class="font_details">
-							開催日: 	&ensp;&ensp;
-							<%= @event.event_time.year %>年
-							<%= @event.event_time.month %>月
-							<%= @event.event_time.day %>日
-					</p>
-					<p class="font_details">
-						会場: &ensp;&ensp;ツナグコトオフィス
-					</p>
-					<p class="font_details">
-						住所: &ensp;&ensp;
-						<%= @event.event_location %>
-					</p>
+				<div class="col-lg-1"></div>
+				<div class="col-lg-10">
 					<div class="row">
-						<% @sub_tags.each do |st| %>
-							<div class="col-md-4 col-lg-3">
-								<div style="margin: 5px;">
-									<div class="sub_tag_outer">
-										<div class="sub_tag">
-											<%= st.sub_tag_name %>
+						<div class="col-lg-6">
+							<p class="event_show_event_name">
+								<%= @event.event_name %></p>
+							<p class="event_show_event_title">
+								<%= @event.event_title %>
+							</p><br>
+							<p class="font_details">
+									開催日: 	&ensp;&ensp;
+									<%= @event.event_time.year %>年
+									<%= @event.event_time.month %>月
+									<%= @event.event_time.day %>日
+							</p>
+							<p class="font_details">
+								会場: &ensp;&ensp;ツナグコトオフィス
+							</p>
+							<p class="font_details">
+								住所: &ensp;&ensp;
+								<%= @event.event_location %>
+							</p>
+							<div class="row">
+								<% @sub_tags.each do |st| %>
+									<div class="col-md-4 col-lg-3">
+										<div style="margin: 5px;">
+											<div class="sub_tag_outer">
+												<div class="sub_tag">
+													<%= st.sub_tag_name %>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
+								<%end%>
 							</div>
-						<%end%>
-					</div>
-				</div><!-- col-lg-6 -->
+						</div><!-- col-lg-6 -->
 
-				<div class="col-lg-6">
-					<% if @event.event_top_image.attached? %>
-				        <%= image_tag @event.event_top_image ,class: "card-img-top" ,class: "card-img-top img-event-show"%>
-				    <% end %>
-				</div>
-			</div><!-- row -->
-			
-			<div class="some_padding"></div>
-
-			<div class="row">
-			<div class="event_details_outer_box">
-				<div class="event_details_inner_box padding_little">
-					参加費: 
-					<% if @event.event_cost == 0 || @event.event_cost == "無料" %>
-						&ensp;&ensp;<%= @event.event_cost %>
-					<% else %>
-						&ensp;&ensp; <%= @event.event_cost %>
-					<% end %>
-					食事付き　
-					獲得ポイント: <%= @event.get_point %>PT 
-					&ensp;&ensp;
-					募集人数: 
-					<% if @event.event_population == nil %>
-						&ensp;&ensp;未定
-					<% else %>
-						&ensp;&ensp;約<%= @event.event_population %>名
-					<% end %>
-
-					<div class="row">
-						<div class="col-lg-9">
-							<div class="event_type_details">
-								<div class="tag_desc">
-									【<%= @tag.tag_name %>ってどんなイベント？】
-								</div>
-								<p id="tag_info"><%= @tag.tag_info %></p>
-								<p id="tag_body"><%= @tag.tag_body %></p>
-							</div>
-						</div>
-						<div class="some_padding"></div>
-						<div class="col-lg-3">
-							学生の方はこちら
-							<div class="event_apply_student_btn">
-								<%= link_to "申し込む", new_event_customer_path %>
-							</div><!-- event_apply_btn -->
-							社会人の方はこちら
-							<div class="event_apply_adult_btn">
-								申し込む
-								<%#= link_to "申し込む", new_event_customer_path %>
-							</div><!-- event_apply_btn -->
+						<div class="col-lg-6">
+							<% if @event.event_top_image.attached? %>
+						        <%= image_tag @event.event_top_image ,class: "event_show_img" %>
+						    <% end %>
 						</div>
 					</div><!-- row -->
-				</div><!-- event_details_inner_box padding_little -->
-			</div><!-- event_details_outer_box -->
-		</div><!-- col-lg-10 -->
-		<div class="col-lg-1"></div>
-	</div>
+					
+					<div class="some_padding"></div>
+
+					<div class="row">
+					<div class="event_details_outer_box">
+						<div class="event_details_inner_box padding_little">
+							参加費: 
+							<% if @event.event_cost == 0 || @event.event_cost == "無料" %>
+								&ensp;&ensp;<%= @event.event_cost %>
+							<% else %>
+								&ensp;&ensp; <%= @event.event_cost %>
+							<% end %>
+							食事付き　
+							獲得ポイント: <%= @event.get_point %>PT 
+							&ensp;&ensp;
+							募集人数: 
+							<% if @event.event_population == nil %>
+								&ensp;&ensp;未定
+							<% else %>
+								&ensp;&ensp;約<%= @event.event_population %>名
+							<% end %>
+
+							<div class="row">
+
+								<div class="col-lg-9">
+									<div class="event_type_details">
+										<div class="tag_desc">
+											【<%= @tag.tag_name %>ってどんなイベント？】
+										</div>
+										<p id="tag_info"><%= @tag.tag_info %></p>
+										<p id="tag_body"><%= @tag.tag_body %></p>
+									</div>
+								</div>
+
+								<div class="some_padding"></div>
+
+								<div class="col-lg-3">
+									学生の方はこちら
+									<div class="event_apply_student_btn">
+										<%= link_to "申し込む", new_event_customer_path %>
+									</div><!-- event_apply_btn -->
+									社会人の方はこちら
+									<div class="event_apply_adult_btn">
+										申し込む
+										<%#= link_to "申し込む", new_event_customer_path %>
+									</div><!-- event_apply_btn -->
+								</div>
+
+							</div><!-- row -->
+
+						</div><!-- event_details_inner_box padding_little -->
+					</div><!-- event_details_outer_box -->
+					</div>
+				</div><!-- col-lg-10 -->
+				<div class="col-lg-1"></div>
+			</div>
+		</div>
+
+		<div class="col-lg-3">
+			<%= render 'home/top_menus' %>
+		</div>
+
+		</div>
 	</div>
 	<%= render 'events/show/about_company' %>
 </div>

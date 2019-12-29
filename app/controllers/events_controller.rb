@@ -45,6 +45,13 @@ class EventsController < ApplicationController
   end
 
   def show 
+    
+    if News.count >= 3
+      @news = News.first(3)
+    else
+      @news = News.all
+    end
+
     @event = Event.find(params[:id])
     @tag = @event.tag
     @sub_tags = @event.sub_tags
