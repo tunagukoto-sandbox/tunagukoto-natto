@@ -1,0 +1,49 @@
+<div class="container">
+
+	<div class="mobile_company_title">
+		<%= @event.event_company_name %>って何してる会社？
+	</div>
+	<p class="mobile_company_text">
+		<%= @event.event_description %>
+	</p>
+
+	<div class="mobile_company_title">
+		登壇者情報
+	</div>
+	<div class="row">
+		<div class="width_fifth">
+			<div class="aligen_center">
+				<%= @event.position %>					
+			</div>
+			<div class="aligen_center">
+				<%= @event.event_president %>
+			</div>
+			<div class="aligen_center">
+				<%= @event.event_president_birth_day %>
+			</div>
+			<div class="aligen_center">
+				<%= @event.event_motto %>
+			</div>
+		</div>
+		<div class="width_fifth">
+			<% if @event.president_image.attached? %>
+			    <%= image_tag @event.president_image , class: "president_img"%>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="padding_some"></div>
+	<div class="mobile_company_title">
+		コンテンツ
+	</div>
+	<div class="mobile_company_title">
+		<%= @tag.tag_name %>とは
+	</div>
+	<p class="mobile_company_text">
+		<%=@tag.tag_body %>
+	</p>
+	
+	<div class="mobile_company_title">
+		開催場所
+	</div>
+</div>

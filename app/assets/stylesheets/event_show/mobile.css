@@ -1,0 +1,117 @@
+.mobile_event_title_font {
+	font-size: 40px;
+	text-align: center;
+}
+.mobile_event_title_font_sub {
+	color: #BBBBBB;
+	width: 60%;
+	font-size: 20px;
+	text-align: center;
+	border-bottom: solid 3px #BBBBBB;
+	margin: auto;
+	padding-bottom: 10px;
+}
+.mobile_event_title {
+	font-size: 30px;
+	text-align: center;
+}
+
+.mobile_img_css {
+	width: 100%;
+}
+
+.mobile_time_top {
+	color: #555555;
+	font-size: 20px;
+}
+
+.mobile_apply_font {
+	color: #00BB00;
+	font-size: 20px;
+	padding-right:15px ;
+	display:inline;
+}
+
+.text_underline {
+	text-decoration : underline;
+}
+
+.moushikommi_font {
+	color: grey;
+	font-size: 20px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+.apply_outer_box {
+	width: 100%;
+	background-color: #EEEEEE;
+}
+
+.apply_main_box {
+	padding: 10px;
+	border-radius: 3px;
+	box-shadow: 0 0 7px #AAAAAA;
+	width: 200px;
+	color: grey;
+	text-align: center;
+	margin:auto;
+}
+
+.circle_other {
+	margin: auto;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	border: solid 15px #00BFFF;
+}
+
+.other_font {
+	color: #00BFFF;
+	margin-top: 10px;
+}
+
+.circle_student {
+	margin: auto;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	border: solid 15px #90EE90;
+}
+
+.student_font {
+	margin-top: 10px;
+	color:  #90EE90;
+}
+
+.padding_some {
+	padding-bottom: 30px;
+}
+
+
+.mobile_company_title {
+	font-weight: 500;
+	text-align: left;
+	font-size: 22px;
+	padding-bottom: 10px;
+	border-bottom: solid 3px #90EE90;
+	margin-bottom: 10px;
+}
+.mobile_company_text {
+	font-size: 15px;
+	padding: 5px;
+}
+
+.aligen_center {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.width_fifth {
+	width: 50%;
+}
+
+.president_img {
+	margin: auto;
+	width: 60%;
+}

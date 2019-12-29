@@ -1,0 +1,27 @@
+.about_comapny_titles {
+	width: 300px;
+	font-size: 24px;
+	font-weight: 600;
+	text-align: center;
+	border-bottom: solid 5px #DDDDDD ;
+	margin:auto;
+	padding-bottom: 10px;
+}
+
+.about_com_img {
+	border: solid 3px black;
+	width: 90%;
+	margin: auto;
+}
+
+.about_com_details_font {
+	font-size: 20px;
+}
+
+.about_com_font{
+	color: #777777;
+	font-weight: 700;
+}
+.padding_fifty{
+	padding-bottom: 50px;
+}

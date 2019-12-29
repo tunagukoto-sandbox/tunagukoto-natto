@@ -1,0 +1,143 @@
+<div class="devise_mobile">
+	<div class="container-fluid">
+		<div class="top_container">
+				<div class="mobile_now_regi_count">
+	    			現在登録者 <%= @s_count %>
+	    		</div>
+				<div class="padding-top">
+					<h5 id="mobile_top_titles_font">ツナグコトおすすめイベント</h5>
+					<div id="carouselExampleIndicators" class="carousel slide carousel-slide" data-ride="carousel">
+					  <!-- インジケータの設定 -->
+					    <ol class="carousel-indicators">
+					        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="height: 20px;"></li>
+					        <% for num in 1..@e_count do %>
+					            <li data-target="#carouselExampleIndicators" data-slide-to="#{num}" style="height: 20px;"></li>
+					        <% end %>
+					    </ol>
+					    <!-- スライドさせる画像の設定 -->
+					    <div class="carousel-inner">
+					        <% count = 1 %>
+					        <% @events.each do |e| %>
+						            <% if count == 1 %>
+						                <div class="carousel-item active">
+						                	<%= link_to event_path(e.id) do %>
+							                    <% if e.event_top_image.attached? %>
+							                        <%= image_tag e.event_top_image , class: "card-img-top"%>
+							                    <% end %>
+						                    <% end %>
+						                </div><!-- /.carousel-item -->
+						            <% else %>
+						                <div class="carousel-item">
+						                	<%= link_to event_path(e.id) do%>
+							                    <% if e.event_top_image.attached? %>
+							                        <%= image_tag e.event_top_image ,class: "card-img-top"%>
+							                    <% end %>
+						                    <% end %>
+						                </div><!-- /.carousel-item -->
+						            <% end %>
+						        <% count = count + 1 %>
+					        <% end %>
+					    </div><!-- /.carousel-inner -->
+					    <!-- スライドコントロールの設定 -->
+					    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					    </a>
+					    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					    </a>
+					</div><!-- /.carousel -->
+
+					<div class="mobile-natto-desc">
+						<h3 style="text-align: center; padding-bottom: 50px;">Nattoとは</h3>
+						<p style="font-size: 1.2em;">
+						Nattoは、学生が交流イベントを探したり、自分でイベントを作ったり、インターン先やアルバイト、ボランティア活動探しができる会員制のウェブサイトです。<br>
+						一定の要件を満たす学生には、起業の支援も行っています。<br>
+						当サイトは、「学生の交流・学び・実践を促進する一般社団法人ツナグコト」の事業を活性化するため学生起業家によって制作・運営され、支援企業さまのご厚意によって維持されています。<br>
+						サイトで紹介されるイベント等の特徴は次のとおりです。<br>
+						<h style="font-weight: 700;">1.</h>
+						学生が社会人（ボランティア）のサポートを受けて企画・運営していること<br>
+						<h style="font-weight: 700;">2.</h>イベントに参加するだけでなく、イベントを作ることもできること<br>
+						<h style="font-weight: 700;">3.</h>
+						学生、企業、学生団体、公益的活動団体といった多様な人たちの集いであること<br>
+						「交流し、学び、実践する場」ににぎわいを添えることで、ダイバーシティ＆インクルージョンを推進することがNattoのミッションです。<br>
+						</p>
+					</div>
+
+					<div class="row padding-top aligen_center">
+						<div class="col-md-3 ">
+							<a href="https://www.facebook.com/tunagukoto/">
+								<%= image_tag'facebook.png',class: "mobile_sns" %>
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="https://line.me/ti/g2/QC3viCfONv8wIO64_WruzA">
+								<%= image_tag'line.png',class: "mobile_sns" %>
+							</a>
+						</div>	
+						<div class="col-md-3">
+							<a href="https://twitter.com/tunagukoto_">
+								<%= image_tag'twitter.png',class: "mobile_sns_bg" %>
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="https://www.instagram.com/tunagukoto">
+								<%= image_tag'instagram.png',class: "mobile_sns_bg" %>
+							</a>
+						</div>					
+					</div>
+
+					<div class="container-fluid">
+						<div class="top_titles">
+							<h5 id="mobile_top_titles_font">愛知学生ブランド企業
+							<%= image_tag'f.png',class: "twiiter" %>
+							</h5>	
+							<div class="mobile_alert">
+								協賛企業等へのメール、電話などによる営業行為は固く禁じます。
+							</div>					
+						</div>
+						<div class="top_titles ">
+							<h5 id="mobile_top_titles_font">Nattoおすすめイベント(New)</h5>
+							<div class="top-title-inner">
+
+								<% @show_mini_events.each do |me| %>
+									<%= link_to mini_event_path(me.id) do %>
+									<div class="row mobile_mini_event_card">
+										<div class="col-md-5">		
+										    <% if me.mini_event_img.attached? %>
+										        <%= image_tag me.mini_event_img ,class: "event_card_img" %>
+										    <% end %>
+										</div>
+										<div class="col-md-6">
+											<h5 id="mobile_moushikomi">
+											  	申し込み受付中
+											</h5>
+											<div class="mobile_mini_event_font">
+												<%= "【 #{me.time.year}/#{me.time.month} / #{me.time.day} 】"%>
+											</div>
+											<div class="mobile_mini_event_font">
+												<%= me.title %>
+											</div>
+										</div>
+										<div class="col-md-1">				
+											<div class="mobile_mini_event_more">
+												▷			
+											</div>
+										</div>
+									</div>						
+									<% end %>									
+								<% end %>
+							</div>
+							<div style="margin-top: 30px;">
+							<div class="mobile_mini_event_more_btn">
+								<span class="mobile_mini_event_more">
+												▷
+								</span>
+								<%= link_to "イベント一覧を見る", root_path %>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 以下メニュー -->
+				<%= render 'home/mobile_top_menu' %>
+		</div>
+	</div>
+</div>

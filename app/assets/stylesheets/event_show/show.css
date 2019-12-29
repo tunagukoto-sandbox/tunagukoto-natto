@@ -43,6 +43,12 @@
 	margin: 10px auto;
 }
 
+.event_details_inner_box{
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+}
+
 .display_inline_block{
  	display: inline-block;
 }
@@ -61,4 +67,40 @@
  	padding-top: 20px; 
  	padding-bottom: 0px;
  	padding-right: 30px;
+}
+
+.padding_little {
+  padding: 20px;
+}
+.event_type_details{
+  width: 100%;
+  padding: 20px;
+  text-align: center
+  margin: auto;
+}
+
+.event_apply_student_btn{
+  background-color: #94d474;
+  color: white ;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 20px; 
+  border: solid 1px #333 ;
+}
+
+.event_apply_adult_btn{
+  background-color: #66CCFF;
+  color: white ;
+  font-size: 20px;
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 20px;
+  border: solid 1px #333 ;
+}
+
+.event_details_outer_box {
+  background-color: #DDDDDD;
+  color: black;
+  padding-top: 20px;
 }

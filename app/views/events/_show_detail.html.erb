@@ -71,14 +71,30 @@
 					<div class="row">
 						<div class="col-lg-9">
 							<div class="event_type_details">
-								<div class="tag_desc">
-									【<%= @tag.tag_name %>ってどんなイベント？】
-								</div>
-								<p id="tag_info"><%= @tag.tag_info %></p>
-								<p id="tag_body"><%= @tag.tag_body %></p>
-							</div>
+								<% if @tag.tag_name == "シャショク" %>
+									<div class="tag_desc">【シャショクってどんなイベント？】</div>
+										<p id="tag_info"><%= @tag.tag_info %></p>
+										<p id="tag_body"><%= @tag.tag_body %></p>
+									</div>
+								<% elsif @tag.tag_name == "ガクショク" %>
+									<div class="tag_desc">【ガクショクってどんなイベント？】</div>
+										<p id="tag_info"><%= @tag.tag_info %></p>
+										<p id="tag_body"><%= @tag.tag_body %></p>
+									</div>
+								<% elsif @tag.tag_name == "キャリアコネクション" %>
+									<div class="tag_desc">【キャリアコネクションってどんなイベント？】</div>
+										<p id="tag_info"><%= @tag.tag_info %></p>
+										<p id="tag_body"><%= @tag.tag_body %></p>
+									</div>
+								<% elsif @tag.tag_name == "スタートアップ" %>
+									<div class="tag_desc">【スタートアップってどんなイベント？】</div>
+										<p id="tag_info"><%= @tag.tag_info %></p>
+										<p id="tag_body"><%= @tag.tag_body %></p>
+									</div>
+								<% elsif @tag == nil %>
+								<% end %>
+							</div><!-- event_type_details -->
 						</div>
-						<div class="some_padding"></div>
 						<div class="col-lg-3">
 							学生の方はこちら
 							<div class="event_apply_student_btn">
@@ -96,15 +112,9 @@
 		</div><!-- col-lg-10 -->
 		<div class="col-lg-1"></div>
 	</div>
-	</div>
+</div>
 	<%= render 'events/show/about_company' %>
 </div>
-</div>
-
 <div class="devise_mobile">
 	<%= render 'events/mobile/show_main' %>
 </div>
-
-
-
-

@@ -1,0 +1,87 @@
+<div class="container">
+	<div class="mobile_event_title_font">
+		EVENT
+	</div>
+	<div class="mobile_event_title_font_sub">
+		イベント
+	</div>
+	<div class="mobile_event_title">
+		<%= @event.event_name %>
+	</div>
+	<div class="mobile_time_top">
+		<%= @event.event_time.year %>年
+		<%= @event.event_time.month %>月
+		<%= @event.event_time.day %>日
+		<%= @event.event_time_detail %>〜
+	</div>
+
+	<div class="mobile_apply_font text_underline">
+		申し込み受付中
+	</div>
+	<div class="mobile_apply_font">
+		(無料)
+	</div>
+
+	<% if @event.event_top_image.attached? %>
+		<%= image_tag @event.event_top_image, class: "mobile_img_css" %>
+	<% end %>
+
+	<div class="row">
+		<% @sub_tags.each do |st| %>
+			<div class="col-xs-6">
+				<div style="margin: 5px;">
+					<div class="sub_tag_outer">
+						<div class="sub_tag">
+							<%= st.sub_tag_name %>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+	<p class="moushikommi_font text_underline">
+		申し込みはこちら
+	</p><hr>
+
+	<div class="row">
+
+		<!-- <div class="apply_main_box"> -->
+		<%= link_to(new_event_customer_path, class: 'apply_main_box') do %>
+			<%= @event.event_time.year %>年
+			<%= @event.event_time.month %>月
+			<%= @event.event_time.day %>日<br>
+			<%= @event.event_time_detail %>	
+			<div class="circle_student">					
+			</div>
+			<div class="student_font">
+				参加予定: 
+			</div>
+			<div class="student_font text_underline">	
+				学生の方はこちらから
+			</div>
+		<% end %>
+		<!-- </div> --><!-- apply_main_box -->		
+
+		<div class="apply_main_box">
+			<%= @event.event_time.year %>年
+			<%= @event.event_time.month %>月
+			<%= @event.event_time.day %>日<br>
+			<%= @event.event_time_detail %>	
+			<div class="circle_other">					
+			</div>
+			<div class="other_font">
+				空席あり
+			</div>
+			<div class="other_font text_underline">	
+				社会人の方はこちらから
+			</div>
+		</div><!-- apply_main_box -->
+
+	</div><!-- row -->
+	<hr>
+	<div class="padding_some"></div>
+
+
+</div>
+<%= render 'events/mobile/show_company' %>

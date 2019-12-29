@@ -1,0 +1,31 @@
+.natto_toha{
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #4DA067;/*文字色*/
+  font-size: 27px;
+  font-weight: 700;
+  background: transparent;/*背景透明に*/
+  border-left: solid 8px #4DA067;/*左線*/
+  margin-top-top: 200px;
+  margin-bottom: 30px;
+}
+
+.natto_toha_img {
+	width: 80%;
+}
+
+.natto_toha_img_center {
+	margin: 0 auto;
+	text-align: center;
+	padding-top:40px;
+	padding-bottom: 40px;
+}
+
+.natto_toha_body{
+	text-align: center;
+	font-weight: 800;
+	font-size: 1.3em;
+	width: 80%;
+}
+.natto_toha_points {
+	text-align: left;
+}

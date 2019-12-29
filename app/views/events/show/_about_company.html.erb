@@ -1,0 +1,62 @@
+<div class="padding_fifty"></div>
+<div class="container">
+	<div class="about_comapny_titles">
+		<%= @event.event_company_name %>ってどんな会社？
+	</div><br>
+	<div class="padding_fifty"></div>
+	<div class="row">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-4 about_com_details_font">
+			<%= @event.event_description %>
+		</div>
+		<div class="col-lg-6">
+			<% if @event.event_top_image.attached? %>
+			    <%= image_tag @event.event_top_image ,class: "about_com_img"%>
+			<% end %>
+		</div>
+	</div>
+	<div class="padding_fifty"></div>
+	<div class="about_comapny_titles">
+		登壇者情報
+	</div>
+	<div class="padding_fifty"></div>
+	<div class="row">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-4 about_com_details_font">
+			<div class="row">
+				<div class="col-lg-4 about_com_font">[登壇企業]</div>
+				<div class="col-lg-8">
+					<b><%= @event.event_company_name %></b>
+				</div>
+				<div class="col-lg-4 about_com_font">[登壇者]</div>
+				<div class="col-lg-8">
+					<b>
+					<%= @event.position %><br>				
+					<%= @event.event_president %>氏
+					</b>
+				</div>
+				<div class="col-lg-4 about_com_font">[生年月日]</div>
+				<div class="col-lg-8">
+					<b>
+					<%= @event.event_time.year %>年
+					<%= @event.event_time.month %>月
+					<%= @event.event_time.day %>日
+					</b>
+				</div>
+				<% if @event.event_motto != "" %>
+				<div class="col-lg-4 about_com_font">[座右の銘]</div>
+				<div class="col-lg-8">
+					<b>
+					<%= @event.event_motto %>	
+					</b>				
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<% if @event.president_image.attached? %>
+			    <%= image_tag @event.president_image ,class: "about_com_img"%>
+			<% end %>
+		</div>
+	</div>
+</div>
