@@ -8,11 +8,11 @@
 }
 
 footer {
-  margin-top: 45px;
+  margin-top: 15px;
   padding-top: 15px;
   border-top: 1px solid #eaeaea;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #CCCCCC;
@@ -20,7 +20,7 @@ footer {
 
 footer a {
   color: #333333;
-  font-size: 1.2em;
+  font-size: 1.0em;
 }
 
 footer a:hover {
@@ -39,7 +39,7 @@ footer ul li {
 
 .tunagukoto{
   color: #333333;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 800;
   margin-left: 30px;
 }
