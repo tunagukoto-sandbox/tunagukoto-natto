@@ -7,7 +7,6 @@
 	padding-bottom: 30px;
 }
 
-
 .event_explanation{
 	color:#cc7000 ;
 	text-align: center;
@@ -72,4 +71,20 @@ p#margin_little{
 .mobile_alert{
 	font-size: 1.8em;
 	color: red;
+}
+
+.card {
+	position: relative;
+}
+
+.card-text {
+	color: grey;
+}
+.card-title {
+	color: grey;
+	font-size: 20px;
+}
+.card_event_btn {
+	 position: absolute; 
+	 bottom: 10px;
 }

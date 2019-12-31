@@ -63,7 +63,7 @@
 								<%= link_to mini_event_path(me.id) do %>			
 								<div style="margin: 2px;">					
 								<div class="card-deck">
-									<div class="card" style="width: 18rem;">
+									<div class="card" style="width: 18rem; min-height:20rem ;">
 										<div>
 								        <% if me.mini_event_img.attached? %>
 								            <%= image_tag me.mini_event_img ,class: "card-img" %>
@@ -71,12 +71,18 @@
 								    	</div>
 
 									  	<div class="card-body">
-									  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
-										    <h4 class="card-title"><%= "【"+"#{me.time.month}"+"/"+"#{me.time.day}"+"】"%><%= me.title %></h4>
+									  		<b style="text-decoration: underline; color: #66CC66;">		申し込み受付中
+									  		</b>
+										    <h4 class="card-title">
+										    	<%= "【"+"#{me.time.month}"+"/"+"#{me.time.day}"+"】"%><%= me.title %>
+										    </h4>
 										    <p class="card-text">
-										    	<%= me.detail.truncate(50) %>
+										    	<%= me.detail.truncate(30) %>
 										    </p>
-										    <h class="btn btn-outline-secondary">このイベントに参加する</h>
+
+										    <h class="btn btn-outline-secondary card_event_btn">
+										    	このイベントに参加する
+											</h>
 									  	</div>
 									</div>
 									</div>
