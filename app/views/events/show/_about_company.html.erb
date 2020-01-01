@@ -58,4 +58,25 @@
 			<% end %>
 		</div>
 	</div>
+	<div class="about_comapny_titles">
+		コンテンツ
+	</div>
+	<div class="padding_fifty"></div>
+	<div class="event_content_font aligen_center">
+		<% if !@event.content_one.nil?%>
+			1.<%= @event.content_one %><br>
+		<% end %>
+		<% if !@event.content_two.nil?%>
+			2.<%= @event.content_two %><br>
+		<% end %>
+		<% if !@event.content_three.nil?%>
+			3.<%= @event.content_three %><br>
+		<% end %>
+		<% if !@event.content_four.nil?%>
+			4.<%= @event.content_four %><br>
+		<% end %>
+		<% if !@event.content_five.nil?%>
+			5.<%= @event.content_five %><br>
+		<% end %>
+	</div>
 </div>

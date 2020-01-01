@@ -41,6 +41,22 @@
 		<div class="mobile_company_title">
 			コンテンツ
 		</div>
+
+		<% if !@event.content_one.nil?%>
+			1.<%= @event.content_one %><br>
+		<% end %>
+		<% if !@event.content_two.nil?%>
+			2.<%= @event.content_two %><br>
+		<% end %>
+		<% if !@event.content_three.nil?%>
+			3.<%= @event.content_three %><br>
+		<% end %>
+		<% if !@event.content_four.nil?%>
+			4.<%= @event.content_four %><br>
+		<% end %>
+		<% if !@event.content_five.nil?%>
+			5.<%= @event.content_five %><br>
+		<% end %>
 	</div>
 
 	<div class="color-white padding-20 margin-30">
@@ -55,5 +71,12 @@
 		<div class="mobile_company_title">
 			開催場所
 		</div>
+		<b>ツナグオフィス</b><br>
+		<b>〒461-0004
+	　	名古屋市東区葵3丁目15-31　千種第2ビル4F
+		</b>
+
 	</div>
+
+
 <!-- </div> -->

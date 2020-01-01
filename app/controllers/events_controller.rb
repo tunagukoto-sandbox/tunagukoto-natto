@@ -170,7 +170,7 @@ end
         :event_time_detail,
         :event_population,
         # イベントの申し込みURL
-        :google_form,
+        # :google_form,
         # 詳細外部
         :event_top_image,
         :event_show_image,
@@ -179,7 +179,15 @@ end
         :event_select,
         :get_point,
         :pay_point,
-        :finish
+        :finish,
+        # コンテンツ
+        :content_one,
+        :content_two,
+        :content_three,
+        :content_four,
+        :content_five,
+        :other_participant_url
+
         )
     end
 
