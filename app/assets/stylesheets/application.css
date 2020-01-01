@@ -55,6 +55,34 @@
     z-index: 100;
 }
 
+.admin_log_out_btn {
+	position: fixed;
+	bottom: 10px;
+	left: 30px;
+	background-color: red;
+	color: white ;
+	padding: 20px;
+	font-size: 20px;
+	border-radius: 20px;
+    box-shadow:5px 5px 20px;
+    border:1px solid black;
+    z-index: 100;
+}
+
+.admin_top_btn {
+	position: fixed;
+	bottom: 100px;
+	right: 30px;
+	background-color: #666666;
+	color: white ;
+	padding: 20px;
+	font-size: 20px;
+	border-radius: 20px;
+    box-shadow:5px 5px 20px;
+    border:1px solid black;
+    z-index: 100;
+}
+
 .redirect_to_root_btn:hover {
 	color: #FFFFCC;
 	background-color: #444444;

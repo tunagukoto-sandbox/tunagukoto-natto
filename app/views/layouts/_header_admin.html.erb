@@ -7,22 +7,13 @@
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav w-100 nav-justified">
             <li class="nav-item">
-                <%= link_to "管理者トップ", home_admin_top_path,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
-            </li>
-            <li class="nav-item">
                 <%= link_to '学生一覧', student_page_index_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
             </li>
             <li class="nav-item">
                 <%= link_to '企業一覧', company_page_index_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
             </li>
             <li class="nav-item">
-                <%= link_to 'クエスト発行', new_quest_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
-            </li>
-            <li class="nav-item">
                 <%= link_to 'シャショク・ガクショク発行', new_event_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'News発行', new_news_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
             </li>
             <li class="nav-item">
                 <%= link_to 'シャショク・ガクショク参加者一覧', home_admin_event_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
@@ -32,9 +23,6 @@
             </li>
             <li class="nav-item">
                 <%= link_to 'その他イベント参加者一覧', home_admin_mini_event_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
             </li>
       <!--       <li class="nav-item">
                 <a class="nav-link" style="font-weight: 900; font-size: 1.2em;" href="http://tunagu.or.jp/">ホームページ</a>

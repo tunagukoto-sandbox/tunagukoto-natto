@@ -1,7 +1,5 @@
 <div class="container">
 <% if admin_signed_in? %>
-    <%= link_to 'Nattoトップ', root_path, 
-    class: "nav-link", style: "font-weight: 900; font-size: 1.7em;" %>
 	<div style="font-size: 1.5em;">
 		<%= link_to "・シャショク・ガクショク発行", new_event_path %></div>
 	<div style="font-size: 1.5em;">
@@ -12,6 +10,9 @@
 	<div style="font-size: 1.5em;">
 		<%= link_to "・協賛企業の会社登録はこちらから", new_corporation_registration_path %>			
 	</div>
+	<div style="font-size: 1.5em;">
+		<%= link_to '・新しくNewsを発行する', new_news_path %>
+	</div>
 <!-- 	<div style="font-size: 1.5em;">
 		<%#= link_to "・学生団体の新規登録はこちらから(管理者が登録をしてください)", new_corporation_registration_path %>			
 	</div> -->
@@ -19,7 +20,7 @@
 		<%#= link_to "・公益的活動団体の新規登録はこちらから(管理者が登録をしてください)", new_corporation_registration_path %>			
 	</div> -->
 	<div style="font-size: 1.5em;">
-		<%= link_to "・イベントに付ける新しいサブタグ発はこちらから", new_sub_tag_path %>
+		<%= link_to "・イベントに付ける新しいサブタグ発行はこちらから", new_sub_tag_path %>
 	</div>
 	<div style="font-size: 1.5em;">
 		<%= link_to "・学生新規登録時の所属大学を新しく発行はこちらから", new_school_path %>			
