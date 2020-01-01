@@ -23,6 +23,7 @@ class HomeController < ApplicationController
 
   def admin_top
     @events = Event.all
+    @mini_events = MiniEvent.all
   	@quests = Quest.all
   	@schools = School.all
   end

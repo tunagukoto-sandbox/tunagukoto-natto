@@ -1,16 +1,27 @@
 <div class="container">
 <% if admin_signed_in? %>
-    <%= link_to 'Nattoトップ', root_path, class: "nav-link", style: "font-weight: 900; font-size: 1.2em;" %>
-	<div style="font-size: 1.5em;"><%= link_to "イベント発行", new_event_path %></div>
-	<div style="font-size: 1.5em;"><%= link_to "現在の申し込み状況", home_admin_event_path %></div>
-	<div style="font-size: 1.5em;"><%= link_to "クエスト発行", new_quest_path %></div>
+    <%= link_to 'Nattoトップ', root_path, 
+    class: "nav-link", style: "font-weight: 900; font-size: 1.7em;" %>
+	<div style="font-size: 1.5em;">
+		<%= link_to "・シャショク・ガクショク発行", new_event_path %></div>
+	<div style="font-size: 1.5em;">
+		<%= link_to "・シャショク・ガクショクの現在の申し込み状況を確認", home_admin_event_path %></div>
+	<div style="font-size: 1.5em; color: grey;">
+		<%= link_to "・クエスト発行(現在調整中)", new_quest_path %></div>
 	<!-- <div style="font-size: 1.5em;"><%#= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></div> -->
-	<div style="font-size: 1.5em;"><%= link_to "会社登録", new_corporation_registration_path %></div>
-	<div style="font-size: 1.5em;"><%= link_to "サブタグ発行", new_sub_tag_path %></div>
-	<div style="font-size: 1.5em;"><%= link_to "学校発行", new_school_path %></div>
+	<div style="font-size: 1.5em;">
+		<%= link_to "・協賛企業の会社登録はこちらから", new_corporation_registration_path %>			
+	</div>
+	<div style="font-size: 1.5em;">
+		<%= link_to "・イベントに付ける新しいサブタグ発はこちらから", new_sub_tag_path %>
+	</div>
+	<div style="font-size: 1.5em;">
+		<%= link_to "・学生新規登録時の所属大学を新しく発行はこちらから", new_school_path %>			
+	</div>
 	<!-- <div><%#= link_to "クエスト一覧", quests_path %></div>
 	<div><%#= link_to "イベント一覧", events_path %></div> -->
-	<h1 style="text-align: center; font-weight: 800;">イベント一覧</h1>
+	<hr>
+	<h1 style="text-align: center; font-weight: 800;">シャショク・ガクショク一覧</h1>
 	<div class="row">
 		<%  @events.each do |e|%>
 				<table class="table">
@@ -31,6 +42,30 @@
 				</table>
 		<% end %>
 	</div>
+	<hr>
+	<h1 style="text-align: center; font-weight: 800;">その他イベント一覧</h1>	
+	<div class="row">
+		<% @mini_events.each do |me|%>
+				<table class="table">
+				    <tbody>
+				        <tr>
+				        	<% if me.finish %>
+				        		<th><div class="btn btn-danger">終了したイベントです</div></th>
+				        	<% else %>
+				        		<th><div class="btn btn-success">まだ終了していません</div></th>
+				        	<% end %>				        					        	
+				            <th><%= link_to "#{me.mini_event_name}", mini_event_path(me.id) %></th>
+				            <td><%= me.time %></td>
+				            <td><%= me.time_detail %></td>
+				            <td><%= me.get_point %>PT付与</td>
+				            <td><%= me.pay_point %>消費</td>
+				            <td>定員<%= me.invite_num %>名まで</td>
+				        </tr>
+				    </tbody>
+				</table>
+		<% end %>
+	</div>
+	<hr>
 	<h1 style="text-align: center; font-weight: 800;">クエスト一覧</h1>
 	<div class="row">
 		<%  @quests.each do |q|%>

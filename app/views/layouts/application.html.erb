@@ -24,6 +24,9 @@
   <body>
     <%= render 'layouts/header' %>
     <%#= render 'layouts/notifications' %>
+      <% if admin_signed_in? %>
+        <%= link_to "Home", root_path, class: "redirect_to_root_btn" %>
+      <% end %>
       <%= render 'layouts/flash_messages' %>
       <%= yield %>
     <%= render 'layouts/footer' %>
