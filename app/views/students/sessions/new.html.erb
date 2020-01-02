@@ -21,7 +21,7 @@
                   <b>メールアドレス</b>
                 </div>
                 <div class="col-lg-7">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "input_field" %>
+                  <%= f.email_field :email, autofocus: true, placeholder: "emailを入力してください", id: "input_field" %>
                 </div>
 
 
@@ -30,7 +30,7 @@
                   <b>パスワード</b>
                 </div>
                 <div class="col-lg-7">
-                  <%= f.password_field :password, autocomplete: "current-password", id: "input_field" %>
+                  <%= f.password_field :password, placeholder: "6文字以上", id: "input_field" %>
                 </div>
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4">
