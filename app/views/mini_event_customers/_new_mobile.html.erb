@@ -1,0 +1,99 @@
+<div class="devise_mobile">
+
+	<div class="container-fluid">
+		<%= form_for @mini_event_customer, url: mini_event_mini_event_customers_path(mini_event_id: @mini_event.id) do |f| %>
+		<div class="row">
+	    <div class="some_padding"></div>
+	    <div class="apply_conform_title_mobile"> 申し込み確認</div>
+	    <div class="apply_conform_sub_title_mobile">
+	    	イベントの確認
+		</div>	
+		<div class="all_event_apply_box_mobile row">
+			<div class="col-md-12 event_title_customer_mobile">
+				<%= @mini_event.title %>					
+			</div>
+
+			<div class="col-md-3">
+				開催日時:
+			</div>
+			<div class="col-md-9">
+				<%= @mini_event.time.year %>年
+				<%= @mini_event.time.month %>月
+				<%= @mini_event.time.day %>日
+				<%= @mini_event.time_detail %>
+			</div>
+			<div class="col-md-3">
+				場所:
+			</div>
+			<div class="col-md-9">
+				<%= @mini_event.locate %>
+			</div>
+			<% if !@mini_event.pay_point.nil? %>
+				<div class="col-md-3">
+					参加費:
+				</div>
+				<div class="col-md-3">
+					<%= @mini_event.pay_point %>
+					<span class="attention_mark">※注意</span>
+				</div>
+			<% end %>
+			<% if !@mini_event.get_point.nil? %>
+				<div class="col-md-3">
+					獲得ポイント:
+				</div>
+				<div class="col-md-2">
+					<%= @mini_event.get_point %>pt
+				</div>
+			<% end %>
+
+			<% if !@mini_event.pay_point.nil? %>
+			<div class="attention_box_mobile">
+				<div class="attention_mark">※注意</div>
+				<div class="attention_body_mobile">
+				参加費とは当イベント(<%= @mini_event.title %>)に参加するために、事前に必要な費用になります。<br>
+				参加費のお支払い方法は現金かポイントの2種類があります<br>
+				ポイントの場合は以下の応募ボタンをクリックし応募が完了となりましたら<%= current_student.first_name %>様の所持ポイントから参加費分を引落とさせていただきます。<br>
+				現金を選ばれた場合はイベント当日に運営スタップに参加費をお支払いください。<br>
+				ポイントで参加費をお支払られ応募が完了されたイベントをキャンセルされましても、参加費分のポイントは返却できません。<br>
+				ご了承ください。<br>
+				※1pt(ポイント)は1円分になります。
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<div class="apply_conform_sub_title_mobile">
+			<%= "#{current_student.first_name}" +  "#{current_student.last_name}" %>さんのポイント
+		</div>
+		<div class="all_event_apply_box_mobile row">
+			<div class="col-md-6">
+				現在保有のポイント:
+			</div>
+			<div class="col-md-6">
+				<%= current_student.point.having_point %>pt
+			</div>
+			<div class="col-md-6">
+				累計獲得ポイント:
+			</div>
+			<div class="col-md-6 ">
+				<%= current_student.point.max_point %>pt
+			</div>
+		</div>
+
+		<div class="apply_conform_sub_title_mobile">
+			お支払いの選択
+		</div>
+		<% if current_student.point.having_point -  @mini_event.pay_point >= 0%>
+			<select name="pay_way" class=' good_designed_select_box_mobile'>
+			<option value="cash">現金</option>
+			<option value="point">ポイント</option>
+			</select>
+		<% else %>
+			<select name="pay_way" class=' good_designed_select_box_mobile'>
+			<option value="cash">現金</option>
+			</select>
+		<% end %>
+		</div>
+	<%=f.submit '申し込む', class: "apply_btn_mobile" %>
+	<% end %>
+	</div>
+</div>

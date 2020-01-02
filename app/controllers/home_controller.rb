@@ -78,6 +78,10 @@ class HomeController < ApplicationController
   def natto
   end
 
+  def all_event_apply_complete
+      flash.now[:notice] = "イベントの応募が完了しました。"
+  end
+
   def others
   end
   

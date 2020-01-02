@@ -1,0 +1,264 @@
+.apply_conform_title {
+  width: 100%;
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #4DA067;/*文字色*/
+  font-size: 24px;
+  font-weight: 700;
+  background: transparent;/*背景透明に*/
+  border-left: solid 8px #4DA067;/*左線*/
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.apply_conform_title_mobile {
+  width: 100%;
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #4DA067;/*文字色*/
+  font-size: 40px;
+  font-weight: 700;
+  background: transparent;/*背景透明に*/
+  border-left: solid 10px #4DA067;/*左線*/
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.apply_conform_sub_title_mobile {
+  width: 100%;
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #7ecc97;/*文字色*/
+  font-size: 30px;
+  font-weight: 700;
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #7ecc97;/*左線*/
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.step_now {
+	color: black;
+	font-weight: 600;
+	border-left: medium solid #CCCCCC;
+	font-size: 17px;
+	padding: 10px 15px;
+	width: 270px;
+}
+
+.step_not_yet {
+	color: #CCCCCC;
+	font-weight: 600;
+	border-left: medium solid #CCCCCC;
+	font-size: 17px;
+	padding: 10px 15px;
+	width: 270px;
+}
+
+.step_fin {
+	color: #555555;
+	font-weight: 600;
+	border-left: medium solid #CCCCCC;
+	font-size: 17px;
+	padding: 10px 15px;
+	width: 270px;
+}
+
+.link_triangle_small{
+    margin: auto;
+    font-size: 17px;
+    color: #66CC66;
+    padding-right: 10px;
+}
+
+.grey_box {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 100%;
+	color: #666666;
+	background-color: #E6FFE9;
+	padding: 20px 40px;
+	font-size: 25px;
+}
+
+.your_point_box {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 100%;
+	color: #666666;
+	background-color: #CEF9DC;
+	padding: 20px 40px;
+	font-size: 25px;
+}
+
+.pay_way {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 100%;
+	color: #666666;
+	background-color: #D7EEFF;
+	padding: 20px 40px;
+	font-size: 25px;
+}
+
+.all_event_apply_box {
+	background-color: white;
+	width: 90%;
+	margin: 0 auto;
+	border:1px solid #94d474;
+	border-radius: 10px;
+	padding: 20px;
+}
+.all_event_apply_box_mobile {
+	background-color: white;
+	width: 95%;
+	margin: 0 auto;
+	font-size: 30px;
+	border:1px solid #94d474;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+
+.event_title_customer {
+	color: #333333;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.event_title_customer_mobile {
+	color: #333333;
+	font-size: 35px;
+	font-weight: 700;
+}
+
+.attention_mark {
+	color: #fa7878;
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+}
+
+.attention_box {
+	margin-top: 10px;
+	border-top:solid 1px #BBBBBB;
+	width: 90%;
+}
+.attention_box_mobile {
+	margin-top: 10px;
+	border-top:solid 1px #BBBBBB;
+	width: 100%;
+}
+
+.attention_body {
+	color:#888888 ;
+	font-size: 13px;
+}
+.attention_body_mobile {
+	color:#888888 ;
+	font-size: 19px;
+}
+
+.good_designed_select_box {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.good_designed_select_box_mobile {
+	width: 60%;
+	font-size: 30px;
+	height: 80px;
+	margin-left: 40px;
+	color: #666666;
+	background-color: white;
+	box-shadow: 0 0 8px #8EB8FF;
+	padding: 10px 20px;
+}
+
+.padding-50 {
+	padding-top: 50px;
+}
+
+.margin-under-50 {
+	margin-bottom: 50px;
+}
+.width-60 {
+	width: 70%;
+	margin: 0 auto;
+}
+.back_btn {
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px 50px;
+	width: 350px;
+	border: solid 2px #94d474;
+	color: #94d474;
+	border-radius: 10px;
+	font-size: 20px;
+}
+.back_btn:hover {
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px 50px;
+	width: 350px;
+	background-color: #CCFFCC;
+	border: solid 2px #94d474;
+	color: #66CC00;
+	text-decoration: none;
+	border-radius: 10px;
+	font-size: 20px;
+}
+.apply_btn {
+	margin: 0 auto;
+	padding: 20px 50px;
+	width: 350px;
+	text-align: center;
+	background-color:  #94d474;
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.apply_btn:hover {
+	margin: 0 auto;
+	padding: 20px 50px;
+	width: 350px;
+	text-align: center;
+	text-decoration: none;
+	background-color:  #7bd64d;
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+}
+.apply_btn_mobile {
+	margin: 90px 10px 50px 10px;
+	padding: 20px 50px;
+	width: 100%;
+	text-align: center;
+	background-color:  #94d474;
+	color: white;
+	border-radius: 10px;
+	font-size: 30px;
+}
+
+.apply_btn_mobile:hover {
+	margin: 90px 10px 50px 10px;
+	padding: 20px 50px;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	background-color:  #7bd64d;
+	color: white;
+	border-radius: 10px;
+	font-size: 30px;
+}
+
+.apply_comp {
+	width: 100%;
+	padding: 50px 40px;
+	color: #444444;
+	font-size: 33px;
+	font-weight: 800;
+	text-align: center;
+}
+.padding-big {
+	padding-bottom: 900px;
+}

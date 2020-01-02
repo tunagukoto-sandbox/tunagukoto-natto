@@ -1,3 +1,5 @@
+<%= render 'mini_events/show/main' %>
+
 <div class="container-fluid">
 	<% if admin_signed_in? %>
 	<%= link_to "編集する", edit_mini_event_path(@mini_event.id), class: "btn btn-success btn-lg btn-block" %>

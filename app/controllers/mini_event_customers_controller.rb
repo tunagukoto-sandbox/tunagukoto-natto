@@ -2,11 +2,22 @@ class MiniEventCustomersController < ApplicationController
   before_action :authenticate_any!, :new
   def new
     @mini_event_customer = MiniEventCustomer.new
+    @mini_event = MiniEvent.find(params[:mini_event_id])
   end
 
   def create
     @mini_event = MiniEvent.find(params[:mini_event_id])
-    @mini_event_customer = MiniEventCustomer.new(mini_event_customer_params)
+    student = current_student
+    @mini_event_customer = MiniEventCustomer.new
+
+    @mini_event_customer.mini_event_id = params[:mini_event_id]
+    @mini_event_customer.student_id = student.id
+    @mini_event_customer.school_id = student.school.id
+    @mini_event_customer.email = student.email
+    @mini_event_customer.name = student.first_name + student.last_name
+
+
+
     mini_event_id = @mini_event_customer.mini_event.id
     if @mini_event_customer.mini_event.pay_point.nil?
       @mini_event_customer.mini_event.pay_point = 0
@@ -14,6 +25,7 @@ class MiniEventCustomersController < ApplicationController
     end
 
     pay_way = params[:pay_way]
+
     if student_signed_in?
       @mini_event_customer.student_id = current_student.id
       @mini_event_customer.check = false
@@ -43,13 +55,6 @@ class MiniEventCustomersController < ApplicationController
           # ポイントが達してない場合
           redirect_to new_mini_event_mini_event_customer_path(mini_event_id: params[:mini_event_id])
           flash[:alarm] = "ポイントが足りません、現金でお支払いを選択してください。"
-          # MiniEventApplyTag.create(
-          #   mini_event_id: mini_event_id,
-          #   student_id: current_student.id,
-          #   has_paid: false,
-          #   pay_point: false,
-          #   pay_cash: false
-          # )
         end
       elsif params[:pay_way] == "cash" || params[:pay_way].nil?
           MiniEventApplyTag.create(
@@ -61,7 +66,7 @@ class MiniEventCustomersController < ApplicationController
           )
         if @mini_event_customer.save
           NotificationMailer.mini_event_send_confirm_to(@mini_event_customer).deliver
-          redirect_to root_path
+          redirect_to home_all_event_apply_complete_path
         else
           redirect_to root_path
         end

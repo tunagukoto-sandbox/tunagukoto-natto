@@ -60,6 +60,11 @@ class MiniEventsController < ApplicationController
   end
 
   def show
+    if News.count >= 3
+      @news = News.first(3)
+    else
+      @news = News.all
+    end
     @mini_event = MiniEvent.find(params[:id])
   end
 

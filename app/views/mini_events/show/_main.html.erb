@@ -1,0 +1,113 @@
+<div class="devise_pc">
+<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-8">
+					<div class="some_padding"></div>
+		    		<div class="natto_toha">詳細</div><hr>
+					<div class="event_show_event_title">
+						<%= @mini_event.title %>
+					</div>					
+					<div class="event_show_event_name">
+						<%= @mini_event.title %>	
+					</div>
+					<div class="padding_little"></div>
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="row font_details color-white padding-20">
+								<div class="col-lg-3">
+									日時&nbsp;: 
+								</div>
+								<div class="col-lg-9">
+									<%= @mini_event.time.year %>年
+									<%= @mini_event.time.month %>月
+									<%= @mini_event.time.day %>日
+									<%= @mini_event.time_detail %>
+								</div>
+
+								<div class="col-lg-3">
+									会場&nbsp;:
+								</div>
+								<div class="col-lg-9">
+									<%= @mini_event.locate %>
+								</div>								
+							</div>
+
+						</div><!-- col-lg-6 -->
+
+						<div class="col-lg-6">
+							<% if @mini_event.mini_event_img.attached? %>
+						        <%= image_tag @mini_event.mini_event_img ,class: "event_show_img" %>
+						    <% end %>
+						</div>
+
+					</div><!-- row -->
+					
+					<div class="some_padding"></div>
+
+					<div class="row">
+					<div class="event_details_outer_box">
+						<div class="event_details_inner_box padding_little">
+							参加費用: 
+							&ensp;&ensp;<%= @mini_event.pay_point %>
+							食事付き　
+							獲得ポイント: <%= @mini_event.get_point %>PT 
+							&ensp;&ensp;
+							募集人数: 
+							<% if @mini_event.invite_num == nil %>
+								&ensp;&ensp;未定
+							<% else %>
+								&ensp;&ensp;約<%= @mini_event.invite_num %>名
+							<% end %>
+
+							<div class="row">
+
+								<div class="col-lg-9">
+									<div class="event_type_details">
+										<div class="tag_desc">
+											【<%= @mini_event.title %>ってどんなイベント？】
+										</div>
+										<p id="tag_body">
+											<%= @mini_event.detail %>	
+										</p>
+									</div>
+								</div>
+
+								<div class="some_padding"></div>
+
+								<div class="col-lg-3 all_center">
+									<p class="student_other">学生の方はこちら</p>
+									<div class="event_apply_student_btn">
+										<%= link_to "申し込む", new_mini_event_mini_event_customer_path(@mini_event.id) %>
+									</div><!-- event_apply_btn -->
+									<p class="student_other">社会人の方はこちら</p>
+									<div class="event_apply_adult_btn">
+										申し込む
+									</div><!-- event_apply_btn -->
+								</div>
+
+							</div><!-- row -->
+
+						</div><!-- event_details_inner_box padding_little -->
+					</div><!-- event_details_outer_box -->
+					</div>
+					<%#= render 'events/show/about_company' %>
+				</div><!-- col-lg-10 -->
+				<div class="col-lg-3">
+					<div class="home_manue_center">
+						<%= render 'home/top_menus' %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="devise_mobile">
+	<%= render 'mini_events/show/mobile_main' %>
+</div>
+
+
+
+

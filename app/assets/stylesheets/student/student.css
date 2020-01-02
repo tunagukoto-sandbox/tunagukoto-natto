@@ -102,6 +102,13 @@ padding-bottom: 50px;
     color: #66CC66;
     padding-right: 10px;
 }
+
+.link_triangle_small{
+    margin: auto;
+    font-size: 17px;
+    color: #66CC66;
+    padding-right: 10px;
+}
 .student_show_tab_main{
   border-left: solid 2px silver;/*左線*/
   width: 30%;

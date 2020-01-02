@@ -20,6 +20,8 @@ Rails.application.routes.draw do
  	get 'home/studey_event'
 
  	get 'home/interact_event'
+
+ 	get 'home/all_event_apply_complete'
  	
  	get 'organizations/student_group'
 
@@ -96,6 +98,7 @@ Rails.application.routes.draw do
 	end
 	
 	resources :mini_event_customers, only: [:destroy, :edit, :update]
+	
 
 	# 以下質問箱
 	resources :questions do

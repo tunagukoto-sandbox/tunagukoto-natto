@@ -7,35 +7,74 @@
     box-sizing: border-box;
 }
 
-footer {
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid #eaeaea;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #CCCCCC;
+@media screen and (max-width: 980px) {
+    /* 479px以下用（スマートフォン用）の記述 */
+  footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eaeaea;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #CCCCCC;
+  }
+
+  footer a {
+    color: #333333;
+    font-size: 1.5em;
+  }
+
+  footer a:hover {
+    color: white;
+  }
+
+  footer ul {
+    float: right;
+    list-style: none;
+  }
+
+  footer ul li {
+    float: left;
+    margin-left: 25px;
+  }
 }
 
-footer a {
-  color: #333333;
-  font-size: 1.0em;
+@media screen and (min-width: 981px) {
+    /* 980px以上用（PC用）の記述 */
+  footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eaeaea;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #CCCCCC;
+  }
+
+  footer a {
+    color: #333333;
+    font-size: 1.0em;
+  }
+
+  footer a:hover {
+    color: white;
+  }
+
+  footer ul {
+    float: right;
+    list-style: none;
+  }
+
+  footer ul li {
+    float: left;
+    margin-left: 15px;
+  }
 }
 
-footer a:hover {
-  color: white;
-}
 
-footer ul {
-  float: right;
-  list-style: none;
-}
 
-footer ul li {
-  float: left;
-  margin-left: 15px;
-}
 
 .tunagukoto{
   color: #333333;
