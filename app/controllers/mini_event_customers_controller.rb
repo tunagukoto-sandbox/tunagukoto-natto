@@ -1,5 +1,6 @@
 class MiniEventCustomersController < ApplicationController
-  before_action :authenticate_any!, :new
+  # before_action :authenticate_any!, :new
+  before_action :authenticate_student!, :new
   def new
     @mini_event_customer = MiniEventCustomer.new
     @mini_event = MiniEvent.find(params[:mini_event_id])

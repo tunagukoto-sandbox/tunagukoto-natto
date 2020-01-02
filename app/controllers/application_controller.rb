@@ -33,6 +33,7 @@ class ApplicationController < ActionController::Base
 		    authenticate_student! || authenticate_corporation! || authenticate_non_profit_organization! || authenticate_student_group! || authenticate_admin!
 		end
 	end
+
 	
     protected
 
