@@ -101,23 +101,28 @@
 				<div class="col-lg-9">
 					<%= current_student.point.max_point %>pt
 				</div>
-			</div>
-
+			</div>			
 			<div class="pay_way">
 				お支払い方法の選択
 			</div>
 
-			<% if current_student.point.having_point -  @mini_event.pay_point >= 0%>
-				<select name="pay_way" class='form-control good_designed_select_box'>
-				<option value="cash">現金</option>
-				<option value="point">ポイント</option>
-				</select>
-			<% else %>
-				<select name="pay_way" class='form-control good_designed_select_box'>
-				<option value="cash">現金</option>
-				</select>
-			<% end %>
+			<% if !@mini_event.pay_point.nil? %>
 
+				<% if current_student.point.having_point -  @mini_event.pay_point >= 0%>
+					<select name="pay_way" class='form-control good_designed_select_box'>
+					<option value="cash">現金</option>
+					<option value="point">ポイント</option>
+					</select>
+				<% else %>
+					<select name="pay_way" class='form-control good_designed_select_box'>
+					<option value="cash">現金</option>
+					</select>
+				<% end %>
+				<% else %>
+					<select name="pay_way" class='form-control good_designed_select_box'>
+					<option value="cash">現金</option>
+					</select>
+				<% end %>
 		<% end %>
 	</div>
 </div>

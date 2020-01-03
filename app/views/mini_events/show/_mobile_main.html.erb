@@ -1,0 +1,125 @@
+<div class="devise_mobile">
+<div class="container-fluid">
+	<div class="mobile_event_title_font">
+		EVENT
+	</div>
+	<div class="mobile_event_title_font_sub">
+		イベント
+	</div>
+	<div class="mobile_event_title">
+		<%= @mini_event.title %>
+	</div>
+	<div class="mobile_time_top">
+		<%= @mini_event.time.year %>年
+		<%= @mini_event.time.month %>月
+		<%= @mini_event.time.day %>日
+		<%= @mini_event.time_detail %>〜
+	</div>
+	<div class="mobile_time_top">
+		<%= @mini_event.locate %>
+	</div>
+
+	<div class="mobile_time_top">
+		参加費：
+		<%= @mini_event.pay_point %>
+		獲得ポイント：
+		<%= @mini_event.get_point %>
+	</div>
+	<div class="mobile_time_top">
+		<% if !@mini_event.invite_num.nil? %>
+			先着<%= @mini_event.invite_num %>名様！
+		<% end %>
+	</div>
+	<div class="mobile_apply_font text_underline">
+		申し込み受付中
+	</div>
+	<div class="mobile_apply_font">
+		(無料)
+	</div>
+
+	<% if @mini_event.mini_event_img.attached? %>
+		<%= image_tag @mini_event.mini_event_img, class: "mobile_img_css" %>
+	<% end %>
+
+	<p class="moushikommi_font text_underline">
+		申し込みはこちら
+	</p><hr>
+
+	<div class="row">
+
+		<!-- <div class="apply_main_box"> -->
+		<%= link_to(new_mini_event_mini_event_customer_path(mini_event_id: @mini_event.id), class: 'apply_main_box') do %>
+			<%= @mini_event.time.year %>年
+			<%= @mini_event.time.month %>月
+			<%= @mini_event.time.day %>日<br>
+			<%= @mini_event.time_detail %>	
+			<div class="circle_student">					
+			</div>
+			<div class="student_font">
+				参加予定: 
+			</div>
+			<div class="student_font text_underline">	
+				学生の方はこちらから
+			</div>
+		<% end %>
+		<!-- </div> --><!-- apply_main_box -->		
+
+		<div class="apply_main_box">
+			<%= @mini_event.time.year %>年
+			<%= @mini_event.time.month %>月
+			<%= @mini_event.time.day %>日<br>
+			<%= @mini_event.time_detail %>	
+			<div class="circle_other">					
+			</div>
+			<div class="other_font">
+				空席あり
+			</div>
+			<div class="other_font text_underline">	
+				社会人の方はこちらから
+			</div>
+		</div><!-- apply_main_box -->
+
+	</div><!-- row -->
+	<hr>
+
+	<div class="color-white padding-20 margin-30">
+		<div class="mobile_company_title">
+			<%= @mini_event.title %>の説明
+		</div>
+		<p class="mobile_company_text">
+			<%= @mini_event.detail %>
+		</p>
+		<hr>
+		<div class="mobile_company_title">
+			こんな人にオススメ
+		</div>
+		<p class="mobile_company_text">
+			<%= @mini_event.requirement %>
+		</p>
+		
+	</div>
+
+	<div class="color-white padding-20 margin-30">
+		<div class="mobile_company_title">
+			コンテンツ
+		</div>
+
+		<% if !@mini_event.content_one.nil?%>
+			1.<%= @mini_event.content_one %><br>
+		<% end %>
+		<% if !@mini_event.content_two.nil?%>
+			2.<%= @mini_event.content_two %><br>
+		<% end %>
+		<% if !@mini_event.content_three.nil?%>
+			3.<%= @mini_event.content_three %><br>
+		<% end %>
+		<% if !@mini_event.content_four.nil?%>
+			4.<%= @mini_event.content_four %><br>
+		<% end %>
+		<% if !@mini_event.content_five.nil?%>
+			5.<%= @mini_event.content_five %><br>
+		<% end %>
+	</div>
+
+</div>
+</div>

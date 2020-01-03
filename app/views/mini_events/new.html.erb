@@ -52,11 +52,11 @@
 			<br>
 			●取得ポイント
 			<%#= f.number_field :get_point, value: 5000  %>
-			<%= f.text_field :get_point ,placeholder: "半角英数字でお答えください。" %>
+			<%= f.text_field :get_point ,placeholder: "半角英数字でお答えください。", value: 0  %>
 			<br>
 			●消費ポイント
 			<%#= f.number_field :pay_point ,min: 0 ,max:1000  %>
-			<%= f.text_field :pay_point ,placeholder: "半角英数字でお答えください。" %>
+			<%= f.text_field :pay_point ,placeholder: "半角英数字でお答えください。", value: 0 %>
 
 			<hr>
 			●自由記入欄
