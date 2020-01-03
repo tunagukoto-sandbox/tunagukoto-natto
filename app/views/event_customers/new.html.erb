@@ -1,59 +1,101 @@
-<% if student_signed_in? %>
-<%= form_for @event_customer do |f| %>
-	<div class="container">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
+<%#= render "mini_event_customers/new_main" %>
 
-			<p>イベントを選択してください</p>
-			<div class="cp_ipselect cp_sl01">
-				<%= f.collection_select :event_id, Event.where(finish: false), :id, :event_select, class: 'form-control'  %>
+<!-- mini_eventの応募 -->
+<div class="devise_pc">
+<%= form_for @event_customer, url: event_event_customers_path(event_id: @event.id), method: :post do |f| %>
+<div class="container">
+	<div class="row">
+	    <div class="some_padding"></div>
+	    <div class="apply_conform_title"> 申し込み確認</div>
+
+	    <div class="step_now row">
+	    	<div class="col-lg-1">
+	    		<div class="link_triangle_small">
+	    		▷
+	    		</div>
+	    	</div>
+	    	<div class="col-lg-10"> Step1 入力事項確認</div>
+		</div>
+
+	    <div class="step_not_yet row">
+	    	<div class="col-lg-1">
+	    		<div class="link_triangle_small">
+	    		▷
+	    		</div>
+	    	</div>
+	    	<div class="col-lg-10">Step2 申し込み完了</div>
+		</div>
+
+		<div class="grey_box">
+			イベントの確認
+		</div>
+
+		<div class="all_event_apply_box row">
+			<div class="col-lg-12 event_title_customer">
+				<%= @event.event_name %>					
+				<%= @event.event_title %>
 			</div>
 
-			<p>所属を選択してください</p>
-			<div class="cp_ipselect cp_sl01">
-				<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
+			<div class="col-lg-2">
+				開催日時:
 			</div>
-
-			<div class="event_customer_form">名前(フルネーム)<%= f.text_field :name,value: "#{current_student.first_name}#{current_student.last_name}"  %></div>
-
-			<div class="event_customer_form">メールアドレス:<%= f.text_field :email ,value: "#{current_student.email}"  %></div>
-
-			<div class="event_customer_form">電話番号:<%= f.text_field :tel, placeholder: "例) 080123456789", :size => "30*60" %></div>
-
-			<div>
-				<input type="radio" name="pay_way" value="cash">現金
-				<input type="radio" name="pay_way" value="point">ポイント
+			<div class="col-lg-10">
+				<%= @event.event_time.year %>年
+				<%= @event.event_time.month %>月
+				<%= @event.event_time.day %>日
+				<%= @event.event_time_detail %>
 			</div>
-			<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
+			<div class="col-lg-2">
+				場所:
 			</div>
+			<div class="col-lg-10">
+				<%= @event.event_location %>
+			</div>
+			<div class="col-lg-2">
+				参加費:
+			</div>
+				<div class="col-lg-2">
+					無料
+				</div>
+			<% if !@event.get_point.nil? %>
+				<div class="col-lg-2">
+					獲得ポイント:
+				</div>
+				<div class="col-lg-2">
+					<%= @event.get_point %>pt
+				</div>
+			<% end %>
 
 		</div>
+
+		<% if student_signed_in? %>
+			<div class="your_point_box">
+				<%= current_student.first_name %> <%= current_student.last_name %>さんのポイント
+			</div>
+			<div class="all_event_apply_box row">
+				<div class="col-lg-3">
+					現在保有のポイント:
+				</div>
+				<div class="col-lg-9">
+					<%= current_student.point.having_point %>pt
+				</div>
+				<div class="col-lg-3">
+					累計獲得ポイント:
+				</div>
+				<div class="col-lg-9">
+					<%= current_student.point.max_point %>pt
+				</div>
+			</div>
+
+		<% end %>
 	</div>
+</div>
+<div class="padding-50"></div>
+<div class="row width-60">
+	<%= link_to "キャンセル", event_path(@event.id), class: "back_btn" %>
+	<%=f.submit '申し込む', class: "apply_btn" %>
+</div>
 <% end %>
-<% else %>
-<%= form_for @event_customer do |f| %>
-	<div class="container">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
+</div>
 
-			<p>イベントを選択してください</p>
-			<div class="cp_ipselect cp_sl01">
-				<%= f.collection_select :event_id, Event.all, :id, :event_select, class: 'form-control'  %>
-			</div>
-
-			<div class="cp_ipselect cp_sl01">
-				<%= f.collection_select :school_id, School.all, :id, :school_name , class: 'form-control' %>
-			</div>
-			<div class="event_customer_form">名前(フルネーム): <%= f.text_field :name  %></div>
-
-			<div class="event_customer_form">メールアドレス:<%= f.text_field :email %></div>
-
-			<div class="event_customer_form">電話番号: <%= f.text_field :tel, placeholder: "例) 080123456789", :size => "30*60" %></div>
-
-			<%=f.submit '次 へ', class: 'btn btn-primary btn-lg btn-block' %>
-			</div>
-
-		</div>
-	</div>
-<% end %>
-<% end %>
+<%#= render 'mini_event_customers/new_mobile' %>

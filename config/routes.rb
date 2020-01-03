@@ -78,6 +78,10 @@ Rails.application.routes.draw do
 		resources :mini_event_customers, only: [:new, :create]
 	end
 	
+	resources :events, only: [:show] do
+		resources :event_customers, only: [:new, :create]
+	end
+
 	resources :event_customers, only: [:new, :create, :destroy, :edit, :update]
 
 	resources :sub_tags

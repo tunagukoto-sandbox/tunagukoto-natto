@@ -2,13 +2,19 @@ class EventCustomersController < ApplicationController
   before_action :authenticate_any!, :new
   def new
   	@event_customer = EventCustomer.new
+    @event = Event.find(params[:event_id])
   end
 
   def create
-  	@event_customer = EventCustomer.new(event_customer_params)
-    if student_signed_in?
-      @event_customer.student_id = current_student.id
-      @event_customer.check = false
+  	@event_customer = EventCustomer.new
+    @event_customer.email = current_student.email
+    @event_customer.school_id = current_student.school.id
+    @event_customer.name = current_student.first_name + current_student.last_name
+    @event_customer.event_id = params[:event_id]
+    @event_customer.student_id = current_student.id
+    @event_customer.check = false
+
+
       if params[:pay_way] == "point"
         if !current_student.point.nil?
           if current_student.point.having_point >= @event_customer.event.pay_point
@@ -46,12 +52,12 @@ class EventCustomersController < ApplicationController
           pay_cash: false
         )
       end
-    end
+
   	if @event_customer.save
       NotificationMailer.event_send_confirm_to(@event_customer).deliver
-  		redirect_to root_path
+      redirect_to home_all_event_apply_complete_path
   	else
-  		redirect_to new_event_customer_path
+  		redirect_to  new_event_event_customer_path(event_id: @event_customer.event_id)
   	end
   end
 
