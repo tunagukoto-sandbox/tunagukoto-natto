@@ -54,8 +54,8 @@
 				<div class="col-lg-2">
 					参加費:
 				</div>
-				<div class="col-lg-2">
-					<%= @mini_event.pay_point %>
+				<div class="col-lg-3">
+					<%= @mini_event.pay_point %>(円またはpt) 
 					<span class="attention_mark">※注意</span>
 				</div>
 			<% end %>
@@ -63,7 +63,7 @@
 				<div class="col-lg-2">
 					獲得ポイント:
 				</div>
-				<div class="col-lg-2">
+				<div class="col-lg-3">
 					<%= @mini_event.get_point %>pt
 				</div>
 			<% end %>
