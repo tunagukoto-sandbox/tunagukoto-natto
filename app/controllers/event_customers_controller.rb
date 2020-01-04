@@ -1,5 +1,6 @@
 class EventCustomersController < ApplicationController
-  before_action :authenticate_any!, :new
+  # before_action :authenticate_any!, :new
+  before_action :authenticate_student!, :new
   def new
   	@event_customer = EventCustomer.new
     @event = Event.find(params[:event_id])
