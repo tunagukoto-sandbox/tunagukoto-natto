@@ -82,6 +82,8 @@ class MiniEventCustomersController < ApplicationController
   end
 
   def destroy
+    @mini_event_customer = MiniEventCustomer.find(params[:id])
+    @mini_event_customer.delete
   end
 
   private
