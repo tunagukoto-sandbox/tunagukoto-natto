@@ -36,6 +36,10 @@ Rails.application.routes.draw do
  	patch 'mini_event_customer/update/:id', to: 'points#update_point', as: 'update_point'
  	patch 'mini_event_customer/rollback/:id', to: 'points#rollback_point', as: 'rollback_point'
 
+	resources :mini_events, only: [:show] do
+		resources :mini_event_customers, only: [:new, :create]
+	end
+
  	patch 'event_customer/update/:id', to: 'points#update_point_event', as: 'update_point_event'
  	patch 'event_customer/rollback/:id', to: 'points#rollback_point_event', as: 'rollback_point_event'
 
@@ -74,10 +78,6 @@ Rails.application.routes.draw do
 	resources :events
 	resources :news
 	resources :mini_events
-
-	resources :mini_events, only: [:show] do
-		resources :mini_event_customers, only: [:new, :create]
-	end
 	
 	resources :events, only: [:show] do
 		resources :event_customers, only: [:new, :create]
@@ -102,7 +102,8 @@ Rails.application.routes.draw do
 		resources :admin_points, only: [:new, :create, :edit, :update]
 	end
 	
-	resources :mini_event_customers, only: [:destroy, :edit, :update]
+	# resources :mini_event_customers, only: [:destroy, :edit, :update]
+	resources :mini_event_customers
 	
 
 	# 以下質問箱

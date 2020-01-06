@@ -37,10 +37,11 @@ class StudentPageController < ApplicationController
 	    mini_event_customers = MiniEventCustomer.where(student_id: params[:id])
 	    @mini_event_array = []
 	    mini_event_customers.each do |me|
-	    	mini_event = MiniEvent.where(id: me.mini_event_id, finish: false)
-	    	if mini_event.length != 0
-	    		@mini_event_array << mini_event.first
-	    	end
+	    	# mini_event = MiniEvent.where(id: me.mini_event_id, finish: false)
+	    	#if mini_event.length != 0
+	    		# @mini_event_array << mini_event.first
+	    		@mini_event_array << me
+	    	#end
 	    end
 	end
 	
