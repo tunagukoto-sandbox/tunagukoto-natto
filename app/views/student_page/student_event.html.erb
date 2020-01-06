@@ -20,7 +20,7 @@
 					<%= e.event_location %>
 				</div>
 				<div class="col-lg-2">
-					<%= link_to "キャンセル", event_path(id: e.id),method: :delete, class: "btn btn-outline-danger",data: {confirm: "本当にキャンセルしますか？"} %><br>
+					<%= link_to "キャンセル", event_customer_path(id: e.id),method: :delete, class: "btn btn-outline-danger",data: {confirm: "本当にキャンセルしますか？"} %><br>
 				</div>
 			</div>
 			<hr>
@@ -35,7 +35,7 @@
 					<%= me.locate%>
 				</div>
 				<div class="col-lg-2">
-					<%= link_to "キャンセル",mini_event_path(id: me.id),method: :delete, class: "btn btn-outline-danger",data: {confirm: "本当にキャンセルしますか？"} %><br>
+					<%= link_to "キャンセル", mini_event_customer_path(id: me.id),method: :delete, class: "btn btn-outline-danger",data: {confirm: "本当にキャンセルしますか？"} %><br>
 				</div>
 			</div>
 			<hr>

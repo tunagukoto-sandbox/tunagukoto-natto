@@ -3,7 +3,7 @@
 https://tunagu-natto.herokuapp.com
 
 ## Rails 5.2.3
-## ruby 2.5.3
+## ruby 2.6.1
 ## Bootstrap @4
 ## ユーザー認証: devise 
 
