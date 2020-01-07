@@ -1,0 +1,73 @@
+<% event_customer =  EventCustomer.where(student_id: current_student, event_id: params[:event_id]).first %>
+<div class="devise_pc">
+<div class="container">
+	<div class="row">
+	    <div class="some_padding"></div>
+	    <div class="apply_conform_title"> 申し込み確認</div>
+
+		<div class="grey_box">
+			申し込みされたイベント
+		</div>
+		<div class="all_event_apply_box row">
+			<div class="col-lg-12 event_title_customer">
+				<%= @event.event_name %>					
+				<%= @event.event_title %>
+			</div>
+
+			<div class="col-lg-2">
+				開催日時:
+			</div>
+			<div class="col-lg-10">
+				<%= @event.event_time.year %>年
+				<%= @event.event_time.month %>月
+				<%= @event.event_time.day %>日
+				<%= @event.event_time_detail %>
+			</div>
+			<div class="col-lg-2">
+				場所:
+			</div>
+			<div class="col-lg-10">
+				<%= @event.event_location %>
+			</div>
+			<div class="col-lg-2">
+				参加費:
+			</div>
+				<div class="col-lg-2">
+					無料
+				</div>
+			<% if !@event.get_point.nil? %>
+				<div class="col-lg-2">
+					獲得ポイント:
+				</div>
+				<div class="col-lg-2">
+					<%= @event.get_point %>pt
+				</div>
+			<% end %>
+		</div>
+
+		<%= link_to "イベントをキャンセルする",event_customer_path(id: event_customer.id, event_id: @event.id), class: "btn btn-danger btn-block",method: :delete, data: { confirm: '本当にキャンセルしますか？' } %>
+
+		<%= link_to 'トップへ戻る',root_path ,  class: "apply_btn" %>
+	</div>
+	</div>
+</div>
+
+
+<div class="devise_mobile">
+	<div class="container fluid">
+	<div class="row">
+    <div class="some_padding"></div>
+	    <div class="apply_conform_title_mobile"> 
+	    申し込み完了
+		</div>
+		<div class="apply_comp  all_event_apply_box_mobile margin-under-50 ">
+			イベントの申し込みが完了しました。<br>
+			当日お会いできることを<br>楽しみにしております!
+		</div>
+		<div style="margin: 0 auto;">
+		<%= link_to 'トップに戻る', root_path, class: "apply_btn_mobile" %>
+		</div>
+		<div class="padding-big"></div>
+	</div>
+	</div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_053449) do
+ActiveRecord::Schema.define(version: 2020_01_07_062153) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -164,6 +164,8 @@ ActiveRecord::Schema.define(version: 2020_01_07_053449) do
     t.boolean "pay_cash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mini_event_customer_id"
+    t.index ["mini_event_customer_id"], name: "index_mini_event_apply_tags_on_mini_event_customer_id"
   end
 
   create_table "mini_event_customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -389,6 +391,7 @@ ActiveRecord::Schema.define(version: 2020_01_07_053449) do
   add_foreign_key "event_sub_tags", "sub_tags"
   add_foreign_key "event_tags", "events"
   add_foreign_key "event_tags", "tags"
+  add_foreign_key "mini_event_apply_tags", "mini_event_customers"
   add_foreign_key "mini_event_styles", "mini_events"
   add_foreign_key "mini_event_styles", "styles"
   add_foreign_key "style_events", "events"

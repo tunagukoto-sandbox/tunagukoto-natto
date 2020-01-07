@@ -1,4 +1,4 @@
-<%#= render "mini_event_customers/new_main" %>
+<% if MiniEventCustomer.where(mini_event_id: @mini_event.id, student_id: current_student.id).length == 0  %>
 
 <!-- mini_eventの応募 -->
 <div class="devise_pc">
@@ -135,5 +135,7 @@
 </div>
 
 <%= render 'mini_event_customers/new_mobile' %>
-
+<% else %>
+	<%= render 'mini_event_customers/new_cancel' %>
+<% end %>
 

@@ -4,54 +4,47 @@
 			<h1><%= link_to "#{me.title}", mini_event_path(me.id) %></h1>
 			<p>参加報酬ポイント: <%= me.get_point %></p>
 			<p>参加消費ポイント: <%= me.pay_point %></p>			
-			<% @mini_events_customers = MiniEventCustomer.where(mini_event_id: me.id)%>
+			<% @mini_events_apply_tags = MiniEventApplyTag.where(mini_event_id: me.id)%>
 			<div class="col-12 ">
 			    <table class="table">
 			        <thead>
 			            <tr>
 			                <th>氏名</th>
 			                <th>メールアドレス</th>
-			                <th>所属</th>
-			                <th>電話番号</th>
 			                <th></th>
 			            </tr>
 			        </thead>
-			        <% @mini_events_customers.each do |mec| %>
+			        <% @mini_events_apply_tags.each do |meat| %>
 				        <tbody>
 				            <tr>
-				                <td><%= mec.name %></td>
-				                <td><%= mec.email %></td>
-				                <td><%= mec.school.school_name %></td>
-				                <td><%= mec.phone_num %></td>
+				                <td><%= "#{meat.student.first_name}" "#{meat.student.last_name}" %></td>
+				                <td><%= meat.student.email %></td>
 				                <td>
-				                <% @mini_event_apply_tag = MiniEventApplyTag.where(student_id: mec.student_id).where(mini_event_id: me.id) %>
-				                <% @mini_event_apply_tag.length != 0 %>
-				                <% tag = @mini_event_apply_tag.first %>
-				                <% unless tag.nil? %>
 				                <!-- 新規機能追加に基づき、has_paidカラムが空のものがある -->
-					                <% if tag.has_paid %>
-					                	<div>参加費を受け取りました</div>
-					                <% else %>
-								        <div><%= link_to "参加費を受け取る",mini_event_apply_tag_path(id: tag.id, pay_method: "cash"), method: :patch, class: "btn btn-primary", data: { confirm: '参加費を受け取りました' } %></div>
-									    <div><%= link_to "参加費をポイント清算します",mini_event_apply_tag_path(tag.id,pay_method: "point"), method: :patch, class: "btn btn-primary", data: { confirm: 'ポイントを消費します' } %></div>				        
-					                <% end %>
-				                <% end %>
+					            <% if meat.has_paid %>
+					                <div>参加費を受け取りました</div>
+					            <% else %>
+								    <div><%= link_to "参加費を受け取る",mini_event_apply_tag_path(id: meat.id, pay_method: "cash"), method: :patch, class: "btn btn-primary", data: { confirm: '参加費を受け取りました' } %></div>
+									<div><%= link_to "参加費をポイント清算します",mini_event_apply_tag_path(meat.id,pay_method: "point"), method: :patch, class: "btn btn-primary", data: { confirm: 'ポイントを消費します' } %></div>				        
+					            <% end %>
 				            </td>
-				                <% if !mec.check %>
-					                <td><%= link_to "参加を確認しました", update_point_path(mec.id), method: :patch, class: "btn btn-primary"%>
+				            <% if !meat.mini_event_customer.nil? %>
+				                <% if !meat.mini_event_customer.check %>
+					                <td><%= link_to "参加を確認しました", update_point_path(meat.mini_event_customer.id), method: :patch, class: "btn btn-primary"%>
 					                </td>
 				                <% else %>
-					                <td><%= link_to "参加を確認を取り消す", rollback_point_path(mec.id), method: :patch, class: "btn btn-danger"%>
+					                <td><%= link_to "参加を確認を取り消す", rollback_point_path(meat.mini_event_customer.id), method: :patch, class: "btn btn-danger"%>
 					                </td>
 				                <% end %>
+				            <% end %>
 				            </tr>
 				        </tbody>
 			        <% end %>
 			    </table>
 			    <div>
 			    	参加者メールアドレス一覧<br>
-			    	<% @mini_events_customers.each do |mec| %>
-			    		<%= mec.email %>
+			    	<% @mini_events_apply_tags.each do |meat| %>
+			    		<%= meat.student.email %>
 			    	<% end %>
 			    	<br>
 			    	<%= link_to "メールを一斉送信する", home_mini_event_send_mail_path(me.id),method: :post,  class: "btn btn-danger" %>

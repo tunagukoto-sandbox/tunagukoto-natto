@@ -38,7 +38,7 @@ class HomeController < ApplicationController
   end
 
   def admin_mini_event
-    @mini_events = MiniEvent.all
+    @mini_events = MiniEvent.where(finish: false)
     @hash = {}
     MiniEvent.all.each do |me|
       @hash.merge!(me.title => MiniEventCustomer.where(mini_event_id: me.id))

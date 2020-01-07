@@ -1,0 +1,64 @@
+<% mini_event_customer =  MiniEventCustomer.where(student_id: current_student, mini_event_id: @mini_event.id).first %>
+<div class="devise_pc">
+<div class="container">
+	<div class="row">
+<div class="all_event_apply_box row">
+			<div class="col-lg-12 event_title_customer">
+				<%= @mini_event.title %>					
+			</div>
+
+			<div class="col-lg-2">
+				開催日時:
+			</div>
+			<div class="col-lg-10">
+				<%= @mini_event.time.year %>年
+				<%= @mini_event.time.month %>月
+				<%= @mini_event.time.day %>日
+				<%= @mini_event.time_detail %>
+			</div>
+			<div class="col-lg-2">
+				場所:
+			</div>
+			<div class="col-lg-10">
+				<%= @mini_event.locate %>
+			</div>
+			<% if !@mini_event.pay_point.nil? %>
+				<div class="col-lg-2">
+					参加費:
+				</div>
+				<div class="col-lg-3">
+					<%= @mini_event.pay_point %>円 
+					<span class="attention_mark">※注意</span>
+				</div>
+			<% end %>
+			<% if !@mini_event.get_point.nil? %>
+				<div class="col-lg-2">
+					獲得ポイント:
+				</div>
+				<div class="col-lg-3">
+					<%= @mini_event.get_point %>pt
+				</div>
+			<% end %>
+
+			<% if !@mini_event.pay_point.nil? %>
+			<div class="attention_box">
+				<div class="attention_mark">※注意</div>
+				<div class="attention_body">
+				 ※1pt(ポイント)は1円分になります。<br>
+				・参加費とは当イベント(<%= @mini_event.title %>)に参加するために、事前に必要な費用になります。<br>
+				・参加費のお支払い方法は現金とポイントの2種類があります。<br>
+				・ポイントの場合は以下の申し込みボタンをクリックし応募が完了となりましたら<%= current_student.first_name %>様の所持ポイントから参加費分を引落とさせていただきます。<br>
+				・現金を選ばれた場合はイベント当日に運営スタップに参加費をお支払いください。<br>
+				・ポイントで参加された方でイベントをキャンセルされましても、ポイントの返却はございません。
+				ご了承ください。<br>
+				</div>
+			</div>
+			<% end %>
+		</div>
+
+		<%= link_to "キャンセル", mini_event_customer_path(id: mini_event_customer.id, mini_event_id: @mini_event.id),method: :delete, class: "btn btn-danger btn-block", data: {confirm: "本当にキャンセルしますか？"} %>
+
+		<%= link_to 'トップへ戻る',root_path ,  class: "apply_btn" %>
+	</div>
+	</div>
+</div>

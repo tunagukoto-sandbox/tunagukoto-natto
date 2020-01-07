@@ -13,6 +13,7 @@ class EventCustomersController < ApplicationController
     @event_customer.name = current_student.first_name + current_student.last_name
     @event_customer.event_id = params[:event_id]
     @event_customer.student_id = current_student.id
+    # check はイベントに来た時にtrueをつける。出席がわり
     @event_customer.check = false
 
     if @event_customer.save
@@ -26,46 +27,6 @@ class EventCustomersController < ApplicationController
       )
       NotificationMailer.event_send_confirm_to(@event_customer).deliver
       redirect_to home_all_event_apply_complete_path
-      # if params[:pay_way] == "point"
-      #   if !current_student.point.nil?
-      #     if current_student.point.having_point >= @event_customer.event.pay_point
-      #       current_student.point.having_point = current_student.point.having_point - @event_customer.event.pay_point
-      #       EventApplyTag.create(
-      #         event_customer_id: @event_customer.id,
-      #         student_id: current_student.id, 
-      #         event_id: @event_customer.event_id,
-      #         has_paid: true,
-      #         pay_point: true,
-      #         pay_cash: false
-      #         )
-      #     else
-      #       EventApplyTag.create(
-      #         event_customer_id: @event_customer.id,
-      #         student_id: current_student.id, 
-      #         event_id: @event_customer.event_id,
-      #         has_paid: false,
-      #         pay_point: false,
-      #         pay_cash: false
-      #         )
-      #     end
-      #   else
-      #     @point = Point.new(
-      #       student_id: current_student.id,
-      #       student_name: "#{current_student.first_name}" + "#{current_student.last_name}",
-      #       max_point: 0,
-      #       having_point: 0 
-      #       )
-      #   end
-      # elsif params[:pay_way] == "cash" || params[:pay_way].nil?
-      #   EventApplyTag.create(
-      #     event_customer_id: @event_customer.id,
-      #     student_id: current_student.id, 
-      #     event_id: @event_customer.event_id,
-      #     has_paid: false,
-      #     pay_point: false,
-      #     pay_cash: false
-      #   )
-      # end
   	else
   		redirect_to  new_event_event_customer_path(event_id: @event_customer.event_id)
   	end
@@ -73,6 +34,9 @@ class EventCustomersController < ApplicationController
 
   def destroy
     @event_customer = EventCustomer.find(params[:id])
+    if !@event_customer.event_apply_tag.nil?
+      @event_customer.event_apply_tag.delete
+    end
     @event_customer.delete
     if student_signed_in?
       redirect_to student_event_page_path(id: current_student.id)
