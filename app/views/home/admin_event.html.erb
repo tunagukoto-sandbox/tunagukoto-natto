@@ -3,66 +3,65 @@
 		<% @events.each do |e| %>
 			<h1><%= link_to "#{e.event_select}", event_path(e.id) %></h1>
 			<p>取得ポイント：<%= e.get_point %></p>
-			<% @events_customers = EventCustomer.where(event_id: e.id)%>
+			<%# @events_customers = EventCustomer.where(event_id: e.id)%>
+			<% @event_apply_tags = EventApplyTag.where(event_id: e.id) %>
 			<div class="col-12 ">
 			    <table class="table">
 			        <thead>
 			            <tr>
 			                <th>氏名</th>
 			                <th>メールアドレス</th>
-			                <th>所属</th>
-			                <th>電話番号</th>
+			                <!-- <th>所属</th> -->
 			                <th></th>
 			            </tr>
 			        </thead>
-			        <% @events_customers.each do |ec| %>
+			        <%# @events_customers.each do |ec| %>
+			        <% @event_apply_tags.each do |eat| %>
 				        <tbody>
 				            <tr>
-				                <td><%= ec.name %></td>
-				                <td><%= ec.email %></td>
-				                <td><%= ec.school.school_name %></td>
-				                <td><%= ec.tel %></td>
-				                <td><%= link_to "削除", event_customer_path(ec.id), method: :delete, class: "btn btn-danger", data: { confirm: '削除しますか？' }  %>
-				                	<%= link_to "編集", edit_event_customer_path(ec.id), method: :get, class: "btn btn-success"  %>
-
-				                <% @event_apply_tag = EventApplyTag.where(student_id: ec.student_id).where(event_id: e.id) %>
-
-				               	<% if @event_apply_tag.length != 0 %>
-				               	 	<% tag = @event_apply_tag.first %>
-				               	 	<% if e.pay_point != 0 || !e.pay_point.nil? %>
+				                <td><%= "#{eat.student.first_name}" "#{eat.student.last_name}" %></td>
+				                <td><%= eat.student.email %></td>
+				               <!--  <td></td> -->
+				               <% if !eat.event_customer.nil? %>
+				                <td>
+				                <%= link_to "編集", edit_event_customer_path(eat.event_customer.id), method: :get, class: "btn btn-success"  %>
+				               	<% if e.pay_point != 0 || !e.pay_point.nil? %>
 						               	<% if !tag.nil? %>
 							                <% if tag.has_paid %>
 							                	<div>参加費を受け取りました</div>
 							                <% else %>
-								                <div><%= link_to "参加費を受け取る",event_apply_tag_path(id: tag.id, pay_method: "cash"), method: :patch, class: "btn btn-primary", data: { confirm: '参加費を受け取りました' } %></div>
-								            	<div><%= link_to "参加費をポイント清算します",event_apply_tag_path(tag.id,pay_method: "point"), method: :patch, class: "btn btn-primary", data: { confirm: 'ポイントを消費します' } %></div>
+								                <div><%= link_to "参加費を受け取る",event_apply_tag_path(id: eat.id, pay_method: "cash"), method: :patch, class: "btn btn-primary", data: { confirm: '参加費を受け取りました' } %></div>
+								            	<div><%= link_to "参加費をポイント清算します",event_apply_tag_path(eat.id, pay_method: "point"), method: :patch, class: "btn btn-primary", data: { confirm: 'ポイントを消費します' } %></div>
 											<% end %>
 
-							                <% if !ec.check %>
-								                <td><%= link_to "参加を確認しました", update_point_event_path(ec.id), method: :patch, class: "btn btn-primary"%>
+							                <% if !eat.event_customer.check %>
+								                <td><%= link_to "参加を確認しました", update_point_event_path(eat.event_customer.id), method: :patch, class: "btn btn-primary"%>
 								                </td>
 							                <% else %>
-								                <td><%= link_to "参加を確認を取り消す", rollback_point_event_path(ec.id), method: :patch, class: "btn btn-danger"%>
+								                <td><%= link_to "参加を確認を取り消す", rollback_point_event_path(eat.event_customer.id), method: :patch, class: "btn btn-danger"%>
 								                </td>
 							                <% end %>
 						                <% end %>
 						            <% end %>	
-								<% end %>
-
-				                </td>			             
+				                </td>			
+				                <% end %>             
 				            </tr>
 				        </tbody>
 			        <% end %>
 			    </table>
+			   
 			    <div>
 			    	参加者メールアドレス一覧<br>
-			    	<% @events_customers.each do |ec| %>
-			    	<%= ec.email %>
+					<% @event_apply_tags.each do |eat| %>
+						<% if !eat.event_customer.nil? %>
+				    		<%= eat.event_customer.email %>
+				    	<% end %>
 			    	<% end %>
 			    	<br>
 			    	<p style="color: red;">※イベント開始時刻17:45〜、開催場所ツナグオフィスであることを確認した上で一斉送信してください</p>
 			    	<%= link_to "メールを一斉送信する", home_event_send_mail_path(e.id),method: :post,  class: "btn btn-danger" %>
 			    </div>
+
 		    </div>
 		<% end %>
 	<% else %>

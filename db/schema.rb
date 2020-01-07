@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_01_045858) do
+ActiveRecord::Schema.define(version: 2020_01_07_053449) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 2020_01_01_045858) do
     t.boolean "pay_cash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "event_customer_id"
+    t.index ["event_customer_id"], name: "index_event_apply_tags_on_event_customer_id"
   end
 
   create_table "event_customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -382,6 +384,7 @@ ActiveRecord::Schema.define(version: 2020_01_01_045858) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "admin_points", "students"
   add_foreign_key "comments", "questions"
+  add_foreign_key "event_apply_tags", "event_customers"
   add_foreign_key "event_sub_tags", "events"
   add_foreign_key "event_sub_tags", "sub_tags"
   add_foreign_key "event_tags", "events"

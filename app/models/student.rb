@@ -12,4 +12,5 @@ class Student < ApplicationRecord
 	has_many :admin_points
 	has_one :student_status
 	has_one_attached :my_image
+	has_many :event_apply_tags
 end

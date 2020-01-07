@@ -1,0 +1,71 @@
+<div class="devise_mobile">
+
+	<div class="container-fluid">
+		<%= form_for @event_customer, url: event_event_customers_path(event_id: @event.id), method: :post do |f| %>
+		<div class="row">
+	    <div class="some_padding"></div>
+	    <div class="apply_conform_title_mobile"> 申し込み確認</div>
+	    <div class="apply_conform_sub_title_mobile">
+	    	イベントの確認
+		</div>	
+		<div class="all_event_apply_box_mobile row">
+			<div class="col-md-12 event_title_customer_mobile">
+				<%= @event.event_title %>				
+			</div>
+
+			<div class="col-md-3">
+				開催日時:
+			</div>
+			<div class="col-md-9">
+				<%= @event.event_time.year %>年
+				<%= @event.event_time.month %>月
+				<%= @event.event_time.day %>日
+				<%= @event.event_time_detail %>
+			</div>
+			<div class="col-md-3">
+				場所:
+			</div>
+			<div class="col-md-9">
+				<%= @event.event_location %>
+			</div>
+			<div class="col-md-3">
+				参加費:
+			</div>
+			<div class="col-md-3">
+				無料	
+			</div>
+			<% if !@event.get_point.nil? %>
+				<div class="col-md-3">
+					獲得ポイント:
+				</div>
+				<div class="col-md-2">
+					<%= @event.get_point %>pt
+				</div>
+			<% end %>
+
+		</div>
+		
+		<div class="apply_conform_sub_title_mobile">
+			<%= "#{current_student.first_name}" +  "#{current_student.last_name}" %>さんのポイント
+		</div>
+
+		<div class="all_event_apply_box_mobile row">
+			<div class="col-md-6">
+				現在保有のポイント:
+			</div>
+			<div class="col-md-6">
+				<%= current_student.point.having_point %>pt
+			</div>
+			<div class="col-md-6">
+				累計獲得ポイント:
+			</div>
+			<div class="col-md-6 ">
+				<%= current_student.point.max_point %>pt
+			</div>
+		</div>
+
+		</div>
+	<%=f.submit '申し込む', class: "apply_btn_mobile" %>
+	<% end %>
+	</div>
+</div>
