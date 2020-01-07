@@ -65,7 +65,11 @@ class EventCustomersController < ApplicationController
   def destroy
     @event_customer = EventCustomer.find(params[:id])
     @event_customer.delete
-    redirect_to home_admin_event_path
+    if student_signed_in?
+      redirect_to student_event_page_path(id: current_student.id)
+    else
+      redirect_to root_path
+    end
   end
 
   def edit

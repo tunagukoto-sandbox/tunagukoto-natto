@@ -28,10 +28,10 @@ class StudentPageController < ApplicationController
 	    event_customers = EventCustomer.where(student_id: params[:id])
 	    @event_array = []
 	    event_customers.each do |e|
-	    	event = Event.where(id: e.event_id, finish: false)
-	    	if event.length != 0
-	    		@event_array << event.first
-	    	end
+	    	#event = Event.where(id: e.event_id, finish: false)
+	    	#if event.length != 0
+	    		@event_array << e
+	    	#end
 	    end
 	    # 申し込み中のミニイベント
 	    mini_event_customers = MiniEventCustomer.where(student_id: params[:id])

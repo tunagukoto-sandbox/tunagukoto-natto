@@ -84,7 +84,11 @@ class MiniEventCustomersController < ApplicationController
   def destroy
     @mini_event_customer = MiniEventCustomer.find(params[:id])
     @mini_event_customer.delete
-    redirect_to student_page_path(current_student.id)
+    if student_signed_in?
+      redirect_to student_page_path(current_student.id)
+    else
+      redirect_to root_path
+    end
   end
 
   private
