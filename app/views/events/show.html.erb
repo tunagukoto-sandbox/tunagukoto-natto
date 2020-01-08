@@ -5,6 +5,9 @@
 				<div class="col-lg-8">
 					<div class="some_padding"></div>
 		    		<div class="natto_toha">詳細</div><hr>
+		    		<% if admin_signed_in? %>
+						<%= link_to "編   集", edit_event_path(@event.id), class: "btn btn-info btn-block" %>
+					<% end %>
 					<div class="event_show_event_title">
 						<%= @event.event_title %>
 					</div>					
