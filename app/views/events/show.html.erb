@@ -108,7 +108,7 @@
 									<p class="student_other">社会人の方はこちら</p>
 									<div class="event_apply_adult_btn">
 										<% if !@event.other_participant_url.nil? %>
-											<%= link_to "申し込む", @event.other_participant_url %>
+											<%= link_to "申し込む", "#{@event.other_participant_url}" %>
 										<% else %>
 											申し込む
 										<% end %>
