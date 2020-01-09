@@ -45,7 +45,7 @@
 			<% end %>
 		</div>
 
-		<%= link_to "イベントをキャンセルする",event_customer_path(id: event_customer.id, event_id: @event.id), class: "btn btn-danger btn-block",method: :delete, data: { confirm: '本当にキャンセルしますか？' } %>
+		<%= link_to "イベントをキャンセルする", event_customer_path(id: event_customer.id, event_id: @event.id), class: "btn btn-danger btn-block",method: :delete, data: { confirm: '本当にキャンセルしますか？' } %>
 
 		<%= link_to 'トップへ戻る',root_path ,  class: "apply_btn" %>
 	</div>

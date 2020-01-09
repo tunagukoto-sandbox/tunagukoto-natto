@@ -34,6 +34,7 @@ class EventCustomersController < ApplicationController
 
   def destroy
     @event_customer = EventCustomer.find(params[:id])
+    @event_customer = EventCustomer.where(event_id: params[:])
     if !@event_customer.event_apply_tag.nil?
       @event_customer.event_apply_tag.delete
     end

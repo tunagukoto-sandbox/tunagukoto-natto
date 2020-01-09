@@ -1,4 +1,4 @@
-<% if EventCustomer.where(event_id: @event.id, student_id: current_student.id).length == 0  %>
+<%# if EventCustomer.where(event_id: @event.id, student_id: current_student.id).length == 0  %>
 <!-- mini_eventの応募 -->
 <div class="devise_pc">
 <%= form_for @event_customer, url: event_event_customers_path(event_id: @event.id), method: :post do |f| %>
@@ -99,6 +99,6 @@
 
 <%= render 'event_customers/new_mobile' %>
 
-<% else %>
-	<%= render 'event_customers/event_cancel' %>
-<% end %>
+<%# else %>
+	<%#= render 'event_customers/event_cancel' %>
+<%# end %>
