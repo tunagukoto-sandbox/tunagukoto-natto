@@ -47,7 +47,7 @@
 	<div class="row">
 
 		<!-- <div class="apply_main_box"> -->
-		<%= link_to(new_event_customer_path, class: 'apply_main_box') do %>
+		<%= link_to(new_event_event_customer_path(event_id: @event.id), class: 'apply_main_box') do %>
 			<%= @event.event_time.year %>年
 			<%= @event.event_time.month %>月
 			<%= @event.event_time.day %>日<br>
