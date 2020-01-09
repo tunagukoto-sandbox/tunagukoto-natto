@@ -62,8 +62,9 @@
 			</div>
 		<% end %>
 		<!-- </div> --><!-- apply_main_box -->		
+		<% if @event.other_participant_url.length > 0 %>
+		<%= link_to("#{@event.other_participant_url}", class: 'apply_main_box') do %>
 
-		<div class="apply_main_box">
 			<%= @event.event_time.year %>年
 			<%= @event.event_time.month %>月
 			<%= @event.event_time.day %>日<br>
@@ -73,10 +74,15 @@
 			<div class="other_font">
 				空席あり
 			</div>
+
 			<div class="other_font text_underline">	
 				社会人の方はこちらから
 			</div>
-		</div><!-- apply_main_box -->
+
+		<% end %>
+		<% else %>						
+		<% end %>
+
 
 	</div><!-- row -->
 	<hr>
