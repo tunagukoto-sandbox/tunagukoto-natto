@@ -1,4 +1,9 @@
 class MiniEventsController < ApplicationController
+  
+  def index
+    @mini_events = MiniEvent.all
+  end
+
   def new
     @mini_event = MiniEvent.new
   end
@@ -53,10 +58,6 @@ class MiniEventsController < ApplicationController
     else
       redirect_to new_mini_event_path
     end
-  end
-
-  def index
-    @mini_events = MiniEvent.all
   end
 
   def show

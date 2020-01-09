@@ -36,9 +36,10 @@ Rails.application.routes.draw do
  	patch 'mini_event_customer/update/:id', to: 'points#update_point', as: 'update_point'
  	patch 'mini_event_customer/rollback/:id', to: 'points#rollback_point', as: 'rollback_point'
 
-	resources :mini_events, only: [:show] do
+	resources :mini_events do
 		resources :mini_event_customers, only: [:new, :create]
 	end
+	# resources :mini_events
 
  	patch 'event_customer/update/:id', to: 'points#update_point_event', as: 'update_point_event'
  	patch 'event_customer/rollback/:id', to: 'points#rollback_point_event', as: 'rollback_point_event'
@@ -77,7 +78,6 @@ Rails.application.routes.draw do
   	resources :student_statuses, only: [:edit, :update]
 	resources :events
 	resources :news
-	resources :mini_events
 	
 	resources :events, only: [:show] do
 		resources :event_customers, only: [:new, :create]

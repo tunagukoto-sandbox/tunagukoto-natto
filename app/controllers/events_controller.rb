@@ -45,7 +45,6 @@ class EventsController < ApplicationController
   end
 
   def show 
-    
     if News.count >= 3
       @news = News.first(3)
     else
