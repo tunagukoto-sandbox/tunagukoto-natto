@@ -2,6 +2,15 @@ class EventCustomersController < ApplicationController
   # before_action :authenticate_any!, :new
   before_action :authenticate_student!, :new
   def new
+    if current_student.point.nil?
+      Point.create(
+        student_id: current_student.id,
+        student_name: "#{current_student.first_name}" + "#{current_student.last_name}",
+        max_point: 0,
+        having_point: 0 
+        )
+      redirect_to new_event_event_customer_path(event_id: params[:event_id])
+    end
   	@event_customer = EventCustomer.new
     @event = Event.find(params[:event_id])
   end
