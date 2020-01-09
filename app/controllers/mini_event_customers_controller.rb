@@ -2,6 +2,15 @@ class MiniEventCustomersController < ApplicationController
   # before_action :authenticate_any!, :new
   before_action :authenticate_student!, :new
   def new
+    if current_student.point.nil?
+      Point.create(
+        student_id: current_student.id,
+        student_name: "#{current_student.first_name}" + "#{current_student.last_name}",
+        max_point: 0,
+        having_point: 0 
+        )
+      redirect_to new_mini_event_mini_event_customer_path(mini_event_i: params[:mini_event_i])
+    end
     @mini_event_customer = MiniEventCustomer.new
     @mini_event = MiniEvent.find(params[:mini_event_id])
   end
