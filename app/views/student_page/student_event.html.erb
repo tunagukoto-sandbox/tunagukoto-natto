@@ -11,6 +11,7 @@
 		<div class="student_group_title">申し込み中のイベント</div>
 		<div class="some_padding"></div>
 		<% @event_array.each do |e| %>
+		<% if !e.event.nil? %>
 			<div class="row">
 				<div class="col-lg-4">
 					<%= e.event.event_time.year %>/<%= e.event.event_time.month %>/<%= e.event.event_time.day %>
@@ -23,6 +24,7 @@
 					<%= link_to "キャンセル", event_customer_path(id: e.id, event_id: e.event_id), :method => :delete, class: "btn btn-outline-danger",data: {confirm: "本当にキャンセルしますか？"} %><br>
 				</div>
 			</div>
+		<% end %>
 			<hr>
 		<% end %>
 		<% @mini_event_array.each do |me| %>
