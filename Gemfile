@@ -27,7 +27,7 @@ gem 'aws-sdk-s3', require: false
 gem 'rails_12factor', group: :production # 追加
 
 #カルーセル用
-# gem 'jquery-rails'  
+gem 'jquery-rails'  
 
 # turbolinksをオフにする
 # gem 'turbolinks', '~> 5' 
