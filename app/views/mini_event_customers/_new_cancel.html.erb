@@ -1,5 +1,5 @@
 <% mini_event_customer =  MiniEventCustomer.where(student_id: current_student, mini_event_id: @mini_event.id).first %>
-<div class="devise_mobile">
+<div class="devise_pc">
 <div class="container">
 	<div class="row">
 <div class="all_event_apply_box row">
@@ -56,9 +56,29 @@
 			<% end %>
 		</div>
 
-		<%= link_to "キャンセル", mini_event_customer_path(id: mini_event_customer.id, mini_event_id: @mini_event.id),method: :delete, class: "btn btn-danger btn-block", data: {confirm: "本当にキャンセルしますか？"} %>
+		<%= link_to "キャンセル", mini_event_customer_path(id: mini_event_customer.id, mini_event_id: @mini_event.id),method: :delete, class: "btn btn-danger btn-block margin-bottom", data: {confirm: "本当にキャンセルしますか？"} %>
 
 		<%= link_to 'トップへ戻る',root_path ,  class: "apply_btn" %>
+	</div>
+	</div>
+</div>
+
+
+<div class="devise_mobile">
+	<div class="container fluid">
+	<div class="row">
+    <div class="some_padding"></div>
+	    <div class="apply_conform_title_mobile"> 
+	    申し込み完了
+		</div>
+		<div class="apply_comp  all_event_apply_box_mobile margin-under-50 ">
+			当イベントの申し込みは完了しています<br>
+			当日お会いできることを<br>楽しみにしております!
+		</div>
+		<div style="margin: 0 auto;">
+		<%= link_to 'トップに戻る', root_path, class: "apply_btn_mobile" %>
+		</div>
+		<div class="padding-big"></div>
 	</div>
 	</div>
 </div>

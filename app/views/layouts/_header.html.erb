@@ -37,11 +37,15 @@
             <%= image_tag'natto.png',class: "natto-mobile" %>
           </a>
           <!-- <h2>ようこそ<%#= current_student.first_name %>さん</h2> -->
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse navbar-font" id="navbarText">
             <ul class="navbar-nav mr-auto">
+             <li class="nav-item active margin-ten">
+                <%= link_to "マイページ", student_page_path(current_user.id) %>
+              </li>
              <li class="nav-item active margin-ten">
                 <%= link_to "Nattoで交流する", home_interact_event_path %>
               </li>

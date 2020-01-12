@@ -24,7 +24,6 @@
 				               <!--  <td></td> -->
 				               <% if !eat.event_customer.nil? %>
 				                <td>
-				                <%= link_to "編集", edit_event_customer_path(eat.event_customer.id), method: :get, class: "btn btn-success"  %>
 				               	<% if e.pay_point != 0 || !e.pay_point.nil? %>
 						               	<% if !tag.nil? %>
 							                <% if tag.has_paid %>
