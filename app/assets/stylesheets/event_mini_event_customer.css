@@ -79,6 +79,16 @@
 	font-size: 25px;
 }
 
+
+.attention_box {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 100%;
+	color: #666666;
+	background-color: #FFCCCC;
+	padding: 20px 40px;
+	font-size: 25px;
+}
 .your_point_box {
 	margin-top: 30px;
 	margin-bottom: 30px;

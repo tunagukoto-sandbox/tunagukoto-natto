@@ -3,11 +3,14 @@
 <div class="container">
 	<div class="row">
 	    <div class="some_padding"></div>
-	    <div class="apply_conform_title"> 申し込み確認</div>
-
-		<div class="grey_box">
-			申し込みされたイベント
+	    <div class="apply_conform_title"> 申し込み内容変更</div>
+		<div class="attention_box">
+			<%= @event.event_select %>は既に申し込みされています
 		</div>
+		<div class="aligen_center">
+		申し込みされたイベント
+		</div>
+		<hr>
 		<div class="all_event_apply_box row">
 			<div class="col-lg-12 event_title_customer">
 				<%= @event.event_name %>					
@@ -45,7 +48,7 @@
 			<% end %>
 		</div>
 
-		<%= link_to "イベントをキャンセルする", event_customer_path(id: event_customer.id, event_id: @event.id), class: "btn btn-danger btn-block",method: :delete, data: { confirm: '本当にキャンセルしますか？' } %>
+		<%= link_to "イベントをキャンセルする", event_customer_path(id: event_customer.id, event_id: @event.id), class: "btn btn-danger btn-block margin-bottom",method: :delete, data: { confirm: '本当にキャンセルしますか？' } %>
 
 		<%= link_to 'トップへ戻る',root_path ,  class: "apply_btn" %>
 	</div>
