@@ -194,8 +194,8 @@ h5#mobile_moushikomi{
     font-weight: 600;
 }
 .mobile-natto-desc{
-    background-color: #EEEEEE;
-    padding: 100px;
+    background-color: white;
+    padding: 30px 50px;
     color: black;
     width: 100%;
     margin-top:20px;
@@ -210,14 +210,21 @@ h5#mobile_moushikomi{
 }
 .mobile_mini_event_more_btn{
     text-align: center;
-    background-color: #EEEEEE;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 40px;
     padding: 10px;
     font-size: 1.6em;
     width: 70%;
     margin: 0 auto;
 }
-
+.mobile_mini_event_more_btn_sankaku{
+    height:90%;
+    background-color: white;
+    color: #66CC66;
+    font-size: 1.5em; 
+    vertical-align: middle;
+    text-align:center;
+}
 .mobile_menu_title{
     margin-top: 20px;
     margin-bottom:30px;
