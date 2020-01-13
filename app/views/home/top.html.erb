@@ -8,9 +8,9 @@
 				<div id="carouselExampleIndicators" class="carousel slide carousel-slide" data-ride="carousel">
 				  <!-- インジケータの設定 -->
 				    <ol class="carousel-indicators">
-				        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="height: 20px;"></li>
+				        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="height: 10px;"></li>
 				        <% for num in 1..@e_count do %>
-				            <li data-target="#carouselExampleIndicators" data-slide-to="#{num}" style="height: 20px;"></li>
+				            <li data-target="#carouselExampleIndicators" data-slide-to="#{num}" style="height: 10px;"></li>
 				        <% end %>
 				    </ol>
 				    <!-- スライドさせる画像の設定 -->
@@ -39,24 +39,20 @@
 				    </div><!-- /.carousel-inner -->
 
 				    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				      <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 40px; height: 40px;"></span>
+				      <span class="sr-only">Previous</span>
 				    </a>
 				    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				      <span class="carousel-control-next-icon" aria-hidden="true" style="width: 40px; height: 40px;"></span>
+				      <span class="sr-only">Next</span>
 				    </a>
+<!-- 				    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				    </a>
+				    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    </a> -->
 				</div><!-- /.carousel -->
 
 				<div class="container-fluid">
-
-					<!-- <div class="top_titles">
-						<h5 id="top_titles_font">愛知学生ブランド企業
-						<%#= image_tag'f.png',class: "twiiter" %>
-						</h5>	
-						<h style="font-size: 1.0em;">
-							協賛企業等へのメール、電話などによる営業行為は固く禁じます。
-						</h>					
-						<div class="row top-title-inner">
-							<h1 style="text-align: center;">coming Soon</h1>
-						</div>
-					</div> -->
 
 					<div class="top_titles ">
 						<h5 id="top_titles_font">Nattoおすすめイベント(New)</h5>
