@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'mini_magick'
 gem 'aws-sdk-s3', require: false
 gem 'rails_12factor', group: :production # 追加
-
+gem 'google-analytics-rails'
 #カルーセル用
 gem 'jquery-rails'  
 
