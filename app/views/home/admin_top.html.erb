@@ -61,7 +61,13 @@
 				        	<% else %>
 				        		<th><div class="btn btn-success">まだ終了していません</div></th>
 				        	<% end %>				        					        	
-				            <th><%= link_to "#{me.mini_event_name}", mini_event_path(me.id) %></th>
+				            <th>
+				            	<% if !me.mini_event_name.nil? %>
+				            		<%= link_to "#{me.mini_event_name}", mini_event_path(me.id) %>
+				            	<% else %>
+				            		<%= link_to "#{me.title}", mini_event_path(me.id) %>
+				            	<% end %>
+				            </th>
 				            <td><%= me.time %></td>
 				            <td><%= me.time_detail %></td>
 				            <td><%= me.get_point %>PT付与</td>
