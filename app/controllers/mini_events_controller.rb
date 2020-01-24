@@ -113,7 +113,8 @@ class MiniEventsController < ApplicationController
     :mini_event_name,
     :free_box,
     :open,
-    :finish
+    :finish,
+    :organizer
     )
   end
 

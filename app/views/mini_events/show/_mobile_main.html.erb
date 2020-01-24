@@ -20,6 +20,17 @@
 	</div>
 
 	<div class="mobile_time_top">
+		<% if !@mini_event.organizer.nil?  %>
+			<% if @mini_event.organizer.length != 0  %>
+				<%= @mini_event.organizer %>
+			<% end %>
+		<% end %>
+		<% if !@mini_event.student_id.nil? %>
+			<%= "#{@mini_event.student.first_name} #{@mini_event.student.last_name}" %>
+		<% end %>
+	</div>
+
+	<div class="mobile_time_top">
 		参加費：
 		<%= @mini_event.pay_point %>
 		獲得ポイント：

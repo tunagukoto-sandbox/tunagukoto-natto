@@ -34,7 +34,21 @@
 								</div>
 								<div class="col-lg-9">
 									<%= @mini_event.locate %>
-								</div>								
+								</div>			
+								<div class="col-lg-3">
+									主催者&nbsp;:
+								</div>
+								<div class="col-lg-9">
+									<% if !@mini_event.organizer.nil?  %>
+										<% if @mini_event.organizer.length != 0  %>
+											<%= @mini_event.organizer %>
+										<% end %>
+									<% end %>
+
+									<% if !@mini_event.student_id.nil? %>
+										<%= "#{@mini_event.student.first_name} #{@mini_event.student.last_name}" %>
+									<% end %>
+								</div>						
 							</div>
 
 						</div><!-- col-lg-6 -->

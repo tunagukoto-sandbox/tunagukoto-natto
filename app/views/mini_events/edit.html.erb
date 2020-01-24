@@ -31,6 +31,9 @@
 			●イベント参加条件
 			<%= f.text_field :requirement,  :size => "80%" %>
 
+			<br>
+			<p>主催者が学生でない場合は以下のフォームに主催者の名前を入力してください</p>
+			<%= f.text_field :organizer, placeholder: "学生以外の主催者" %>
 
 			<br>
 			●開催時間
