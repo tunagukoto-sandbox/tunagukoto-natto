@@ -96,7 +96,6 @@ class MiniEventsController < ApplicationController
 
   def mini_event_params
     params.require(:mini_event).permit(
-    # :mini_event_img,
     :title,
     :mini_event_img,
     :student_id,
