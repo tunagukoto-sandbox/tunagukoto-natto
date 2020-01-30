@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
  	get 'home/admin_event'
 
+ 	get 'home/give_first_point'
+
  	get 'home/natto'
 
  	get 'home/others'
