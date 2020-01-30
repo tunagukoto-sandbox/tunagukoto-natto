@@ -38,7 +38,7 @@ class HomeController < ApplicationController
         point.max_point = 5000
         point.having_point = 5000
         point.save
-      elsif s.point.max_point == 5000
+      elsif s.point.max_point == 0
 
         s.point.max_point = 5000
         s.point.having_point = 5000
