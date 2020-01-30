@@ -30,20 +30,22 @@ class HomeController < ApplicationController
 
 
   def give_first_point
-    student = Student.all
-    student.each do |s|
+    students = Student.all
+    students.each do |s|
       if s.point.nil?
-        point = Point.create(student_id: s.id, student_name: "#{s.first_name} + #{s.last_name}",  max_point: 0, having_point: 0)
+
+        point = Point.new(student_id: s.id, student_name: "#{s.first_name} + #{s.last_name}",  max_point: 0, having_point: 0)
         point.max_point = 5000
         point.having_point = 5000
         point.save
-      elsif s.point.max_point == 0
+      elsif s.point.max_point == 5000
+
         s.point.max_point = 5000
         s.point.having_point = 5000
         s.point.save
       end
-      redirect_to home_admin_top_path and return
     end
+    redirect_to home_admin_top_path and return
   end
 
   def admin_event
