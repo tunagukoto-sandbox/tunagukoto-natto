@@ -28,9 +28,14 @@ gem 'rails_12factor', group: :production # 追加
 gem 'google-analytics-rails'
 #カルーセル用
 gem 'jquery-rails'  
+# Use CoffeeScript for .coffee assets and views
 
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# gem 'jbuilder', '~> 2.5'
+
+gem 'chart-js-rails', '~> 0.1.4'
 # turbolinksをオフにする
-# gem 'turbolinks', '~> 5' 
+gem 'turbolinks', '~> 5' 
 
 # gem 'bxslider-rails'
 # gem 'owlcarousel-rails'

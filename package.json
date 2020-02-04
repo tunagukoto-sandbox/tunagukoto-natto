@@ -1,5 +1,7 @@
 {
   "name": "tunagu_natto",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+  	"chart.js": "^2.7.1"
+  }
 }

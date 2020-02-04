@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  check: false
+  menber_name: MyText
+  year: 1
+  month: 1
+
+two:
+  student_id: 1
+  check: false
+  menber_name: MyText
+  year: 1
+  month: 1

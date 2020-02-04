@@ -114,4 +114,8 @@ class HomeController < ApplicationController
   def comming_soon
   end
 
+  def questionnaire
+    @mini_question = MiniQuestion.new
+    # @student_groups = StudentGroup.all
+  end
 end

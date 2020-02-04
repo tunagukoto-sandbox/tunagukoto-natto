@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   	get 'home/admin_mini_event'
 
+  	get 'home/questionnaire'
+
  	get 'home/admin_top'
 
  	get 'home/admin_event'
@@ -92,6 +94,8 @@ Rails.application.routes.draw do
 	resources :schools
 
 	resources :quests
+
+	resources :mini_questions, only: [:create]
 
 
 	get '/quests_other/new_quest', to: 'quests#new_quest'

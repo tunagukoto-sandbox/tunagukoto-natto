@@ -1,0 +1,2 @@
+module MiniQuestionsHelper
+end

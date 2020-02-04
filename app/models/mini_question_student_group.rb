@@ -1,0 +1,2 @@
+class MiniQuestionStudentGroup < ApplicationRecord
+end
