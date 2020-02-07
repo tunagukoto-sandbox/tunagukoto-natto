@@ -71,17 +71,17 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def update_resource(resource, params)
-    resource.update_without_password(params)
-  end
+  # def update_resource(resource, params)
+  #   resource.update_without_password(params)
+  # end
 
-  def after_sign_up_path_for(resource)
-    home_policy_path
-  end
+  # def after_sign_up_path_for(resource)
+  #   home_policy_path
+  # end
 
-  def after_inactive_sign_up_path_for(resource)
-    home_policy_path
-  end
+  # def after_inactive_sign_up_path_for(resource)
+  #   home_policy_path
+  # end
   # def current_corporation_is_admin?
   #   student_signed_in? && current_student.has_attribute?(:admin)
   # end
