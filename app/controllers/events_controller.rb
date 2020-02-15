@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :send_mini_question
   def new
     @event = Event.new
   end

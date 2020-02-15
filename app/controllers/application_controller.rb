@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
 # before_action :authenticate_any!, except: [:natto, :top]
-
 	def after_sign_in_path_for(resource)
       	case resource
 	      	when Admin
@@ -35,6 +34,19 @@ class ApplicationController < ActionController::Base
 	end
 
 	
+	def send_mini_question
+		if student_signed_in?
+			# if current_student.mini_question.nil?
+			# 	redirect_to home_questionnaire_path
+			# end
+			unless !current_student.mini_question.nil?
+			    flash[:alert] = "アンケートにお答えください"
+				redirect_to home_questionnaire_path
+			end
+		end
+	end
+
+
     protected
 
 	  	def devise_parameter_sanitizer

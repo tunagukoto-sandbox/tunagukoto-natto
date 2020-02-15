@@ -1,5 +1,5 @@
 class MiniEventsController < ApplicationController
-  
+  before_action :send_mini_question
   def index
     @mini_events = MiniEvent.all
   end

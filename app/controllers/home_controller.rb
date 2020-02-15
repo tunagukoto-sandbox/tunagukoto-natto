@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :send_mini_question, except: [:questionnaire]
   def top
     @events = Event.where(finish: false)
 

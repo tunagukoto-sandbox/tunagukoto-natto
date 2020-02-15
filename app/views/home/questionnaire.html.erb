@@ -1,34 +1,50 @@
-<div class="row">
-アンケートにまだお答えになってない方が対象です。
+<% if student_signed_in? %>
+	<% if current_student.mini_question.nil? %>
 
-<%= form_for @mini_question, url: mini_questions_path, method: :post do |f| %>
+	<div class="container">
+		<div class="row">
+		<!-- アンケートにまだお答えになってない方が対象です。 -->
+		<%= form_for @mini_question, url: mini_questions_path, method: :post do |f| %>
+		<div style="padding-top: 50px"></div>
+			<!-- <h1>簡単なアンケートです</h1> -->
+			<h4>アンケートにまだお答えになってない方が対象です。</h4>
 
-	<h1>簡単なアンケートです</h1>
+			Q1：どこかの学生団体からの紹介を受けましたか？<br>
 
+				<input type="radio" name="q" value="yes">はい<br>
+				<input type="radio" name="q" value="no">いいえ<br>
 
-	<h4>*複数回答も大丈夫です</h4>
-	学生団体のチェック
+			Q2: 上記ではいと答えた方はこの質問にお答えください。<br>
+			では、どの学生団体からの紹介を受けましたか？複数ある場合は複数お答えください。<br>
 
-	Q1：どこかの学生団体からの紹介を受けましたか？<br>
+			<%= collection_check_boxes(:student_group_ids, :student_group_id, StudentGroup.all, :id, :name_ja) do |b| %>
+		      <%= b.label { b.check_box + b.text } %><br>
+		    <% end %><br>
+			Q3: テキストボックス<br>
+			学生団体のなかで印象に残っているメンバー名がありましたらお答えください。<br>
+			<%= f.text_area :menber_name, placeholder: "", :size => "80%"  %><br>
+			アンケートは以上です。
+			ありがとうございました。
+			<%=f.submit 'アンケートを提出する', class: 'btn btn-primary btn-lg btn-block' %>
+			<div style="padding-top: 50px"></div>
+		<% end %>
 
-		<input type="radio" name="q" value="yes">はい<br>
-		<input type="radio" name="q" value="no">いいえ<br>
-
-	Q2: 上記ではいと答えた方はこの質問にお答えください。<br>
-	では、どの学生団体からの紹介を受けましたか？複数ある場合は複数お答えください。<br>
-
-
-
-	<%= collection_check_boxes(:student_group_ids, :student_group_id, StudentGroup.all, :id, :name_ja) do |b| %>
-      <%= b.label { b.check_box + b.text } %><br>
-    <% end %><br>
-	チェックボックス
-	Q3: テキストボックス<br>
-	学生団体のなかで印象に残っているメンバー名がありましたらお答えください。<br>
-	<%= f.text_area :menber_name, placeholder: "", :size => "80%"  %><br>
-	アンケートは以上です。
-	ありがとうございました。
-	<%=f.submit 'アンケートを提出する', class: 'btn btn-primary btn-lg btn-block' %>
+		</div>
+	</div>
+	<% else %>
+	<div style="padding-top: 300px"></div>
+	<div style="font-weight: 700; text-align: center;">
+		<h2>アンケートのご協力ありがとうございました。</h2>
+		<div style="padding-top: 30px"></div>
+		<%= link_to "ホームへ戻る", root_path %>
+	</div>
+	<div style="padding-top: 270px"></div>
+	<% end %>
+<% else %>
+	<div style="padding-top: 300px"></div>
+	<div style="font-weight: 700; text-align: center;">
+		<h1>404 Page Not found</h1>
+		<%= link_to "ホームへ戻る", root_path %>
+	</div>
+	<div style="padding-top: 300px"></div>
 <% end %>
-
-</div>

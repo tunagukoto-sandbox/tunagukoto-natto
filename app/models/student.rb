@@ -13,4 +13,5 @@ class Student < ApplicationRecord
 	has_one :student_status
 	has_one_attached :my_image
 	has_many :event_apply_tags
+	has_one :mini_question
 end
