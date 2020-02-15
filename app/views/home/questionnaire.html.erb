@@ -14,8 +14,8 @@
 				<input type="radio" name="q" value="yes">はい<br>
 				<input type="radio" name="q" value="no">いいえ<br>
 
-			Q2: 上記ではいと答えた方はこの質問にお答えください。<br>
-			では、どの学生団体からの紹介を受けましたか？複数ある場合は複数お答えください。<br>
+			上記で「はい」と答えた方は以下の質問にお答えください。<br>
+			Q2: では、どの学生団体からの紹介を受けましたか？複数ある場合は複数お答えください。<br>
 
 			<%= collection_check_boxes(:student_group_ids, :student_group_id, StudentGroup.all, :id, :name_ja) do |b| %>
 		      <%= b.label { b.check_box + b.text } %><br>
