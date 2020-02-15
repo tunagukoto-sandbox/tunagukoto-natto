@@ -105,6 +105,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   # これがないとなぜかログインしてもPOSTが送られない
+  
   def after_sign_up_path_for(resource)
     super(resource)
   end
