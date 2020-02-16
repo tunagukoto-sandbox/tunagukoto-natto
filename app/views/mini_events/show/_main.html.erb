@@ -96,11 +96,16 @@
 								<div class="col-lg-3 all_center">
 									<p class="student_other">学生の方はこちら</p>
 									<div class="event_apply_student_btn">
-										<%= link_to "申し込む", new_mini_event_mini_event_customer_path(@mini_event.id) %>
+										<%= link_to "申し込む", new_mini_event_mini_event_customer_path(@mini_event.id), class: "white" %>
 									</div><!-- event_apply_btn -->
 									<p class="student_other">社会人の方はこちら</p>
+									<p class="student_other">社会人の方はこちら</p>
 									<div class="event_apply_adult_btn">
-										申し込む
+										<% if !@mini_event.other_participant_url.nil? %>
+											<%= link_to "申し込む", "#{@mini_event.other_participant_url}", class: "white" %>
+										<% else %>
+											申し込む
+										<% end %>
 									</div><!-- event_apply_btn -->
 								</div>
 
