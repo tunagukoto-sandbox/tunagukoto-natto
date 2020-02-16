@@ -113,6 +113,7 @@ class MiniEventsController < ApplicationController
     :free_box,
     :open,
     :finish,
+    :other_participant_url,
     :organizer
     )
   end

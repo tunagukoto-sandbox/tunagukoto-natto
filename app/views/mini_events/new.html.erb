@@ -27,10 +27,13 @@
 			●イベント開催地
 			<%= f.text_field :locate, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
 			<br>
-			●参加費<br>
-			※参加費がない場合は０と入力してください。
-			<%= f.number_field :cost, :size => "30*60" %>
-						<br>
+			<!-- ●参加費<br>
+			※参加費がない場合は０と入力してください。 -->
+			<%#= f.number_field :cost, :size => "30*60" %>
+			
+			●社会人申し込み用URL<br>
+			<%= f.text_field :other_participant_url,  :size => "80%" %><br>
+						
 			●イベント参加条件
 			<%= f.text_field :requirement,  :size => "80%" %>
 
