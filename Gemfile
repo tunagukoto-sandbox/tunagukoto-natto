@@ -34,6 +34,7 @@ gem 'jquery-rails'
 # gem 'jbuilder', '~> 2.5'
 
 gem 'chart-js-rails', '~> 0.1.4'
+gem 'lazy_high_charts'
 # turbolinksをオフにする
 # gem 'turbolinks', '~> 5' 
 
@@ -50,7 +51,6 @@ gem 'chart-js-rails', '~> 0.1.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

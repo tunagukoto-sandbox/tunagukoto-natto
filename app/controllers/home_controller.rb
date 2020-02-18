@@ -27,6 +27,26 @@ class HomeController < ApplicationController
     @mini_events = MiniEvent.all
   	@quests = Quest.all
   	@schools = School.all
+
+
+    student_groups = StudentGroup.all
+
+    category = []
+    current_quantity = []
+    student_groups.each do |s|
+      category << s.name_ja
+      current_quantity << s.mini_questions.where(year: Time.now.year, month: Time.now.month).count
+    end
+
+    # category = [1,3,5,7]
+    # current_quantity = [1000,5000,3000,8000]
+
+    @graph = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(text: "#{Time.now.year}年#{Time.now.month}月の各学生団体ごとの登録状況")
+      f.xAxis(categories: category)
+      f.series(name: '登録者数', data: current_quantity)
+    end
+
   end
 
 
