@@ -38,9 +38,6 @@ class HomeController < ApplicationController
       current_quantity << s.mini_questions.where(year: Time.now.year, month: Time.now.month).count
     end
 
-    # category = [1,3,5,7]
-    # current_quantity = [1000,5000,3000,8000]
-
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "#{Time.now.year}年#{Time.now.month}月の各学生団体ごとの登録状況")
       f.xAxis(categories: category)
