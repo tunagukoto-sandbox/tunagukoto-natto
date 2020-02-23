@@ -59,6 +59,8 @@
 			    	<br>
 			    	<p style="color: red;">※イベント開始時刻17:45〜、開催場所ツナグオフィスであることを確認した上で一斉送信してください</p>
 			    	<%= link_to "メールを一斉送信する", home_event_send_mail_path(e.id),method: :post,  class: "btn btn-danger" %>
+			    	<%= link_to "#{e.event_select}参加者一覧CSV", home_admin_event_csv_path(event_id: e.id, format: :csv), class: "btn btn-primary" %>
+			    	<%#= link_to "#{e.event_select}参加者一覧CSV", home_admin_event_csv_path(event_id: e.id), class: "btn btn-primary" %>
 			    </div>
 
 		    </div>

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  require 'csv'
+
   before_action :send_mini_question, except: [:questionnaire]
   def top
     @events = Event.where(finish: false)
@@ -43,7 +45,6 @@ class HomeController < ApplicationController
       f.xAxis(categories: category)
       f.series(name: '登録者数', data: current_quantity)
     end
-
   end
 
 
@@ -73,6 +74,32 @@ class HomeController < ApplicationController
     Event.all.each do |e|
       @hash.merge!(e.event_name => EventCustomer.where(event_id: e.id))
     end
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        admin_event_csv
+      end
+    end
+
+  end
+
+  def admin_event_csv
+    csv_data = CSV.generate do |csv|
+      @event = Event.find(params[:event_id])
+      @users = EventCustomer.where(event_id: params[:event_id])
+      csv_column_names = ["名前","電話番号","メールアドレス"]
+      csv << csv_column_names
+      @users.each do |user|
+        csv_column_values = [
+            user.name,
+            user.tel,
+            user.email
+        ]
+        csv << csv_column_values
+      end
+    end
+    send_data(csv_data,filename: "#{@event.event_select}.csv")
   end
 
   def admin_mini_event
@@ -80,7 +107,34 @@ class HomeController < ApplicationController
     @hash = {}
     MiniEvent.all.each do |me|
       @hash.merge!(me.title => MiniEventCustomer.where(mini_event_id: me.id))
-    end 
+    end
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        admin_mini_event_csv
+      end
+    end
+
+  end
+
+
+  def admin_mini_event_csv
+    csv_data = CSV.generate do |csv|
+      @mini_event = MiniEvent.find(params[:mini_event_id])
+      @users = MiniEventCustomer.where(mini_event_id: params[:mini_event_id])
+      csv_column_names = ["名前","電話番号","メールアドレス"]
+      csv << csv_column_names
+      @users.each do |user|
+        csv_column_values = [
+            user.name,
+            user.phone_num,
+            user.email
+        ]
+        csv << csv_column_values
+      end
+    end
+    send_data(csv_data,filename: "#{@mini_event.mini_event_name}.csv")
   end
 
   def event_send_mail

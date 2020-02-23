@@ -27,7 +27,6 @@ class EventsController < ApplicationController
     end
   end
 
-
   def point_check(get, pay)
     get_check = false
     pay_check = false
