@@ -20,6 +20,7 @@
 			<%= collection_check_boxes(:student_group_ids, :student_group_id, StudentGroup.all, :id, :name_ja) do |b| %>
 		      <%= b.label { b.check_box + b.text } %><br>
 		    <% end %><br>
+
 			Q3:紹介を受けた学生団体の中で印象に残っているメンバーがおりましたらお答えください<br>
 			<%= f.text_area :menber_name, placeholder: "", :size => "80%"  %><br>
 			アンケートは以上です。
