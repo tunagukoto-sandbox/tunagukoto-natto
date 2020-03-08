@@ -1,3 +1,7 @@
+
+
+<div class="container">
+<% if admin_signed_in? %>
 <div class="padding-top"></div>
 <div class="padding-top"></div>
 <div style="width: 90% ; text-align: center; margin: auto;">
@@ -5,9 +9,6 @@
 </div>
 <div class="padding-top"></div>
 <div class="padding-top"></div>
-
-<div class="container">
-<% if admin_signed_in? %>
 	<div style="font-size: 1.5em;">
 		<%= link_to "・シャショク・ガクショク発行", new_event_path %></div>
 	<div style="font-size: 1.5em;">
