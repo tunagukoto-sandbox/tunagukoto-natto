@@ -47,7 +47,7 @@
 			    		<%= meat.student.email %>
 			    	<% end %>
 			    	<br>
-			    	<%= link_to "メールを一斉送信する", home_mini_event_send_mail_path(me.id),method: :post,  class: "btn btn-danger" %>
+			    	<%= link_to "メールを一斉送信する", home_mini_event_send_mail_path(me.id), method: :post,  class: "btn btn-danger" %>
 			    	<%= link_to "#{me.mini_event_name}参加者一覧CSV", home_admin_mini_event_csv_path(mini_event_id: me.id, format: :csv), class: "btn btn-primary" %>
 			    </div>
 		    </div>

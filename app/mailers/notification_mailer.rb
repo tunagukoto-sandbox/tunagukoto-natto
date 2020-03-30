@@ -1,5 +1,7 @@
 class NotificationMailer < ActionMailer::Base
-  default from: "hogehoge@example.com"
+  # default from: "hogehoge@example.com"
+
+  default from: "info@tunagu.or.jp"
 
     def event_send_confirm_to(event_customer)
       @customer = event_customer
