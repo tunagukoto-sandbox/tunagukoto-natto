@@ -28,16 +28,15 @@ gem 'mini_magick'
 gem 'aws-sdk-s3', require: false
 gem 'rails_12factor', group: :production # 追加
 gem 'google-analytics-rails'
-# コメントアウト　2020/3/31
 #カルーセル用
-# gem 'jquery-rails'  
+gem 'jquery-rails'  
 # Use CoffeeScript for .coffee assets and views
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 
-# gem 'chart-js-rails', '~> 0.1.4'
-# gem 'lazy_high_charts'
+gem 'chart-js-rails', '~> 0.1.4'
+gem 'lazy_high_charts'
 # turbolinksをオフにする
 # gem 'turbolinks', '~> 5' 
 
