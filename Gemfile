@@ -28,8 +28,8 @@ gem 'mini_magick'
 gem 'aws-sdk-s3', require: false
 gem 'rails_12factor', group: :production # 追加
 gem 'google-analytics-rails'
-#カルーセル用
 # コメントアウト　2020/3/31
+#カルーセル用
 # gem 'jquery-rails'  
 # Use CoffeeScript for .coffee assets and views
 
