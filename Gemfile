@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 gem 'rails-i18n'
 # Use CoffeeScript for .coffee assets and views
-# gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # コメントアウト　2020/3/31
@@ -29,7 +29,8 @@ gem 'aws-sdk-s3', require: false
 gem 'rails_12factor', group: :production # 追加
 gem 'google-analytics-rails'
 #カルーセル用
-gem 'jquery-rails'  
+# コメントアウト　2020/3/31
+# gem 'jquery-rails'  
 # Use CoffeeScript for .coffee assets and views
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
