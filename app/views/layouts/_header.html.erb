@@ -21,9 +21,11 @@
                     <div class="guest">
                         <%= link_to "▶︎ マイページ", student_page_path(current_student.id) %>
                     </div>
-                    <div class="guest margin-right-fifty-2">
+                    <div class="guest margin-right-fifty-2 ">
                         <%#= link_to "▶︎ ログアウト", destroy_student_session_path , method: :delete %>
-                        <%= button_to("ログアウトする", destroy_student_session_path ,method: :delete) %>
+                      <div style="display:inline-flex">
+                        <%= button_to("ログアウト", destroy_student_session_path ,method: :delete, class: "button_to_tolink_to") %>
+                      </div>
                     </div>
                     <div class="guest">
                         <%= link_to "ツナグコトHP", 'http://tunagu.or.jp/', class: "tunagu-header" %></div>
