@@ -48,10 +48,11 @@
 			<% end %>
 		</div>
 
-		<%= link_to "イベントをキャンセルする", event_customer_path(id: event_customer.id, event_id: @event.id), class: "btn btn-danger btn-block margin-bottom", method: :delete, data: { confirm: '本当にキャンセルしますか？' } %>
+		<%#= link_to "イベントをキャンセルする", event_customer_path(id: event_customer.id, event_id: @event.id), class: "btn btn-danger btn-block margin-bottom", method: :delete, data: { confirm: '本当にキャンセルしますか？' } %>
 
-		<%= button_to("イベントをキャンセルする", event_customer_path(id: event_customer.id, event_id: @event.id) ,class: "btn btn-danger btn-block margin-bottom" ,method: :delete) %>
-
+		<div class="btn btn-danger btn-block margin-bottom">
+		<%= button_to("イベントをキャンセルする", event_customer_path(id: event_customer.id, event_id: @event.id) ,method: :delete,class: "btn btn-danger btn-block "  ) %>
+		</div>
 		<%= link_to 'トップへ戻る',root_path ,  class: "apply_btn" %>
 	</div>
 	</div>
