@@ -36,8 +36,8 @@ gem 'google-analytics-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 
-gem 'chart-js-rails', '~> 0.1.4'
-gem 'lazy_high_charts'
+# gem 'chart-js-rails', '~> 0.1.4'
+# gem 'lazy_high_charts'
 # turbolinksをオフにする
 # gem 'turbolinks', '~> 5' 
 
