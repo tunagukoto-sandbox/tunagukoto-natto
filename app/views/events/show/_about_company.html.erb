@@ -27,17 +27,17 @@
 				<div class="col-lg-8">
 					<b><%= @event.event_company_name %></b>
 				</div>
+				<div class="col-lg-4 about_com_font">[生年月日]</div>
+				<div class="col-lg-8">
+					<b>
+						<%= @event.event_president_birth_day %>
+					</b>
+				</div>
 				<div class="col-lg-4 about_com_font">[登壇者]</div>
 				<div class="col-lg-8">
 					<b>
 					<%= @event.position %><br>				
 					<%= @event.event_president %>氏
-					</b>
-				</div>
-				<div class="col-lg-4 about_com_font">[生年月日]</div>
-				<div class="col-lg-8">
-					<b>
-						<%= @event.event_president_birth_day %>
 					</b>
 				</div>
 				<% if @event.event_motto != "" %>

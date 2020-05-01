@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
  	get 'home/interact_event'
 
+ 	get 'home/landing_page'
+
  	get 'home/all_event_apply_complete'
  	
  	get 'organizations/student_group'

@@ -194,4 +194,8 @@ class HomeController < ApplicationController
     @mini_question = MiniQuestion.new
     # @student_groups = StudentGroup.all
   end
+
+  def landing_page
+    
+  end
 end
