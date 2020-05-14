@@ -264,5 +264,14 @@ h5#mobile_moushikomi{
 .mobile_menu_font_sub{
     font-size: 1.8em;
 }
+.aichi_brand_img{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:700px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+}
 
-
+.aichi_brand_mobile_img{
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:800px;                              /* 横幅のサイズを指定    */
+    height:auto;  
+}
