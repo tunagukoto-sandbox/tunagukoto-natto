@@ -82,6 +82,18 @@ position: relative;
   margin-bottom: 450px;
 }
 
+.parent {
+  position: relative;
+}
+
+.triangle{
+  position: absolute;
+  left: 15%;
+  border-top: 200px solid white;
+
+  border-right: 350px solid transparent;
+  border-left: 350px solid transparent;
+}
 
 .comment {
   position: absolute;
