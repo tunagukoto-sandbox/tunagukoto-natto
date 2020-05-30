@@ -266,7 +266,8 @@ h5#mobile_moushikomi{
 }
 .aichi_brand_img{
     background-size:contain;                 /* 画像のサイズを指定    */
-    width:700px;                              /* 横幅のサイズを指定    */
+ /*   width:700px; */                             /* 横幅のサイズを指定    */
+    width:100%; 
     height:auto;  
 }
 
