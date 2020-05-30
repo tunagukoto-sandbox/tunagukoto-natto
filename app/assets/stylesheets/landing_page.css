@@ -43,12 +43,23 @@ background: repeating-linear-gradient(60deg,
 }
 .lp_font {
  font-size: 50px;
- font-weight: 700;
+ font-weight: 500;
+ font-family: YuGothic;
+ color: #333333;
 }
 
 .lp_font_mini{
-  font-size: 40px;
+  font-size: 35px;
  font-weight: 700;
+}
+
+.lp_font_mini_mini{
+  font-size: 32px;
+ font-weight: 700;
+}
+
+.font-border{
+  border-bottom: solid 3px #EF4848;
 }
 
 .comment {
@@ -76,25 +87,24 @@ position: relative;
   position: absolute;
   top: 450px;
   left: 100;
-
-  opacity:0.7; 
+  opacity:0.9; 
   color: white;
   font-weight: 400;
   font-size: 40px;
   width: 95%;
-  padding: 15px;
+  padding: 25px;
 }
 
 .red {
-    background-color: red;
+    background-color: #EF4848;
 }
 
 .green {
-   background-color: green;
+   background-color: #91D656;
 }
 
 
 .blue {
-   background-color: blue;
+   background-color: #54C4D6;
 }
 
