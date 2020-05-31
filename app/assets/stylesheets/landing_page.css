@@ -12,7 +12,103 @@
   text-align: center;
   border-radius: 40px;
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-  bottom:20px;
+  bottom:80px;
+  left: 50px;
+  transition:1s;
+  opacity:0.9;
+  background: black;
+  color: white;
+  z-index: 2;
+}
+
+.tng-btn{
+  width: 90%;
+  margin-left: 50px;
+  margin-bottom: 70px;
+  font-weight: bold;
+  font-size: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  transition:1s;
+  opacity:0.9;
+  background: black;
+  color: white;
+  z-index: 2;
+}
+
+.tng-btn-last{
+  position: absolute;
+  bottom: -100px;
+  left: 50px;
+  width: 90%;
+  margin-left: 50px;
+  margin-bottom: 70px;
+  font-weight: bold;
+  font-size: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  transition:1s;
+  opacity:0.9;
+  background: black;
+  color: white;
+  z-index: 2;
+}
+
+.tng-button-staic{
+  position: absolute;
+  width: 90%;
+  font-weight: bold;
+  font-size: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  bottom: -60px;
+  left: 50px;
+  transition:1s;
+  opacity:0.9;
+  background: black;
+  color: white;
+  z-index: 2;
+}
+
+.tng-button-staic-shimashima-top{
+  position: absolute;
+  width: 90%;
+  font-weight: bold;
+  font-size: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  top: -60px;
+  left: 50px;
+  transition:1s;
+  opacity:0.9;
+  background: black;
+  color: white;
+  z-index: 2;
+}
+
+.tng-button-staic-shimashima{
+  position: absolute;
+  width: 90%;
+  font-weight: bold;
+  font-size: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  bottom: -60px;
   left: 50px;
   transition:1s;
   opacity:0.9;
