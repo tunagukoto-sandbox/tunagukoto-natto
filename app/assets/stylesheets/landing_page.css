@@ -2,6 +2,26 @@
 	width: 100px;
 }
 
+.tng-button{
+  position:fixed;
+  width: 90%;
+  font-weight: bold;
+  font-size: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  bottom:20px;
+  left: 50px;
+  transition:1s;
+  opacity:0.9;
+  background: black;
+  color: white;
+  z-index: 2;
+}
+
+
 .resizeimage img { width: 100%; }
 
 
