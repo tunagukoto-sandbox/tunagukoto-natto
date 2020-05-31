@@ -144,8 +144,9 @@ background-attachment: fixed;
 }
 
 .shimashima{
+
 background: repeating-linear-gradient(60deg,
- #FFFF66, #FFFF66 20px, #FFCC66 20px, #FFCC66 40px);
+ #ffec67, #ffec67 20px, #ffee73 20px, #ffee73 40px);
 }
 
 .naname-stripe2 {
