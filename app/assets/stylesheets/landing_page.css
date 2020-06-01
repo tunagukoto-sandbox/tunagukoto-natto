@@ -14,7 +14,7 @@
   font-weight: 500;
   box-shadow: 0 0 10px gray;
   padding-top: 35px;
-  padding-bottom: 35px;
+  padding-bottom: 45px;
   text-align: center;
   margin-left: 60px;
   margin-bottom: 70px;
@@ -131,11 +131,10 @@ font-family: "游ゴシック体", YuGothic;
 
 .triangle{
   position: absolute;
-  left: 15%;
-  border-top: 200px solid white;
-
-  border-right: 350px solid transparent;
-  border-left: 350px solid transparent;
+  left: 18%;
+  border-top: 180px solid white;
+  border-right: 300px solid transparent;
+  border-left: 300px solid transparent;
 }
 
 .comment {
