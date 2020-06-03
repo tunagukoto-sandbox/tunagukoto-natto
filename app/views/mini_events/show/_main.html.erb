@@ -4,7 +4,7 @@
 				<% if admin_signed_in? %>
 				<%= link_to "編集する", edit_mini_event_path(@mini_event.id), class: "btn btn-success btn-lg btn-block" %>
 				<%= link_to "削除する", mini_event_path(@mini_event.id), method: :delete , class: "btn btn-danger btn-lg btn-block", data: { confirm: '削除しますか？' } %>
-				<%#= button_to "削除する", mini_event_path(@mini_event.id), method: :delete , class: "btn btn-danger btn-lg btn-block", data: { confirm: '削除しますか？' } %>
+				<%= button_to "削除する", mini_event_path(@mini_event.id), method: :delete , class: "btn btn-danger btn-lg btn-block", data: { confirm: '削除しますか？' } %>
 				<% end %>
 				<div class="col-lg-1"></div>
 				<div class="col-lg-8">

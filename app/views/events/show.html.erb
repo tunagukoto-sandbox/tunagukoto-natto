@@ -8,7 +8,7 @@
 		    		<% if admin_signed_in? %>
 						<%= link_to "編   集", edit_event_path(@event.id), class: "btn btn-info btn-block" %>
 						<%= link_to "削　　除", event_path(@event.id),method: :delete, class: "btn btn-success btn-block", data: { confirm: '削除しますか？' } %>
-						<%#= button_to "(New)削　　除", event_path(@event.id),method: :delete, class: "btn btn-success btn-block", data: { confirm: '削除しますか？' } %>
+						<%= button_to "(New)削　　除", event_path(@event.id),method: :delete, class: "btn btn-success btn-block", data: { confirm: '削除しますか？' } %>
 					<% end %>
 					<div class="event_show_event_title">
 						<%= @event.event_title %>
