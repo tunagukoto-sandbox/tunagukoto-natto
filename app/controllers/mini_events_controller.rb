@@ -73,10 +73,11 @@ class MiniEventsController < ApplicationController
     @mini_event = MiniEvent.find(params[:id])
     @mini_event_customers = MiniEventCustomer.where(mini_event_id: @mini_event.id)
     @mini_event_customers.each do |m|
-      tag = MiniEventApplyTag.find(mini_event_customer_id: m.id)
-      tag.delete if !tag.nil?
+      tag = MiniEventApplyTag.where(mini_event_id: m.id,student_id: m.student_id)
+      # tag = MiniEventApplyTag.find(mini_event_customer_id: m.id)
+      tag.delete_all if !tag.nil?
     end
-    @mini_event_customers.delete_all
+    #@mini_event_customers.delete_all
     mini_event_style = MiniEventStyle.where(mini_event_id: @mini_event.id)
     mini_event_style.delete_all
     @mini_event.delete
