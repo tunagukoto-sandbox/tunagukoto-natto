@@ -11,7 +11,7 @@
   letter-spacing: 2px;
   border-radius: 90px;  
   font-size: 50px;
-  font-weight: 530;
+  font-weight: 600;
   box-shadow: 0 0 10px gray;
   padding-top: 35px;
   padding-bottom: 35px;
@@ -22,7 +22,7 @@
 /*  color: white;
   background: #323333;*/
 
-  border: 3px solid black;
+  border: 4px solid black;
   background-color: white;
 }
 .natto-btn:active {
@@ -34,7 +34,7 @@
   letter-spacing: 2px;
   border-radius: 90px;  
   font-size: 50px;
-  font-weight: 530;
+  font-weight: 600;
   box-shadow: 0 0 10px gray;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -117,7 +117,7 @@ background: repeating-linear-gradient(60deg,
 }
 .lp_font {
  font-size: 50px;
- font-weight: 550;
+ font-weight: 600;
 /*font-family: "游ゴシック体", YuGothic;*/
 font-family: sans-serif;
  color: #333333;
@@ -126,42 +126,44 @@ font-family: sans-serif;
 
 .lp_font_mini{
   font-size: 45px;
-  font-weight: 700;
+  font-weight: 600;
   padding-bottom: 10px;
 }
 
 .lp_font_mini_mini{
-  font-size: 40px;
- font-weight: 700;
+  font-size: 37px;
+  font-weight: 600;
 }
 
 .font-border{
   border-bottom: solid 4px #EF4848;
-  line-height: 1.8;
+  line-height: 1.7;
+  padding-left: 5px;
 }
 
 .comment {
   position: relative;
-/*  font-family: "游ゴシック体", YuGothic;*/
   font-family: sans-serif;
   line-height: 1.7;
-  font-weight: 900;
+  font-weight: 600;
 }
-
+.line-height {
+  line-height: 1.7;
+  }
 .parent_a {
   position: relative;
   padding: 30px;
-  margin-bottom: 520px;
+  margin-bottom: 480px;
 }
 .parent_b {
   position: relative;
   padding: 30px;
-  margin-bottom: 600px;
+  margin-bottom: 430px;
 }
 .parent_c {
   position: relative;
   padding: 30px;
-  margin-bottom: 450px;
+  margin-bottom: 330px;
 }
 
 .parent {
@@ -178,11 +180,33 @@ font-family: sans-serif;
 
 .comment {
   position: absolute;
-  top: 450px;
-  left: 100;
+  top: 480px;
+  margin: auto 0;
   opacity:0.9; 
   color: white;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 40px;
+  width: 95%;
+  padding: 25px;
+}
+.comment_a {
+  position: absolute;
+  top: 450px;
+  margin: auto 0;
+  opacity:0.9; 
+  color: white;
+  font-weight: 500;
+  font-size: 40px;
+  width: 95%;
+  padding: 25px;
+}
+.comment_b {
+  position: absolute;
+  top: 450px;
+  margin: auto 0;
+  opacity:0.9; 
+  color: white;
+  font-weight: 500;
   font-size: 40px;
   width: 95%;
   padding: 25px;
