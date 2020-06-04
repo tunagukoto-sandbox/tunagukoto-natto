@@ -33,15 +33,15 @@
   font-family: sans-serif;
   letter-spacing: 2px;
   border-radius: 90px;  
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
   box-shadow: 0 0 10px gray;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 28px;
+  padding-bottom: 34px;
   text-align: center;
   margin-left: 65px;
   margin-bottom: 70px;
-
+  color: white;
 /*  color: white;
   background: #323333;*/
 
@@ -51,7 +51,6 @@
 .black {
   color: black;
 }
-
 .black:active {
   color: white;
   text-decoration: none;
