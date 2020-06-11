@@ -5,6 +5,12 @@
 <div style="width: 90% ; text-align: center; margin: auto;">
 <%= high_chart("sample", @graph) %>
 </div>
+
+
+<% @students.each do |s| %>
+<%= s.email %>,
+<% end %>
+
 <div class="padding-top"></div>
 <div class="padding-top"></div>
 	<div style="font-size: 1.5em;">

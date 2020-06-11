@@ -30,7 +30,7 @@ class HomeController < ApplicationController
   	@quests = Quest.all
   	@schools = School.all
 
-
+    @students = Student.all
     student_groups = StudentGroup.all
 
     category = []
