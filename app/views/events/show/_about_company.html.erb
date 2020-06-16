@@ -23,21 +23,26 @@
 	<div class="row">
 		<div class="col-lg-8 about_com_details_font">
 			<div class="row">
-				<div class="col-lg-4 about_com_font">[登壇企業]</div>
+				<div class="col-lg-4 about_com_font">[企業名]</div>
 				<div class="col-lg-8">
 					<b><%= @event.event_company_name %></b>
 				</div>
-				<div class="col-lg-4 about_com_font">[会社設立年度]</div>
+				<div class="col-lg-4 about_com_font">[役職]</div>
 				<div class="col-lg-8">
-					<b>
-						<%= @event.event_president_birth_day %>
+					<b>				
+						<%= @event.position %>
 					</b>
 				</div>
 				<div class="col-lg-4 about_com_font">[登壇者]</div>
 				<div class="col-lg-8">
-					<b>
-					<%= @event.position %><br>				
+					<b>				
 					<%= @event.event_president %>氏
+					</b>
+				</div>
+				<div class="col-lg-4 about_com_font">[生年月日]</div>
+				<div class="col-lg-8">
+					<b>
+						<%= @event.event_president_birth_day %>
 					</b>
 				</div>
 				<% if @event.event_motto != "" %>
