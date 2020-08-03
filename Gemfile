@@ -38,7 +38,8 @@ gem 'jquery-rails'
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'lazy_high_charts'
 # turbolinksをオフにする
-# gem 'turbolinks', '~> 5' 
+# オンにする20.8.3
+gem 'turbolinks', '~> 5' 
 
 # gem 'bxslider-rails'
 # gem 'owlcarousel-rails'
