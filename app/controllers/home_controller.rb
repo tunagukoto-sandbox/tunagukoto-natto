@@ -142,7 +142,7 @@ class HomeController < ApplicationController
 
   def event_send_mail
     @event_customers = EventCustomer.where(event_id: params[:id])
-    binding.pry
+    #binding.pry
     adresses = []
     @event_customers.each do |ec|
       adresses.push(ec.email)
