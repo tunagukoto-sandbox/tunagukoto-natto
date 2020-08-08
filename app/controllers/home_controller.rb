@@ -99,9 +99,9 @@ class HomeController < ApplicationController
     csv_data = CSV.generate(row_sep: "\r\n", force_quotes: true) do |csv|
       events = Event.all
       events.each do |e|
-        infos = []
         event_date = "#{e.event_time.year}" + "年" + "#{e.event_time.month}" + "月" + "#{e.event_time.day}" + "日"
-        infos << [e.event_company_name, e.event_president, event_date]
+        column_names = [e.event_company_name, e.event_president, event_date]
+        csv << column_names
         tags = EventApplyTag.where(event_id: e.id)
         tags.each do |t|
           name = t.student.first_name + t.student.last_name
@@ -113,9 +113,9 @@ class HomeController < ApplicationController
           # end
           school = t.student.school
           # infos << [name, email, ok, school]
-          infos << [name, email, school]
+          column_values = [name, email, school]
+          csv << column_values
         end
-        csv << infos
       end
     end
     send_data(csv_data,filename: "all_event_customer.csv")
