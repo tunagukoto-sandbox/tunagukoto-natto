@@ -111,7 +111,7 @@ class HomeController < ApplicationController
           # else
           #    ok = "×"
           # end
-          school = t.student.school
+          school = t.student.school.school_name
           # infos << [name, email, ok, school]
           column_values = [name, email, school]
           csv << column_values
