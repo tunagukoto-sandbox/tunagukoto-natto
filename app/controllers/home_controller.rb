@@ -106,11 +106,11 @@ class HomeController < ApplicationController
         tags.each do |t|
           name = t.student.first_name + t.student.last_name
           email = t.student.email
-          if t.event_customer.check
-            ok = "◯"
-          else
-             ok = "×"
-          end
+          # if t.event_customer.check
+          #   ok = "◯"
+          # else
+          #    ok = "×"
+          # end
           school = t.student.school
           infos << [name, email, ok, school]
         end
