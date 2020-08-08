@@ -101,7 +101,7 @@ class HomeController < ApplicationController
       events.each do |e|
         infos = []
         event_date = "#{e.event_time.year}" + "年" + "#{e.event_time.month}" + "月" + "#{e.event_time.day}" + "日"
-        infos << [e.event_company_name, e.event_president, event_date, "-"]
+        infos << [e.event_company_name, e.event_president, event_date]
         tags = EventApplyTag.where(event_id: e.id)
         tags.each do |t|
           name = t.student.first_name + t.student.last_name
@@ -112,7 +112,8 @@ class HomeController < ApplicationController
           #    ok = "×"
           # end
           school = t.student.school
-          infos << [name, email, ok, school]
+          # infos << [name, email, ok, school]
+          infos << [name, email, school]
         end
         csv << infos
       end
