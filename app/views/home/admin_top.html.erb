@@ -6,7 +6,8 @@
 <%= high_chart("sample", @graph) %>
 </div>
 
-
+<%= link_to "全てのイベントの参加者一覧CSV", home_admin_all_event_csv_path( format: :csv), class: "btn btn-primary" %>
+<hr>
 <% @students.each do |s| %>
 <%= s.email %>,
 <% end %>

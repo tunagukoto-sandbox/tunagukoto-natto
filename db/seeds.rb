@@ -63,3 +63,4 @@ Style.create(uuid: 5, name: "食事付き")
 
 
 
+
