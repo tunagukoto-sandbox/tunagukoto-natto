@@ -75,20 +75,20 @@
 		<% end %>
 		<!-- </div> --><!-- apply_main_box -->		
 
-		<div class="apply_main_box">
-			<%= @mini_event.time.year %>年
-			<%= @mini_event.time.month %>月
-			<%= @mini_event.time.day %>日<br>
-			<%= @mini_event.time_detail %>	
-			<div class="circle_other">					
-			</div>
-			<div class="other_font">
-				空席あり
-			</div>
-			<div class="other_font text_underline">	
-				社会人の方はこちらから
-			</div>
-		</div><!-- apply_main_box -->
+	<%= link_to("#{@mini_event.other_participant_url}", class: 'apply_main_box') do %>
+		<%= @mini_event.time.year %>年
+		<%= @mini_event.time.month %>月
+		<%= @mini_event.time.day %>日<br>
+		<%= @mini_event.time_detail %>	
+		<div class="circle_other">					
+		</div>
+		<div class="other_font">
+			空席あり
+		</div>
+		<div class="other_font text_underline">	
+			社会人の方はこちらから
+		</div>
+	<% end %>
 
 	</div><!-- row -->
 	<hr>
@@ -101,36 +101,35 @@
 			<%= @mini_event.detail %>
 		</p>
 		<hr>
-		<div class="mobile_company_title">
+	<!-- 	<div class="mobile_company_title">
 			こんな人にオススメ
 		</div>
 		<p class="mobile_company_text">
-			<%= @mini_event.requirement %>
-		</p>
-		
+			<%#= @mini_event.requirement %>
+		</p> -->
 	</div>
 
-	<div class="color-white padding-20 margin-30">
+<!-- 	<div class="color-white padding-20 margin-30">
 		<div class="mobile_company_title">
 			コンテンツ
 		</div>
 
-		<% if !@mini_event.content_one.nil?%>
-			1.<%= @mini_event.content_one %><br>
-		<% end %>
-		<% if !@mini_event.content_two.nil?%>
-			2.<%= @mini_event.content_two %><br>
-		<% end %>
-		<% if !@mini_event.content_three.nil?%>
-			3.<%= @mini_event.content_three %><br>
-		<% end %>
-		<% if !@mini_event.content_four.nil?%>
-			4.<%= @mini_event.content_four %><br>
-		<% end %>
-		<% if !@mini_event.content_five.nil?%>
-			5.<%= @mini_event.content_five %><br>
-		<% end %>
-	</div>
+		<%# if !@mini_event.content_one.nil?%>
+			1.<%#= @mini_event.content_one %><br>
+		<%# end %>
+		<%# if !@mini_event.content_two.nil?%>
+			2.<%#= @mini_event.content_two %><br>
+		<%# end %>
+		<%# if !@mini_event.content_three.nil?%>
+			3.<%#= @mini_event.content_three %><br>
+		<%# end %>
+		<%# if !@mini_event.content_four.nil?%>
+			4.<%#= @mini_event.content_four %><br>
+		<%# end %>
+		<%# if !@mini_event.content_five.nil?%>
+			5.<%#= @mini_event.content_five %><br>
+		<%# end %>
+	</div> -->
 
 </div>
 </div>
