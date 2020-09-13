@@ -9,6 +9,9 @@ class HomeController < ApplicationController
 
     # @show_mini_events = MiniEvent.where(open: true)
     @show_mini_events = MiniEvent.where(open: true).where(finish: false)
+    # Event id != 282
+    @show_mini_events.push(@events)
+
     if News.count >= 3
       @news = News.first(3)
     else
