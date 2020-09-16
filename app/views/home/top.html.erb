@@ -67,10 +67,41 @@
 
 				<div class="container-fluid">
 
-					<div class="top_titles ">
+					<div class="top_titles">
 						<h5 id="top_titles_font">Nattoおすすめイベント(New)</h5>
 						<div class="row top-title-inner">
+							<% @events.each do |e| %>
+							<%= link_to event_path(e.id) do %>			
+							<div style="margin: 2px;">					
+							<div class="card-deck">
+								<div class="card" style="width: 18rem; min-height:22rem ;">
+									<div>
+										<% if e.event_top_image.attached? %>
+											<%= image_tag e.event_top_image ,class: "card-img" %>
+										<% end %>
+							    	</div>
+
+								  	<div class="card-body">
+								  		<b style="text-decoration: underline; color: #66CC66;">	申し込み受付中</b>
+									    <h4 class="card-title">
+									    	<%= "【"+"#{e.event_time.month}"+"/"+"#{e.event_time.day}"+"】"%><%= e.event_name %>
+									    </h4>
+									    <p class="card-text">
+									    	<%= e.event_description.truncate(50) %>
+									    </p>
+
+									    <h class="btn btn-outline-secondary card_event_btn">
+									    	このイベントに参加する
+										</h>
+								  	</div>
+								</div>
+							</div>
+							</div>
+							<% end %>
+							<% end %>
 							<% @show_mini_events.each do |me| %>
+							<%= me.class %>
+							<%# if me.class == MiniEvent %>
 								<%= link_to mini_event_path(me.id) do %>			
 								<div style="margin: 2px;">					
 								<div class="card-deck">
@@ -99,8 +130,38 @@
 									</div>
 								</div>
 								<% end %>
+							<%# elsif me.class == Event %>
+								<%#= link_to event_path(me.id) do %>			
+<!-- 								<div style="margin: 2px;">					
+								<div class="card-deck">
+									<div class="card" style="width: 18rem; min-height:22rem ;">
+										<div>
+											<%# if me.event_top_image.attached? %>
+												<%#= image_tag me.event_top_image ,class: "card-img" %>
+											<%# end %>
+								    	</div>
+
+									  	<div class="card-body">
+									  		<b style="text-decoration: underline; color: #66CC66;">		申し込み受付中
+									  		</b>
+										    <h4 class="card-title">
+										    	<%#= "【"+"#{me.event_time.month}"+"/"+"#{me.event_time.day}"+"】"%><%#= me.event_name %>
+										    </h4>
+										    <p class="card-text">
+										    	<%#= me.event_description.truncate(50) %>
+										    </p>
+
+										    <h class="btn btn-outline-secondary card_event_btn">
+										    	このイベントに参加する
+											</h>
+									  	</div>
+									</div>
+									</div>
+								</div>
+								<%# end %> -->
+							<%# end %>
 							<% end %>
-						</div>
+						</div><!-- row top-title-inner -->
 					</div>
 				</div>
 

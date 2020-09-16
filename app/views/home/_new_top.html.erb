@@ -88,44 +88,45 @@
 
 				<div class="row" style="padding: 20px;">
 					<% @show_mini_events.each do |me| %>
+					<%= me.class %>
 					 <% if me.class == MiniEvent %>
-					 <%= link_to mini_event_path(me.id) do %>
-						<div class="col-lg-4">
-							<div class="card" style="height: 450px;">	
-						        <% if me.mini_event_img.attached? %>
-						            <%= image_tag me.mini_event_img ,class: "card-img-top" ,style: "max-height: 200px;" %>
-						        <% end %>
-							  	<div class="card-body">
-							  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
-								    <h4 class="card-title"><%= me.title %></h4>
-								    <p class="card-text" style= "height: 120px;">
-								    	<%= me.detail.truncate(50) %>
-								    </p>
-								    <a href="#" class="btn btn-outline-secondary">このイベントに参加する</a>
-							  	</div>
-								event_name
-							  	event_description
+						 <%= link_to mini_event_path(me.id) do %>
+							<div class="col-lg-4">
+								<div class="card" style="height: 450px;">	
+							        <% if me.mini_event_img.attached? %>
+							            <%= image_tag me.mini_event_img ,class: "card-img-top" ,style: "max-height: 200px;" %>
+							        <% end %>
+								  	<div class="card-body">
+								  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
+									    <h4 class="card-title"><%= me.title %></h4>
+									    <p class="card-text" style= "height: 120px;">
+									    	<%= me.detail.truncate(50) %>
+									    </p>
+									    <a href="#" class="btn btn-outline-secondary">このイベントに参加する</a>
+								  	</div>
+									event_name
+								  	event_description
+								</div>
 							</div>
-						</div>
-					<% end %>
-					<% else %>
-					 <%= link_to event_path(me.id) do %>
-						<div class="col-lg-4">
-							<div class="card" style="height: 450px;">	
-								<% if me.event_top_image.attached? %>
-								<%= image_tag me.event_top_image ,class: "card-img-top" ,style: "max-height: 200px;" %>
-								<% end %>
-							  	<div class="card-body">
-							  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
-								    <h4 class="card-title"><%= me.event_name %></h4>
-								    <p class="card-text" style= "height: 120px;">
-								    	<%= me.event_description.truncate(50) %>
-								    </p>
-								    <a href="#" class="btn btn-outline-secondary">このイベントに参加する</a>
-							  	</div>
+						<% end %>
+					<% elsif me.class == Event %>
+						<%= link_to event_path(me.id) do %>
+							<div class="col-lg-4">
+								<div class="card" style="height: 450px;">	
+									<% if me.event_top_image.attached? %>
+									<%= image_tag me.event_top_image ,class: "card-img-top" ,style: "max-height: 200px;" %>
+									<% end %>
+								  	<div class="card-body">
+								  		<b style="text-decoration: underline; color: #66CC66;">申し込み受付中</b>
+									    <h4 class="card-title"><%= me.event_name %></h4>
+									    <p class="card-text" style= "height: 120px;">
+									    	<%= me.event_description.truncate(50) %>
+									    </p>
+									    <a href="#" class="btn btn-outline-secondary">このイベントに参加する</a>
+								  	</div>
+								</div>
 							</div>
-						</div>
-					<% end %>
+						<% end %>
 					<% end %>
 				</div>
 
