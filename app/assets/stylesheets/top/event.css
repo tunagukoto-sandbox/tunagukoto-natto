@@ -89,6 +89,11 @@ p#margin_little{
 	color: grey;
 	font-size: 20px;
 }
+.card-title:hover {
+	color: grey;
+	font-size: 20px;
+	text-decoration: none;
+}
 .card_event_btn {
 	 position: absolute; 
 	 bottom: 10px;
