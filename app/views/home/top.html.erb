@@ -10,7 +10,7 @@
 		<div class="row">
 
 			<div class="col-lg-9 padding-top">
-				<h5 id="top_titles_font">ツナグコトおすすめイベント</h5>
+				<h5 class="recommend_event_tag">ツナグコトおすすめイベント</h5>
 				<div id="carouselExampleIndicators" class="carousel slide carousel-slide" data-ride="carousel">
 				  <!-- インジケータの設定 -->
 				    <ol class="carousel-indicators">
@@ -68,7 +68,7 @@
 				<div class="container-fluid">
 
 					<div class="top_titles">
-						<h5 id="top_titles_font">Nattoおすすめイベント(New)</h5>
+						<h5 class="recommend_event_tag">Nattoおすすめイベント</h5>
 						<div class="row top-title-inner">
 							<% @events.each do |e| %>
 							<%= link_to event_path(e.id) do %>			

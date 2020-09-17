@@ -98,3 +98,11 @@ p#margin_little{
 	 position: absolute; 
 	 bottom: 10px;
 }
+.recommend_event_tag {
+  margin-left: 20px;
+  padding: 0.5em;/*文字周りの余白*/
+  color: #494949;/*文字色*/
+  font-size: 24px;
+  background: white;/*背景色*/
+  border-left: solid 10px #ffaf58;/*左線（実線 太さ 色）*/
+}
