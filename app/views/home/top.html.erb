@@ -112,10 +112,10 @@
 								    	</div>
 
 									  	<div class="card-body">
-									  		<b style="text-decoration: underline; color: #66CC66;">		申し込み受付中
+									  		<b style="text-decoration: underline; color: #66CC66;">		申し込み受付中<%= "【"+"#{me.time.month}"+"/"+"#{me.time.day}"+"】"%>
 									  		</b>
 										    <h4 class="card-title">
-										    	<%= "【"+"#{me.time.month}"+"/"+"#{me.time.day}"+"】"%><%= me.title %>
+										    	<%= me.title %>
 										    </h4>
 										    <p class="card-text">
 										    	<%= me.detail.truncate(15) %>
