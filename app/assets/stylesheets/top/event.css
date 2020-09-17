@@ -80,6 +80,11 @@ p#margin_little{
 .card-text {
 	color: grey;
 }
+.card-text:hover {
+	color: black;
+	text-decoration: none;
+}
+
 .card-title {
 	color: grey;
 	font-size: 20px;
