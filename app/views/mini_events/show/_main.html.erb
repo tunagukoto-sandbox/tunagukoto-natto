@@ -110,6 +110,37 @@
 								</div>
 
 							</div><!-- row -->
+						<div class="color-white padding-20 margin-30">
+							<div class="mobile_company_title">
+								こんな人にオススメ
+							</div>
+							<p class="mobile_company_text">
+								<%= @mini_event.requirement %>
+							</p>
+							
+						</div>
+
+						<div class="color-white padding-20 margin-30">
+							<div class="">
+								コンテンツ
+							</div>
+
+							<% if !@mini_event.content_one.nil?%>
+								1.<%= @mini_event.content_one %><br>
+							<% end %>
+							<% if !@mini_event.content_two.nil?%>
+								2.<%= @mini_event.content_two %><br>
+							<% end %>
+							<% if !@mini_event.content_three.nil?%>
+								3.<%= @mini_event.content_three %><br>
+							<% end %>
+							<% if !@mini_event.content_four.nil?%>
+								4.<%= @mini_event.content_four %><br>
+							<% end %>
+							<% if !@mini_event.content_five.nil?%>
+								5.<%= @mini_event.content_five %><br>
+							<% end %>
+						</div>
 
 						</div><!-- event_details_inner_box padding_little -->
 					</div><!-- event_details_outer_box -->

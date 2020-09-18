@@ -64,7 +64,21 @@
 
 			<br>
 			<p>主催者が学生でない場合は以下のフォームに主催者の名前を入力してください</p>
-			<%= f.text_field :organizer, placeholder: "学生以外の主催者" %>
+			<%= f.text_field :organizer, placeholder: "学生以外の主催者" %><br>
+
+			<p>こんな人におすすめ</p>
+			<%= f.text_field :requirement %><br>
+			
+			<p>コンテンツ1</p>
+			<%= f.text_field :content_one %><br>
+			<p>コンテンツ2</p>
+			<%= f.text_field :content_two %><br>
+			<p>コンテンツ3</p>
+			<%= f.text_field :content_three %><br>
+			<p>コンテンツ4</p>
+			<%= f.text_field :content_four %><br>
+			<p>コンテンツ5</p>
+			<%= f.text_field :content_five %><br>
 			
 			●自由記入欄
 			<%= f.text_area :free_box, placeholder: "自由記入欄" , :size => "30*60" %>
