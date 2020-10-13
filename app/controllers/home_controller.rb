@@ -29,6 +29,7 @@ class HomeController < ApplicationController
   end
 
   def admin_top
+
     @events = Event.all
     @mini_events = MiniEvent.all
   	@quests = Quest.all
@@ -44,12 +45,24 @@ class HomeController < ApplicationController
       current_quantity << s.mini_questions.where(year: Time.now.year, month: Time.now.month).count
     end
 
+    all_category = []
+    all_current_quantity = []
+    student_groups.each do |s|
+      all_category << s.name_ja
+      all_current_quantity << s.mini_questions.count
+    end
+
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "#{Time.now.year}年#{Time.now.month}月の各学生団体ごとの登録状況")
       f.xAxis(categories: category)
       f.series(name: '登録者数', data: current_quantity)
     end
 
+    @all_graph = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(text: "各学生団体ごとの登録状況")
+      f.xAxis(categories: all_category)
+      f.series(name: '登録者総数', data: all_current_quantity)
+    end
     # 全てのイベントとその参加者一覧のcsvを出力
     respond_to do |format|
       format.html

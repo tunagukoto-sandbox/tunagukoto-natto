@@ -5,13 +5,20 @@
 <div style="width: 90% ; text-align: center; margin: auto;">
 	<script src='https://code.highcharts.com/highcharts.js'></script>
 	<%= high_chart("sample", @graph) %>
+</div><hr>
+
+<div style="width: 90% ; text-align: center; margin: auto;">
+	<script src='https://code.highcharts.com/highcharts.js'></script>
+	<%= high_chart("sample", @all_graph) %>
 </div>
 
 <%= link_to "全てのイベントの参加者一覧CSV", home_admin_all_event_csv_path( format: :csv), class: "btn btn-primary" %>
 <hr>
-<% @students.each do |s| %>
-<%= s.email %>,
-<% end %>
+
+
+<%# @students.each do |s| %>
+	<%#= s.email %>,
+<%# end %>
 
 <div class="padding-top"></div>
 <div class="padding-top"></div>
