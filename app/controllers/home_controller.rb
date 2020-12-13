@@ -39,6 +39,8 @@ class HomeController < ApplicationController
       category << s.name_ja
       current_quantity << s.mini_questions.where(year: Time.now.year, month: Time.now.month).count
     end
+    # アンケートに答えた学生
+    @answered_student = Student.joins(:mini_question).count
 
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "#{Time.now.year}年#{Time.now.month}月の各学生団体ごとの登録状況")

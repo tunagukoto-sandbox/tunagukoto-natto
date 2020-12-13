@@ -11,8 +11,7 @@ class ApplicationController < ActionController::Base
 	        when NonProfitOrganization
 	        	root_path
 	        when StudentGroup
-	        	root_path
-	        	
+	        	root_path	
    		end
   	end
 

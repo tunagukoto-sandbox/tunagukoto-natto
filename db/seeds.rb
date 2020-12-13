@@ -60,6 +60,16 @@ Style.create(uuid: 4, name: "無料")
 Style.create(uuid: 5, name: "食事付き")
 
 
-
-
-
+# Student.create(email: "a@gmail.com", password: "666666")
+# Student.create(email: "b@gmail.com", password: "666666")
+# Student.create(email: "c@gmail.com", password: "666666")
+# Student.create(email: "d@gmail.com", password: "666666")
+# Student.create(email: "e@gmail.com", password: "666666")
+# StudentGroup.create(email: "s@gmail.com", password: "666666")
+# StudentGroup.create(email: "a@gmail.com", password: "666666")
+# MiniQuestion.create(student_id: 1, check: true, menber_name: "aaa", year: 12, month: 10)
+# MiniQuestion.create(student_id: 2, check: true, menber_name: "aaa", year: 12, month: 10)
+# MiniQuestion.create(student_id: 3, check: true, menber_name: "aaa", year: 12, month: 10)
+# MiniQuestionStudentGroup.create(mini_question_id: 1, student_group_id: 1)
+# MiniQuestionStudentGroup.create(mini_question_id: 1, student_group_id: 2)
+# MiniQuestionStudentGroup.create(mini_question_id: 2, student_group_id: 2)
