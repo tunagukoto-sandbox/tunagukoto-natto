@@ -62,6 +62,9 @@ class EventsController < ApplicationController
     style_events = StyleEvent.where(event_id: @event.id)
     event_customers = EventCustomer.where(event_id: @event.id)
     style_events.delete_all
+    event_customers.each do |e|
+      e.event_apply_tag.delete
+    end
     event_customers.delete_all
     @event.delete
     redirect_to root_path

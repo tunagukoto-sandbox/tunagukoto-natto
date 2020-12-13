@@ -38,6 +38,11 @@ gem 'jquery-rails'
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'lazy_high_charts'
 # turbolinksをオフにする
+# オンにする20.8.3
+# オフにする
+# ログインボタンを押しても、反応がない。
+# リロードしないとボタンクリックが反応しない
+
 # gem 'turbolinks', '~> 5' 
 
 # gem 'bxslider-rails'

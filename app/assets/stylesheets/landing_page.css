@@ -1,0 +1,236 @@
+.width_max {
+	width: 100px;
+}
+
+.natto-btn {
+  width: 87%;
+  opacity: 1.0;
+  z-index: 2;
+/*  font-family: "游ゴシック体", YuGothic;*/
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  border-radius: 90px;  
+  font-size: 40px;
+  font-weight: 600;
+  box-shadow: 0 0 10px gray;
+  padding-top: 28px;
+  padding-bottom: 34px;
+  text-align: center;
+  margin-left: 65px;
+  margin-bottom: 70px;
+
+/*  color: white;
+  background: #323333;*/
+
+  border: 4px solid black;
+  background-color: white;
+}
+.natto-btn:active {
+  width: 87%;
+  opacity: 1.0;
+  z-index: 2;
+/*  font-family: "游ゴシック体", YuGothic;*/
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  border-radius: 90px;  
+  font-size: 40px;
+  font-weight: 600;
+  box-shadow: 0 0 10px gray;
+  padding-top: 28px;
+  padding-bottom: 34px;
+  text-align: center;
+  margin-left: 65px;
+  margin-bottom: 70px;
+  color: white;
+/*  color: white;
+  background: #323333;*/
+
+  background-color: black;
+}
+
+.black {
+  color: black;
+}
+.black:active {
+  color: white;
+  text-decoration: none;
+} 
+
+.btn-first {
+  position: absolute;
+  bottom: -150px;
+  left: 0px;
+}
+
+.btn-second {
+  position: absolute;
+  bottom: -140px;
+  left: 10px;
+}
+.btn-third {
+  position: absolute;
+  top: -60px;
+  left: 10px;
+}
+
+
+.resizeimage img { width: 100%; }
+
+
+main-body {
+background-image: linear-gradient(
+	-45deg,
+	#f5eeed 25%,
+	#f4e2de 25%,
+	#f4e2de 50%,
+	#f5eeed 50%,
+	#f5eeed 75%,
+	#f4e2de 75%,
+	#f4e2de
+);
+background-size: 30px 30px;
+background-attachment: fixed;
+}
+
+.naname-stripe {
+  background-image: linear-gradient(-45deg,
+    #fff 25%, #000 25%, #000 50%, #fff 50%, #fff 75%,#000 75%, #000
+  );
+  background-size: 4px 4px;
+}
+
+.shimashima{
+
+background: repeating-linear-gradient(60deg,
+ #ffec67, #ffec67 20px, #ffee73 20px, #ffee73 40px);
+}
+
+.naname-stripe2 {
+  background: repeating-linear-gradient(
+    45deg,    
+    #fff,      
+    #fff 3px,  
+    #000 3px,     
+    #000 6px    
+  );
+}
+.lp_font {
+ font-size: 50px;
+ font-weight: 600;
+/*font-family: "游ゴシック体", YuGothic;*/
+font-family: sans-serif;
+ color: #333333;
+ line-height: 1.9;
+}
+
+.lp_font_mini{
+  font-size: 45px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+.lp_font_mini_mini{
+  font-size: 37px;
+  font-weight: 600;
+}
+
+.font-border{
+  border-bottom: solid 4px #EF4848;
+  line-height: 1.7;
+  padding-left: 5px;
+}
+
+.comment {
+  position: relative;
+  font-family: sans-serif;
+  line-height: 1.7;
+  font-weight: 600;
+}
+.line-height {
+  line-height: 1.7;
+  }
+.parent_a {
+  position: relative;
+  padding: 30px;
+  margin-bottom: 480px;
+}
+.parent_b {
+  position: relative;
+  padding: 30px;
+  margin-bottom: 430px;
+}
+.parent_c {
+  position: relative;
+  padding: 30px;
+  margin-bottom: 330px;
+}
+
+.parent {
+  position: relative;
+}
+
+
+.botton {
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  z-index: 10;
+}
+
+.triangle{
+  position: absolute;
+  left: 19%;
+  border-top: 180px solid white;
+  border-right: 300px solid transparent;
+  border-left: 300px solid transparent;
+}
+
+.comment {
+  position: absolute;
+  top: 480px;
+  margin: auto 0;
+  opacity:0.9; 
+  color: white;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 40px;
+  width: 93%;
+  padding: 25px;
+}
+.comment_a {
+  position: absolute;
+  top: 500px;
+  opacity:0.9; 
+  color: white;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 40px;
+  width: 93%;
+  padding: 25px;
+}
+.comment_b {
+  position: absolute;
+  top: 590px;
+  margin: auto 0;
+  opacity:0.9; 
+  line-height: 1.7;
+  color: white;
+  font-weight: 500;
+  font-size: 40px;
+  width: 93%;
+  padding: 25px;
+}
+
+.red {
+    background-color: #EF4848;
+}
+
+.green {
+   background-color: #91D656;
+}
+
+
+.blue {
+   background-color: #54C4D6;
+}
+

@@ -9,6 +9,10 @@ class HomeController < ApplicationController
 
     # @show_mini_events = MiniEvent.where(open: true)
     @show_mini_events = MiniEvent.where(open: true).where(finish: false)
+    # Event id != 282
+    #binding.pry
+    @show_mini_events.to_a.push(@events.to_a)
+
     if News.count >= 3
       @news = News.first(3)
     else
@@ -30,7 +34,7 @@ class HomeController < ApplicationController
   	@quests = Quest.all
   	@schools = School.all
 
-
+    @students = Student.all
     student_groups = StudentGroup.all
 
     category = []
@@ -47,6 +51,15 @@ class HomeController < ApplicationController
       f.xAxis(categories: category)
       f.series(name: '登録者数', data: current_quantity)
     end
+
+    # 全てのイベントとその参加者一覧のcsvを出力
+    respond_to do |format|
+      format.html
+      format.csv do
+        admin_all_event_csv
+      end
+    end
+
   end
 
 
@@ -86,6 +99,33 @@ class HomeController < ApplicationController
 
   end
 
+  # 全てのイベントの参加者を表示
+  def admin_all_event_csv
+    # csv_data = CSV.generate(encoding: Encoding::SJIS, row_sep: "\r\n", force_quotes: true) do |csv|
+    csv_data = CSV.generate(row_sep: "\r\n", force_quotes: true) do |csv|
+      events = Event.all
+      events.each do |e|
+        event_date = "#{e.event_time.year}" + "年" + "#{e.event_time.month}" + "月" + "#{e.event_time.day}" + "日"
+        column_names = [e.event_company_name, e.event_president, event_date]
+        csv << column_names
+        tags = EventApplyTag.where(event_id: e.id)
+        tags.each do |t|
+          name = t.student.first_name + t.student.last_name
+          email = t.student.email
+          # if t.event_customer.check
+          #   ok = "◯"
+          # else
+          #    ok = "×"
+          # end
+          school = t.student.school.school_name
+          # infos << [name, email, ok, school]
+          column_values = [name, email, school]
+          csv << column_values
+        end
+      end
+    end
+    send_data(csv_data,filename: "all_event_customer.csv")
+  end
 
   def admin_event_csv
     # csv_data = CSV.generate(encoding: Encoding::SJIS, row_sep: "\r\n", force_quotes: true) do |csv|
@@ -106,26 +146,9 @@ class HomeController < ApplicationController
     send_data(csv_data,filename: "#{@event.event_select}.csv")
   end
 
-  def admin_mini_event
-    @mini_events = MiniEvent.where(finish: false)
-    @hash = {}
-    MiniEvent.all.each do |me|
-      @hash.merge!(me.title => MiniEventCustomer.where(mini_event_id: me.id))
-    end
-
-    respond_to do |format|
-      format.html
-      format.csv do
-        admin_mini_event_csv
-      end
-    end
-
-  end
-
-
   def admin_mini_event_csv
     # csv_data = CSV.generate do |csv|
-    csv_data = CSV.generate(encoding: Encoding::SJIS, row_sep: "\r\n", force_quotes: true) do |csv|
+    csv_data = CSV.generate(row_sep: "\r\n", force_quotes: true) do |csv|
       @mini_event = MiniEvent.find(params[:mini_event_id])
       @users = MiniEventCustomer.where(mini_event_id: params[:mini_event_id])
       csv_column_names = ["名前","電話番号","メールアドレス"]
@@ -142,9 +165,25 @@ class HomeController < ApplicationController
     send_data(csv_data,filename: "#{@mini_event.mini_event_name}.csv")
   end
 
+  def admin_mini_event
+    @mini_events = MiniEvent.where(finish: false)
+    @hash = {}
+    MiniEvent.all.each do |me|
+      @hash.merge!(me.title => MiniEventCustomer.where(mini_event_id: me.id))
+    end
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        admin_mini_event_csv
+      end
+    end
+
+  end
+
   def event_send_mail
     @event_customers = EventCustomer.where(event_id: params[:id])
-    binding.pry
+    #binding.pry
     adresses = []
     @event_customers.each do |ec|
       adresses.push(ec.email)

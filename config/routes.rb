@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
  	get 'home/give_first_point'
 
+ 	get 'home/admin_all_event_csv'
+
  	get 'home/admin_event_csv'
 
  	get 'home/admin_mini_event_csv'

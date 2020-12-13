@@ -74,7 +74,7 @@
 						<div style="margin:0 auto;">
 							<!-- <div style="margin: 0 auto;"> -->
 							<a href="https://www.aichi-student-brand.com/">
-								<%= image_tag'brand_aichi.png',class: "aichi_brand_mobile_img" %>
+								<%#= image_tag'brand_aichi.png',class: "aichi_brand_mobile_img" %>
 							</a>
 						</div>
 					</div>
@@ -93,6 +93,34 @@
 						<div class="top_titles ">
 							<h5 id="mobile_top_titles_font">Nattoおすすめイベント(New)</h5>
 							<div class="top-title-inner">
+
+								<% @events.each do |e| %>
+									<%= link_to event_path(e.id) do %>
+									<div class="row mobile_mini_event_card">
+										<div class="col-md-5">		
+											<% if e.event_top_image.attached? %>
+												<%= image_tag e.event_top_image ,class: "event_card_img" %>
+											<% end %>
+										</div>
+										<div class="col-md-6">
+											<h5 id="mobile_moushikomi">
+											  	申し込み受付中
+											</h5>
+											<div class="mobile_mini_event_font">
+												<%= "【"+"#{e.event_time.month}"+"/"+"#{e.event_time.day}"+"】"%>
+											</div>
+											<div class="mobile_mini_event_font">
+												<%= e.event_name %>
+											</div>
+										</div>
+										<div class="col-md-1">				
+											<div class="mobile_mini_event_more">
+												▷			
+											</div>
+										</div>
+									</div>						
+									<% end %>									
+								<% end %>
 
 								<% @show_mini_events.each do |me| %>
 									<%= link_to mini_event_path(me.id) do %>

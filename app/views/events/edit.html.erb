@@ -33,24 +33,23 @@
 			●登壇者の顔写真
 			<%= f.file_field :president_image, accept: "image/png, image/jpeg, image/gif" %>
 			<br>
-			●登壇者の役職
-			<%= f.text_field :position, placeholder: "代表取締役" %>
-			<br>
-			●会社名または登壇者名
+			●企業・団体名
 			<%= f.text_field :event_company_name, placeholder: "株式会社浜西電気"  %>
 			<br>
-			●社長名または登壇者名
+			●役職
+			<%= f.text_field :position, placeholder: "代表取締役" %>
+			<br>
+			●氏名
 			<%= f.text_field :event_president, placeholder: "匹田　治樹様"  %>
+			<br>
+			●生年月日
+			<%= f.text_field :event_president_birth_day ,placeholder: "1997年10月26日" %>
 			<br>
 			●座右の銘
 			<%= f.text_field :event_motto, placeholder: "石橋を叩いて渡る"  %>
 			<br>
-			●登壇者の誕生日 【ガクショク】<br>
-			●会社の設立年月日【シャショク】
-			<%= f.text_field :event_president_birth_day ,placeholder: "1997年10月26日" %>
-			<br>
 			●イベント開催地
-			<%= f.text_field :event_location, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
+			<%= f.text_field :event_location,  :size => "80%" %>
 			<br>
 			●社会人参加応募先URL(Google Formで社会人参加用の応募フォームを事前に作ってください)
 			<%= f.text_field :other_participant_url, :size => "30*60" %><br>

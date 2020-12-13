@@ -60,6 +60,7 @@ Style.create(uuid: 4, name: "無料")
 Style.create(uuid: 5, name: "食事付き")
 
 
+<<<<<<< HEAD
 # Student.create(email: "a@gmail.com", password: "666666")
 # Student.create(email: "b@gmail.com", password: "666666")
 # Student.create(email: "c@gmail.com", password: "666666")
@@ -73,3 +74,9 @@ Style.create(uuid: 5, name: "食事付き")
 # MiniQuestionStudentGroup.create(mini_question_id: 1, student_group_id: 1)
 # MiniQuestionStudentGroup.create(mini_question_id: 1, student_group_id: 2)
 # MiniQuestionStudentGroup.create(mini_question_id: 2, student_group_id: 2)
+=======
+
+
+
+
+>>>>>>> 7c83f9e23d10c3ec552e53fc2a1ec239430b06b5

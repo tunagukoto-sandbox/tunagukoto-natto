@@ -9,13 +9,15 @@
 
   <div class="field">
     <%= f.label :お名前 %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-    <%= f.text_field :last_name, autofocus: true %>
+     姓
+    <%= f.text_field :first_name, autofocus: true, placeholder: "ツナグ" %>
+     名
+    <%= f.text_field :last_name, autofocus: true, placeholder: "コト" %>
   </div>
 
   <div class="field">
     <%= f.label :専攻または学部 %><br />
-    <%= f.text_field :major_subject, autofocus: true %>
+    <%= f.text_field :major_subject, autofocus: true, placeholder: "工学部" %>
   </div>
 
   <div class="field">
@@ -32,18 +34,13 @@
 
   <div class="field">
     <%= f.label :出身県 %><br />
-    <%= f.text_field :home_town, autofocus: true %>
+    <%= f.text_field :home_town, autofocus: true, placeholder: "愛知県" %>
   </div>
 
   <div class="field">
     <%= f.label :所属の部活またはサークル %><br />
-    <%= f.text_field :club, autofocus: true %>
+    <%= f.text_field :club, autofocus: true, placeholder: "野球部" %>
   </div>  
-
-  <div class="field">
-    <%= f.label :出身県 %><br />
-    <%= f.text_field :home_town, autofocus: true %>
-  </div>
 
   <div class="field">
     <%= f.label :アルバイトやインターンの経験 %><br />
@@ -83,7 +80,7 @@
 
 <p> <%#= button_to "編集をやめる", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete %></p>
 
-<%= link_to "戻る", :back, class:'btn btn-primary btn-lg' %>
+<%= link_to "戻る", root_path, class:'btn btn-primary btn-lg' %>
 </div>
 </div>
 <div class="col-sm-4 col-md-2"></div>
