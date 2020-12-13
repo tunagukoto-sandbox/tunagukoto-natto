@@ -2,7 +2,9 @@
 <% if admin_signed_in? %>
 <div class="padding-top"></div>
 <div class="padding-top"></div>
+<hr>
 <div>アンケートに答えた学生の総数は: <%= @answered_student %>名です </div>
+<hr>
 <div style="width: 90% ; text-align: center; margin: auto;">
 <%= high_chart("sample", @graph) %>
 </div>
