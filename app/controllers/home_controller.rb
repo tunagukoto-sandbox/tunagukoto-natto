@@ -45,6 +45,26 @@ class HomeController < ApplicationController
     end
     # アンケートに答えた学生
     @answered_student = Student.joins(:mini_question).count
+    # # アンケート答えた学生
+    # Student.joins(:mini_question).count
+    # # 学生団体の紹介から登録してくれたと答えた学生人数
+    # MiniQuestion.joins(:mini_question_student_groups).count
+
+    # # 登録増加数
+    # Student.where(created_at: (DateTime.new(2020,1,1))..(DateTime.new(2020,2,1))).count 19
+    # Student.where(created_at: (DateTime.new(2020,2,1))..(DateTime.new(2020,3,1))).count 10
+    # Student.where(created_at: (DateTime.new(2020,3,1))..(DateTime.new(2020,4,1))).count 10
+    # Student.where(created_at: (DateTime.new(2020,4,1))..(DateTime.new(2020,5,1))).count 5
+    # Student.where(created_at: (DateTime.new(2020,5,1))..(DateTime.new(2020,6,1))).count 1
+    # Student.where(created_at: (DateTime.new(2020,6,1))..(DateTime.new(2020,7,1))).count 8
+    # Student.where(created_at: (DateTime.new(2020,7,1))..(DateTime.new(2020,8,1))).count 9
+    # Student.where(created_at: (DateTime.new(2020,8,1))..(DateTime.new(2020,9,1))).count 3
+    # Student.where(created_at: (DateTime.new(2020,9,1))..(DateTime.new(2020,10,1))).count 29
+    # Student.where(created_at: (DateTime.new(2020,10,1))..(DateTime.new(2020,11,1))).count 5
+    # Student.where(created_at: (DateTime.new(2020,11,1))..(DateTime.new(2020,12,1))).count 4
+    # Student.where(created_at: (DateTime.new(2020,1,1))..(DateTime.new(2020,12,1))).count 103
+    # Student.joins(:mini_question).where(created_at: (DateTime.new(2020,1,1))..(DateTime.new(2020,12,1))).count
+    # Student.where(created_at: (DateTime.new(2020,1,1))..(DateTime.(2020,12,14))).count
 
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "#{Time.now.year}年#{Time.now.month}月の各学生団体ごとの登録状況")
