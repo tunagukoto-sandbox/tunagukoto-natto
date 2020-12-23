@@ -199,30 +199,62 @@
 					<%= image_tag'keijiban4.png',class: "keijiban" %>
 				<% end %>
 			</div><!-- container-fluid -->
-			<div class="container-fluid" style="padding-bottom: 20px; text-align: center;">
-				<div class="ibento">ツナグコトを知る</div>
 
+			<div class="container-fluid" style="padding-bottom: 20px;">
+				<div class="ibento">ツナグコトを知る</div>
 				<div class="card-center">
+					<%= link_to root_path do %>
+						<div class="card display-inline-block">
+							<%= image_tag 'tunagu-shiru3.png',class: "card-img-top" %>
+							<div class="card-body">
+								<h5 class="card-title">ツナグコトの歴史</h5>
+								<p class="card-text">カードのタイトルに基づいて、カードのコンテンツの大部分を占める簡単なサンプルテキスト。</p>
+							</div>
+						</div><!-- card display-inline-block -->
+					<% end %>
+
+					<%= link_to root_path do %>
+						<div class="card display-inline-block">
+							<%= image_tag 'tunagu-shiru1.png',class: "card-img-top" %>
+							<div class="card-body">
+								<h5 class="card-title">ツナグコトについて</h5>
+								<p class="card-text">カードのタイトルに基づいて、カードのコンテンツの大部分を占める簡単なサンプルテキスト。</p>
+							</div>
+						</div><!-- card display-inline-block -->
+					<% end %>
+
+					<%= link_to root_path do %>
+						<div class="card display-inline-block">
+							<%= image_tag 'tunagu-shiru2.png',class: "card-img-top" %>
+							<div class="card-body">
+								<h5 class="card-title">Nattoてなに？</h5>
+								<p class="card-text">カードのタイトルに基づいて、カードのコンテンツの大部分を占める簡単なサンプルテキスト。</p>
+							</div>
+						</div><!-- card display-inline-block -->
+					<% end %>
+				</div><!--  ard-center -->
+
+				<div class="card-center" style="text-align: center;">
 					<%= link_to home_interact_event_path do %>
-						<div class="top_manabi_kouryu light_green width_some">
+						<div class="tunagushiru light_green width_some">
 								コンテツ
 						</div>
 					<% end %>
 					<%= link_to home_studey_event_path do %>
-						<div class="top_manabi_kouryu light_green width_some">
+						<div class="tunagushiru light_green width_some">
 							インターン生の日常
 						</div>
 					<% end %>
 				</div><!-- card-center -->
 
-				<div class="card-center">
+				<div class="card-center" style="text-align: center;">
 					<%= link_to home_interact_event_path do %>
-						<div class="top_manabi_kouryu light_green width_some">
+						<div class="tunagushiru light_green width_some">
 							アクセス
 						</div>
 					<% end %>
 					<%= link_to home_studey_event_path do %>
-						<div class="top_manabi_kouryu light_green width_some">
+						<div class="tunagushiru light_green width_some">
 							オフィス
 						</div>
 					<% end %>
