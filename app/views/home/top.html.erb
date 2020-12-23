@@ -82,6 +82,7 @@
 
 			<div class="ibento" style="background-color: #F7F7F7;">イベント</div>
 			<div class="row" style="background-color: #F7F7F7;">
+				<% if !@last_events.nil? %>
 				<% @last_events.each do |e| %>
 					<div class="col-lg-3">
 						<%= link_to event_path(e.id) do  %>
@@ -109,6 +110,7 @@
 						<% end %><!-- link_to mini_event_path -->
 					</div><!--col-lg-3 -->
 				<% end %><!-- @last_events.each do |e| -->
+				<% end %>
 			</div><!-- row --><br>
 			
 			<div class="row" style="margin-bottom: 60px;">
@@ -151,7 +153,7 @@
 							</div>
 						<% end %><!-- link_to mini_event_path -->
 					</div><!--col-lg-3 -->
-				<% end %><!-- @last_events.each do |e| -->
+				<% end %><!-- Article.all.each -->
 				</div><!--  row -->
 				<div class="row" style="margin-bottom: 60px;">
 					<div class="card-center">
