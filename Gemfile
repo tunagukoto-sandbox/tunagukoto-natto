@@ -42,8 +42,9 @@ gem 'lazy_high_charts'
 # オフにする
 # ログインボタンを押しても、反応がない。
 # リロードしないとボタンクリックが反応しない
-
-# gem 'turbolinks', '~> 5' 
+# gem 'font-awesome-sass'
+gem 'font-awesome-rails'
+gem 'turbolinks', '~> 5' 
 
 # gem 'bxslider-rails'
 # gem 'owlcarousel-rails'

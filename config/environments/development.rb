@@ -41,7 +41,6 @@ Rails.application.configure do
   mail = 'tunagukoto@gmail.com'
   pass = 'uffjazekigdjggqh'
 
-  # config.action_mailer.default_url_options = { host: localhost, port: 3000 }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.smtp_settings = {
   enable_starttls_auto: true,

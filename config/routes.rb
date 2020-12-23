@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   	get 'home/comming_soon'
 
-  	get 'home/admin_mini_event'
+	get 'home/admin_mini_event'
+	get 'home/admin_event_all'
+	get 'home/admin_affiliate'
 
   	get 'home/questionnaire'
 
@@ -51,7 +53,6 @@ Rails.application.routes.draw do
 	resources :mini_events do
 		resources :mini_event_customers, only: [:new, :create]
 	end
-	# resources :mini_events
 
  	patch 'event_customer/update/:id', to: 'points#update_point_event', as: 'update_point_event'
  	patch 'event_customer/rollback/:id', to: 'points#rollback_point_event', as: 'rollback_point_event'
@@ -93,6 +94,7 @@ Rails.application.routes.draw do
 	
 	resources :events, only: [:show] do
 		resources :event_customers, only: [:new, :create]
+		resources :articles, only: [:new, :create]
 	end
 
 	resources :event_customers, only: [:new, :create, :destroy, :edit, :update]

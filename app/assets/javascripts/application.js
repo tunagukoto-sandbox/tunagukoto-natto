@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require activestorage
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require turbolinks
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs

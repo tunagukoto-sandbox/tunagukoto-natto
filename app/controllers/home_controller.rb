@@ -4,14 +4,22 @@ class HomeController < ApplicationController
   before_action :send_mini_question, except: [:questionnaire]
   def top
     @events = Event.where(finish: false)
+    @all_event = Event.where(finish: false).order(:created_at)
+    if @all_event.length >= 3
+      @last_events = @all_event[2..-1]
+    else
+      @last_events = nil
+    end
 
     @e_count = Event.where(finish: false).count - 1
-
-    # @show_mini_events = MiniEvent.where(open: true)
     @show_mini_events = MiniEvent.where(open: true).where(finish: false)
-    # Event id != 282
-    #binding.pry
-    @show_mini_events.to_a.push(@events.to_a)
+    @all_event.to_a.push(@show_mini_events.to_a)
+
+    # 一番直近のイベント(シャショク/ガクショク)
+    @latese_event = Event.where(finish: false).order(:created_at).limit(3)
+    @latese_event = @latese_event.first
+    @latese_sub_event = Event.where(finish: false).order(:created_at).limit(3)
+      
 
     if News.count >= 3
       @news = News.first(3)
@@ -29,49 +37,11 @@ class HomeController < ApplicationController
   end
 
   def admin_top
-    @events = Event.all
+    @events = Event.order(:created_at).limit(7)
     @mini_events = MiniEvent.all
   	@quests = Quest.all
   	@schools = School.all
-
     @students = Student.all
-    student_groups = StudentGroup.all
-
-    category = []
-    current_quantity = []
-    student_groups.each do |s|
-      category << s.name_ja
-      current_quantity << s.mini_questions.where(year: Time.now.year, month: Time.now.month).count
-    end
-    # アンケートに答えた学生
-    @answered_student = Student.joins(:mini_question).count
-    # # アンケート答えた学生
-    # Student.joins(:mini_question).count
-    # # 学生団体の紹介から登録してくれたと答えた学生人数
-    # MiniQuestion.joins(:mini_question_student_groups).count
-
-    # # 登録増加数
-    # Student.where(created_at: (DateTime.new(2020,1,1))..(DateTime.new(2020,2,1))).count 19
-    # Student.where(created_at: (DateTime.new(2020,2,1))..(DateTime.new(2020,3,1))).count 10
-    # Student.where(created_at: (DateTime.new(2020,3,1))..(DateTime.new(2020,4,1))).count 10
-    # Student.where(created_at: (DateTime.new(2020,4,1))..(DateTime.new(2020,5,1))).count 5
-    # Student.where(created_at: (DateTime.new(2020,5,1))..(DateTime.new(2020,6,1))).count 1
-    # Student.where(created_at: (DateTime.new(2020,6,1))..(DateTime.new(2020,7,1))).count 8
-    # Student.where(created_at: (DateTime.new(2020,7,1))..(DateTime.new(2020,8,1))).count 9
-    # Student.where(created_at: (DateTime.new(2020,8,1))..(DateTime.new(2020,9,1))).count 3
-    # Student.where(created_at: (DateTime.new(2020,9,1))..(DateTime.new(2020,10,1))).count 29
-    # Student.where(created_at: (DateTime.new(2020,10,1))..(DateTime.new(2020,11,1))).count 5
-    # Student.where(created_at: (DateTime.new(2020,11,1))..(DateTime.new(2020,12,1))).count 4
-    # Student.where(created_at: (DateTime.new(2020,1,1))..(DateTime.new(2020,12,1))).count 103
-    # Student.joins(:mini_question).where(created_at: (DateTime.new(2020,1,1))..(DateTime.new(2020,12,1))).count
-    # Student.where(created_at: (DateTime.new(2020,1,1))..(DateTime.(2020,12,14))).count
-
-    @graph = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(text: "#{Time.now.year}年#{Time.now.month}月の各学生団体ごとの登録状況")
-      f.xAxis(categories: category)
-      f.series(name: '登録者数', data: current_quantity)
-    end
-
     # 全てのイベントとその参加者一覧のcsvを出力
     respond_to do |format|
       format.html
@@ -79,15 +49,36 @@ class HomeController < ApplicationController
         admin_all_event_csv
       end
     end
-
   end
 
+  def admin_event_all
+    @events = Event.all
+  end
+
+  def admin_affiliate
+    category = []
+    current_quantity = []
+    student_groups = StudentGroup.all
+    student_groups.each do |s|
+      category << s.name_ja
+      current_quantity << s.mini_questions.where(year: Time.now.year, month: Time.now.month).count
+    end
+    # アンケートに答えた学生
+    @answered_student = Student.joins(:mini_question).count
+    # # 学生団体の紹介から登録してくれたと答えた学生人数
+    @answered_student_intro =  MiniQuestion.joins(:mini_question_student_groups).count
+
+    @graph = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(text: "#{Time.now.year}年#{Time.now.month}月の各学生団体ごとの登録状況")
+      f.xAxis(categories: category)
+      f.series(name: '登録者数', data: current_quantity)
+    end
+  end
 
   def give_first_point
     students = Student.all
     students.each do |s|
       if s.point.nil?
-
         point = Point.new(student_id: s.id, student_name: "#{s.first_name} + #{s.last_name}",  max_point: 0, having_point: 0)
         point.max_point = 5000
         point.having_point = 5000
@@ -109,7 +100,6 @@ class HomeController < ApplicationController
     Event.all.each do |e|
       @hash.merge!(e.event_name => EventCustomer.where(event_id: e.id))
     end
-
     respond_to do |format|
       format.html
       format.csv do
@@ -132,13 +122,7 @@ class HomeController < ApplicationController
         tags.each do |t|
           name = t.student.first_name + t.student.last_name
           email = t.student.email
-          # if t.event_customer.check
-          #   ok = "◯"
-          # else
-          #    ok = "×"
-          # end
           school = t.student.school.school_name
-          # infos << [name, email, ok, school]
           column_values = [name, email, school]
           csv << column_values
         end
@@ -203,7 +187,6 @@ class HomeController < ApplicationController
 
   def event_send_mail
     @event_customers = EventCustomer.where(event_id: params[:id])
-    #binding.pry
     adresses = []
     @event_customers.each do |ec|
       adresses.push(ec.email)
@@ -253,12 +236,11 @@ class HomeController < ApplicationController
 
   def questionnaire
     @mini_question = MiniQuestion.new
-    # @student_groups = StudentGroup.all
   end
 
   def landing_page
-    
   end
+
 end
 
 

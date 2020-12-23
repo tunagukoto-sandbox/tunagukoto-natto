@@ -4,8 +4,13 @@
 }
 .sns{
     background-size:contain;                 /* 画像のサイズを指定    */
-    width:50px;                              /* 横幅のサイズを指定    */
+    /* width:50px;   */
+    width:3%;                             /* 横幅のサイズを指定    */
     height:auto;  
+}
+
+.width_big {
+    width:4%; 
 }
 
 h1#student_count{
@@ -49,6 +54,12 @@ p#news  {
 }
 .right{
       text-align: right;
+      margin: 0 0 0 auto;
+}
+
+.left {
+    text-align: left;
+    margin-right: auto;
 }
 
 .divided_border{
@@ -136,7 +147,6 @@ h5#mobile_moushikomi{
     color: #555555;
 }
 
-
 .event_menus{
     text-decoration: none;
     color:#555555;
@@ -153,8 +163,7 @@ h5#mobile_moushikomi{
 }
 
 
-
- .padding_full{
+.padding_full{
     padding-bottom: 500px;
  }
 
@@ -275,4 +284,229 @@ h5#mobile_moushikomi{
     background-size:contain;                 /* 画像のサイズを指定    */
     width:800px;                              /* 横幅のサイズを指定    */
     height:auto;  
+}
+
+
+/* .top_event_box_main:hover {text-decoration: none;} */
+
+.event_type_tag_frame {
+    width: 20%;
+    margin: 0 0 0 auto;
+    text-align: right;
+    border-radius: 20px;
+    background-color: violet;
+    padding: 7px 20px;
+    margin-right: 5px;
+}
+
+.event_type_tag_frame_mini {
+    width: 40%;
+    margin: 0 0 0 auto;
+    text-align: center;
+    border-radius: 20px;
+    background-color: violet;
+    margin-right: 5px;
+    padding: 9px 15px;
+    font-size: 13px;
+}
+.blank {
+    padding: 10px;
+}
+
+.black {
+    color: black;
+}
+.black_mini {
+    font-size: 1.0em;
+    color: black;
+}
+
+.card_sub_mini {
+    font-size: 1.0em;
+    color: black;
+
+}
+
+.top_event_box_main {
+    width: 400%;
+    background-color: #EEEEEE;
+    margin: 2%;
+    text-decoration: none;
+    
+}
+
+.top_event_box_main_card {
+    width: 40%; 
+    background-color: #EEEEEE;
+    display: inline-block;
+    margin: 1%;
+}
+
+.card-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top_event_box_sub_card {
+    width: 25%; 
+    background-color: #EEEEEE;
+    display: inline-block;
+    margin: 1%;
+}
+.mini {
+    display: inline-block;
+    width: 20%;
+}
+
+.top_event_box_main_img {
+    width: 100%;
+    text-decoration: none;
+}
+.non_linked {
+    text-decoration: none;
+    color: black;
+}
+.non_linked:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.day_box {
+    width: 100%;
+    padding: 10px 40px;
+}
+.day_deail_box {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.day_title_box {
+    font-size: 1.6em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.inlne_block {
+    display: inline-block;
+}
+
+
+.padding_left {
+    padding-left: 50px;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+.card-img-top-hight {
+    height: 180px;
+}
+
+.tag_and_sub_tag_box {
+    /* margin: 30px 30px; */
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 0.6em;
+    text-align: center;
+}
+
+p.sample3 {
+    margin: 30px 30px;
+    padding: 10px;
+    border: medium solid #ff00ff;
+}
+.tile {
+    width: 100%;
+    text-align: left;
+    background-color: #CCCCCC;
+    font-size: 0.7em;
+    font-weight: 400;
+    padding: 10px;
+    
+}
+
+.new_show_font {
+    font-size: 17px;
+}
+
+.bold {
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.pa_little {
+    padding-top: 10px;
+
+}
+
+.card-img-top_face {
+    width: 160px;
+    height: 160px;
+    text-align: left;
+}
+
+.moushikomi_button {
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 40px;
+    margin: 10px 40px;
+}
+
+.top_manabi_kouryu {
+    /* width: 40%; */
+    border-radius: 10px;
+    color: white;
+    font-size: 1.4em;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 10px 40px;
+}
+
+.red {
+    background-color: rgb(164,194,126)　;
+}
+.blue {
+    background-color: rgb(76,134,183);
+}
+.green {
+    background-color: rgb(154,184,115);
+    
+}
+.light_green {
+    background-color: rgb(164,194,126);
+}
+
+.text_right {
+    text-align: right;
+
+}
+
+.ibento {
+    text-align: center;
+    padding: 30px 50px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.sha_gaku {
+    line-height: 170%;
+    padding-bottom: 20px;
+}
+
+.kugiri {
+    border-right: 1px solid grey;
+}
+
+.read_button {
+    background-color: 	#C0C0C0;
+    color: white;
+    text-align: center;
+    width: 40%;
+    border-radius: 10px;
 }

@@ -86,11 +86,15 @@
                     </a>
                 </span>
                 <span class="header-right">
-                    <div class="guest">ようこそゲストさん</div>
+                  <a href="https://twitter.com/tunagukoto_">
+                    <%= image_tag'twitter.png',class: "twiiter" %>
+                  </a>
+                  <a href="https://www.instagram.com/tunagukoto_/">
+                    <%= image_tag'instagram.png',class: "twiiter" %>
+                  </a>	
                     <div class="guest margin-right-fifty">
-                        <%= link_to "▶︎ ログイン・学生登録", new_student_session_path %></div>
                     <div class="guest">
-                        <%= link_to "ツナグコトHP", 'http://tunagu.or.jp/', class: "tunagu-header" %>
+                        <%= link_to "▶︎ ログイン・学生登録", new_student_session_path, class: "tunagu-header" %>
                     </div>
                 </span>
             </div>

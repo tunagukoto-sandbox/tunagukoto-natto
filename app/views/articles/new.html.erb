@@ -1,0 +1,28 @@
+event_articles POST   /events/:event_id/articles(.:format)                          articles#create
+new_event_article GET    /events/:event_id/articles/new(.:format)                       articles#new
+
+
+<% if admin_signed_in? %>
+	<div class="container">
+	<%= form_for @article, url: event_articles_path(event_id: params[:event_id]), method: :post  do |f| %>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			●タイトル<br>
+			<%= f.text_field :title, placeholder: "ここにタイトルを入力してください", :size => "80%" %><br>
+
+			●URL <br>
+			<%= f.text_field :linked_url, placeholder: "ここにURLを入力してください"  %><br>
+			<br>
+
+            ●登壇者の顔写真
+			<%= f.file_field :img, accept: "image/png, image/jpeg, image/gif" %>
+
+			<%=f.submit '記事を発行する', class: 'btn btn-primary btn-lg btn-block' %>
+			</div>
+			</div>
+		<%end%>
+	</div>
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

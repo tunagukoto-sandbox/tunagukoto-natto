@@ -14,18 +14,15 @@
 		<%= @event.event_time.day %>日
 		<%= @event.event_time_detail %>〜
 	</div>
-
 	<div class="mobile_apply_font text_underline">
 		申し込み受付中
 	</div>
 	<div class="mobile_apply_font">
 		(無料)
 	</div>
-
 	<% if @event.event_top_image.attached? %>
 		<%= image_tag @event.event_top_image, class: "mobile_img_css" %>
 	<% end %>
-
 	<div class="row">
 		<% @sub_tags.each do |st| %>
 			<div class="col-xs-6">

@@ -1,9 +1,6 @@
 .header{
 	height: auto;
-	/*background-color:#D6D6D652;*/
 	background-color: white;
-    box-shadow:0.1px 0.1px 10px;
-    border:0.2px solid grey;
 }
 
 .inner-header{
@@ -20,19 +17,24 @@
 }
 
 .header-right{
+
 	margin: 0 0 0 auto;	
 	align-items: right;
 }
 
 .right-padding{
-	padding-right: 600px;
+	/* padding-right: 600px; */
+	padding-right: 60%;
 }
 
 .tunagu-header{
-	padding: 10px;
-	background-color: #4DA067;
+	padding: 10px 20px;
+	text-align: center;
+	background-color: #94d474;
+	border-radius: 7px;
 	color: white;
 	padding-left: 5px;
+	font-size: 1.2em;
 }
 
 .margin-right-fifty{
@@ -60,7 +62,25 @@
 .natto{
 	padding-top: 10px;
     background-size:contain;             
-    height: 80px;
-    width: auto; 
+    height: 100px;
+	width: auto; 
+	
 } 
 
+.keijiban {
+	padding-top: 10px;
+    background-size:contain;             
+	width: 40%; 
+	margin: 10px;
+} 
+
+
+.link_color {
+	color: grey;
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+.width_some {
+	width: 25%;
+}

@@ -1,0 +1,78 @@
+<% if admin_signed_in? %>
+<div class="container-lg">
+<div class="row">
+    <div class="col-lg-3 kugiri" style="padding-left: 60px;">
+        <%= link_to new_event_path do  %>
+            <div class="non_linked admin_menu_tags">
+                <i class="fa fa-pencil fa-2x"></i>ツナグおすすめイベントの発行
+            </div>
+        <% end %>
+        <%= link_to new_quest_path do  %>
+            <div class="non_linked admin_menu_tags">
+                <i class="fa fa-pencil fa-2x"></i>仕事の発行
+            </div>
+        <% end %>
+        <%= link_to new_news_path do  %>
+            <div class="non_linked admin_menu_tags">
+                <i class="fa fa-pencil fa-2x"></i>ニュースの発行
+            </div>
+        <% end %>
+        <%= link_to new_news_path do  %>
+            <div class="non_linked admin_menu_tags">
+                <i class="fa fa-pencil fa-2x"></i>登録者推移
+            </div>
+        <% end %>
+        <%= link_to new_sub_tag_path do  %>
+            <div class="non_linked admin_menu_tags">
+                <i class="fa fa-pencil fa-2x"></i>イベントタグ発行
+            </div>
+        <% end %>
+        <%= link_to new_school_path do  %>
+            <div class="non_linked admin_menu_tags">
+                <i class="fa fa-pencil fa-2x"></i>大学タグの発行
+            </div>
+        <% end %>
+        <%= link_to student_page_index_path do  %>
+            <div class="non_linked admin_menu_tags">
+                <i class="fa fa-pencil fa-2x"></i>学生アカウント一覧
+            </div>
+        <% end %>
+    </div>
+    <div class="col-lg-8" style="padding-right: 60px; margin-left: 15px;">
+        <h3 style="text-align: center; font-weight: 400;">イベント一覧</h3>
+        <div class="row">
+            <table class="table">
+                <%  @events.each do |e|%>
+                    <tbody>
+                        <tr>
+                        <td>
+                            <% if e.finish %>
+                                <div class="btn btn-danger">終了したイベントです</div>
+                            <% else %>
+                                <div class="btn btn-success">まだ終了していません</div>
+                            <% end %>
+                        </td>
+                        <td><%= link_to "参加者を確認する", home_admin_event_path ,class: "btn btn-danger" %></td>
+                        <td><%= link_to "#{e.event_select}", event_path(e.id) %></td>
+                        <td><%= e.event_time %>/<%= e.event_time_detail %></td>
+                        <td>
+                            <% if e.article.nil? %>
+                                <%= link_to "記事を作成", new_event_article_path(event_id: e.id), class: "btn btn-primary" %>
+                            <% else %>
+                                <%= link_to "記事を確認", "#{e.article.linked_url}", class: "btn btn-info" %>
+                                    <% if e.article.img.attached? %>
+                                        <%= image_tag e.article.img , class: "card-img-top_face"%>
+                                    <% end %>
+                            <% end %>
+                        </td>
+                        </tr>
+                    </tbody>
+                <% end %>
+            </table>
+        </div><!--  row -->
+    </div><!--  <div class="col-lg-8" style="padding-right: 60px; margin-left: 15px;"> -->
+</div><!--  <div class="row"> -->
+</div><!--  <div class="container-lg"> -->
+<% end %>
+
+

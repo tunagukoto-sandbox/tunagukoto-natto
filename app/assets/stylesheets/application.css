@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 @media screen and (max-width: 980px) {
@@ -29,6 +30,9 @@
 }
 
 
+.background_while {
+	background-color: white;
+}
 .color-white {
 	background-color: white;
 	border-radius: 20px;

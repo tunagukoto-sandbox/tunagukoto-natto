@@ -1,0 +1,126 @@
+<% if admin_signed_in? %>
+    <%= link_to "編   集", edit_event_path(@event.id), class: "btn btn-info btn-block" %>
+    <%#= link_to "削　　除", event_path(@event.id),method: :delete, class: "btn btn-success btn-block", data: { confirm: '削除しますか？' } %>
+    <%= button_to "(New)削　　除", event_path(@event.id),method: :delete, class: "btn btn-success btn-block", data: { confirm: '削除しますか？' } %>
+<% end %>
+<div class="ibento">イベント</div>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+    <div>開催日: <%= @event.event_time.year %>.<%= @event.event_time.month %>.<%= @event.event_time.day %> 
+    <span class="right"><%= link_to "イベント一覧に戻る", root_path%></span>
+    </div>
+    <h4><%= @event.tag.tag_name %>開催!!<%= @event.event_title %><hr>
+
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-lg-5">
+            <% if @event.event_show_image.attached? %>
+                <%= image_tag @event.event_show_image , class: "card-img-top"%>
+            <% end %>
+        </div>
+        <div class="col-lg-7">
+            <h5><%= @event.tag.tag_name %>ってどんなイベント？</h5>
+            <h6 class="sha_gaku"><%= @event.tag.tag_info %></h6>
+            <h6  class="sha_gaku"><%= @event.tag.tag_body %></h6>
+
+            <h5>日時: <%= @event.event_time.year %>.<%= @event.event_time.month %>.<%= @event.event_time.day %> <%= @event.event_time_detail %></h5>
+            <h5>会場: <%= @event.event_location %></h5>
+            <h5>住所: <%= @event.event_location %></h5>
+            <h5>定員: 先着<%= @event.event_population %>名</h5>
+            <br><br><br>
+            <h6>お問い合わせ: 一般社団法人ツナグコト</h6>
+            <h6>Email: tunagu-info@tunagu.or.jp   TEL: 052-908-4070</h6>
+            <br>
+            <div class="row"> 
+                <% @event.styles.each do |e| %>
+                    <div class="col-lg-3 ">   
+                    <div class="tag_and_sub_tag_box">
+                        <%= e.name %>
+                    </div>
+                    </div>
+                <% end %>
+                <% @event.sub_tags.each do |e| %>
+                <div class="col-lg-3">   
+                    <div class=" tag_and_sub_tag_box">
+                        <%= e.sub_tag_name %>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="tile" style="margin-top: 70px;">参加要項</div>
+
+        <div class="row new_show_font" style="padding-bottom: 20px;">
+            <div class="col-lg-3 bold">学生</div>
+            <div class="col-lg-8 pa_little">
+                <% @event.styles.each do |e| %>  
+                        <%= e.name %>&nbsp;
+                <% end %>
+                <% @event.sub_tags.each do |e| %>
+                        <%= e.sub_tag_name %>&nbsp;
+                <% end %>
+            </div>
+            <div class="col-lg-3 bold">社会人</div>
+            <div class="col-lg-8 pa_little">
+               <% @event.styles.each do |e| %>  
+                        <%= e.name %>&nbsp;
+                <% end %>
+                <% @event.sub_tags.each do |e| %>
+                        <%= e.sub_tag_name %>&nbsp;
+                <% end %>
+            </div>
+            <div class="col-lg-3 bold">獲得ポイント</div>
+            <div class="col-lg-8 pa_little">
+                <%= @event.get_point %>P
+            </div>
+        </div>
+
+        <div class="tile" style="margin:30px 0px;">登壇企業について</div>
+        <div class="new_show_font"><%= @event.event_description %></div>
+        <div class="tile" style="margin:30px 0px;">登壇者情報</div>
+        <div class="row new_show_font">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-5 pa_little">企業名</div>
+                    <div class="col-lg-7 pa_little"><%= @event.event_company_name %></div>
+                    <div class="col-lg-5 pa_little">役職</div>
+                    <div class="col-lg-7 pa_little"><%= @event.position %></div>
+                    <div class="col-lg-5 pa_little">登壇者</div>
+                    <div class="col-lg-7 pa_little"><%= @event.event_president %></div>
+                    <div class="col-lg-5 pa_little">生年月日</div>
+                    <div class="col-lg-7 pa_little"><%= @event.event_president_birth_day %></div>
+                    <div class="col-lg-5 pa_little">座右の銘</div>
+                    <div class="col-lg-7 pa_little"><%= @event.event_motto %></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <% if @event.president_image.attached? %>
+                    <%= image_tag @event.president_image , class: "card-img-top_face"%>
+                <% end %>
+            </div>
+        </div>
+        <div class="tile" style="margin:30px 0px;">備考</div>
+        <div class="row card-center">
+                <%= link_to new_event_event_customer_path(event_id: @event.id) do %>
+                    <div class="moushikomi_button red">
+                        <h6>学生はこちらから</h6>
+                        <h5>申し込む</h5>
+                    </div>
+				<% end %>
+                <%= link_to "#{@event.other_participant_url}" do %>
+                    <div class="moushikomi_button blue">
+                        <h6>社会人はこちらから</h6>
+                        <h5>申し込む</h5>
+                    </div>
+				<% end %>
+                <%= link_to root_path do %>
+                    <div class="moushikomi_button green">
+                        <h6>会員企業はこちらから</h6>
+                        <h5>申し込む</h5>
+                    </div>
+				<% end %>
+        </div>
+    </div>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
