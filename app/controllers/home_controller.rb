@@ -68,6 +68,13 @@ class HomeController < ApplicationController
     # # 学生団体の紹介から登録してくれたと答えた学生人数
     @answered_student_intro =  MiniQuestion.joins(:mini_question_student_groups).count
 
+    all_category = []
+    all_current_quantity = []
+    student_groups.each do |s|
+      all_category << s.name_ja
+      all_current_quantity << s.mini_questions.count
+    end
+
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "#{Time.now.year}年#{Time.now.month}月の各学生団体ごとの登録状況")
       f.xAxis(categories: category)
