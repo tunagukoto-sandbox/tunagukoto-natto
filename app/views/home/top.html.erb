@@ -56,7 +56,16 @@
 									<%= image_tag e.event_top_image ,class: "bd-placeholder-img card-img-top" %>
 								<% end %>
 								<div class="card-body">
-									<div class="event_type_tag_frame non_linked right">ああああ</div>
+									<% if e.tag.uuid == 1 %>
+										<span class="event_type_tag_frame non_linked right e_sha"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 2 %>
+										<span class="event_type_tag_frame non_linked right e_ga"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 3 %>
+										<span class="event_type_tag_frame non_linked right e_kya"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 4 %>
+										<span class="event_type_tag_frame non_linked right e_other"><%= e.tag.tag_name %></span>
+									<% end %>
+									<p class="card-text"></p>
 									<h5 class="card-title black"><%= "#{e.event_time.year}"+ "."+ "#{e.event_time.month}"+"."+ "#{e.event_time.day}" %></h5>
 									<p class="card-text black" style="font-size: 1.6em;"><%= "#{e.event_name}" %></p>
 								</div><!--  -->
@@ -69,7 +78,16 @@
 									<%= image_tag e.event_top_image ,class: "bd-placeholder-img card-img-top" %>
 								<% end %>
 								<div class="card-body">
-									<div class="event_type_tag_frame_mini non_linked right">ああああ</div>
+									<% if e.tag.uuid == 1 %>
+										<span class="event_type_tag_frame_mini non_linked right e_sha"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 2 %>
+										<span class="event_type_tag_frame_mini non_linked right e_ga"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 3 %>
+										<span class="event_type_tag_frame_mini non_linked right e_kya"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 4 %>
+										<span class="event_type_tag_frame_mini non_linked right e_other"><%= e.tag.tag_name %></span>
+									<% end %>
+									<p class="card-text"></p>
 									<h5 class="card-title black_mini"><%= "#{e.event_time.year}"+ "."+ "#{e.event_time.month}"+"."+ "#{e.event_time.day}" %></h5>
 									<p class="card-text black" style="font-size: 1.3em;"><%= "#{e.event_name}" %></p>
 								</div><!-- card-body -->
@@ -91,7 +109,16 @@
 									<%= image_tag e.event_top_image ,class: "bd-placeholder-img card-img-top card-img-top-hight" %>
 								<% end %>
 								<div class="card-body">
-									<div class="event_type_tag_frame_mini non_linked left">いいいい</div>
+									<% if e.tag.uuid == 1 %>
+										<span class="event_type_tag_frame_mini non_linked right e_sha"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 2 %>
+										<span class="event_type_tag_frame_mini non_linked right e_ga"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 3 %>
+										<span class="event_type_tag_frame_mini non_linked right e_kya"><%= e.tag.tag_name %></span>
+									<% elsif e.tag.uuid == 4 %>
+										<span class="event_type_tag_frame_mini non_linked right e_other"><%= e.tag.tag_name %></span>
+									<% end %>
+
 									<p class="card-text"></p>
 
 									<div class="pa_little">
@@ -134,15 +161,23 @@
 					<% Article.all.each do |e| %>
 					<div class="col-lg-3">
 						<%= link_to "#{e.linked_url}" do  %>
-							<div class="card"  style="width: 93%; display: inline-block; margin-bottom: 20px;">
-								<% if e.img.attached? %>
-									<%= image_tag e.img ,class: "bd-placeholder-img card-img-top card-img-top-hight" %>
+							<div class="card"  style="width: 93%; display: inline-block; margin-bottom: 20px; background-color: #F7F7F7;">
+								<% if e.article_img.attached? %>
+									<%= image_tag e.article_img ,class: "bd-placeholder-img card-img-top card-img-top-hight" %>
 								<% end %>
 								<div class="card-body">
-									<div class="event_type_tag_frame_mini non_linked left">いいいい</div>
+									<% if e.event.tag.uuid == 1 %>
+										<span class="event_type_tag_frame_mini non_linked left e_sha"><%= e.event.tag.tag_name %></span>
+									<% elsif e.event.tag.uuid == 2 %>
+										<span class="event_type_tag_frame_mini non_linked left e_ga"><%= e.event.tag.tag_name %></span>
+									<% elsif e.event.tag.uuid == 3 %>
+										<span class="event_type_tag_frame_mini non_linked left e_kya"><%= e.event.tag.tag_name %></span>
+									<% elsif e.event.tag.uuid == 4 %>
+										<span class="event_type_tag_frame_mini non_linked left e_other"><%= e.event.tag.tag_name %></span>
+									<% end %>
 									<p class="card-text"></p>
 									<h5 class="card-title card_sub_mini"><%= "#{e.event.event_time.year}"+ "."+ "#{e.event.event_time.month}"+"."+ "#{e.event.event_time.day}" %></h5>
-									<div class="pa_little">
+									<div class="pa_little non_linked">
 										<%= e.event.event_title %>
 									</div>
 									<h5 class="card-title card_sub_mini"><%= e.event.event_company_name %></h5>
@@ -155,6 +190,7 @@
 					</div><!--col-lg-3 -->
 				<% end %><!-- Article.all.each -->
 				</div><!--  row -->
+
 				<div class="row" style="margin-bottom: 60px;">
 					<div class="card-center">
 						<%= link_to "https://tunagukoto.hatenablog.jp/" do %>
@@ -166,7 +202,7 @@
 				</div><!-- row -->
 			</div><!-- container-fluid -->
 
-			<div class="container-fluid " style="padding-bottom: 20px;">
+			<div class="container-fluid" style="padding-bottom: 20px;">
 				<div class="ibento">ニュース</div>
 					<% News.last(5).each do |n| %>
 						<%= link_to news_path(id: n.id) do %>

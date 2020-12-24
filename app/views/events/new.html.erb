@@ -1,44 +1,39 @@
 <% if admin_signed_in?  %>
-<%#= image_tag'event_sample.png', class: "img-full-responsive" %>
 <%= form_for @event do |f| %>
-	<div class="container">
-	<div class="col-md-3"></div>
-		<div class="col-md-8">
+	<div class="container-fluid">
+		<div class="row">
+		<div class="col-lg-3"></div>
+		<div class="col-lg-7">
 			<h3 style="text-align: center;"> イベント発行</h3>
-			<h4 style="color: red; font-weight: 700;">
-				シャショク10月登壇企業、浜西電気様を参考に入力フォームを埋めてください
-			</h4>
-			<%= link_to "浜西電気様サンプルはこちらへ", "https://tunagukoto2019.slack.com/archives/CMCC91G66/p1567592288000100" %>
 			<div>
 			<hr>
-				<h4>●イベントの種類を選んでください</h4>
-				<h style="color: red;">ここをチェックしないとイベントを新しく発行できません</h>
-				<br>
 			   	<%= f.collection_radio_buttons(:tag, Tag.all, :id, :tag_name, include_hidden: false) do |b| %>
-			      <b><%= b.label { b.radio_button + b.text } %></b>
+					<% if b.object.uuid == 1 %>
+						<span class="event_type_tag_frame_mini non_linked right e_sha"><%= b.label { b.radio_button + b.text } %></span>
+					<% elsif b.object.uuid == 2 %>
+						<span class="event_type_tag_frame_mini non_linked right e_ga"><%= b.label { b.radio_button + b.text } %></span>
+					<% elsif b.object.uuid == 3 %>
+						<span class="event_type_tag_frame_mini non_linked right e_kya"><%= b.label { b.radio_button + b.text } %></span>
+					<% elsif b.object.uuid == 4 %>
+						<span class="event_type_tag_frame_mini non_linked right e_other"><%= b.label { b.radio_button + b.text } %></span>
+					<% end %>
 			    <% end %>
+				<hr>
 			</div>
-			<div>●タイトル</div>
-			<%= f.text_field :event_name, placeholder: "一流企業との取引+制御盤のスペシャリスト", :size => "80%" %>
-
+			<div>タイトル</div>
+			<%= f.text_field :event_name, placeholder: "", :size => "120%" %>
 			<div>●サブタイトル</div>
 			<%= f.text_field :event_title, placeholder: "顧客にも働く人にも選ばれ続ける会社となる", :size => "80%" %>
-
-			<p>●会社説明またはイベント詳細(500文字以内)</br>
-			キャリアコネクション、ガクショク等はそのイベントのコンテンツを入力してください。</p>
-			(チラシ左下部をここに書く)
-			<%= f.text_area :event_description,
-			 placeholder: "浜西電気は制御盤の設計、製作から配線工事、調節まで一貫して作業を行なっています。女性のしなやかさと繊細な作業により品質、生産スピードの安定を確立。リピート品の製造と受注生産の二本柱で着実に業績を伸ばし、様々な業界の一流企業との直接取引を実現しています
-			 " , :size => "100%"  %>
-
+			<p>今回のイベントについて(500文字以内)</p>
+			<%= f.text_area :event_description,placeholder: "" , :size => "100%"  %><br>
 			●登壇者の顔写真
 			<%= f.file_field :president_image, accept: "image/png, image/jpeg, image/gif" %>
 			<br>
-			●企業・団体名
-			<%= f.text_field :event_company_name, placeholder: "株式会社浜西電気"  %>
+			●企業・団体名・大学名
+			<%= f.text_field :event_company_name, placeholder: "株式会社浜西電気/南山大学"  %>
 			<br>
 			●役職
-			<%= f.text_field :position, placeholder: "代表取締役" %>
+			<%= f.text_field :position, placeholder: "代表取締役/学生" %>
 			<br>
 			●氏名
 			<%= f.text_field :event_president, placeholder: "匹田　治樹様"  %>
@@ -49,8 +44,11 @@
 			●座右の銘
 			<%= f.text_field :event_motto, placeholder: "石橋を叩いて渡る"  %>
 			<br>
+			●イベント会場
+			<%= f.text_field :event_location, placeholder: "ツナグコトオフィス",  :size => "80%" %>
+			<br>
 			●イベント開催地
-			<%= f.text_field :event_location, value: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
+			<%= f.text_field :event_location, placeholder: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
 			<br>
 			●参加費
 			<%= f.text_field :event_cost, value: "無料", :size => "30*60" %>
@@ -83,31 +81,23 @@
 			<hr>
 
 
-			<div>●トップ画面のイベントの写真</div>
+			<div>●Top掲載画像</div>
 			<%= f.file_field :event_top_image, accept: "image/png, image/jpeg, image/gif" %>
 
-			<div>●イベント詳細画面イベントの写真</div>
-			<%= f.file_field :event_show_image, accept: "image/png, image/jpeg, image/gif" %>
-			<!-- <div>●Googleドライブ上のちらしのURLを入力してください</div> -->
-			<%#= f.text_field :google_form  %>
-			<hr>
-			<br>
-			●コンテンツ1			
-			<%= f.text_field :content_one, :size => "30*60" %>
-			<br>
-			●コンテンツ2	
-			<%= f.text_field :content_two, :size => "30*60" %>
-			<br>
-			●コンテンツ3
-			<%= f.text_field :content_three, :size => "30*60" %>			
-			<br>
-			●コンテンツ4
-			<%= f.text_field :content_four, :size => "30*60" %>	
-			<br>
-			●コンテンツ5
-			<%= f.text_field :content_five, :size => "30*60" %>	
+			<div>●詳細ページ掲載画像(チラシ)</div>
+				<%= f.file_field :event_show_image, accept: "image/png, image/jpeg, image/gif" %>
 			<hr>
 
+			<!--●コンテンツ1 -->			
+			<%#= f.text_field :content_one, :size => "30*60" %>
+			<!--●コンテンツ2	-->
+			<%#= f.text_field :content_two, :size => "30*60" %>
+			<!--●コンテンツ3-->
+			<%#= f.text_field :content_three, :size => "30*60" %>			
+			<!--●コンテンツ4-->
+			<%#= f.text_field :content_four, :size => "30*60" %>	
+			<!-- ●コンテンツ5 -->
+			<%#= f.text_field :content_five, :size => "30*60" %>	
 			<div>
 				<h4>●サブタグ(複数選択可)</h4>
 			    <%= f.collection_check_boxes(:sub_tag_ids, SubTag.all, :id, :sub_tag_name, include_hidden: false) do |b| %>
@@ -120,10 +110,7 @@
 			      <%= b.label { b.check_box + b.text } %>
 			    <% end %>
 			</div>
-		<%=f.submit 'イベントを新規発行する', class: 'btn btn-primary btn-lg btn-block', data: { confirm: '
-			新しくイベントを発行します。
-			新しく発行したイベントはtopページから見ることができます。
-			また管理者はイベントを詳細ページから編集、削除することができます。' } %>
+		<%=f.submit 'イベントを新規発行する', class: 'btn btn-primary btn-lg btn-block' %>
 		</div>
 	</div>
 	</div>

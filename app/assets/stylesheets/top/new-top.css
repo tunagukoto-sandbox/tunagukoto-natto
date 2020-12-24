@@ -54,13 +54,15 @@ p#news  {
 }
 .right{
       text-align: right;
-      margin: 0 0 0 auto;
+      /* margin: 0 0 0 auto; */
+      margin-left: auto;
 }
 
 .left {
     text-align: left;
     margin-right: auto;
 }
+
 
 .divided_border{
 	border-top: inset 1.5px black;
@@ -300,19 +302,32 @@ h5#mobile_moushikomi{
 }
 
 .event_type_tag_frame_mini {
-    width: 40%;
+    /* width: 40%; */
     margin: 0 0 0 auto;
     text-align: center;
     border-radius: 20px;
-    background-color: violet;
     margin-right: 5px;
     padding: 9px 15px;
     font-size: 13px;
 }
+.e_sha {
+    background-color: rgb(236,185,96);
+}
+.e_ga {
+    background-color: rgb(217,100,95);
+    color: white;
+}
+.e_kya {
+    background-color: rgb(164,194,126);
+    color: white;
+}
+.e_other {
+    background-color: rgb(88,86,86);
+    color: white;
+}
 .blank {
     padding: 10px;
 }
-
 .black {
     color: black;
 }

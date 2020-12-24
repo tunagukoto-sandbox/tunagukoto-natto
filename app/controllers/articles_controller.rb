@@ -14,9 +14,17 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
   end
 
   def update
+    @article = Article.find(params[:id])
+    @article.update(article_param)
+    if @article.save
+      redirect_to home_admin_top_path
+    else
+      redirect_to edit_article_path(id: params[:id])
+    end
   end
 
   def show
@@ -27,6 +35,7 @@ class ArticlesController < ApplicationController
       :event_id,
       :title,
       :linked_url,
+      :article_img,
       :open
       )
   end

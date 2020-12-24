@@ -1,2 +1,22 @@
-<h1>Articles#edit</h1>
-<p>Find me in app/views/articles/edit.html.erb</p>
+<% if admin_signed_in? %>
+	<div class="container">
+	<%= form_for @article, url: article_path(id: params[:id]), method: :put  do |f| %>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			●タイトル<br>
+			<%= f.text_field :title, placeholder: "ここにタイトルを入力してください", :size => "80%" %><br>
+			●URL <br>
+			<%= f.text_field :linked_url, placeholder: "ここにURLを入力してください"  %><br>
+			<br>
+            ●登壇者の顔写真
+			<%= f.file_field :article_img, accept: "image/png, image/jpeg, image/gif" %>
+
+			<%=f.submit '編集を完了する', class: 'btn btn-primary btn-lg btn-block' %>
+			</div>
+			</div>
+		<%end%>
+	</div>
+<% else %>
+	<%= link_to "ホームに戻る", root_path %>
+	<div class="page_not_found"> 404 page not found</div>
+<% end %>

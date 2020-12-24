@@ -3,7 +3,7 @@
 		<div class="col-lg-3 kugiri" style="padding-left: 60px;">
 			<%= link_to new_event_path do  %>
 				<div class="non_linked admin_menu_tags">
-					<i class="fa fa-pencil fa-2x"></i>ツナグおすすめイベントの発行
+					<i class="fa fa-pencil fa-2x"></i>イベントの発行
 				</div>
 			<% end %>
 			<%= link_to new_quest_path do  %>
@@ -59,9 +59,7 @@
 									<%= link_to "記事を作成", new_event_article_path(event_id: e.id), class: "btn btn-primary" %>
 								<% else %>
 									<%= link_to "記事を確認", "#{e.article.linked_url}", class: "btn btn-info" %>
-										<% if e.article.img.attached? %>
-											<%= image_tag e.article.img , class: "card-img-top_face"%>
-										<% end %>
+                                	<%= link_to "記事を編集", edit_article_path(id: e.article.id), class: "btn btn-info" %>
 								<% end %>
 							</td>
 							</tr>

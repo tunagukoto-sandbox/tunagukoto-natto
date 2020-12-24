@@ -29,6 +29,9 @@
 	}
 }
 
+.text_field {
+	width: 300px;
+}
 
 .background_while {
 	background-color: white;

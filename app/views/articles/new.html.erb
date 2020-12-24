@@ -1,7 +1,3 @@
-event_articles POST   /events/:event_id/articles(.:format)                          articles#create
-new_event_article GET    /events/:event_id/articles/new(.:format)                       articles#new
-
-
 <% if admin_signed_in? %>
 	<div class="container">
 	<%= form_for @article, url: event_articles_path(event_id: params[:event_id]), method: :post  do |f| %>
@@ -15,7 +11,7 @@ new_event_article GET    /events/:event_id/articles/new(.:format)               
 			<br>
 
             ●登壇者の顔写真
-			<%= f.file_field :img, accept: "image/png, image/jpeg, image/gif" %>
+			<%= f.file_field :article_img, accept: "image/png, image/jpeg, image/gif" %>
 
 			<%=f.submit '記事を発行する', class: 'btn btn-primary btn-lg btn-block' %>
 			</div>

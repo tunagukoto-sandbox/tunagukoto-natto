@@ -96,6 +96,8 @@ Rails.application.routes.draw do
 		resources :event_customers, only: [:new, :create]
 		resources :articles, only: [:new, :create]
 	end
+	
+	resources :articles, only: [:edit, :update]
 
 	resources :event_customers, only: [:new, :create, :destroy, :edit, :update]
 
