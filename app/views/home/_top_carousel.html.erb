@@ -1,0 +1,42 @@
+<div id="carouselExampleIndicators" class="carousel slide carousel-slide" data-ride="carousel">
+	<!-- インジケータの設定 -->
+	<ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="height: 10px;"></li>
+	<% for num in 1..@e_count do %>
+		<li data-target="#carouselExampleIndicators" data-slide-to="#{num}" style="height: 10px;"></li>
+	<% end %>
+	</ol>
+	<!-- スライドさせる画像の設定 -->
+	<div class="carousel-inner">
+		<% count = 1 %>
+		<% @events.each do |e| %>
+			<% if count == 1 %>
+				<div class="carousel-item active">
+					<%= link_to event_path(e.id) do %>
+					    <% if e.event_top_image.attached? %>
+					        <%= image_tag e.event_top_image , class: "card-img-top"%>
+					    <% end %>
+					<% end %>
+				</div><!-- /.carousel-item -->
+			<% else %>
+				<div class="carousel-item">
+					<%= link_to event_path(e.id) do%>
+						<% if e.event_top_image.attached? %>
+						    <%= image_tag e.event_top_image ,class: "card-img-top"%>
+						<% end %>
+					<% end %>
+				</div><!-- /.carousel-item -->
+			<% end %>
+			<% count = count + 1 %>
+		<% end %>
+	</div><!-- /.carousel-inner -->
+
+	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true" style="width: 40px; height: 40px;"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true" style="width: 40px; height: 40px;"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div><!-- /.carousel -->

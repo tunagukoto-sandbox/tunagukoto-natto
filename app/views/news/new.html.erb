@@ -8,12 +8,19 @@
 			●本文１<br>
 			<%= f.text_area :main_body, placeholder: "", :size => "80%" %><br>
 
-			<!-- ●本文２ <br> -->
-			<%#= f.text_area :sub_body, placeholder: "", :size => "80%"  %>
+
+            ●News写真
+			<%= f.file_field :news_img, accept: "image/png, image/jpeg, image/gif" %><br>
 
 			●URL <br>
 			<%= f.text_field :link_url, placeholder: ""  %><br>
 
+			●バナーに優先的に表示する<br>
+			<label>
+				<%= f.radio_button :top, true %> はい </label>
+			<label>
+				<%= f.radio_button :top, false %> いいえ</label>
+			<br>
 			●Topに優先的に表示する<br>
 			<label>
 				<%= f.radio_button :open, true %> はい </label>

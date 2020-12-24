@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_045532) do
+ActiveRecord::Schema.define(version: 2020_12_24_042055) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -163,6 +163,11 @@ ActiveRecord::Schema.define(version: 2020_12_23_045532) do
     t.text "content_four"
     t.text "content_five"
     t.text "other_participant_url"
+    t.text "url_form_to_com"
+    t.string "event_place_title"
+    t.integer "pay_point_by_adult"
+    t.boolean "un_open"
+    t.text "free_box"
   end
 
   create_table "mini_event_apply_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -251,6 +256,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_045532) do
     t.string "link_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "top"
   end
 
   create_table "non_profit_organizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

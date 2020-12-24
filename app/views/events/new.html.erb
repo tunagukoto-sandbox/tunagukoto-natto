@@ -20,7 +20,11 @@
 			    <% end %>
 				<hr>
 			</div>
-			<div>タイトル</div>
+
+			<div>●Topバナーに表示しない</div>
+			<label><%= f.radio_button :un_open, true %> はい </label>
+			<label><%= f.radio_button :un_open, false %> いいえ</label><br>
+			<div>●タイトル</div>
 			<%= f.text_field :event_name, placeholder: "", :size => "120%" %>
 			<div>●サブタイトル</div>
 			<%= f.text_field :event_title, placeholder: "顧客にも働く人にも選ばれ続ける会社となる", :size => "80%" %>
@@ -45,24 +49,28 @@
 			<%= f.text_field :event_motto, placeholder: "石橋を叩いて渡る"  %>
 			<br>
 			●イベント会場
-			<%= f.text_field :event_location, placeholder: "ツナグコトオフィス",  :size => "80%" %>
+			<%= f.text_field :event_place_title, placeholder: "", :size => "120%" %>
 			<br>
 			●イベント開催地
 			<%= f.text_field :event_location, placeholder: "名古屋市東区葵3丁目15-31　千種第2ビル4F",  :size => "80%" %>
 			<br>
 			●参加費
-			<%= f.text_field :event_cost, value: "無料", :size => "30*60" %>
+			<%#= f.text_field :event_cost, value: "無料", :size => "30*60" %>
 			<br>
-			●社会人参加応募先URL(Google Formで社会人参加用の応募フォームを事前に作ってください)
-			<%= f.text_field :other_participant_url, :size => "30*90",placeholder: "https://www.google.com/intl/ja_jp/forms/about/" %>
+			●社会人参加応募先URL(Google Formで社会人参加用の応募フォームを事前に作ってください)<br>
+			<%= f.text_field :other_participant_url, :size => "30*90",placeholder: "https://www.google.com/intl/ja_jp/forms/about/" %><br>
+			●会員企業応募先URL(Google Formで会員企業用の応募フォームを事前に作ってください)<br>
+			<%= f.text_field :url_form_to_com, :size => "30*90",placeholder: "https://www.google.com/intl/ja_jp/forms/about/" %>
 			<br>
 			●取得ポイント
-			<%#= f.number_field :get_point, value: 5000  %>
-			<%= f.text_field :get_point, :value => 5000 ,placeholder: "半角英数字でお答えください。" %>
+			<%= f.number_field :get_point, min: 0 , max: 20000, step: 100, value: 5000 %><br>
+			<%#= f.text_field :get_point, :value => 5000 ,placeholder: "半角英数字でお答えください。" %>
 			<br>
+			●社会人参加費
+			<%= f.number_field :pay_point_by_adult, min: 0 , max: 20000, step: 100, value: 5000 %>
 			●消費ポイント
-			<%#= f.number_field :pay_point ,min: 0 ,max:1000  %>
-			<%= f.text_field :pay_point ,placeholder: "半角英数字でお答えください。" %>
+			<%= f.number_field :pay_point, min: 0 , max: 20000, step: 100, value: 5000 %>
+			<%#= f.text_field :pay_point ,placeholder: "半角英数字でお答えください。" %>
 			<br>
 			●開催時間
 		  	<%= f.date_select(
@@ -79,15 +87,14 @@
 			●応募人数
 			<%= f.number_field :event_population ,min: 0 ,max:1000, value: 20 %>
 			<hr>
-
-
 			<div>●Top掲載画像</div>
 			<%= f.file_field :event_top_image, accept: "image/png, image/jpeg, image/gif" %>
 
 			<div>●詳細ページ掲載画像(チラシ)</div>
 				<%= f.file_field :event_show_image, accept: "image/png, image/jpeg, image/gif" %>
 			<hr>
-
+			<div>●備考</div>
+				<%= f.text_area :free_box  %>
 			<!--●コンテンツ1 -->			
 			<%#= f.text_field :content_one, :size => "30*60" %>
 			<!--●コンテンツ2	-->

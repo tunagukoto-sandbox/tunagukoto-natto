@@ -11,7 +11,7 @@ class EventsController < ApplicationController
       @event.finish = false
       sub_tag_ids, sub_tag_ok = sub_tag_params
       @event.tag_id = params[:event]["tag"].to_i
-      style_ids = params[:event][:style_ids]    
+      style_ids = params[:event][:style_ids]   
       if @event.save
         make_relation(@event.id, sub_tag_ids, sub_tag_ok, style_ids)
         @event.event_select = event_select(@event)
@@ -50,7 +50,6 @@ class EventsController < ApplicationController
     else
       @news = News.all
     end
-
     @event = Event.find(params[:id])
     @tag = @event.tag
     @sub_tags = @event.sub_tags
@@ -190,8 +189,17 @@ end
         :content_three,
         :content_four,
         :content_five,
-        :other_participant_url
-
+        :other_participant_url,
+        :url_form_to_com,
+        :free_box,
+        # 企業参加用URL
+        :url_form_to_com,
+        # イベントの場所(ツナグオフィスなど)
+        :event_place_title,
+        # 社会人参加費
+        :pay_point_by_adult,
+        # Topに表示しないか？
+        :un_open,
         )
     end
 

@@ -49,7 +49,9 @@ class NewsController < ApplicationController
         :main_body,
         :sub_body,
         :open,
-        :link_url
+        :link_url,
+        :top,
+        :news_img
         )
   end
 end

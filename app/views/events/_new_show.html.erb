@@ -24,7 +24,7 @@
             <h6  class="sha_gaku"><%= @event.tag.tag_body %></h6>
 
             <h5>日時: <%= @event.event_time.year %>.<%= @event.event_time.month %>.<%= @event.event_time.day %> <%= @event.event_time_detail %></h5>
-            <h5>会場: <%= @event.event_location %></h5>
+            <h5>会場: <%= @event.event_place_title %></h5>
             <h5>住所: <%= @event.event_location %></h5>
             <h5>定員: 先着<%= @event.event_population %>名</h5>
             <br><br><br>
@@ -73,6 +73,14 @@
             <div class="col-lg-8 pa_little">
                 <%= @event.get_point %>P
             </div>
+            <div class="col-lg-3 bold">学生参加ポイント</div>
+            <div class="col-lg-8 pa_little">
+                <%= @event.pay_point %>P
+            </div>
+            <div class="col-lg-3 bold">社会人参加ポイント</div>
+            <div class="col-lg-8 pa_little">
+                <%= @event.pay_point_by_adult %>P
+            </div>
         </div>
 
         <div class="tile" style="margin:30px 0px;">登壇企業について</div>
@@ -113,7 +121,7 @@
                         <h5>申し込む</h5>
                     </div>
 				<% end %>
-                <%= link_to root_path do %>
+                <%= link_to "#{@event.url_form_to_com}" do %>
                     <div class="moushikomi_button green">
                         <h6>会員企業はこちらから</h6>
                         <h5>申し込む</h5>
