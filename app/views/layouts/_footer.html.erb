@@ -1,46 +1,52 @@
 <footer class="footer background_while">
-  <div class="row" style="margin-top: 30px;">   
-  <div class="col-lg-1"></div>
-      <div class="col-lg-3" style="margin-top: 30px;">
-          <h5>一般社団法人ツナグコト</h5>
-          <h6>TEL: 052-908-4070</h6>
-          <h6>FAX: 052-908-4071</h6>
-          <h6>MAIL: tunagu-info@tunagu.or.jp</h6>
+  <div class="row" style="margin-top: 50px;">   
+      <div class="col-lg-3 line_wide" style="margin-top: 60px; margin-left: 100px;">
+          <div class="tunagukoto_footer">一般社団法人ツナグコト</div>
+          <div class="footer_font">〒461-0004名古屋市東区葵3丁目15-31  千種第2ビル4階</div>
+          <div class="footer_font">TEL: 052-908-4070</div>
+          <div class="footer_font">FAX: 052-908-4071</div>
+          <div class="footer_font">MAIL: tunagu-info@tunagu.or.jp</div>
       </div>
       <div class="col-lg-2">
           <div class="footer_h1" style="margin-bottom: 10px;">
+            <div class="footer_three_title">
               イベント
+            </div>
           </div>
-          <div style="margin-left: 30px;">
-            <%= link_to "▶︎Nattoで交流する", home_interact_event_path %><br>
-            <%= link_to "▶︎Nattoで学ぶ",home_studey_event_path  %><br>
-            <%= link_to "▶︎仕事を探す",quests_other_new_quest_path  %><br>
-            <%= link_to "▶︎イベントを作る",home_comming_soon_path  %><br>
-            <%= link_to "▶︎イベント記事を見る", news_index_path %><br>
+          <div class="line_wide">
+            <%= link_to "▶︎ Nattoで交流する", home_interact_event_path ,class: "footer_font"%><br>
+            <%= link_to "▶︎ Nattoで学ぶ",home_studey_event_path ,class: "footer_font" %><br>
+            <%= link_to "▶︎ 仕事を探す",quests_other_new_quest_path,class: "footer_font"  %><br>
+            <%= link_to "▶︎ イベントを作る",home_comming_soon_path ,class: "footer_font" %><br>
+            <%= link_to "▶︎ イベント記事を見る", news_index_path,class: "footer_font" %><br>
           </div>
       </div>
       <div class="col-lg-2">
           <div class="footer_h1" style="margin-bottom: 10px;">
+            <div class="footer_three_title">
               ツナグコトについて
+            </div>
           </div>
-          <div style="margin-left: 30px;">
-            <%= link_to "▶︎社団概要", "http://tunagu.or.jp/index.htm" %><br>
-            <%= link_to "▶︎コンテンツ", home_interact_event_path %><br>
-            <%= link_to "▶︎オフィス", "http://tunagu.or.jp/office-intr.htm" %><br>
-            <%= link_to "▶︎アクセス", "http://tunagu.or.jp/access.htm" %><br>
+          <div class="line_wide">
+            <%= link_to "▶︎ 社団概要", "http://tunagu.or.jp/index.htm",class: "footer_font" %><br>
+            <%= link_to "▶︎ コンテンツ", home_interact_event_path,class: "footer_font" %><br>
+            <%= link_to "▶︎ オフィス", "http://tunagu.or.jp/office-intr.htm",class: "footer_font" %><br>
+            <%= link_to "▶︎ アクセス", "http://tunagu.or.jp/access.htm",class: "footer_font" %><br>
           </div>
       </div>
       <div class="col-lg-2">
           <div class="footer_h1" style="margin-bottom: 10px;">
+           <div class="footer_three_title">
               その他
+            </div>
           </div>
-          <div style="margin-left: 10px;">
-            <%= link_to "▶︎Nattoとは", "home_natto_path" %><br>
-            <%= link_to "▶︎協賛企業", home_comming_soon_path %><br>
-            <%= link_to "▶︎Instagram", "https://www.instagram.com/tunagukoto_/" %><br>
-            <%= link_to "▶︎Twitter", "https://twitter.com/tunagukoto_" %><br>
-            <%= link_to "▶︎Facebook", "https://www.facebook.com/tunagukoto/" %><br>
-            <%= link_to "▶︎Line", "https://line.me/ti/g2/QC3viCfONv8wIO64_WruzA" %><br>   
+          <div class="line_wide">
+            <%= link_to "▶︎ Nattoとは", "home_natto_path",class: "footer_font" %><br>
+            <%= link_to "▶︎ 協賛企業", home_comming_soon_path ,class: "footer_font"%><br>
+            <%= link_to "▶︎ Instagram", "https://www.instagram.com/tunagukoto_/",class: "footer_font" %><br>
+            <%= link_to "▶︎ Twitter", "https://twitter.com/tunagukoto_",class: "footer_font" %><br>
+            <%= link_to "▶︎ Line", "https://line.me/ti/g2/QC3viCfONv8wIO64_WruzA",class: "footer_font" %><br>   
+            <%= link_to "▶︎ Youtube", "https://www.youtube.com/channel/UCDdeeiBJGAy7XqQ0EDtlNrA",class: "footer_font" %><br>
           </div>  
       </div>
   </div>
@@ -56,3 +62,4 @@
 </nav>
   <%#= render 'layouts/new_footer' %>
 </footer>
+<div style="height: 15px; background-color: rgb(164,194,126);"></div>
