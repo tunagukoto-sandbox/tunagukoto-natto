@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  	root 'home#top'
+	root 'home#top'
+	  
+	post  'admin_update', to: 'home#admin_update', as: 'admin_update'
 
   	get 'home/policy'
 

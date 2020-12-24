@@ -92,7 +92,6 @@ class HomeController < ApplicationController
         point.having_point = 5000
         point.save
       elsif s.point.max_point == 0
-
         s.point.max_point = 5000
         s.point.having_point = 5000
         s.point.save
@@ -114,7 +113,22 @@ class HomeController < ApplicationController
         admin_event_csv
       end
     end
+  end
 
+  def admin_update
+    Event.all.each do |e|
+      e.free_box = "nil"
+      e.url_form_to_com = "https://tunagu-natto.herokuapp.com/"
+      e.event_place_title = "ツナグオフィス"
+      e.pay_point_by_adult = 0
+      e.un_open = false
+      e.save
+    end
+    News.all.each do |n|
+      n.top = false
+      n.save
+    end
+    redirect_to root_path
   end
 
   # 全てのイベントの参加者を表示
