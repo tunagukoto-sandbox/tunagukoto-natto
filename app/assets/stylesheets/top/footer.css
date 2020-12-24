@@ -100,3 +100,36 @@
   width: 90%;
   font-size: 0.9em;
 }
+
+.line_wide {
+	line-height: 200%;
+	margin-left: 7px;
+}
+
+.footer_font {
+	color: #666666;
+	font-size: 0.8em;
+}
+
+.line_wide {
+	line-height: 200%;
+	margin-left: 7px;
+}
+
+.footer_font:hover {
+	color: black;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.tunagukoto_footer {
+	color: #666666;
+	font-size: 1.0em;	
+	font-weight: 600;
+}
+
+.tunagukoto_footer {
+	color: #666666;
+	font-size: 1.0em;	
+	font-weight: 600;
+}
