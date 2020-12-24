@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def top
     @news = News.where(top: true)
     @events = Event.where(finish: false).where(un_open: false)
-    # @events = Event.where(finish: false)
+
     @all_event = Event.where(finish: false).order(:created_at)
     if @all_event.length >= 3
       @last_events = @all_event[2..-1]
