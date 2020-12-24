@@ -5,6 +5,9 @@
 			<% if admin_signed_in? %>
 				<%= link_to "編集する", edit_news_path(@news.id), class: "btn btn-success" %>
 			<% end %>
+			<% if @news.news_img.attached? %>
+				<%= image_tag @news.news_img , class: "card-img-top"%>
+			<% end %>
 			<div class="news_title_all">
 				<%= @news.title %>			
 			</div>

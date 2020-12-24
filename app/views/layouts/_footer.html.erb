@@ -1,23 +1,58 @@
-<footer class="footer">
-  <a href="https://www.facebook.com/tunagukoto/">
-    <%= image_tag'facebook.png',class: "sns" %>
-  </a>
-  <a href="https://line.me/ti/g2/QC3viCfONv8wIO64_WruzA">
-    <%= image_tag'line.png',class: "sns" %>
-  </a>
-  <a href="https://twitter.com/tunagukoto_">
-    <%= image_tag'twitter.png',class: "sns width_big" %>
-  </a>
-  <a href="https://www.instagram.com/tunagukoto_/">
-    <%= image_tag'instagram.png',class: "sns width_big" %>
-  </a>	
-  <nav class="footer_nav">
+<footer class="footer background_while">
+  <div class="row" style="margin-top: 30px;">   
+  <div class="col-lg-1"></div>
+      <div class="col-lg-3" style="margin-top: 30px;">
+          <h5>一般社団法人ツナグコト</h5>
+          <h6>TEL: 052-908-4070</h6>
+          <h6>FAX: 052-908-4071</h6>
+          <h6>MAIL: tunagu-info@tunagu.or.jp</h6>
+      </div>
+      <div class="col-lg-2">
+          <div class="footer_h1" style="margin-bottom: 10px;">
+              イベント
+          </div>
+          <div style="margin-left: 30px;">
+            <%= link_to "▶︎Nattoで交流する", home_interact_event_path %><br>
+            <%= link_to "▶︎Nattoで学ぶ",home_studey_event_path  %><br>
+            <%= link_to "▶︎仕事を探す",quests_other_new_quest_path  %><br>
+            <%= link_to "▶︎イベントを作る",home_comming_soon_path  %><br>
+            <%= link_to "▶︎イベント記事を見る", news_index_path %><br>
+          </div>
+      </div>
+      <div class="col-lg-2">
+          <div class="footer_h1" style="margin-bottom: 10px;">
+              ツナグコトについて
+          </div>
+          <div style="margin-left: 30px;">
+            <%= link_to "▶︎社団概要", "http://tunagu.or.jp/index.htm" %><br>
+            <%= link_to "▶︎コンテンツ", home_interact_event_path %><br>
+            <%= link_to "▶︎オフィス", "http://tunagu.or.jp/office-intr.htm" %><br>
+            <%= link_to "▶︎アクセス", "http://tunagu.or.jp/access.htm" %><br>
+          </div>
+      </div>
+      <div class="col-lg-2">
+          <div class="footer_h1" style="margin-bottom: 10px;">
+              その他
+          </div>
+          <div style="margin-left: 10px;">
+            <%= link_to "▶︎Nattoとは", "home_natto_path" %><br>
+            <%= link_to "▶︎協賛企業", home_comming_soon_path %><br>
+            <%= link_to "▶︎Instagram", "https://www.instagram.com/tunagukoto_/" %><br>
+            <%= link_to "▶︎Twitter", "https://twitter.com/tunagukoto_" %><br>
+            <%= link_to "▶︎Facebook", "https://www.facebook.com/tunagukoto/" %><br>
+            <%= link_to "▶︎Line", "https://line.me/ti/g2/QC3viCfONv8wIO64_WruzA" %><br>   
+          </div>  
+      </div>
+  </div>
+<span class="right-padding"><a href="/"><%= image_tag'natto-new-logo.png',class: "natto" %></a></span>
+
+<nav class="footer_nav" style="margin-bottom: 30px;">
     <ul>
    		<li><%= link_to "プライバシーポリシー", home_policy_path %></li>
    		<li><%= link_to "個人情報保護方針", home_privacy_path %></li>
-      	<li><%= link_to "Top", root_path %></li>
-      	<li><%= link_to "Home", 'http://tunagu.or.jp/' %></li>
+      <li><%= link_to "Top", root_path %></li>
+      <li><%= link_to "Home", 'http://tunagu.or.jp/' %></li>
     </ul>
-  </nav>
-<div class="tunagukoto">©️ 2020 ツナグコト</div>
+</nav>
+  <%#= render 'layouts/new_footer' %>
 </footer>

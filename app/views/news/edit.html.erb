@@ -20,12 +20,9 @@
 			<label>
 				<%= f.radio_button :top, false %> いいえ</label>
 			<br>
-			●Topに優先的に表示する<br>
-			<label>
-				<%= f.radio_button :open, true %> はい </label>
-			<label>
-				<%= f.radio_button :open, false %> いいえ</label>
-			<br>
+			<!-- ●Topに優先的に表示する -->
+			<%#= f.radio_button :open, true %> 
+			<%#= f.radio_button :open, false %> 
 
 			<%=f.submit 'ニュースを発行する', class: 'btn btn-primary btn-lg btn-block' %>
 			</div>
