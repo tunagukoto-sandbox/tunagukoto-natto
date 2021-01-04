@@ -358,8 +358,10 @@ h5#mobile_moushikomi{
 }
 
 .card-center {
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 0 auto;
+    text-align: center;
 }
 
 .top_event_box_sub_card {
