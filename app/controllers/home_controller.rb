@@ -2,15 +2,20 @@ class HomeController < ApplicationController
   require 'csv'
   before_action :send_mini_question, except: [:questionnaire]
   def top
+    main_array = []
     @news = News.where(top: true)
+    main_array.push(@news)
     @events = Event.where(finish: false).where(un_open: false)
-
+    main_array.push(@events)
+    @main_array = main_array.flatten  
     @all_event = Event.where(finish: false).order(:created_at)
     if @all_event.length >= 3
       @last_events = @all_event[2..-1]
     else
       @last_events = nil
     end
+
+    # binding.pry
 
     @e_count = Event.where(finish: false).count - 1
     @show_mini_events = MiniEvent.where(open: true).where(finish: false)

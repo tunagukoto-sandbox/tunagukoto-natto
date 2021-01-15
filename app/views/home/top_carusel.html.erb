@@ -9,40 +9,22 @@
 	<!-- スライドさせる画像の設定 -->
 	<div class="carousel-inner">
 		<% count = 1 %>
-		<% @main_array.each do |e| %>
+		<% @events.each do |e| %>
 			<% if count == 1 %>
-				<% if e.class == Event %>
-					<div class="carousel-item active">
-						<%= link_to event_path(e.id) do %>
-							<% if e.event_top_image.attached? %>
-								<%= image_tag e.event_top_image , class: "card-img-top"%>
-							<% end %>
-						<% end %>
-					</div><!-- /.carousel-item -->
-				<% elsif e.class == News %>
-					<div class="carousel-item active">
-						<%= link_to news_path(e.id) do %>
-							<% if e.news_img.attached? %>
-								<%= image_tag e.news_img , class: "card-img-top"%>
-							<% end %>
-						<% end %>
-					</div><!-- /.carousel-item -->
-				<% end %>
+				<div class="carousel-item active">
+					<%= link_to event_path(e.id) do %>
+					    <% if e.event_top_image.attached? %>
+					        <%= image_tag e.event_top_image , class: "card-img-top"%>
+					    <% end %>
+					<% end %>
+				</div><!-- /.carousel-item -->
 			<% else %>
 				<div class="carousel-item">
-				<% if e.class == Event %>
 					<%= link_to event_path(e.id) do%>
 						<% if e.event_top_image.attached? %>
-							<%= image_tag e.event_top_image ,class: "card-img-top"%>
+						    <%= image_tag e.event_top_image ,class: "card-img-top"%>
 						<% end %>
 					<% end %>
-				<% elsif e.class == News %>
-					<%= link_to news_path(e.id) do %>
-						<% if e.news_img.attached? %>
-							<%= image_tag e.news_img , class: "card-img-top"%>
-						<% end %>
-					<% end %>
-				<% end %>
 				</div><!-- /.carousel-item -->
 			<% end %>
 			<% count = count + 1 %>
