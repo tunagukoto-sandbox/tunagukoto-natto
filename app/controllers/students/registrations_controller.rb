@@ -7,6 +7,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    @student = Student.new(configure_sign_up_params)
     super
   end
 
@@ -94,9 +95,27 @@ class Students::RegistrationsController < Devise::RegistrationsController
   #  end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [
+        :email,
+        :password, 
+        :password_confirmation,
+        :first_name, 
+        :last_name, 
+        :major_subject,
+        :entrance_year, 
+        :home_town, 
+        :club,
+        :experienced_jobs,
+        :hobbies,
+        :introduction,
+        :free_space,
+        :sns_url,
+        :school_id,
+        :my_image
+    ])
+  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
