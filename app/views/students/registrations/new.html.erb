@@ -1,9 +1,9 @@
-<% if admin_signed_in? %>
+<%# if admin_signed_in? %>
   <p>あなたは今、管理者としてログインしています<br>
     一度ログアウトした後に新規登録のページに戻ってください
   </p>
-  <%= link_to "サインアウトする", destroy_admin_session_path, method: :delete %>
-<% else %>
+  <%#= link_to "サインアウトする", destroy_admin_session_path, method: :delete %>
+<%# else %>
   <div class="container">
     <div class="some_padding"></div>
     <div class="student__my_page">学生登録(無料)</div>
@@ -55,4 +55,4 @@
     <%= render "students/shared/links" %>
     <% end %>
   </div>
-<% end %>
+<%# end %>
