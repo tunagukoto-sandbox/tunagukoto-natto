@@ -37,12 +37,16 @@
 
       <div class="field">
         <p style="font-size: 1.5em;">パスワード</p>
-        <% if @minimum_password_length %>
-        <em>最低6文字</em>
-        <% end %><br />
+
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
+      <div class="field">
+        <p style="font-size: 1.5em;">パスワード(上記と同じパスワード)</p>
+        <%= f.password_field :password_confirmation, autocomplete: "confirm-password" %>
+      </div>
+      <p style="font-size: 1.5em;">プロフィール画像</p>
+        <%= f.file_field :my_image, accept: "image/png, image/jpeg, image/gif" %>
 
 
 
