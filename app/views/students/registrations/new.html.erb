@@ -22,7 +22,26 @@
 
 
 
+      <div class="field">
+        <p style="font-size: 1.5em;">お名前</p>
+        姓
+        <%= f.text_field :first_name, placeholder:  "ツナグ" ,size: "40%"%>
+        名
+        <%= f.text_field :last_name, placeholder:  "太郎", size: "40%" %>
+      </div>
 
+      <div class="field">
+        <p style="font-size: 1.5em;">メールアドレス</p>
+        <%= f.email_field :email, autocomplete: "email", size: "60%" %>
+      </div>
+
+      <div class="field">
+        <p style="font-size: 1.5em;">パスワード</p>
+        <% if @minimum_password_length %>
+        <em>最低6文字</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
       <div class="field">
         <p style="font-size: 1.5em;">パスワード(上記と同じパスワード)</p>
