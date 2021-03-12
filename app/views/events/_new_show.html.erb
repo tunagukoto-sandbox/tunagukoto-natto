@@ -1,4 +1,5 @@
 <% if admin_signed_in? %>
+    <%#= button_to "記事を作成", new_event_article_path(event_id: @event.id), method: :get,  class: "btn btn-success btn-block"%>
     <%= link_to "編   集", edit_event_path(@event.id), class: "btn btn-info btn-block" %>
     <%#= link_to "削　　除", event_path(@event.id),method: :delete, class: "btn btn-success btn-block", data: { confirm: '削除しますか？' } %>
     <%= button_to "(New)削　　除", event_path(@event.id),method: :delete, class: "btn btn-success btn-block", data: { confirm: '削除しますか？' } %>

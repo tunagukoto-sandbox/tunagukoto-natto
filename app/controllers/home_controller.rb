@@ -15,8 +15,6 @@ class HomeController < ApplicationController
       @last_events = nil
     end
 
-    # binding.pry
-
     @e_count = Event.where(finish: false).count - 1
     @show_mini_events = MiniEvent.where(open: true).where(finish: false)
     @all_event.to_a.push(@show_mini_events.to_a)
@@ -25,7 +23,6 @@ class HomeController < ApplicationController
     @latese_event = Event.where(finish: false).order(:created_at).limit(3)
     @latese_event = @latese_event.first
     @latese_sub_event = Event.where(finish: false).order(:created_at).limit(3)
-      
 
     if News.count >= 3
       @news = News.first(3)
