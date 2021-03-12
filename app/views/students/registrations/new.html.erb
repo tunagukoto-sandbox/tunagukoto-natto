@@ -12,12 +12,9 @@
           </div>
     <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= form_for(@student, url: student_registration_path, method: :post) do |f| %>  
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <p style="text-align: center; font-weight: 700; color: grey; font-size: 1.5em;">
-        登録がすでにお済みの方は
-        <%= link_to "こちらへ",new_student_session_path %>
-      </p>
-      <hr>
+
+
+
       <div class="field">
         <p style="font-size: 1.5em;">お名前</p>
         姓
@@ -47,7 +44,11 @@
         <%= f.file_field :my_image, accept: "image/png, image/jpeg, image/gif" %>
 
 
-
+      <div>
+        <p style="font-size: 1.5em;">所属を選択してください</p>
+          <%= f.collection_select :school_id, School.where.not(school_name: "社会人"), :id, :school_name , class: 'form-control' %>
+      </div>
+      
       <div class="actions">
         <%= f.submit "新規登録",class:'btn btn-primary btn-lg', style: "margin: 5px;" %>
       </div>
