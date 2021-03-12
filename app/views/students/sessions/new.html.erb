@@ -24,8 +24,6 @@
                 <div class="col-lg-7">
                   <%= f.email_field :email, autofocus: true, placeholder: "emailを入力してください", id: "input_field" %>
                 </div>
-
-
                 <div class="col-lg-4">
                   <span class="must"> [必須] </span>
                   <b>パスワード</b>
@@ -46,7 +44,7 @@
         </div><!-- login_box_inner -->
 
         <div class="button_center">
-            <%= f.submit "ログイン",class:'login_button' %><br>
+            <%= f.submit "ログイン", class:'login_button' %><br>
             <%= link_to "パスワードを忘れた方はこちら", new_student_password_path, class: "forget_password" %>
         </div>
 

@@ -1,3 +1,4 @@
+<% if customer_signed_in? %>
     <div class="devise_pc">
         <div class="header">
             <div class="inner-header">
@@ -47,6 +48,5 @@
             <%= link_to "協賛企業等", "https://www.aichi-student-brand.com/" , class: "nav-item nav-link link_color" %>
         </nav>
     </div>
-
-
+<% end %>
 
