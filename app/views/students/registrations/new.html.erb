@@ -22,24 +22,7 @@
 
 
 
-      <div class="field">
-        <p style="font-size: 1.5em;">お名前</p>
-        姓
-        <%= f.text_field :first_name, autofocus: true, placeholder:  "ツナグ" ,size: "40%"%>
-        名
-        <%= f.text_field :last_name, autofocus: true, placeholder:  "太郎", size: "40%" %>
-      </div>
 
-      <div class="field">
-        <p style="font-size: 1.5em;">メールアドレス</p>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "60%" %>
-      </div>
-
-      <div class="field">
-        <p style="font-size: 1.5em;">パスワード</p>
-
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
 
       <div class="field">
         <p style="font-size: 1.5em;">パスワード(上記と同じパスワード)</p>
