@@ -1,19 +1,7 @@
 <% if student_signed_in? %>
-<% else %>
-    <div class="devise_pc">
-        <div class="header">
-            <div class="inner-header">
-                <span class="right-padding">
-                    <a href="/">
-                        <%#= image_tag'natto-new-logo.png',class: "natto" %>
-                    </a>
-                </span>
-                <span class="header-right">
-                    <div class="guest">
-                        <%= link_to "▶︎ ログイン・学生登録", new_student_session_path, class: "tunagu-header" %>
-                    </div>
-                </span>
-            </div>
+    <div class="devise_pc" style="background-color: white;">
+        <div class="button-right">
+            <%= link_to "▶︎ ログアウト", destroy_student_session_path, method: :delete, class: "tunagu-header" %>
         </div>
         <nav class="nav nav-pills nav-justified background_while">
             <%= link_to "交流する", home_interact_event_path , class: "nav-item nav-link link_color" %>
@@ -25,20 +13,37 @@
         </nav>
     </div>
     <!-- モバイル画面用 -->
-    <div class="devise_mobile">
-        <div class="header">
-            <div class="inner-header">
-                <span class="right-padding">
-                    <a href="/">
-                        <%#= image_tag'natto-new-logo.png',class: "natto" %>
-                    </a>
-                </span>
-                <span class="header-right">
-                    <div class="guest">
-                        <%= link_to "▶︎ ログイン・学生登録", new_student_session_path, class: "tunagu-header" %>
-                    </div>
-                </span>
-            </div>
+    <div class="devise_mobile" style="background-color: white;">
+        <div class="button-right">
+            <%= link_to "▶︎ ログアウト", destroy_student_session_path, method: :delete, class: "tunagu-header" %>
+        </div>
+        <nav class="nav nav-pills nav-justified background_while">
+            <%= link_to "交流する", home_interact_event_path , class: "nav-item nav-link link_color" %>
+            <%= link_to "学ぶ",  home_studey_event_path, class: "nav-item nav-link link_color" %>
+            <%= link_to "仕事を探す", quests_other_new_quest_path , class: "nav-item nav-link link_color" %>
+            <%= link_to "イベントを作る", home_comming_soon_path , class: "nav-item nav-link link_color" %>
+            <%= link_to "ツナグコトを知る", "https://www.youtube.com/channel/UCDdeeiBJGAy7XqQ0EDtlNrA?feature=emb_ch_name_ex" , class: "nav-item nav-link link_color" %>
+            <%= link_to "協賛企業等", "https://www.aichi-student-brand.com/" , class: "nav-item nav-link link_color" %>
+        </nav>
+    </div>
+<% else %>
+    <div class="devise_pc" style="background-color: white;">
+        <div class="button-right">
+            <%= link_to "▶︎ ログイン・学生登録", new_student_session_path, class: "tunagu-header" %>
+        </div>
+        <nav class="nav nav-pills nav-justified background_while">
+            <%= link_to "交流する", home_interact_event_path , class: "nav-item nav-link link_color" %>
+            <%= link_to "学ぶ",  home_studey_event_path, class: "nav-item nav-link link_color" %>
+            <%= link_to "仕事を探す", quests_other_new_quest_path , class: "nav-item nav-link link_color" %>
+            <%= link_to "イベントを作る", home_comming_soon_path , class: "nav-item nav-link link_color" %>
+            <%= link_to "ツナグコトを知る", "https://www.youtube.com/channel/UCDdeeiBJGAy7XqQ0EDtlNrA?feature=emb_ch_name_ex" , class: "nav-item nav-link link_color" %>
+            <%= link_to "協賛企業等", "https://www.aichi-student-brand.com/" , class: "nav-item nav-link link_color" %>
+        </nav>
+    </div>
+    <!-- モバイル画面用 -->
+    <div class="devise_mobile" style="background-color: white;">
+        <div class="button-right">
+            <%= link_to "▶︎ ログイン・学生登録", new_student_session_path, class: "tunagu-header" %>
         </div>
         <nav class="nav nav-pills nav-justified background_while">
             <%= link_to "交流する", home_interact_event_path , class: "nav-item nav-link link_color" %>
